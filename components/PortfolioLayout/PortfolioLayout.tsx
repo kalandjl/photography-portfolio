@@ -11,7 +11,7 @@ interface Props {
 }
 
 const PortfolioLayout: FC<Props> = ({ pics, title }) => {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(true);
 
   // useEffect(() => {
   //   // Preload all images
