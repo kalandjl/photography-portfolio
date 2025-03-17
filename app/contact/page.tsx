@@ -40,7 +40,7 @@ const Home = () => {
                                 name: name,
                                 email: email,
                                 message: message,
-                                createdAt: new Timestamp(new Date().getSeconds(), new Date().getSeconds() * 1000000)
+                                createdAt: Timestamp.fromDate(new Date())
                             })
                         }}>
                             <div id="name-wrap" className="">
