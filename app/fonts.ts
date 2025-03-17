@@ -9,3 +9,8 @@ export const nunito = Nunito({
   weight: '500',
   subsets: ['latin'],
 })
+
+export const oswald = Oswald({
+  weight: '300',
+  subsets: ['latin'],
+})

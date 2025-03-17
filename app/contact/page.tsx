@@ -9,7 +9,7 @@ import { firestore } from "@/lib/firebase"
 const Home = () => {
 
     const labelClass = `text-xl text-gray-800 font-thin ${nunito.className}`
-    const inputClass = `${nunito.className} text-lg border-b-1 py-3 border-gray-800 w-full outline-none text-gray-800 mb-10 font-thin`
+    const inputClass = `${nunito.className} text-lg border-b-1 py-3 border-gray-800 w-full outline-none text-gray-800 mb-10 font-thin focus:bg-gray-100`
 
     let [name, setName] = useState<string | undefined>(undefined)
     let [email, setEmail] = useState<string | undefined>(undefined)
