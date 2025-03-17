@@ -1,4 +1,5 @@
 import PortfolioLayout from "@/components/PortfolioLayout";
+import Head from "next/head";
 
 const pics = [
     { src: "/pictures/_DSC0316-Enhanced-NR.jpg", width: 5994, height: 3996}, 
@@ -34,7 +35,14 @@ const pics = [
 
 const Home = () => {
     return (
-        <PortfolioLayout pics={pics} title="Sports" />
+        <>
+            <Head>
+                {pics.map((pic, idx) => (
+                <link key={idx} rel="preload" href={pic.src} as="image" />
+                ))}
+            </Head>
+            <PortfolioLayout pics={pics} title="Sports" />
+        </>
     )
 };
 

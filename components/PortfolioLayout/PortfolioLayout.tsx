@@ -14,15 +14,13 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-
-
     // Preload all images
     const loadImages = async () => {
       await Promise.all(
         pics.map((pic) => {
+          const img = new Image();
+          img.src = pic.src;
           return new Promise((resolve) => {
-            const img = new Image();
-            img.src = pic.src;
             img.onload = resolve;
             img.onerror = resolve;
           });
@@ -30,9 +28,10 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
       );
       setLoaded(true);
     };
-
+  
     loadImages();
   }, [pics]);
+  
 
   return (
     <>
