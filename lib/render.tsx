@@ -26,7 +26,8 @@ export function renderNextImage(
         alt={alt}
         title={title}
         sizes={sizes}
-        placeholder={"blurDataURL" in photo ? "blur" : undefined}
+        unoptimized
+        
       />
     </div>
   );

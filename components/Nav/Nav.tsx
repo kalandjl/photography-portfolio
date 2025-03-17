@@ -18,12 +18,8 @@ let links = [
 
 // Random additional links for Portfolio dropdown
 const portfolioLinks = [
-    { title: "VC Saints Series", href: "/portfolio/vc-saints-series" },
-    { title: "Basketball Provincials", href: "/portfolio/bbprovincials" },
     { title: "Graphics", href: "/portfolio/graphics" },
-    { title: "Ski", href: "/portfolio/ski" },
-    { title: "Weddings", href: "/portfolio/weddings" },
-    { title: "Hockey", href: "/portfolio/hockey" },
+    { title: "Sports", href: "/portfolio/sports" },
 ];
 
 const shuffledPortfolioLinks = [...portfolioLinks].sort(() => Math.random() - 0.5).slice(0, portfolioLinks.length + 1);

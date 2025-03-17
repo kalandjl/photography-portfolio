@@ -71,10 +71,10 @@ export default function Home() {
   
         {/* Overlay Section */}
         <section className="z-10 absolute top-0 w-full">
-          <Nav />
+          <Nav  />
           <main className="px-32 grid place-items-center mt-10">
             <h1 className="font-bold text-4xl px-10 py-5 text-white">
-              JOHNSON MAI PHOTOGRAPHY
+              JMAI.PHOTOS
             </h1>
           </main>
         </section>

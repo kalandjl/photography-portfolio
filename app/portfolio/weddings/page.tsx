@@ -11,8 +11,8 @@ const pics = [
 
 const Home = () => {
     return (
-        <PortfolioLayout pics={pics} title="Wedding" />
-    )
+        <PortfolioLayout pics={pics} title="Weddings" />
+)
 };
 
 export default Home;
