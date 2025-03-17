@@ -36,11 +36,6 @@ const pics = [
 const Home = () => {
     return (
         <>
-            <Head>
-                {pics.map((pic, idx) => (
-                <link key={idx} rel="preload" href={pic.src} as="image" />
-                ))}
-            </Head>
             <PortfolioLayout pics={pics} title="Sports" />
         </>
     )
