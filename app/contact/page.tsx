@@ -45,17 +45,19 @@ const Home = () => {
                         }}>
                             <div id="name-wrap" className="">
                                 <label htmlFor="name-input" className={labelClass}>Name *</label>
-                                <input type="text" id="name-input" className={inputClass} onChange={e => setName(e.currentTarget.value)} />
+                                <input type="text" id="name-input" className={inputClass} onChange={e => setName(e.currentTarget.value)} maxLength={50} required />
                             </div>
                             <div id="name-wrap" className="">
                                 <label htmlFor="name-input" className={labelClass}>Email *</label>
-                                <input type="text" id="name-input" className={inputClass} onChange={e => setEmail(e.currentTarget.value)} />
+                                <input type="email" id="name-input" className={inputClass} onChange={e => setEmail(e.currentTarget.value)} required />
                             </div>
                             <div id="name-wrap" className="mb-10">
                                 <label htmlFor="name-input" className={labelClass}>Message</label>
                                 <textarea id="name-input" 
                                 className={`${lato.className} text-lg border-b-1 py-3 border-gray-700 w-full outline-none text-gray-600 h-32`} 
                                 onChange={e => setMessage(e.currentTarget.value)}
+                                minLength={20} 
+                                maxLength={200}
                                 required/>
                             </div>
                             <button type="submit" className={`border-1 px-10 py-3 border-gray-900 ${nunito.className} rounded-md hover:bg-gray-300 transition

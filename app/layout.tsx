@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Johnson Mai Photography",
@@ -18,6 +19,7 @@ export default function RootLayout({
         <html lang="en">
             <body>  
                 {children}
+                <Footer />
             </body>
         </html>
     );
