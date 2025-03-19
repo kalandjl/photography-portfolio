@@ -31,40 +31,42 @@ const Home = () => {
                             </p>
                         </div>
                     </div>
-                    <div id="contact-form-wrap" className="div px-32 h-screen py-20 col-span-3 grid gap-10 bg-gray-200">
-                        <form action="" id="contact-form" className="w-full h-full"
-                        onSubmit={e => {
-                            e.preventDefault()
+                    <div id="contact-form-wrap" className="div px-16 h-screen py-10 col-span-3 grid gap-10">
+                        <div id="form-outer" className="px-16 py-16 bg-gray-100 rounded-md h-min">
+                            <form action="" id="contact-form" className="w-full h-full"
+                            onSubmit={e => {
+                                e.preventDefault()
 
-                            addDoc(collection(firestore, "messages"), {
-                                name: name,
-                                email: email,
-                                message: message,
-                                createdAt: Timestamp.fromDate(new Date())
-                            })
-                        }}>
-                            <div id="name-wrap" className="">
-                                <label htmlFor="name-input" className={labelClass}>Name *</label>
-                                <input type="text" id="name-input" className={inputClass} onChange={e => setName(e.currentTarget.value)} maxLength={50} required />
-                            </div>
-                            <div id="name-wrap" className="">
-                                <label htmlFor="name-input" className={labelClass}>Email *</label>
-                                <input type="email" id="name-input" className={inputClass} onChange={e => setEmail(e.currentTarget.value)} required />
-                            </div>
-                            <div id="name-wrap" className="mb-10">
-                                <label htmlFor="name-input" className={labelClass}>Message</label>
-                                <textarea id="name-input" 
-                                className={`${lato.className} text-lg border-b-1 py-3 border-gray-700 w-full outline-none text-gray-600 h-32`} 
-                                onChange={e => setMessage(e.currentTarget.value)}
-                                minLength={20} 
-                                maxLength={200}
-                                required/>
-                            </div>
-                            <button type="submit" className={`border-1 px-10 py-3 border-gray-900 ${nunito.className} rounded-md hover:bg-gray-300 transition
-                             ease-in-out hover:scale-105 hover:cursor-pointer`}>
-                                Send Message
-                            </button>
-                        </form>
+                                addDoc(collection(firestore, "messages"), {
+                                    name: name,
+                                    email: email,
+                                    message: message,
+                                    createdAt: Timestamp.fromDate(new Date())
+                                })
+                            }}>
+                                <div id="name-wrap" className="">
+                                    <label htmlFor="name-input" className={labelClass}>Name *</label>
+                                    <input type="text" id="name-input" className={inputClass} onChange={e => setName(e.currentTarget.value)} maxLength={50} required />
+                                </div>
+                                <div id="name-wrap" className="">
+                                    <label htmlFor="name-input" className={labelClass}>Email *</label>
+                                    <input type="email" id="name-input" className={inputClass} onChange={e => setEmail(e.currentTarget.value)} required />
+                                </div>
+                                <div id="name-wrap" className="mb-10">
+                                    <label htmlFor="name-input" className={labelClass}>Message</label>
+                                    <textarea id="name-input" 
+                                    className={`${lato.className} text-lg border-b-1 py-3 border-gray-700 w-full outline-none text-gray-600 h-32`} 
+                                    onChange={e => setMessage(e.currentTarget.value)}
+                                    minLength={20} 
+                                    maxLength={200}
+                                    required/>
+                                </div>
+                                <button type="submit" className={`border-1 px-10 py-3 border-gray-900 ${nunito.className} rounded-md hover:bg-gray-300 transition
+                                ease-in-out hover:scale-105 hover:cursor-pointer`}>
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </section>
             </main>

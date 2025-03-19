@@ -7,7 +7,6 @@ const pics = [
     { src: "/pictures/_DSC6059-Enhanced-NR.jpg", width: 6419, height: 4279}, 
     { src: "/pictures/_DSC6639.jpg", width: 6476, height: 4317}, 
     { src: "/pictures/Saitns Round 1 VARSITY-101.jpg", width: 2400, height: 1600}, 
-    { src: "/pictures/Saitns Round 1 VARSITY-101.jpg", width: 6256, height: 4171}, 
     { src: "/pictures/Saitns Round 1 VARSITY-131.jpg", width: 7008, height: 4672}, 
     { src: "/pictures/JMAI -22.jpg", width: 5467, height: 3645}, 
     { src: "/pictures/JMAI -45.jpg", width: 2965, height: 1977}, 

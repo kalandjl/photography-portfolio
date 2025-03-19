@@ -69,6 +69,17 @@ export default function Home() {
             >
               <ChevronRight size={32} color="white" />
             </button>
+            {/* Dots Navigation */}
+            <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+              {images.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex ? "bg-white" : "bg-gray-500"
+                  }`}
+                ></div>
+              ))}
+            </div>
           </div>
         </section>
   

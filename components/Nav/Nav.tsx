@@ -45,7 +45,9 @@ const Nav: FC<Props> = ({ theme }) => {
         <nav id="nav" className={`h-16 ${theme === "dark" ? "bg-stone-900" : ""}`}>
             <div id="nav-inner" className="flex px-32 justify-between h-full items-center">
                 <div id="logo" className="w-1/8 h-full py-2">
-                    <div className="h-full bg-red-300 opacity-20 rounded-md grid px-10 py-2"></div>
+                    <Link href="/">
+                        <div className="h-full bg-red-300 opacity-20 rounded-md grid px-10 py-2"></div>
+                    </Link>
                 </div>
                 <div id="links" className="flex gap-10 items-center">
                     {links.map((link, i) =>
