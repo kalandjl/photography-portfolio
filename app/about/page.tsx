@@ -1,3 +1,5 @@
+"use client"
+import { motion } from "framer-motion"
 import Image from "next/image";
 import HeroPic from "../../public/pictures/about/Screenshot 2025-03-13 at 9.27.54 PM.png";
 import Nav from "@/components/Nav";
@@ -9,14 +11,22 @@ const Home = () => {
             <Nav theme="dark" />
             <div id="hero-section" className="grid grid-cols-1 md:grid-cols-7 h-screen">
                 {/* Fullscreen Image */}
-                <div id="image-container" className="relative h-screen md:col-span-3">
-                    <Image 
-                        src={HeroPic} 
-                        alt="hero pic"
-                        layout="fill"
-                        objectFit="cover"
-                        priority
-                    />
+                <div id="image-container" className="relative h-screen md:col-span-3 overflow-hidden">
+                        <motion.div
+                            initial={{ scale: 1 }}
+                            whileInView={{ scale: 1.05 }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            viewport={{ once: true, amount: 0.5 }}
+                            className="w-full h-full"
+                        >
+                            <Image 
+                                src={HeroPic} 
+                                alt="hero pic"
+                                layout="fill"
+                                objectFit="cover"
+                                priority
+                            />
+                        </motion.div>
                 </div>
 
                 {/* Centered Text Section */}

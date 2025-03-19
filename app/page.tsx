@@ -42,7 +42,7 @@ export default function Home() {
       <main className="h-screen overflow-hidden relative">
         {/* Hero Section with Slideshow */}
         <section className="absolute top-0 left-0 w-full h-full">
-          <div className="bg-black opacity-60 w-full h-full absolute z-10"></div>
+          <div className="bg-black opacity-75 w-full h-full absolute z-10"></div>
           <div className="relative w-full h-full">
             {images.map((src, index) => (
               <Image
@@ -76,8 +76,8 @@ export default function Home() {
         <section className="relative z-10 w-full">
           <Nav />
           <main className="px-32 grid place-items-center mt-10">
-            <h1 className="font-bold text-4xl px-10 py-5 text-white">
-              JMAI.PHOTOS
+            <h1 className="font-bold text-5xl px-10 py-10 text-white grid place-items-center h-96">
+              <p>JMAI.PHOTOS</p>
             </h1>
           </main>
         </section>
