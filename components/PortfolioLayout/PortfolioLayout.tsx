@@ -1,4 +1,5 @@
 "use client"
+import { motion } from "framer-motion"
 import { useState, useEffect, FC } from "react";
 import Nav from "../Nav";
 import "react-photo-album/rows.css";
@@ -45,7 +46,15 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
         )}
         <div className={` ${loaded ? "opacity-100" : "opacity-0"}`}>
           <header className="text-center py-12">
-            <h1 className="text-4xl font-bold">{title}</h1>
+            <motion.div
+            initial={{ scale: 1 }}
+            whileInView={{ scale: 1.10 }}
+            viewport={{ once: false }} // Ensure animation triggers even if already visible
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="w-full h-full"
+            >
+              <h1 className="text-4xl font-bold ">{title}</h1>
+            </motion.div>
           </header>
 
           <div className="px-6 md:px-32 lg:px-64 pb-20 pt-10">

@@ -7,6 +7,7 @@ import HeroPic2 from "../public/pictures/_DSC0646-Enhanced-NR.jpg"
 import HeroPic3 from "../public/pictures/_DSC6639.jpg"
 import HeroPic4 from "../public/pictures/JMAI Post abits Rematch-094.jpg"
 import Nav from "../components/Nav"; // Adjust the import path as needed
+import { roboto } from "./fonts";
 
 const images = [
   HeroPic1,
@@ -87,8 +88,8 @@ export default function Home() {
         <section className="relative z-10 w-full">
           <Nav />
           <main className="px-32 grid place-items-center mt-10">
-            <h1 className="font-bold text-5xl px-10 py-10 text-white grid place-items-center h-96">
-              <p>JMAI.PHOTOS</p>
+            <h1 className={`font-bold text-5xl px-10 py-10 text-white grid place-items-center h-96 ${roboto.className}`}>
+              <p className="bg-black shadow-2xl px-6 py-3">JMAI.PHOTOS</p>
             </h1>
           </main>
         </section>

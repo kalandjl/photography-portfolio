@@ -26,7 +26,7 @@ export function renderNextImage(
         alt={alt}
         title={title}
         sizes={sizes}
-        
+        unoptimized
       />
     </div>
   );
