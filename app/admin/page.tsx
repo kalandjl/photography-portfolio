@@ -7,25 +7,38 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import Image from "next/image";
 import { adminList } from "@/res/adminList";
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 
 
 const Home = () => {
 
     let [user] = useAuthState(auth)
     let [messages, setMessages] = useState<{[x:string]: any}[]>([])
+    let [messageRefs, setMessageRefs] = useState<{[x:string]: boolean}>({})
 
     useEffect(() => {
 
         const doAsync = async () => {
 
             const docs = await getDocs(collection(firestore, "messages"))
-            const t = docs.docs.filter(doc => doc.id != "bd1MlzXf94J8Jh6p5JBZ").map((doc) => doc.data())
+            const t = docs.docs.filter(doc => doc.id != "bd1MlzXf94J8Jh6p5JBZ").map((doc) => ({...doc.data(), id: doc.id}))
+
             setMessages(t)
         }
 
         doAsync()
     }, [])
+
+    useEffect(() => {
+        let t = {}
+
+        messages.forEach(message => {
+            t = {...t, [message.id]: true}
+        })
+        setMessageRefs(t)
+    }, [messages])
+
+    useEffect(() => console.log(messageRefs), [messageRefs])
 
     return (
         <>  
@@ -77,21 +90,33 @@ const Home = () => {
                     </div>
                     <div id="messages-wrap" className="grid gap-5">
                         {messages.map((message, i) => (
-                            <div key={i} className="bg-gray-200 px-10 py-5">
-                                <div className="flex">
-                                    <p className={`${lato.className} text-xl flex`}>
-                                        {message.name}
-                                        <div className="mr-3"></div>
-                                        <span className="font-normal">{`${message.email}`}</span>
-                                        <div className="mr-3"></div>
-                                        <span className="font-normal bg-gray-300 px-2">
-                                            {`${new Date(message.createdAt.seconds * 1000).toLocaleDateString()}`}
-                                        </span>
+                            <div key={i} className={`bg-gray-200 px-10 py-5 flex justify-between ${messageRefs[message.id] ? "block": "hidden"}`}>
+                                <div id="text-content">
+                                    <div className="flex">
+                                        <p className={`${lato.className} text-xl flex`}>
+                                            {message.name}
+                                            <div className="mr-3"></div>
+                                            <span className="font-normal">{`${message.email}`}</span>
+                                            <div className="mr-3"></div>
+                                            <span className="font-normal bg-gray-300 px-2">
+                                                {`${new Date(message.createdAt.seconds * 1000).toLocaleDateString()}`}
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <p>
+                                        {message.message}
                                     </p>
                                 </div>
-                                <p>
-                                    {message.message}
-                                </p>
+                                <div id="options-wrap">
+                                    <p className="text-red-500 hover:cursor-pointer hover:underline hover:scale-105 transition ease-in-out"
+                                    onClick={e => {
+                                        setMessageRefs({...messageRefs, [message.id]: false})
+                                        deleteDoc(doc(firestore, `/messages/${message.id}`))
+                                            .catch(e => alert("Error deleting document" + e))
+                                    }}>
+                                        Delete
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>
