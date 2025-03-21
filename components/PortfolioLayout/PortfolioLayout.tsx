@@ -5,13 +5,18 @@ import Nav from "../Nav";
 import "react-photo-album/rows.css";
 import { RowsPhotoAlbum } from "react-photo-album";
 import { renderNextImage } from "@/lib/render";
+import PhotoSwipeLightbox from "photoswipe/lightbox";
 
 interface Props {
   pics: Pic[];
   title: string;
+  galleryId: string
 }
 
-const PortfolioLayout: FC<Props> = ({ pics, title }) => {
+const PortfolioLayout: FC<Props> = (props) => {
+
+  let {pics, title} = props
+
   const [loaded, setLoaded] = useState(true);
 
   // useEffect(() => {
@@ -47,6 +52,20 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
     };
   }, [])
   
+  useEffect(() => {
+    let lightbox = new PhotoSwipeLightbox({
+      gallery: '#' + props.galleryId,
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+
+    return () => {
+      lightbox.destroy();
+      // @ts-ignore
+      lightbox = null;
+    };
+  }, []);
 
   return (
     <>
@@ -71,23 +90,21 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
             </motion.div>
           </header>
 
-          <div className="px-6 md:px-32 lg:px-64 pb-20 pt-10">
-            <RowsPhotoAlbum
-            targetRowHeight={400}
-            rowConstraints={{
-              
-            }}
-            spacing={0}
-            padding={0}
-              photos={pics}
-              render={{ image: renderNextImage }}
-              defaultContainerWidth={1200}
-              sizes={{
-                size: "1168px",
-                sizes: [{ viewport: "(max-width: 1200px)", size: "calc(100vw - 32px)" }],
-              }}
-            />
-          </div>
+
+    <div className="pswp-gallery" id={props.galleryId}>
+      {props.pics.map((image, index) => (
+        <a
+          href={image.src}
+          data-pswp-width={image.width}
+          data-pswp-height={image.height}
+          key={props.galleryId + '-' + index}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src={image.src} alt="" />
+        </a>
+      ))}
+    </div>
         </div>
       </div>
     </>
