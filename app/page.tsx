@@ -89,7 +89,7 @@ export default function Home() {
           <Nav />
           <main className="px-32 grid place-items-center mt-10">
             <h1 className={`font-bold text-5xl px-10 py-10 text-white grid place-items-center h-96 ${roboto.className}`}>
-              <p className="bg-black shadow-2xl px-6 py-3">JMAI.PHOTOS</p>
+              <p className="shadow-2xl px-6 py-3">JMAI.PHOTOS</p>
             </h1>
           </main>
         </section>
