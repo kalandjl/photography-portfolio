@@ -6,6 +6,8 @@ import HeroPic1 from "../public/pictures/_DSC0316-Enhanced-NR.jpg"
 import HeroPic2 from "../public/pictures/_DSC0646-Enhanced-NR.jpg"
 import HeroPic3 from "../public/pictures/_DSC6639.jpg"
 import HeroPic4 from "../public/pictures/JMAI Post abits Rematch-094.jpg"
+import HeroPic5 from "../public/pictures/_DSC6815.jpg"
+import HeroPic6 from "../public/pictures/Ryan and Taylor-005.jpg"
 import Nav from "../components/Nav"; // Adjust the import path as needed
 import { roboto } from "./fonts";
 
@@ -13,7 +15,9 @@ const images = [
   HeroPic1,
   HeroPic2,
   HeroPic3,
-  HeroPic4
+  HeroPic4,
+  HeroPic5,
+  HeroPic6
 ];
 
 

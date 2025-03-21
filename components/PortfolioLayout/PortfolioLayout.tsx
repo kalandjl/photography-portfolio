@@ -73,6 +73,12 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
 
           <div className="px-6 md:px-32 lg:px-64 pb-20 pt-10">
             <RowsPhotoAlbum
+            targetRowHeight={400}
+            rowConstraints={{
+              
+            }}
+            spacing={0}
+            padding={0}
               photos={pics}
               render={{ image: renderNextImage }}
               defaultContainerWidth={1200}
