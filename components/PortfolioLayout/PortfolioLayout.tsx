@@ -2,8 +2,8 @@
 import { motion } from "framer-motion"
 import { useState, useEffect, FC } from "react";
 import Nav from "../Nav";
-import "react-photo-album/rows.css";
-import { RowsPhotoAlbum } from "react-photo-album";
+import "react-photo-album/masonry.css";
+import { ColumnsPhotoAlbum, MasonryPhotoAlbum, RowsPhotoAlbum } from "react-photo-album";
 import { renderNextImage } from "@/lib/render";
 
 interface Props {
@@ -72,11 +72,9 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
           </header>
 
           <div className="px-6 md:px-32 lg:px-64 pb-20 pt-10">
-            <RowsPhotoAlbum
-            targetRowHeight={400}
-            rowConstraints={{
-              
-            }}
+            <MasonryPhotoAlbum
+            columns={3}
+            
             spacing={0}
             padding={0}
               photos={pics}

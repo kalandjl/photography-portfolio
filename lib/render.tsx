@@ -14,14 +14,30 @@ export function renderNextImage(
 ) {
 
   // @ts-ignore
-  let {big, leftBig, rightBig, firstRightBig } = photo
+  let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow } = photo
 
 
-  let bigContainerStyle =  big ? {
+  let bigContainerStyle =  big && !bigLeft ? {
     width: "200%",
     height: "200%",
     top: "0",
     bottom: "0",
+    zIndex: "-10",
+  } : big && bigLeft && !bigWithRowBelow ? {
+    width: "300%",
+    height: "300%",
+    top: "0",
+    zIndex: "-10",
+  } : big && bigLeft && bigWithRowBelow ? {
+    width: "300%",
+    height: "300%",
+    top: "0",
+    zIndex: "-10",
+  } : big && !bigLeft && bigWithRowBelow ? {
+    width: "300%",
+    height: "300%",
+    top: "0",
+    zIndex: "-10",
   } : {}
 
   let leftBigContainerStyle = leftBig ? {
@@ -51,22 +67,31 @@ export function renderNextImage(
             aspectRatio: `${width} / ${height}`,
             display: "",
             position: "relative",
-          }, ...bigContainerStyle, ...leftBigContainerStyle, ...rightBigContainerStyle, ...firstRightBigContainerStyle}}
+          }, ...bigContainerStyle, 
+          ...leftBigContainerStyle, 
+          ...rightBigContainerStyle, 
+          ...firstRightBigContainerStyle,}}
         >
-          <Image
-            fill
-            src={photo}
-            alt={alt}
-            title={title}
-            sizes={sizes}
-            id="gallery-photo"
-            className={`
-              ${big ? "absolute" : "p-4"}
-              ${leftBig || rightBig || firstRightBig ? "absolute p-4 w-1/2 h-1/2" : "p-4"}
-            `}
-            unoptimized
-          />
-            <div style={{position: "absolute", top: "0", left: "0", width: "100%", height: "100%", background: "transparent"}}></div>
+          <div id="image-container-wrap" 
+          className={`
+          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : "p-4"}`}>
+            <Image
+              fill
+              src={photo}
+              alt={alt}
+              title={title}
+              sizes={sizes}
+              id="gallery-photo"
+              className={`
+                ${big && !bigLeft ? "absolute" : "p-4"}
+                ${big && bigLeft ? "block !top-0" : "p-4"}
+                ${leftBig || rightBig || firstRightBig ? "absolute p-4 w-1/2 h-1/2" : "p-4"}
+                ${photo.src === '/hidden.jpeg' ? "hidden" : ""}
+              `}
+              unoptimized
+            />
+          </div>
+            <div style={{position: "absolute", background: "transparent"}}></div>
 
           </div>
         </div>
