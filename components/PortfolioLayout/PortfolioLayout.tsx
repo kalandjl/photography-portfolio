@@ -32,6 +32,20 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
   
   //   loadImages();
   // }, [pics]);
+
+  // Disable right click on images
+  useEffect(() => {
+    const disableRightClick = (event: MouseEvent) => {
+        if ((event.target as HTMLElement).tagName === "IMG") {
+            event.preventDefault();
+        }
+    };
+
+    document.addEventListener("contextmenu", disableRightClick);
+    return () => {
+        document.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, [])
   
 
   return (

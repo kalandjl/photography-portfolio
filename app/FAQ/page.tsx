@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <> 
             <Nav theme="dark" />
-            <main>
+            <main className="h-screen">
                 <header className="text-center py-12">
                     <motion.div
                     initial={{ scale: 1 }}
