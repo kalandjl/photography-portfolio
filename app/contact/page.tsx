@@ -48,12 +48,11 @@ const Home = () => {
                 <section id="form-section" className="h-screen grid grid-flow-col grid-cols-5">
                     <div id="contact-form-paragraph" className="w-full col-span-2 px-10 py-32">
                         <div id="text-wrap grid gap-12 h-2/3 grid place-items-center">
-                            <h1 className={`text-2xl ${lato.className} font-thin`}>
-                                Contact Me
+                            <h1 className={`text-3xl ${lato.className} mb-5`}>
+                                Let's Work Together
                             </h1>
                             <p>
-                                Lorem ipsum odor amet, consectetuer adipiscing elit. Feugiat ante potenti ex habitasse etiam interdum in. Nam dui ullamcorper suscipit quis fusce curae mollis scelerisque. Donec non commodo odio pretium magna fermentum sodales placerat!
-                            </p>
+                            Have a project in mind or need more details about my services? Fill out the form below to get in touch. Whether it’s photography, content creation, or social media strategy, I’m here to help bring your vision to life. Let’s create something unforgettable!                            </p>
                         </div>
                     </div>
                     <div id="contact-form-wrap" className="px-16 h-screen py-10 col-span-3 grid gap-10">
