@@ -38,11 +38,11 @@ const InstaSection: FC<Props> = () => {
         <>
             <section id="insta-section" className="grid sm:grid-cols-5 grid-cols-6 h-64 mt-20">
                 {/* Instagram CTA */}
-                <div id="action-section" className="bg-gray-200 grid place-items-center">
-                    <div id="text-wrap" className="grid gap-5 hover:scale-105 transition ease-in-out">
-                        <Link href="https://www.instagram.com/jmai.photos/">
+                <div id="action-section" className="bg-gray-100 grid place-items-center">
+                    <Link href="https://www.instagram.com/jmai.photos/">
+                        <div id="text-wrap" className="grid gap-3 hover:scale-105 transition ease-in-out">
                             <div id="image-wrap" className="grid place-items-center">
-                                <div id="image-cover" className="w-10 h-10 relative overflow-hidden">
+                                <div id="image-cover" className="w-7 h-7 relative overflow-hidden">
                                     <Image src={InstaLogo} layout="fill" objectFit="cover" alt="instagram-logo" />
                                 </div>
                             </div>
@@ -55,8 +55,8 @@ const InstaSection: FC<Props> = () => {
                                     <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
                                 </p>
                             </div>
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 </div>
 
                 {/* Instagram Images */}

@@ -12,6 +12,7 @@ import Nav from "../components/Nav"; // Adjust the import path as needed
 import { roboto } from "./fonts";
 import InstaSection from "@/components/InstaSection";
 import ContactSection from "@/components/ContactSection";
+import PortfolioSection from "@/components/PortfolioSection";
 
 const images = [
   HeroPic1,
@@ -103,6 +104,8 @@ export default function Home() {
       </main>
       
 
+      <PortfolioSection />
+      
       <ContactSection />
 
       <InstaSection />
