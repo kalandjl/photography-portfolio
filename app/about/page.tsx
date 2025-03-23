@@ -8,6 +8,8 @@ import BarrierImage from "@/public/pictures/_DSC6639.jpg"
 import { lato, nunito, oswald } from "../fonts";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
+import InstaSection from "@/components/InstaSection";
+import PortfolioSection from "@/components/PortfolioSection";
 
 const Home = () => {
 
@@ -15,7 +17,6 @@ const Home = () => {
 
     return (
         <>
-            <Nav theme="dark" />
 
             <section id="hero-section">
                 <section className="h-screen relative">
@@ -30,7 +31,9 @@ const Home = () => {
                 <section className="z-10 absolute top-0 w-full h-screen">
                     <Nav />
                     <main className="px-32 grid place-items-center relative h-full">
+                        <div id="header-wrap" className="h-96">
                         <h1 className="font-bold text-4xl px-10 py-5 text-white">About Me</h1>
+                        </div>
                         <div id="arrow" className="absolute bottom-0 h-20 mb-16 grid place-items-center">
                             <ArrowDown stroke="#ffffff" className="h-12 w-8 animate-bounce" />
                         </div>
@@ -114,24 +117,28 @@ const Home = () => {
                 </div>
             </section>
             <section id="action-section" className="h-96 bg-gray-100 flex flex-col justify-center items-center text-center px-6">
-    <h1 className={`text-4xl font-bold text-gray-900 mb-8 ${lato.className}`}>
-        Ready to Get Started?
-    </h1>
+                <h1 className={`text-4xl font-bold text-gray-900 mb-8 ${lato.className}`}>
+                    Ready to Get Started?
+                </h1>
 
-    <div id="links" className="flex items-center gap-12">
-        <Link href="/portfolio" className="text-xl font-medium text-gray-800 hover:text-gray-600 transition duration-300 relative group">
-            My Photos
-            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
-        </Link>
+                <div id="links" className="flex items-center gap-12">
+                    <Link href="/portfolio" className="text-xl font-medium text-gray-800 hover:text-gray-600 transition duration-300 relative group">
+                        My Photos
+                        <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
+                    </Link>
 
-        <div className="w-[2px] h-12 bg-gray-400"></div>
+                    <div className="w-[2px] h-12 bg-gray-400"></div>
 
-        <Link href="/contact" className="text-xl font-medium text-gray-800 hover:text-gray-600 transition duration-300 relative group">
-            Contact me 
-            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
-        </Link>
-    </div>
-</section>
+                    <Link href="/contact" className="text-xl font-medium text-gray-800 hover:text-gray-600 transition duration-300 relative group">
+                        Contact me 
+                        <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
+                    </Link>
+                </div>
+            </section>
+            
+            <PortfolioSection />
+
+            <InstaSection />
 
 
         </>

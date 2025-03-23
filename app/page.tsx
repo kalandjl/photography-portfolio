@@ -13,6 +13,7 @@ import { roboto } from "./fonts";
 import InstaSection from "@/components/InstaSection";
 import ContactSection from "@/components/ContactSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import AboutMeSection from "@/components/AboutMeSection";
 
 const images = [
   HeroPic1,
@@ -102,10 +103,12 @@ export default function Home() {
         </section>
 
       </main>
-      
+              
+
+      <AboutMeSection />
 
       <PortfolioSection />
-      
+
       <ContactSection />
 
       <InstaSection />

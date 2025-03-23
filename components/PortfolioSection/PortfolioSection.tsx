@@ -6,6 +6,7 @@ import Image from "next/image";
 import { lato, latoLite } from "@/app/fonts";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion"
 import GalleryCard from "./GalleryCard";
 
 interface Props {
@@ -18,7 +19,14 @@ const PortfolioSection: FC<Props> = (props) => {
         <>
             <section id="portfolio-section" className="h-128 mt-10 grid grid-cols-3 grid-flow-col">
                 <div id="image-wrap" className="overflow-hidden h-full relative">
-                    <Image src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover h-full" /> 
+                    <motion.div
+                    initial={{ scale: 1 }}
+                    whileInView={{ scale: 1.05 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    className="w-full h-full">
+                        <Image src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover h-full hover:scale-105" /> 
+                    </motion.div>
                     {/* Overlay section */}
                     <div className="inset-0 absolute">
                         <div className="relative h-full">

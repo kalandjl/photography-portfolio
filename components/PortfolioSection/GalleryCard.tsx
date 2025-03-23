@@ -2,6 +2,7 @@ import { lato, latoLite, oswald } from "@/app/fonts";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { FC } from "react";
+import { motion } from "framer-motion"
 
 interface Props {
     src: StaticImageData
@@ -16,7 +17,14 @@ const GalleryCard: FC<Props> = (props) => {
     return (
         <>
             <div id="image-wrap" className="overflow-hidden h-full relative">
-                <Image src={props.src} height={props.height} width={props.width} alt="card image" className="object-cover w-full h-full" /> 
+                <motion.div
+                initial={{ scale: 1 }}
+                whileInView={{ scale: 1.05 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="w-full h-full">
+                    <Image src={props.src} height={props.height} width={props.width} alt="card image" className="object-cover w-full h-full" /> 
+                </motion.div>
                 {/* Overlay section */}
                 <div className="inset-0 absolute">
                     <div className="relative h-full">
