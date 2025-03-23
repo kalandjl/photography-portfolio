@@ -10,6 +10,8 @@ import HeroPic5 from "../public/pictures/_DSC6815.jpg"
 import HeroPic6 from "../public/pictures/Ryan and Taylor-005.jpg"
 import Nav from "../components/Nav"; // Adjust the import path as needed
 import { roboto } from "./fonts";
+import InstaSection from "@/components/InstaSection";
+import ContactSection from "@/components/ContactSection";
 
 const images = [
   HeroPic1,
@@ -97,7 +99,13 @@ export default function Home() {
             </h1>
           </main>
         </section>
+
       </main>
+      
+
+      <ContactSection />
+
+      <InstaSection />
     </>
   );
 }

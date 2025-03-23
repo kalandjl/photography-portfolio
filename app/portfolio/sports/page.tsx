@@ -21,7 +21,7 @@ const pics = [
     { src: "/pictures/JMAI -220.jpg", width: 3889, height: 2593}, // right big pic #2
 
 
-    { src: "/pictures/JMAI -45.jpg", width: 2965, height: 1977}, // left of big pic #3
+     {src: "/pictures/_DSC2941.jpg", width: 6671, height: 4447 },// left of big pic #3
     { src: "/pictures/_DSC6059-Enhanced-NR.jpg", width: 6419, height: 4279, big: true}, // Big pic #3
 
     { src: "/pictures/JMAI Post abits Rematch-094.jpg", width: 7008, height: 4672, },  // right big pic #2
@@ -39,6 +39,7 @@ const pics = [
     { src: "/pictures/JMAI Post abits Rematch-018.jpg", width: 7008, height: 4672}, 
     { src: "/pictures/JMAI -009.jpg", width: 6426, height: 4284}, 
     { src: "/pictures/JMAI Post abits Rematch-031.jpg", width: 3620, height: 2413},
+    { src: "/pictures/JMAI -45.jpg", width: 2965, height: 1977}, 
     { src: "/pictures/_DSC0646-Enhanced-NR.jpg", width: 6673, height: 4449},
     { src: "/pictures/_DSC0666-Enhanced-NR.jpg", width: 7708, height: 4672}, 
     { src: "/pictures/_DSC0676-Enhanced-NR.jpg", width: 7708, height: 4672}, 

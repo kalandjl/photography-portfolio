@@ -9,11 +9,13 @@ import GraphicsImage from "../../public/graphics/Nathan Lowden Queens Commit Fin
 import { lato, nunito, oswald } from "../fonts"
 import Link from "next/link"
 import { ArrowDown, ArrowRight } from "lucide-react"
+import InstaSection from "@/components/InstaSection"
+import ContactSection from "@/components/ContactSection"
 
 const Home = () => {
     return (
         <>
-            <main id="main-hero">
+            <main id="hero-section">
                 <section className="h-screen relative">
                     <div className="bg-black opacity-70 w-full h-full absolute z-10"></div>
                     <div className="relative w-full h-full">
@@ -102,6 +104,8 @@ const Home = () => {
                         </motion.div>
                     </div>
                 </section>
+                <ContactSection />
+                <InstaSection />
             </main>
         </>
     )
