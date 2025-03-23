@@ -13,7 +13,7 @@ const AboutMeSection: FC<Props> = (props) => {
 
     return (   
         <section id="about-me-section" className="grid grid-cols-5 grid-flow-col h-128">
-            <div id="image-wrap" className="col-span-2 h-full">
+            <div id="image-wrap" className="col-span-2 h-full overflow-hidden">
                 <motion.div
                 initial={{ scale: 1 }}
                 whileInView={{ scale: 1.05 }}

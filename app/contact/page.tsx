@@ -1,10 +1,15 @@
 "use client"
 
 import Nav from "@/components/Nav"
-import { lato, nunito } from "../fonts"
+import { lato, latoLite, nunito } from "../fonts"
+import InstaLogo from "@/public/icons/insta-logo.png"
 import { useState } from "react"
 import { addDoc, collection, Timestamp } from "firebase/firestore"
 import { firestore } from "@/lib/firebase"
+import AboutMeSection from "@/components/AboutMeSection"
+import InstaSection from "@/components/InstaSection"
+import Image from "next/image"
+import Link from "next/link"
 
 const Home = () => {
     const labelClass = `text-xl text-gray-800 font-thin ${nunito.className}`;
@@ -45,17 +50,35 @@ const Home = () => {
         <>
             <Nav theme="dark" />
             <main>
-                <section id="form-section" className="h-screen grid grid-flow-col grid-cols-5">
+                <section id="form-section" className="grid grid-flow-col grid-cols-5">
                     <div id="contact-form-paragraph" className="w-full col-span-2 px-10 py-32">
                         <div id="text-wrap grid gap-12 h-2/3 grid place-items-center">
                             <h1 className={`text-3xl ${lato.className} mb-5`}>
                                 Let's Work Together
                             </h1>
-                            <p>
+                            <p className={`${latoLite.className}`}>
                             Have a project in mind or need more details about my services? Fill out the form below to get in touch. Whether it’s photography, content creation, or social media strategy, I’m here to help bring your vision to life. Let’s create something unforgettable!                            </p>
+                            <h1 className={`text-2xl ${lato.className} mb-5 mt-10`}>Information</h1>
+                            <ul className={`${lato.className} ml-4 grid gap-3`}>
+                                <li> • xxx-xxx-xxxx</li>
+                                <li> • xxxx@gmail.com</li>
+                                <li> • xxxx w14th ave, Vancouver, BC</li>
+                                <li>
+                                    <Link href="https://www.instagram.com/jmai.photos/" className="flex gap-2"> 
+                                        <div id="image-wrap" className="grid place-items-center">
+                                        <div id="image-cover" className="w-5 h-5 relative overflow-hidden">
+                                            <Image src={InstaLogo} layout="fill" objectFit="cover" alt="instagram-logo" />
+                                        </div>
+                                        </div>
+                                        <p className="hover:text-gray-800 transition duration-300 relative group w-min">@jmai.photos
+                                    <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
+                                    </p>  
+                                    </Link>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div id="contact-form-wrap" className="px-16 h-screen py-10 col-span-3 grid gap-10">
+                    <div id="contact-form-wrap" className="px-16 py-10 col-span-3 grid gap-10">
                         <div id="form-outer" className="px-16 py-16 bg-gray-100 rounded-md h-min">
                             <form id="contact-form" className="w-full h-full" onSubmit={handleSubmit}>
                                 <div id="name-wrap">
@@ -81,6 +104,7 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+                <InstaSection />
             </main>
         </>
     );
