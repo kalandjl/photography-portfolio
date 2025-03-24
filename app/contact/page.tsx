@@ -53,9 +53,10 @@ const Home = () => {
         <>
             <Nav theme="dark" />
             <main>
-                <section id="form-section" className="grid grid-flow-col grid-cols-5 h-screen pt-20">
-                    <div id="contact-form-paragraph" className="w-full col-span-2 px-10 py-32">
-                        <div id="text-wrap grid gap-12 h-2/3 grid place-items-center">
+                <h1 className={`text-6xl agency text-center mt-10`}> <span className="px-10 py-2 bg-gray-100">Contact Me</span></h1>
+                <section id="form-section" className="grid grid-flow-col grid-cols-5 h-screen pt-10">
+                    <div id="contact-form-paragraph" className="w-full col-span-2 px-20 py-16">
+                        <div id="text-wrap grid gap-12 h-2/3">
                             <h1 className={`text-3xl ${lato.className} mb-5`}>
                                 Let's Work Together
                             </h1>
