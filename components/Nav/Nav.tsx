@@ -55,7 +55,7 @@ const Nav: FC<Props> = ({ theme }) => {
                         link.title === "Portfolio" ? (
                             <div
                                 key={i}
-                                className="relative border-r-1 border-gray-300 px-5"
+                                className="relative border-r-1 border-gray-500 px-5"
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                             >
@@ -76,7 +76,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                 </div>
                             </div>
                         ) : (
-                            <Link href={link.href} key={i} className="border-r border-gray-300 last:border-r-0 px-5">
+                            <Link href={link.href} key={i} className="border-r border-gray-500 last:border-r-0 px-5">
                                 <p className={`text-white font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency text-xl`}>
                                     {link.title}
                                 </p>

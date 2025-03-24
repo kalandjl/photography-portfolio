@@ -45,14 +45,6 @@ let services: {title: string, description: string, imageSrc: StaticImageData, im
         captcha: "Bold Designs. Strong Impressions.",
     },
     {
-        title: "Social Media Strategy & Management",
-        description: "Helping businesses and teams build impactful online presences through content creation and strategic planning. Boost engagement, grow followers, and communicate your brand’s story effectively.",
-        imageSrc: ServicePhoto4,
-        imageWidth: 7002,
-        imageHeight: 3016,
-        captcha: "Increase Engagement. Strengthen Your Brand.",
-    },
-    {
         title: "Event Photography & Videography",
         description: "Capturing live events, celebrations, and corporate gatherings with professional visuals that preserve the energy and atmosphere.",
         imageSrc: ServicePhoto5,
@@ -67,6 +59,14 @@ let services: {title: string, description: string, imageSrc: StaticImageData, im
         imageWidth: 7002,
         imageHeight: 3016,
         captcha: "Sharp. Professional. Impactful.",
+    },
+    {
+        title: "Social Media Strategy & Management",
+        description: "Helping businesses and teams build impactful online presences through content creation and strategic planning. Boost engagement, grow followers, and communicate your brand’s story effectively.",
+        imageSrc: ServicePhoto4,
+        imageWidth: 7002,
+        imageHeight: 3016,
+        captcha: "Increase Engagement. Strengthen Your Brand.",
     },
     {
         title: "Content Creation Packages",
