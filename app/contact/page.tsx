@@ -10,6 +10,7 @@ import AboutMeSection from "@/components/AboutMeSection"
 import InstaSection from "@/components/InstaSection"
 import Image from "next/image"
 import Link from "next/link"
+import FAQSection from "@/components/FAQSection"
 
 const Home = () => {
     const labelClass = `text-xl text-gray-800 font-thin ${nunito.className}`;
@@ -104,6 +105,7 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+                <FAQSection />
                 <InstaSection />
             </main>
         </>

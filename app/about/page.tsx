@@ -1,7 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
 import Image from "next/image";
-import HeroPic from "../../public/pictures/about/Screenshot 2025-03-13 at 9.27.54 PM.png";
 import Nav from "@/components/Nav";
 import HeroImage from "@/public/pictures/about/Screenshot 2025-03-13 at 9.27.54 PM.png"
 import BarrierImage from "@/public/pictures/_DSC6639.jpg"
@@ -10,6 +9,8 @@ import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import InstaSection from "@/components/InstaSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import ActionSection from "@/components/ActionSection";
+import HeroImageSection from "@/components/HeroImageSection";
 
 const Home = () => {
 
@@ -18,28 +19,8 @@ const Home = () => {
     return (
         <>
 
-            <section id="hero-section">
-                <section className="h-screen relative">
-                    <div className="bg-black opacity-70 w-full h-full absolute z-10"></div>
-                    <div className="relative w-full h-full">
-                        <Image src={HeroImage} height={7008} width={4672} alt="hero image" 
-                        className="absolute w-full h-full object-cover object-top top-0"/>
-                    </div>
-                </section>
+            <HeroImageSection src={HeroImage} height={7008} width={4672} title="About" />
 
-                {/* Overlay Section */}
-                <section className="z-10 absolute top-0 w-full h-screen">
-                    <Nav />
-                    <main className="px-32 grid place-items-center relative h-full">
-                        <div id="header-wrap" className="h-96">
-                        <h1 className="font-bold text-4xl px-10 py-5 text-white">About Me</h1>
-                        </div>
-                        <div id="arrow" className="absolute bottom-0 h-20 mb-16 grid place-items-center">
-                            <ArrowDown stroke="#ffffff" className="h-12 w-8 animate-bounce" />
-                        </div>
-                    </main>
-                </section>
-            </section>
             <section id="about-section-1" className="grid grid-cols-1 md:grid-cols-7 py-32">
                 {/* Fullscreen Image */}
                 <div id="image-container" className="relative h-screen md:col-span-0 overflow-hidden hidden">
@@ -51,7 +32,7 @@ const Home = () => {
                             className="w-full h-full"
                         >
                             <Image 
-                                src={HeroPic} 
+                                src={HeroImage} 
                                 alt="hero pic"
                                 layout="fill"
                                 objectFit="cover"
@@ -116,25 +97,16 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-            <section id="action-section" className="h-96 bg-gray-100 flex flex-col justify-center items-center text-center px-6">
-                <h1 className={`text-4xl font-bold text-gray-900 mb-8 ${lato.className}`}>
-                    Ready to Get Started?
-                </h1>
 
-                <div id="links" className="flex items-center gap-12">
-                    <Link href="/portfolio" className="text-xl font-medium text-gray-800 hover:text-gray-600 transition duration-300 relative group">
-                        My Photos
-                        <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
-                    </Link>
-
-                    <div className="w-[2px] h-12 bg-gray-400"></div>
-
-                    <Link href="/contact" className="text-xl font-medium text-gray-800 hover:text-gray-600 transition duration-300 relative group">
-                        Contact me 
-                        <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
-                    </Link>
-                </div>
-            </section>
+            <ActionSection links={[
+                {
+                title: "My Photos",
+                link: "/portfolio",
+                }, {
+                title: "Contact Me",
+                link: "/contact",
+                }
+            ]} />
             
             <PortfolioSection />
 

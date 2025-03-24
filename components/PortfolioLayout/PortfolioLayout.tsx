@@ -6,6 +6,8 @@ import "react-photo-album/masonry.css";
 import { ColumnsPhotoAlbum, MasonryPhotoAlbum, RowsPhotoAlbum } from "react-photo-album";
 import { renderNextImage } from "@/lib/render";
 import { oswald, oswaldBold } from "@/app/fonts";
+import ActionSection from "../ActionSection";
+import InstaSection from "../InstaSection";
 
 interface Props {
   pics: Pic[];
@@ -52,7 +54,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
   return (
     <>
 
-      <div id="wrap" className="min-h-screen text-black transition-opacity duration-500">
+      <section id="portfolio-gallery" className="min-h-screen text-black transition-opacity duration-500">
         <Nav theme="dark" />
         {!loaded && (
           <div className="h-screen grid place-items-center">
@@ -88,7 +90,19 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
             />
           </div>
         </div>
-      </div>
+      </section>
+
+      <ActionSection links={[
+        {
+          title: "Contact Me",
+          link: "/contact",
+        }, {
+          title: "About Me",
+          link: "/about",
+        }
+      ]} />
+      
+      <InstaSection />
     </>
   );
 };

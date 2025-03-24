@@ -1,6 +1,6 @@
 import { FC } from "react";
 import HeroImage from "@/public/pictures/JMAI -001.jpg"
-import CardImage1 from "@/public/pictures/DSC01374.jpg"
+import CardImage1 from "@/public/pictures/_DSC2941.jpg"
 import CardImage2 from "@/public/pictures/_DSC6971.jpg"
 import Image from "next/image";
 import { lato, latoLite, oswald } from "@/app/fonts";

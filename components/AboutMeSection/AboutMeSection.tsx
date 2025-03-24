@@ -12,7 +12,7 @@ interface Props {
 const AboutMeSection: FC<Props> = (props) => {
 
     return (   
-        <section id="about-me-section" className="grid grid-cols-5 grid-flow-col h-128">
+        <section id="about-me-section" className="grid grid-cols-5 grid-flow-col h-160">
             <div id="image-wrap" className="col-span-2 h-full overflow-hidden">
                 <motion.div
                 initial={{ scale: 1 }}
@@ -25,21 +25,23 @@ const AboutMeSection: FC<Props> = (props) => {
                     className="object-cover h-full" />
                 </motion.div>
             </div>
-            <div id="text-wrap" className="col-span-3 px-20">
-                {/* Centered Text Section */}
-                <div id="about-text" className="flex flex-col justify-center items-center text-center p-6 md:col-span-7 mt-10">
-                    <h1 className={`americain text-black text-3xl md:text-4xl mb-6`}>
-                        Hi, I'm Johnson Mai
-                    </h1>
-                    <p className={`md:text-xl max-w-prose agency ${nunito.className}`}>
-                    I’m Johnson Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
+            <div id="text-wrap" className="col-span-3 px-20 grid place-items-center pb-16">
+                <div>
+                    {/* Centered Text Section */}
+                    <div id="about-text" className="flex flex-col justify-center items-center text-center p-6 md:col-span-7 mt-10">
+                        <h1 className={`americain text-black text-3xl md:text-4xl mb-6`}>
+                            Hi, I'm Johnson Mai
+                        </h1>
+                        <p className={`md:text-xl max-w-prose agency ${nunito.className}`}>
+                        I’m Johnson Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
 
-                    </p>
-                </div>
-                <div id="button-wrap" className="grid place-items-center mt-5">
-                    <Link href="/about">
-                        <button className={`${lato.className} rounded-md border-1 border-black px-8 py-5 hover:bg-gray-100 transition ease-in-out hover:scale-105 hover:cursor-pointer`}>See more</button>
-                    </Link>
+                        </p>
+                    </div>
+                    <div id="button-wrap" className="grid place-items-center mt-5">
+                        <Link href="/about">
+                            <button className={`${lato.className} rounded-md border-1 border-black px-8 py-5 hover:bg-gray-100 transition ease-in-out hover:scale-105 hover:cursor-pointer`}>See more</button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </section>
