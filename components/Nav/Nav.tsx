@@ -2,6 +2,8 @@
 import { lato } from "@/app/fonts";
 import Link from "next/link";
 import { FC, useState, useEffect } from "react";
+import Icon from "@/public/icon.png"
+import Image from "next/image";
 
 interface Props {
     theme?: "dark" | "light";
@@ -43,11 +45,13 @@ const Nav: FC<Props> = ({ theme }) => {
     }, []);
 
     return (
-        <nav id="nav" className={`h-16 ${theme === "dark" ? "bg-stone-900" : ""}`}>
+        <nav id="nav" className={`max-h-16 ${theme === "dark" ? "bg-stone-900" : ""}`}>
             <div id="nav-inner" className="flex px-32 justify-between h-full items-center">
-                <div id="logo" className="w-1/8 h-full py-2">
+                <div id="logo" className="w-32 h-16 grid place-items-center py-2">
                     <Link href="/">
-                        <div className="h-full bg-red-300 opacity-20 rounded-sm grid px-10 py-2"></div>
+                        <div id="image-wrap" className="relative w-max h-max">
+                            <Image src={Icon} height={150} width={110} alt="icon logo" className="object-contain" />
+                        </div>
                     </Link>
                 </div>
                 <div id="links" className="flex items-center">
