@@ -8,6 +8,7 @@ import { renderNextImage } from "@/lib/render";
 import { oswald, oswaldBold } from "@/app/fonts";
 import ActionSection from "../ActionSection";
 import InstaSection from "../InstaSection";
+import PortfolioSection from "../PortfolioSection";
 
 interface Props {
   pics: Pic[];
@@ -101,7 +102,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
           link: "/about",
         }
       ]} />
-      
+      <PortfolioSection />
       <InstaSection />
     </>
   );

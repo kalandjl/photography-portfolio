@@ -1,7 +1,7 @@
 import { lato, nunito } from "@/app/fonts";
 import Image from "next/image";
 import { FC } from "react";
-import HeroImage from "@/public/pictures/about/Screenshot 2025-03-13 at 9.27.54 PM.png"
+import HeroImage from "@/public/pictures/about/AF12AB09-D1A6-462D-AB8D-7D07817FA537.jpeg"
 import Link from "next/link";
 import { motion } from "framer-motion"
 
@@ -39,7 +39,7 @@ const AboutMeSection: FC<Props> = (props) => {
                     </div>
                     <div id="button-wrap" className="grid place-items-center mt-5">
                         <Link href="/about">
-                            <button className={`${lato.className} rounded-md border-1 border-black px-8 py-5 hover:bg-gray-100 transition ease-in-out hover:scale-105 hover:cursor-pointer`}>See more</button>
+                            <button className={`${lato.className} rounded-md border-1 border-black px-8 py-5 hover:bg-gray-200 transition ease-in-out hover:scale-105 hover:cursor-pointer`}>See more</button>
                         </Link>
                     </div>
                 </div>
