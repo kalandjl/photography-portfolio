@@ -59,7 +59,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                 onMouseLeave={handleMouseLeave}
                             >
                                 <Link href={link.href}>
-                                    <p className={`text-white text-lg font-semibold px-4 py-2 hover:bg-stone-700 rounded-sm transition agency`}>
+                                    <p className={`text-white text-lg font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency`}>
                                         {link.title} 
                                     </p>
                                 </Link>
@@ -76,7 +76,7 @@ const Nav: FC<Props> = ({ theme }) => {
                             </div>
                         ) : (
                             <Link href={link.href} key={i} className="border-r border-gray-300 last:border-r-0 px-5">
-                                <p className={`text-white font-semibold px-4 py-2 hover:bg-stone-700 rounded-sm transition agency text-xl`}>
+                                <p className={`text-white font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency text-xl`}>
                                     {link.title}
                                 </p>
                             </Link>

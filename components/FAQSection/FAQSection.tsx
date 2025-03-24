@@ -24,27 +24,30 @@ const FAQSection: FC<Props> = () => {
     }, [openIndex]);
 
     return (
-        <div className="w-screen px-64 mx-auto p-6 space-y-4">
-            {faqArr.map((faq, index) => (
-                <div key={index} className="border-b mt-10 first:mt-0">
-                    <button 
-                        className={`w-full text-left text-lg font-medium py-3 focus:outline-none
-                        hover:cusor-pointer hover:text-gray-700 transition ease-in-out flex justify-between ${oswaldBold.className}`}
-                        onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                    >
-                        {faq.question}
-                        <ArrowDown />
-                    </button>
-                    <div
-                    // @ts-ignore
-                        ref={(el) => (contentRefs.current[index] = el)}
-                        className="overflow-hidden transition-all duration-300"
-                    >
-                        <p className="text-gray-800 py-2">{faq.answer}</p>
+        <section id="faq-seciton" className="h-128">
+            <h1 className={`${oswald.className} text-3xl text-center mt-20`}>Frequently Asked Questions</h1>
+            <div className="w-screen px-64 mx-auto p-6 space-y-4">
+                {faqArr.map((faq, index) => (
+                    <div key={index} className="border-b mt-10 first:mt-0">
+                        <button 
+                            className={`w-full text-left text-lg font-medium py-3 focus:outline-none
+                            hover:cusor-pointer hover:text-gray-700 transition ease-in-out flex justify-between ${oswaldBold.className}`}
+                            onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                        >
+                            {faq.question}
+                            <ArrowDown />
+                        </button>
+                        <div
+                        // @ts-ignore
+                            ref={(el) => (contentRefs.current[index] = el)}
+                            className="overflow-hidden transition-all duration-300"
+                        >
+                            <p className="text-gray-800 py-2">{faq.answer}</p>
+                        </div>
                     </div>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
+        </section>
     );
 };
 

@@ -26,12 +26,14 @@ const HeroImageSection: FC<Props> = (props) => {
                 <section className="z-10 absolute top-0 w-full h-screen">
                     <Nav />
                     <main className="px-32 grid place-items-center relative h-full">
-                        <h1 className="font-bold text-4xl px-10 py-5 text-white">{props.title}</h1>
+                        <h1 className="font-bold text-4xl px-10 py-5 text-white h-64">{props.title}</h1>
                         <div id="arrow" className="absolute bottom-0 h-20 mb-16 grid place-items-center">
                             <ArrowDown stroke="#ffffff" className="h-12 w-8 animate-bounce" />
                         </div>
                     </main>
                 </section>
+
+
             </main>
         </>
     )
