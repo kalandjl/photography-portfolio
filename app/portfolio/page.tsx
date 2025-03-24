@@ -56,14 +56,14 @@ const Home = () => {
                             <Link href="/portfolio/sports" className="hover:scale-105 transition ease-in-out">
                                 <div className="grid grid-flow-col gap-4">
                                     <div className="grid">
-                                        <h1 className={`${oswald.className} text-4xl text-center`}>Sports</h1>
+                                        <h1 className={`${oswald.className} text-5xl text-center`}>Sports</h1>
                                         <div className="mt-6"></div>
-                                        <p className={`text-sm text-center ${nunito.className}`}>
+                                        <p className={`text-md text-center ${nunito.className}`}>
                                             Hockey, Basketball, Football, and more!
                                         </p>
                                     </div>
                                     <div id="icon-wrap" className="grid h-full place-items-center">
-                                        <ArrowRight />
+                                        <ArrowRight className="w-9 h-9" />
                                     </div>
                                 </div>
                             </Link>
@@ -77,14 +77,14 @@ const Home = () => {
                             <Link href="/portfolio/graphics" className="hover:scale-105 transition ease-in-out">
                                 <div className="grid grid-flow-col gap-4">
                                     <div className="grid">
-                                        <h1 className={`${oswald.className} text-4xl text-center`}>Graphics</h1>
+                                        <h1 className={`${oswald.className} text-5xl text-center`}>Graphics</h1>
                                         <div className="mt-6"></div>
-                                        <p className={`text-sm text-center ${nunito.className}`}>
+                                        <p className={`text-md text-center ${nunito.className}`}>
                                             Game day, Athlete commits
                                         </p>
                                     </div>
                                     <div id="icon-wrap" className="grid h-full place-items-center">
-                                        <ArrowRight />
+                                        <ArrowRight className="w-9 h-9" />
                                     </div>
                                 </div>
                             </Link>

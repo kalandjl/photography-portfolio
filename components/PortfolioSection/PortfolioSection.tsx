@@ -3,7 +3,7 @@ import HeroImage from "@/public/pictures/JMAI -001.jpg"
 import CardImage1 from "@/public/pictures/DSC01374.jpg"
 import CardImage2 from "@/public/pictures/_DSC6971.jpg"
 import Image from "next/image";
-import { lato, latoLite } from "@/app/fonts";
+import { lato, latoLite, oswald } from "@/app/fonts";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion"
@@ -17,7 +17,7 @@ const PortfolioSection: FC<Props> = (props) => {
 
     return (
         <>
-            <section id="portfolio-section" className="h-128 mt-10 grid grid-cols-3 grid-flow-col">
+            <section id="portfolio-section" className="h-128 grid grid-cols-3 grid-flow-col">
                 <div id="image-wrap" className="overflow-hidden h-full relative">
                     <motion.div
                     initial={{ scale: 1 }}
@@ -34,7 +34,7 @@ const PortfolioSection: FC<Props> = (props) => {
                             <div id="main-section" className="flex h-full">
                                 <div id="text-wrap" className="h-full w-min px-20 grid place-items-center z-10 pb-20">
                                     <div className="grid gap-10">
-                                        <p className={`text-white ${lato.className} w-max text-3xl opacity-100 z-10`}>Check Out My Work</p>
+                                        <p className={`text-white ${oswald.className} w-max text-3xl opacity-100 z-10`}>Check Out My Work</p>
                                         <Link href="/portfolio" className="flex gap-2 transition duration-300 relative group w-min">
                                             <p className={`w-max ${latoLite.className} text-white text-xl hover:text-gray-200`}>Portfolio
                                             </p>

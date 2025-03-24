@@ -46,25 +46,25 @@ const Nav: FC<Props> = ({ theme }) => {
             <div id="nav-inner" className="flex px-32 justify-between h-full items-center">
                 <div id="logo" className="w-1/8 h-full py-2">
                     <Link href="/">
-                        <div className="h-full bg-red-300 opacity-20 rounded-md grid px-10 py-2"></div>
+                        <div className="h-full bg-red-300 opacity-20 rounded-sm grid px-10 py-2"></div>
                     </Link>
                 </div>
-                <div id="links" className="flex gap-10 items-center">
+                <div id="links" className="flex items-center">
                     {links.map((link, i) =>
                         link.title === "Portfolio" ? (
                             <div
                                 key={i}
-                                className="relative"
+                                className="relative border-r-1 border-gray-300 px-5"
                                 onMouseEnter={handleMouseEnter}
                                 onMouseLeave={handleMouseLeave}
                             >
                                 <Link href={link.href}>
-                                    <p className={`text-white text-lg font-semibold px-4 py-2 hover:bg-stone-700 rounded-lg transition ${lato.className}`}>
+                                    <p className={`text-white text-lg font-semibold px-4 py-2 hover:bg-stone-700 rounded-sm transition agency`}>
                                         {link.title} 
                                     </p>
                                 </Link>
                                 {/* Dropdown Menu */}
-                                <div className={`z-20 absolute left-0 mt-2 w-48 bg-stone-900 rounded-lg shadow-lg overflow-hidden transition-all duration-200 ${isDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
+                                <div className={`z-20 absolute left-0 mt-2 w-48 bg-stone-800 rounded-sm shadow-lg overflow-hidden transition-all duration-200 ${isDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
                                     {shuffledPortfolioLinks.map((item, index) => (
                                         <Link key={index} href={item.href}>
                                             <p className="block px-6 py-3 text-white text-lg hover:bg-stone-700 transition">
@@ -75,8 +75,8 @@ const Nav: FC<Props> = ({ theme }) => {
                                 </div>
                             </div>
                         ) : (
-                            <Link href={link.href} key={i}>
-                                <p className={`text-white text-lg font-semibold px-4 py-2 hover:bg-stone-700 rounded-lg transition ${lato.className}`}>
+                            <Link href={link.href} key={i} className="border-r border-gray-300 last:border-r-0 px-5">
+                                <p className={`text-white font-semibold px-4 py-2 hover:bg-stone-700 rounded-sm transition agency text-xl`}>
                                     {link.title}
                                 </p>
                             </Link>

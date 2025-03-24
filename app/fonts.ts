@@ -20,6 +20,11 @@ export const oswald = Oswald({
   subsets: ['latin'],
 })
 
+export const oswaldBold = Oswald({
+  weight: '700',
+  subsets: ['latin'],
+})
+
 export const shoulders = Big_Shoulders_Display({
   weight: '400',
   subsets: ['latin'],

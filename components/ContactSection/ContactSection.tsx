@@ -13,7 +13,7 @@ const ContactSection: FC<Props> = (props) => {
 
     return (
         <>
-            <section id="contact-section" className="h-128 mt-10">
+            <section id="contact-section" className="h-128">
                 <div id="image-wrap" className="overflow-hidden h-full relative">
                     <Image src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover" /> 
                     {/* Overlay section */}

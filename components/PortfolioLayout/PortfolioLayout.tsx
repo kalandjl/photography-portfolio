@@ -5,6 +5,7 @@ import Nav from "../Nav";
 import "react-photo-album/masonry.css";
 import { ColumnsPhotoAlbum, MasonryPhotoAlbum, RowsPhotoAlbum } from "react-photo-album";
 import { renderNextImage } from "@/lib/render";
+import { oswald, oswaldBold } from "@/app/fonts";
 
 interface Props {
   pics: Pic[];
@@ -67,7 +68,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="w-full h-full"
             >
-              <h1 className="text-4xl font-bold ">{title}</h1>
+              <h1 className={`text-4xl font-bold agency`}>{title}</h1>
             </motion.div>
           </header>
 

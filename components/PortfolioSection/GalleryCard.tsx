@@ -32,7 +32,7 @@ const GalleryCard: FC<Props> = (props) => {
                         <div id="main-section" className="h-full">
                             <div id="text-wrap" className="h-full px-20 grid place-items-center z-10 pb-20">
                                 <div className="grid gap-10">
-                                    <Link href={props.link} className="flex gap-2 transition duration-300 relative group w-min">
+                                    <Link href={props.link} className="flex gap-2 duration-300 relative group w-min hover:scale-105 transition ease-in-out">
                                         <p className={`text-white ${oswald.className} w-max text-3xl opacity-100 z-10 text-center`}>{props.title}</p>
                                         <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-200 transition-all duration-300 group-hover:w-full"></span>
 

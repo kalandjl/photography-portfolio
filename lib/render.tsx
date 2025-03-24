@@ -88,7 +88,7 @@ export function renderNextImage(
                 ${leftBig || rightBig || firstRightBig ? "absolute p-4 w-1/2 h-1/2" : "p-4"}
                 ${photo.src === '/hidden.jpeg' ? "hidden" : ""}
               `}
-              unoptimized
+              
             />
           </div>
             <div style={{position: "absolute", background: "transparent"}}></div>

@@ -93,7 +93,7 @@ const Home = () => {
                     <div className="absolute inset-0 bg-black opacity-20"></div>
                 </div>
             </section>
-            <section id="about-section-2" className="grid py-32">
+            <section id="about-section-2" className="grid py-20">
 
                 {/* Centered Text Section */}
                 <div id="about-text" className="flex flex-col justify-center items-center text-center p-6 md:col-span-4">
