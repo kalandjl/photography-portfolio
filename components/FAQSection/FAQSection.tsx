@@ -1,4 +1,4 @@
-import { lato, oswald, oswaldBold } from "@/app/fonts";
+import { lato, latoLite, oswald, oswaldBold } from "@/app/fonts";
 import { ArrowDown } from "lucide-react";
 import { FC, useState, useRef, useEffect } from "react";
 
@@ -53,23 +53,27 @@ const FAQSection: FC<Props> = () => {
     }, [openIndex]);
 
     return (
-        <section id="faq-seciton" className="min-h-128 mb-20 mt-32">
+        <section id="faq-section" className="min-h-128 mb-20 mt-32">
             <h1 className={`${oswald.className} text-3xl text-center mt-20`}>Frequently Asked Questions</h1>
             <div className="w-screen px-64 mx-auto p-6 space-y-4">
                 {faqArr.map((faq, index) => (
                     <div key={index} className="border-b mt-10 first:mt-0">
                         <button 
                             className={`w-full text-left text-xl font-medium py-3 focus:outline-none
-                            hover:cusor-pointer hover:text-gray-700 transition ease-in-out flex justify-between ${oswald.className}`}
+                            hover:cursor-pointer hover:text-gray-700 transition ease-in-out flex justify-between ${oswald.className}`}
                             onClick={() => setOpenIndex(openIndex === index ? null : index)}
                         >
                             {faq.question}
-                            <ArrowDown />
+                            <ArrowDown
+                                className={`transform transition-transform duration-300 ${
+                                    openIndex === index ? "rotate-180" : ""
+                                }`}
+                            />
                         </button>
                         <div
                         // @ts-ignore
                             ref={(el) => (contentRefs.current[index] = el)}
-                            className={`overflow-hidden transition-all duration-300 ${lato.className}`}
+                            className={`overflow-hidden transition-all duration-300 ${latoLite.className}`}
                         >
                             <p className="text-gray-800 py-2">{faq.answer}</p>
                         </div>
