@@ -1,4 +1,4 @@
-import { oswald, oswaldBold } from "@/app/fonts";
+import { lato, oswald, oswaldBold } from "@/app/fonts";
 import { ArrowDown } from "lucide-react";
 import { FC, useState, useRef, useEffect } from "react";
 
@@ -59,8 +59,8 @@ const FAQSection: FC<Props> = () => {
                 {faqArr.map((faq, index) => (
                     <div key={index} className="border-b mt-10 first:mt-0">
                         <button 
-                            className={`w-full text-left text-lg font-medium py-3 focus:outline-none
-                            hover:cusor-pointer hover:text-gray-700 transition ease-in-out flex justify-between ${oswaldBold.className}`}
+                            className={`w-full text-left text-xl font-medium py-3 focus:outline-none
+                            hover:cusor-pointer hover:text-gray-700 transition ease-in-out flex justify-between ${oswald.className}`}
                             onClick={() => setOpenIndex(openIndex === index ? null : index)}
                         >
                             {faq.question}
@@ -69,7 +69,7 @@ const FAQSection: FC<Props> = () => {
                         <div
                         // @ts-ignore
                             ref={(el) => (contentRefs.current[index] = el)}
-                            className="overflow-hidden transition-all duration-300"
+                            className={`overflow-hidden transition-all duration-300 ${lato.className}`}
                         >
                             <p className="text-gray-800 py-2">{faq.answer}</p>
                         </div>

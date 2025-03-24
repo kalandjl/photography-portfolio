@@ -45,9 +45,9 @@ const Nav: FC<Props> = ({ theme }) => {
     }, []);
 
     return (
-        <nav id="nav" className={`max-h-16 ${theme === "dark" ? "bg-stone-900" : ""}`}>
+        <nav id="nav" className={`max-h-20 ${theme === "dark" ? "bg-stone-900" : ""}`}>
             <div id="nav-inner" className="flex px-32 justify-between h-full items-center">
-                <div id="logo" className="w-32 h-16 grid place-items-center py-2">
+                <div id="logo" className="w-32 h-20 grid place-items-center py-2">
                     <Link href="/">
                         <div id="image-wrap" className="relative w-max h-max">
                             <Image src={Icon} height={150} width={110} alt="icon logo" className="object-contain" />
