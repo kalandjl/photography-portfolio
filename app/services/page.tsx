@@ -4,7 +4,7 @@ import HeroImage from "../../public/pictures/JMAI Post abits Rematch Retouched-2
 import Nav from "@/components/Nav"
 import { ArrowDown } from "lucide-react"
 import HeroImageSection from "@/components/HeroImageSection"
-import ServicePhoto1 from "@/public/pictures/JMAI Post abits Rematch Retouched-2.jpg"
+import ServicePhoto1 from "@/public/pictures/Saitns Round 1 VARSITY-101.jpg"
 import ServicePhoto2 from "@/public/graphics/Senior day post.jpg"
 import ServicePhoto3 from "@/public/graphics/Nathan Lowden Queens Commit Final.jpg"
 import ServicePhoto4 from "@/public/graphics/Saints day post.jpg"
@@ -116,6 +116,7 @@ const Home = () => {
                                             alt="Service photo"
                                             className="object-cover h-full w-full absolute" 
                                         />
+                                        <div className="absolute inset-0 bg-black opacity-30"></div>
                                     </div>
                                     <div id="text-wrap" className="col-span-2 grid place-items-center px-20 w-3/4">
                                         <div className="grid gap-5">
@@ -142,6 +143,7 @@ const Home = () => {
                                             alt="Service photo"
                                             className="object-cover h-full w-full absolute" 
                                         />
+                                        <div className="absolute inset-0 bg-black opacity-30"></div>
                                     </div>
                                 </>
                             )}

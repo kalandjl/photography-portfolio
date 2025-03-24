@@ -1,19 +1,16 @@
-import type { NextConfig } from "next";
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
 
-const nextConfig: NextConfig = {
-  async headers() {
-    return [
-      {
-        source: "/portfolio/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-    ];
-  },
-};
+  source: "/portfolio/:path*",
+  output: "static",
+  headers: [
+    {
+      key: "Cache-Control",
+      value: "public, max-age=31536000, immutable",
+    },
+  ],
+}
 
 export default nextConfig;

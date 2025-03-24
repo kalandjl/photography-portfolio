@@ -80,7 +80,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div id="contact-form-wrap" className="px-16 py-10 col-span-3 grid gap-10">
-                        <div id="form-outer" className="px-16 py-16 bg-gray-100 rounded-md h-min">
+                        <div id="form-outer" className="px-16 py-16 bg-gray-100 h-min">
                             <form id="contact-form" className="w-full h-full" onSubmit={handleSubmit}>
                                 <div id="name-wrap">
                                     <label htmlFor="name-input" className={labelClass}>Name *</label>
