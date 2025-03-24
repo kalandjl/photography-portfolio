@@ -11,6 +11,8 @@ import InstaSection from "@/components/InstaSection"
 import Image from "next/image"
 import Link from "next/link"
 import FAQSection from "@/components/FAQSection"
+import BarrierImageSection from "@/components/BarrierImageSection"
+import BarrierImage from "@/public/pictures/_DSC0316-Enhanced-NR.jpg"
 
 const Home = () => {
     const labelClass = `text-xl text-gray-800 font-thin ${nunito.className}`;
@@ -51,7 +53,7 @@ const Home = () => {
         <>
             <Nav theme="dark" />
             <main>
-                <section id="form-section" className="grid grid-flow-col grid-cols-5">
+                <section id="form-section" className="grid grid-flow-col grid-cols-5 h-screen pt-20">
                     <div id="contact-form-paragraph" className="w-full col-span-2 px-10 py-32">
                         <div id="text-wrap grid gap-12 h-2/3 grid place-items-center">
                             <h1 className={`text-3xl ${lato.className} mb-5`}>
@@ -105,6 +107,7 @@ const Home = () => {
                         </div>
                     </div>
                 </section>
+                <BarrierImageSection src={BarrierImage} barrierHeight={64} />
                 <FAQSection />
                 <InstaSection />
             </main>

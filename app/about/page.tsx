@@ -11,6 +11,7 @@ import InstaSection from "@/components/InstaSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import ActionSection from "@/components/ActionSection";
 import HeroImageSection from "@/components/HeroImageSection";
+import BarrierImageSection from "@/components/BarrierImageSection";
 
 const Home = () => {
 
@@ -54,28 +55,8 @@ const Home = () => {
                    </p>
                 </div>
             </section>
-            <section id="image-barrier-section" className="w-full h-128">
-                <div id="image-container" className="relative h-full overflow-hidden">
-                    <motion.div
-                        initial={{ scale: 1 }}
-                        whileInView={{ scale: 1.05 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        className="w-full h-full"
-                    >
-                        <Image 
-                            src={BarrierImage} 
-                            alt="hero pic"
-                            layout="fill"
-                            objectFit="cover"
-                            className="object-top"
-                            priority
-                        />
-                    </motion.div>
-                    {/* Opacity overlay */}
-                    <div className="absolute inset-0 bg-black opacity-40"></div>
-                </div>
-            </section>
+            <BarrierImageSection src={BarrierImage} imageTop={true} barrierHeight={128} />
+
             <section id="about-section-2" className="grid py-20">
 
                 {/* Centered Text Section */}
