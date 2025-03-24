@@ -68,18 +68,18 @@ export default function Home() {
             {/* Navigation Arrows */}
             <button
               onClick={prevSlide}
-              className="absolute top-1/2 left-5 transform -translate-y-1/2 bg-black/50 p-2 rounded-full z-20 hover:cursor-pointer"
+              className="absolute top-1/2 left-5 transform -translate-y-1/2 bg-black/50 p-2 rounded-full z-10 hover:cursor-pointer"
             >
               <ChevronLeft size={32} color="white" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/50 p-2 rounded-full z-20 hover:cursor-pointer"
+              className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/50 p-2 rounded-full z-10 hover:cursor-pointer"
             >
               <ChevronRight size={32} color="white" />
             </button>
             {/* Dots Navigation */}
-            <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
+            <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
               {images.map((_, index) => (
                 <div
                   key={index}

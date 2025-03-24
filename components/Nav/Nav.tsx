@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FC, useState, useEffect } from "react";
 import Icon from "@/public/icon.png"
 import Image from "next/image";
-import { LucideSidebar, Sidebar, SidebarIcon, SidebarOpenIcon } from "lucide-react";
+import { LucideSidebar, Sidebar, SidebarIcon, SidebarOpenIcon, XIcon } from "lucide-react";
 import { Bars3 } from "@/app/icons";
 
 interface Props {
@@ -47,6 +47,19 @@ const Nav: FC<Props> = ({ theme }) => {
     useEffect(() => {
         return () => clearTimeout(timeoutId);
     }, []);
+
+
+    useEffect(() => {
+        if (sidebarOpen) {
+            document.body.style.overflow = "hidden";  // Disable scrolling
+        } else {
+            document.body.style.overflow = "";  // Re-enable scrolling
+        }
+
+        return () => {
+            document.body.style.overflow = "";  // Cleanup when component unmounts
+        };
+    }, [sidebarOpen]);
 
     return (
         <>
@@ -101,8 +114,8 @@ const Nav: FC<Props> = ({ theme }) => {
                     </div>
                 </div>
             </nav>
-            <div id="sidebar" className={`${sidebarOpen ? "grid": "hidden"} px-10 py-5 absolute inset-0 bg-stone-800 z-50`}>
-                <p className="text-white" onClick={() => setSidebarOpen(false)}>Close</p>
+            <div id="sidebar" className={`${sidebarOpen ? "grid": "hidden"} px-10 py-5 fixed inset-0 bg-stone-800 z-20 scroll`}>
+                <p className="text-white hover:scale-105 hover:cursor-pointer" onClick={() => setSidebarOpen(false)}><XIcon stroke="#ffffff"/></p>
             </div>
         </>
     );
