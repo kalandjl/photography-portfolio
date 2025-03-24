@@ -25,6 +25,7 @@ const HeroImageSection: FC<Props> = (props) => {
                             alt="hero image" 
                             className={`absolute w-full h-full object-cover 
                                 ${props.imageTop ? "object-top" : "object-center"}`}
+                            priority
                         />
                     </div>
                 </section>

@@ -4,7 +4,7 @@
 const nextConfig = {
 
   source: "/portfolio/:path*",
-  output: "static",
+  output: "export",
   headers: [
     {
       key: "Cache-Control",
