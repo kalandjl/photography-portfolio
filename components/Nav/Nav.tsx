@@ -13,7 +13,8 @@ let links = [
     { title: "Portfolio", href: "/portfolio" },
     { title: "Clients", href: "/clients" },
     { title: "Services", href: "/services" },
-    { title: "Contact", href: "/contact" }
+    { title: "Contact", href: "/contact" },
+    { title: "FAQ", href: "/FAQ" }
 ];
 
 // Random additional links for Portfolio dropdown

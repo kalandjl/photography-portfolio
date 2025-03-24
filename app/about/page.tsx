@@ -3,8 +3,8 @@ import { motion } from "framer-motion"
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import HeroImage from "@/public/pictures/about/Screenshot 2025-03-13 at 9.27.54 PM.png"
-import BarrierImage from "@/public/pictures/_DSC6639.jpg"
-import { lato, nunito, oswald } from "../fonts";
+import BarrierImage from "@/public/pictures/about/Jmai.png"
+import { lato, latoLite, nunito, oswald } from "../fonts";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 import InstaSection from "@/components/InstaSection";
@@ -19,7 +19,7 @@ const Home = () => {
     return (
         <>
 
-            <HeroImageSection src={HeroImage} height={7008} width={4672} title="About" />
+            <HeroImageSection src={HeroImage} height={7008} width={4672} title="About" imageTop={true} />
 
             <section id="about-section-1" className="grid grid-cols-1 md:grid-cols-7 py-32">
                 {/* Fullscreen Image */}
@@ -36,6 +36,7 @@ const Home = () => {
                                 alt="hero pic"
                                 layout="fill"
                                 objectFit="cover"
+                                className="absolute top-0"
                                 priority
                             />
                         </motion.div>
@@ -44,8 +45,8 @@ const Home = () => {
 
                 {/* Centered Text Section */}
                 <div id="about-text" className="flex flex-col justify-center items-center text-center p-6 md:col-span-7">
-                    <h1 className={`${lato.className} text-black text-5xl md:text-6xl mb-6`}>
-                        Hi, I'm Johnson Mai
+                    <h1 className={`${latoLite.className} text-black text-5xl md:text-6xl mb-6`}>
+                        Hi, I'm <span className={`${lato.className}`}>Johnson Mai</span>
                     </h1>
                     <p className="text-lg md:text-xl max-w-prose">
                     I’m Johnson Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
@@ -53,7 +54,7 @@ const Home = () => {
                    </p>
                 </div>
             </section>
-            <section id="image-barrier-section" className="w-full h-64">
+            <section id="image-barrier-section" className="w-full h-128">
                 <div id="image-container" className="relative h-full overflow-hidden">
                     <motion.div
                         initial={{ scale: 1 }}
@@ -67,11 +68,12 @@ const Home = () => {
                             alt="hero pic"
                             layout="fill"
                             objectFit="cover"
+                            className="object-top"
                             priority
                         />
                     </motion.div>
                     {/* Opacity overlay */}
-                    <div className="absolute inset-0 bg-black opacity-20"></div>
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
                 </div>
             </section>
             <section id="about-section-2" className="grid py-20">

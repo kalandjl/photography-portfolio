@@ -4,21 +4,28 @@ import { FC } from "react";
 import Nav from "../Nav";
 
 interface Props {
-    src: StaticImageData
-    width: number
-    height: number
-    title: string
+    src: StaticImageData;
+    width: number;
+    height: number;
+    title: string;
+    imageTop?: boolean;
 }
 
 const HeroImageSection: FC<Props> = (props) => {
-
     return (
         <>
             <main id="hero-section">
                 <section className="h-screen relative">
                     <div className="bg-black opacity-70 w-full h-full absolute z-10"></div>
                     <div className="relative w-full h-full">
-                        <Image src={props.src} height={props.height} width={props.width} alt="hero image" className="absolute w-full h-full object-cover"/>
+                        <Image 
+                            src={props.src} 
+                            height={props.height} 
+                            width={props.width} 
+                            alt="hero image" 
+                            className={`absolute w-full h-full object-cover 
+                                ${props.imageTop ? "object-top" : "object-center"}`}
+                        />
                     </div>
                 </section>
 
@@ -32,11 +39,9 @@ const HeroImageSection: FC<Props> = (props) => {
                         </div>
                     </main>
                 </section>
-
-
             </main>
         </>
-    )
+    );
 }
 
-export default HeroImageSection
+export default HeroImageSection;
