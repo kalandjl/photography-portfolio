@@ -13,6 +13,8 @@ import Link from "next/link"
 import FAQSection from "@/components/FAQSection"
 import BarrierImageSection from "@/components/BarrierImageSection"
 import BarrierImage from "@/public/pictures/_DSC0316-Enhanced-NR.jpg"
+import HeroImageSection from "@/components/HeroImageSection"
+import HeroImage from "@/public/pictures/_DSC0646-Enhanced-NR.jpg"
 
 const Home = () => {
     const labelClass = `text-xl text-gray-800 font-thin ${nunito.className}`;
@@ -51,9 +53,8 @@ const Home = () => {
 
     return (
         <>
-            <Nav theme="dark" />
             <main>
-                <h1 className={`text-6xl agency text-center mt-10`}> <span className="px-10 py-2 bg-gray-100">Contact Me</span></h1>
+                <HeroImageSection src={HeroImage} width={6674} height={4449} title="Contact" />
                 <section id="form-section" className="grid grid-flow-col grid-cols-5 h-screen pt-10">
                     <div id="contact-form-paragraph" className="w-full col-span-2 px-20 py-16">
                         <div id="text-wrap grid gap-12 h-2/3">
@@ -65,7 +66,7 @@ const Home = () => {
                             <h1 className={`text-2xl ${lato.className} mb-5 mt-10`}>Information</h1>
                             <ul className={`${lato.className} ml-4 grid gap-3`}>
                                 <li> • xxx-xxx-xxxx</li>
-                                <li> • xxxx@gmail.com</li>
+                                <li> • johnsonmai@gmail.com</li>
                                 <li> • xxxx w14th ave, Vancouver, BC</li>
                                 <li>
                                     <Link href="https://www.instagram.com/jmai.photos/" className="flex gap-2"> 

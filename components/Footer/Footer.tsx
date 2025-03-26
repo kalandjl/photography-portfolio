@@ -32,7 +32,7 @@ const Footer: FC<Props> = (props) => {
                 </div>
                 <div id="copyright" className="px-10">
                     <p className={`${latoLite.className}`}>
-                        {`© Johnson Mai Photography, ${new Date().getFullYear()}`}
+                        {`© JMAI.PHOTOS, ${new Date().getFullYear()}`}
                     </p>
                 </div>
             </footer>

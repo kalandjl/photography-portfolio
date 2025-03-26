@@ -45,7 +45,7 @@ let services: {title: string, description: string, imageSrc: StaticImageData, im
         captcha: "Bold Designs. Strong Impressions.",
     },
     {
-        title: "Event Photography & Videography",
+        title: "Event Photography",
         description: "Capturing live events, celebrations, and corporate gatherings with professional visuals that preserve the energy and atmosphere.",
         imageSrc: ServicePhoto5,
         imageWidth: 7002,

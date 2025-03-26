@@ -1,0 +1,31 @@
+import PortfolioLayout from "@/components/PortfolioLayout";
+
+const pics = [
+    { src: "/portraits/Devine and Ngan-39.jpg", width: 5571, height: 3714}, 
+    { src: "/portraits/Devine and Ngan-46.jpg", width: 4317, height: 6476}, 
+    { src: "/portraits/Devine and Ngan-49.jpg", width: 4672, height: 7008}, 
+    { src: "/portraits/Devine and Ngan-51.jpg", width: 6184, height: 4123}, 
+    { src: "/portraits/DSC01032.jpg", width: 4672, height: 7008}, 
+    { src: "/portraits/DSC01063.jpg", width: 4672, height: 7008}, 
+    { src: "/portraits/DSC01374.jpg", width: 3902, height: 6165}, 
+    { src: "/portraits/JMAI LAX MEDIA DAY-01.jpg", width: 4672, height: 5671}, 
+    { src: "/portraits/JMAI LAX MEDIA DAY-06-2.jpg", width: 1684, height: 2048}, 
+    { src: "/portraits/JMAI LAX MEDIA DAY-06-2.jpg", width: 4672, height: 4936}, 
+    { src: "/portraits/JMAI LAX MEDIA DAY-11-2.jpg", width: 1493, height: 2048}, 
+    { src: "/portraits/JMAI LAX MEDIA DAY-13-2.jpg", width: 2048, height: 2030}, 
+    { src: "/portraits/JMAI LAX MEDIA DAY-26.jpg", width: 4240, height: 5144}, 
+    { src: "/portraits/JMAI LAX MEDIA DAY-41.jpg", width: 4297, height: 5554}, 
+    { src: "/portraits/JMAi THEATRE HEADSHOTS-23.jpg", width: 3787, height: 5681}, 
+    { src: "/portraits/JMAi THEATRE HEADSHOTS-45.jpg", width: 4054, height: 6081}, 
+    { src: "/portraits/JMAi THEATRE HEADSHOTS-48.jpg", width: 4248, height: 6372}, 
+    { src: "/portraits/Ryan and Taylor-005.jpg", width: 7008, height: 4672}, 
+    { src: "/portraits/Ryan and Taylor-006.jpg", width: 7008, height: 4672}, 
+];
+
+const Home = () => {
+    return (
+        <PortfolioLayout pics={pics} title="Potraits" />
+    )
+};
+
+export default Home;

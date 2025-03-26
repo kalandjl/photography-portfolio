@@ -25,6 +25,7 @@ let links = [
 const portfolioLinks = [
     { title: "Graphics", href: "/portfolio/graphics" },
     { title: "Sports", href: "/portfolio/sports" },
+    { title: "Portraits", href: "/portfolio/portraits" },
 ];
 
 const shuffledPortfolioLinks = [...portfolioLinks].sort(() => Math.random() - 0.5).slice(0, portfolioLinks.length + 1);
@@ -116,7 +117,7 @@ const Nav: FC<Props> = ({ theme }) => {
             </nav>
 
             {/* Sidebar */}
-            <div id="sidebar" className={`${sidebarOpen ? "": "hidden"} px-10 py-5 fixed inset-0 bg-stone-800 z-20 scroll`}>
+            <div id="sidebar" className={`${sidebarOpen ? "z-20": "hidden"} px-10 -z-10 py-5 fixed inset-0 bg-stone-800 scroll`}>
                 <p className="text-white hover:scale-105 hover:cursor-pointer" onClick={() => setSidebarOpen(false)}><XIcon stroke="#ffffff"/></p>
 
                 <div id="links" className="grid gap-3 pt-10">
