@@ -17,7 +17,7 @@ const PortfolioSection: FC<Props> = (props) => {
 
     return (
         <>
-            <section id="portfolio-section" className="h-128 grid grid-cols-3 grid-flow-col">
+            <section id="portfolio-section" className="h-128 grid md:grid-cols-3 grid-cols-1 grid-flow-col">
                 <div id="image-wrap" className="overflow-hidden h-full relative">
                     <motion.div
                     initial={{ scale: 1 }}
@@ -48,8 +48,12 @@ const PortfolioSection: FC<Props> = (props) => {
                         </div>
                     </div>
                 </div>
-                <GalleryCard src={CardImage1} width={3902} height={6155} link="/portfolio/sports" title="Sports" />
-                <GalleryCard src={CardImage2} width={7008} height={4672} link="/portfolio/graphics" title="Graphics" />
+                <div className="hidden md:block">
+                    <GalleryCard src={CardImage1} width={3902} height={6155} link="/portfolio/sports" title="Sports" />
+                </div>
+                <div className="hidden md:block">
+                    <GalleryCard src={CardImage2} width={7008} height={4672} link="/portfolio/graphics" title="Graphics" />
+                </div>
             </section>
         </>
     )

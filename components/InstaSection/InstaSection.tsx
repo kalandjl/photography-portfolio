@@ -36,7 +36,7 @@ const InstaSection: FC<Props> = () => {
 
     return (
         <>
-            <section id="insta-section" className="grid sm:grid-cols-5 grid-cols-6 h-64 mt-20">
+            <section id="insta-section" className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 h-48 sm:h-64 sm:mt-20 grid-rows-1">
                 {/* Instagram CTA */}
                 <div id="action-section" className="bg-gray-100 grid place-items-center">
                     <Link href="https://www.instagram.com/jmai.photos/">
@@ -46,11 +46,11 @@ const InstaSection: FC<Props> = () => {
                                     <Image src={InstaLogo} layout="fill" objectFit="cover" alt="instagram-logo" />
                                 </div>
                             </div>
-                            <p className={`${lato.className} text-center text-lg`}>
+                            <p className={`${lato.className} text-center md:text-lg`}>
                                 Follow me on Instagram
                             </p>
                             <div id="underline-text-wrap" className="grid place-items-center w-full">
-                                <p className={`${lato.className} text-center hover:text-gray-800 transition duration-300 relative group w-min`}>
+                                <p className={`${lato.className} text-center hover:text-gray-800 transition duration-300 relative group w-min text-sm md:text-md`}>
                                     @jmai.photos
                                     <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
                                 </p>

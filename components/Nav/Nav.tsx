@@ -64,7 +64,7 @@ const Nav: FC<Props> = ({ theme }) => {
     return (
         <>
             <nav id="nav" className={`max-h-20 ${theme === "dark" ? "bg-stone-900" : ""}`}>
-                <div id="nav-inner" className="flex px-32 justify-between h-full items-center">
+                <div id="nav-inner" className="flex lg:px-32 px-10 md:px-20 justify-between h-full items-center">
                     <div id="logo" className="w-32 h-20 grid place-items-center py-2 hover:scale-105 transition ease-in-out">
                         <Link href="/">
                             <div id="image-wrap" className="relative w-max h-max">
@@ -78,12 +78,12 @@ const Nav: FC<Props> = ({ theme }) => {
                                 link.title === "Portfolio" ? (
                                     <div
                                         key={i}
-                                        className="relative border-r-1 border-gray-500 px-5"
+                                        className="relative border-r-1 border-gray-500 lg:px-5"
                                         onMouseEnter={handleMouseEnter}
                                         onMouseLeave={handleMouseLeave}
                                     >
                                         <Link href={link.href}>
-                                            <p className={`text-white text-lg font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency`}>
+                                            <p className={`text-white lg:text-lg font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency`}>
                                                 {link.title} 
                                             </p>
                                         </Link>
@@ -99,8 +99,8 @@ const Nav: FC<Props> = ({ theme }) => {
                                         </div>
                                     </div>
                                 ) : (
-                                    <Link href={link.href} key={i} className="border-r border-gray-500 last:border-r-0 px-5">
-                                        <p className={`text-white font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency text-xl`}>
+                                    <Link href={link.href} key={i} className="border-r border-gray-500 last:border-r-0 lg:px-5">
+                                        <p className={`text-white font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency lg:text-xl`}>
                                             {link.title}
                                         </p>
                                     </Link>
@@ -114,8 +114,18 @@ const Nav: FC<Props> = ({ theme }) => {
                     </div>
                 </div>
             </nav>
-            <div id="sidebar" className={`${sidebarOpen ? "grid": "hidden"} px-10 py-5 fixed inset-0 bg-stone-800 z-20 scroll`}>
+
+            {/* Sidebar */}
+            <div id="sidebar" className={`${sidebarOpen ? "": "hidden"} px-10 py-5 fixed inset-0 bg-stone-800 z-20 scroll`}>
                 <p className="text-white hover:scale-105 hover:cursor-pointer" onClick={() => setSidebarOpen(false)}><XIcon stroke="#ffffff"/></p>
+
+                <div id="links" className="grid gap-3 pt-10">
+                    {links.map((link, i) => (
+                        <Link key={i} href={link.href} className={`text-white ${lato.className}`}>
+                            {link.title}
+                        </Link>
+                    ))}
+                </div>
             </div>
         </>
     );

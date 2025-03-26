@@ -95,8 +95,8 @@ export default function Home() {
         {/* Overlay Section */}
         <section className="relative z-10 w-full">
           <Nav />
-          <main className="px-32 grid place-items-center mt-10">
-            <h1 className={`font-bold text-5xl px-10 py-10 text-white grid place-items-center h-96 ${roboto.className}`}>
+          <main className="lg:px-32 md:px-20 px-10 grid place-items-center mt-10">
+            <h1 className={`font-bold text-5xl md:px-10 py-10 text-white grid place-items-center h-96 ${roboto.className}`}>
               <p className="px-6 py-3 shadow-2xl agency">JMAI.PHOTOS</p>
             </h1>
           </main>

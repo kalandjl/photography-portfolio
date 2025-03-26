@@ -83,9 +83,9 @@ export function renderNextImage(
               sizes={sizes}
               id="gallery-photo"
               className={`
-                ${big && !bigLeft ? "absolute" : "p-4"}
-                ${big && bigLeft ? "block !top-0" : "p-4"}
-                ${leftBig || rightBig || firstRightBig ? "absolute p-4 w-1/2 h-1/2" : "p-4"}
+                ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+                ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+                ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
                 ${photo.src === '/hidden.jpeg' ? "hidden" : ""}
               `}
               priority

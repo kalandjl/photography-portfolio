@@ -12,7 +12,7 @@ interface Props {
 const AboutMeSection: FC<Props> = (props) => {
 
     return (   
-        <section id="about-me-section" className="grid grid-cols-5 grid-flow-col h-160">
+        <section id="about-me-section" className="grid grid-cols-1 md:grid-cols-5 grid-flow-col h-160">
             <div id="image-wrap" className="col-span-2 h-full overflow-hidden">
                 <motion.div
                 initial={{ scale: 1 }}
@@ -25,7 +25,7 @@ const AboutMeSection: FC<Props> = (props) => {
                     className="object-cover h-full" />
                 </motion.div>
             </div>
-            <div id="text-wrap" className="col-span-3 px-20 grid place-items-center pb-16">
+            <div id="text-wrap" className="col-span-3 px-10 sm:px-20 grid place-items-center pb-16">
                 <div>
                     {/* Centered Text Section */}
                     <div id="about-text" className="flex flex-col justify-center items-center text-center p-6 md:col-span-7 mt-10">

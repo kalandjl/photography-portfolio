@@ -13,19 +13,19 @@ const ContactSection: FC<Props> = (props) => {
 
     return (
         <>
-            <section id="contact-section" className="h-128">
+            <section id="contact-section" className="md:h-128 sm:h-96 h-64">
                 <div id="image-wrap" className="overflow-hidden h-full relative">
                     <Image src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover" /> 
                     {/* Overlay section */}
                     <div className="inset-0 absolute">
                         <div className="relative h-full">
                             <div className="bg-black opacity-70 absolute inset-0 z-0"></div>
-                            <div id="main-section" className="flex h-full">
+                            <div id="main-section" className="flex h-full pt-10 md:pt-0">
                                 <div id="text-wrap" className="h-full w-min px-20 grid place-items-center z-10 pb-20">
                                     <div className="grid gap-10">
-                                        <p className={`text-white ${lato.className} w-max text-5xl opacity-100 z-10`}>Let's Get In Touch</p>
+                                        <p className={`text-white ${lato.className} w-max lg:text-5xl md:text-4xl sm:text-3xl text-2xl opacity-100 z-10`}>Let's Get In Touch</p>
                                         <Link href="/contact">
-                                            <button className="rounded-md border-1 border-white px-8 py-5 z-10 text-white hover:bg-white hover:text-black transition ease-in-out hover:cursor-pointer">
+                                            <button className="rounded-md border-1 border-white px-4 md:px-8 md:py-5 py-2 z-10 md:text-xl text-sm text-white hover:bg-white hover:text-black transition ease-in-out hover:cursor-pointer">
                                                 <p className={`w-max ${latoLite.className}`}>Contact Me</p>
                                             </button>
                                         </Link>

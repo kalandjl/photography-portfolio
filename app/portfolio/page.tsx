@@ -20,7 +20,7 @@ const Home = () => {
 
             {/* Portfolio Links */}
             <main id="portfolio-links">
-                <section id="sports-hero" className="grid grid-cols-5 h-144">
+                <section id="sports-hero" className="grid grid-cols-5 sm:h-144 h-96">
                     {/* Fixed Frame, Zooming Image */}
                     <div id="image-wrap" className="col-span-3 overflow-hidden">
                         <motion.div
@@ -39,14 +39,14 @@ const Home = () => {
                             <Link href="/portfolio/sports" className="hover:scale-105 transition ease-in-out">
                                 <div className="grid grid-flow-col gap-4">
                                     <div className="grid">
-                                        <h1 className={`${oswald.className} text-5xl text-center`}>Sports</h1>
+                                        <h1 className={`${oswald.className} md:text-5xl text-2xl text-center underline sm:no-underline`}>Sports</h1>
                                         <div className="mt-6"></div>
-                                        <p className={`text-md text-center ${nunito.className}`}>
+                                        <p className={`sm:text-md text-sm text-center ${nunito.className}`}>
                                             Hockey, Basketball, Football, and more!
                                         </p>
                                     </div>
                                     <div id="icon-wrap" className="grid h-full place-items-center">
-                                        <ArrowRight className="w-9 h-9" />
+                                        <ArrowRight className="w-9 h-9 sm:block hidden" />
                                     </div>
                                 </div>
                             </Link>
@@ -54,15 +54,15 @@ const Home = () => {
                     </div>
                 </section>
 
-                <section id="graphics-hero" className="grid grid-cols-5 h-192">
+                <section id="graphics-hero" className="grid grid-cols-5 sm:h-144 h-96">
                     <div id="link-wrap" className="col-span-2 grid place-items-center">
                         <div className="grid place-items-center">
                             <Link href="/portfolio/graphics" className="hover:scale-105 transition ease-in-out">
                                 <div className="grid grid-flow-col gap-4">
                                     <div className="grid">
-                                        <h1 className={`${oswald.className} text-5xl text-center`}>Graphics</h1>
+                                        <h1 className={`${oswald.className} md:text-5xl text-2xl text-center underline sm:no-underline`}>Graphics</h1>
                                         <div className="mt-6"></div>
-                                        <p className={`text-md text-center ${nunito.className}`}>
+                                        <p className={`sm:text-md text-sm text-center ${nunito.className}`}>
                                             Game day, Athlete commits
                                         </p>
                                     </div>
