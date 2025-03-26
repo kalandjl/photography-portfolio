@@ -92,11 +92,11 @@ export function renderNextImage(
                 ${photo.src === '/hidden.jpeg' ? "hidden" : ""}
               `}
               priority
+              unoptimized
               
             />
           </div>
             <div style={{position: "absolute", background: "transparent"}}></div>
-
           </div>
         </div>
 

@@ -63,24 +63,6 @@ const Home = () => {
                             </h1>
                             <p className={`${latoLite.className}`}>
                             Have a project in mind or need more details about my services? Fill out the form below to get in touch. Whether it’s photography, content creation, or social media strategy, I’m here to help bring your vision to life. Let’s create something unforgettable!                            </p>
-                            <h1 className={`text-2xl ${lato.className} mb-5 mt-10`}>Information</h1>
-                            <ul className={`${lato.className} ml-4 grid gap-3`}>
-                                <li> • xxx-xxx-xxxx</li>
-                                <li> • johnsonmai@gmail.com</li>
-                                <li> • xxxx w14th ave, Vancouver, BC</li>
-                                <li>
-                                    <Link href="https://www.instagram.com/jmai.photos/" className="flex gap-2"> 
-                                        <div id="image-wrap" className="grid place-items-center">
-                                        <div id="image-cover" className="w-5 h-5 relative overflow-hidden">
-                                            <Image src={InstaLogo} layout="fill" objectFit="cover" alt="instagram-logo" />
-                                        </div>
-                                        </div>
-                                        <p className="hover:text-gray-800 transition duration-300 relative group w-min">@jmai.photos
-                                    <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-800 transition-all duration-300 group-hover:w-full"></span>
-                                    </p>  
-                                    </Link>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                     <div id="contact-form-wrap" className="px-16 py-10 col-span-3 grid gap-10">

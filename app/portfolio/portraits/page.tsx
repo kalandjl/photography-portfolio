@@ -1,7 +1,7 @@
 import PortfolioLayout from "@/components/PortfolioLayout";
 
 const pics = [
-    { src: "/portraits/Devine and Ngan-39.jpg", width: 5571, height: 3714}, 
+    { src: "/portraits/Devine and Ngan-39.jpg", width: 3714, height: 5571}, 
     { src: "/portraits/Devine and Ngan-46.jpg", width: 4317, height: 6476}, 
     { src: "/portraits/Devine and Ngan-49.jpg", width: 4672, height: 7008}, 
     { src: "/portraits/Devine and Ngan-51.jpg", width: 6184, height: 4123}, 
@@ -19,7 +19,7 @@ const pics = [
     { src: "/portraits/JMAi THEATRE HEADSHOTS-45.jpg", width: 4054, height: 6081}, 
     { src: "/portraits/JMAi THEATRE HEADSHOTS-48.jpg", width: 4248, height: 6372}, 
     { src: "/portraits/Ryan and Taylor-005.jpg", width: 7008, height: 4672}, 
-    { src: "/portraits/Ryan and Taylor-006.jpg", width: 7008, height: 4672}, 
+    { src: "/portraits/Ryan and Taylor-006.jpg", width: 4672, height: 7008}, 
 ];
 
 const Home = () => {
