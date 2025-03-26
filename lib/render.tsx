@@ -16,6 +16,8 @@ export function renderNextImage(
   // @ts-ignore
   let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow } = photo
 
+  console.log(sizes)
+
 
   let bigContainerStyle =  big && !bigLeft ? {
     width: "200%",
@@ -82,6 +84,8 @@ export function renderNextImage(
               title={title}
               sizes={sizes}
               id="gallery-photo"
+              quality={1}
+
               className={`
                 ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
                 ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
