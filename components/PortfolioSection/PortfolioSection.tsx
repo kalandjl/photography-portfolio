@@ -1,5 +1,5 @@
 import { FC } from "react";
-import HeroImage from "@/public/pictures/JMAI -001.jpg"
+import HeroImage from "@/public/pictures/DSC01374.jpg"
 import CardImage1 from "@/public/pictures/_DSC2941.jpg"
 import CardImage2 from "@/public/graphics/Senior day post.jpg"
 import Image from "next/image";
