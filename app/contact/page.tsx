@@ -79,7 +79,7 @@ const Home = () => {
                                         onChange={e => setEmail(e.target.value)} required />
                                 </div>
                                 <div id="message-wrap" className="mb-10">
-                                    <label htmlFor="message-input" className={labelClass}>Message</label>
+                                    <label htmlFor="message-input" className={labelClass}>Message *</label>
                                     <textarea id="message-input" className={`${lato.className} text-lg border-b-1 py-3 border-gray-700 w-full outline-none text-gray-600 h-32`}
                                         onChange={e => setMessage(e.target.value)}
                                         minLength={20} maxLength={200} required />

@@ -103,8 +103,22 @@ const Home = () => {
                             id={`${id}-hero`}
                             className="flex flex-col sm:grid-cols-2 items-center gap-8 sm:hidden"
                         >
-                            {/* Image Placement: Mobile (Top), Desktop (Alternating) */}
-                            <div className={`w-full overflow-hidden ${isReversed ? "sm:order-2" : "sm:order-1"}`}>
+
+                            {/* Text & Link: Mobile (Below Image), Desktop (Alternating) */}
+                            <div className="text-center sm:text-left px-6 py-5">
+                                <Link href={link} className="group block hover:scale-105 transition ease-in-out">
+                                    <h1 className={`${oswald.className} text-3xl sm:text-5xl underline sm:no-underline`}>
+                                        {title}
+                                    </h1>
+                                    <p className={`mt-5 text-sm sm:text-md ${nunito.className}`}>{description}</p>
+                                    <div className="flex justify-center sm:justify-start items-center gap-2 mt-4 text-blue-600">
+                                        <span className="flex gap-2"><p>See more</p> <ArrowRight /></span>
+                                        <ArrowRight className="w-6 h-6 sm:block hidden group-hover:translate-x-1 transition" />
+                                    </div>
+                                </Link>
+                            </div>
+                                                       {/* Image Placement: Mobile (Top), Desktop (Alternating) */}
+                                                       <div className={`w-full overflow-hidden ${isReversed ? "sm:order-2" : "sm:order-1"}`}>
                                 <motion.div
                                     initial={{ scale: 1 }}
                                     whileInView={{ scale: 1.02 }}
@@ -120,20 +134,6 @@ const Home = () => {
                                         className="w-full h-full object-cover"
                                     />
                                 </motion.div>
-                            </div>
-
-                            {/* Text & Link: Mobile (Below Image), Desktop (Alternating) */}
-                            <div className="text-center sm:text-left px-6 py-5">
-                                <Link href={link} className="group block hover:scale-105 transition ease-in-out">
-                                    <h1 className={`${oswald.className} text-3xl sm:text-5xl underline sm:no-underline`}>
-                                        {title}
-                                    </h1>
-                                    <p className={`mt-5 text-sm sm:text-md ${nunito.className}`}>{description}</p>
-                                    <div className="flex justify-center sm:justify-start items-center gap-2 mt-4 text-blue-600">
-                                        <span className="flex gap-2"><p>See more</p> <ArrowRight /></span>
-                                        <ArrowRight className="w-6 h-6 sm:block hidden group-hover:translate-x-1 transition" />
-                                    </div>
-                                </Link>
                             </div>
                         </section>
                         </>
