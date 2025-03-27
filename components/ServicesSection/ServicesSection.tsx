@@ -96,60 +96,61 @@ let services: Service[] = [
     },
 ];
 
-const ServicesSection: FC<Props> = (props) => {
-
-    let [servicesShort, setServicesShort] = useState<Service[]>([])
-
+const ServicesSection: FC = () => {
+    const [servicesShort, setServicesShort] = useState<Service[]>([]);
+  
     useEffect(() => {
-
-        let nums = getUniqueRandomNumbers(3, services.length)
-
-        const t = nums.map((x) => services[x - 1])
-
-        setServicesShort(t)
-    }, [])
-
-
+      const randomIndexes = getUniqueRandomNumbers(3, services.length);
+      setServicesShort(randomIndexes.map(index => services[index]));
+    }, []);
+  
     return (
-        <>
-            <section id="services-section" className="grid mt-10">
-                <div id="text-wrap" className="px-20 pt-10 pb-20">
-                    <h1 className="text-4xl agency mb-5">Services Offered</h1>
-                    <p className={`${latoLite.className}`}>
-                    My services are designed to capture, create, and enhance your visual presence—whether through dynamic sports photography, polished team portraits, compelling graphic design, or engaging social media content. From professional headshots to event coverage and highlight reels, we bring expertise and creativity to every project. Explore our offerings and elevate your brand, memories, and storytelling with impactful visuals.
-                    </p>
-                </div>
-                <div className="grid grid-flow-col grid-cols-3 h-128" id="services-grid">
-                    {servicesShort.map((service, i) => (
-                        <div key={i} className="grid">
-                            <div id="image-wrap" className="relative overflow-hidden">
-                                <Image src={service.imageSrc} height={service.imageHeight} width={service.imageWidth} alt=""
-                                className="object-cover h-full" />
-                                    <span className="absolute inset-0 grid place-items-center z-20">
-                                        <div className="grid gap-5">
-                                            <h1 className="text-3xl text-white agency w-64">{service.title}</h1>
-                                            <h1 className={` ${oswald.className} text-md text-gray-300 agency absolute top-5 left-5`}>{service.captcha}</h1>
-                                        </div>
-                                    </span>
-                                    <span className="absolute inset-0 grid place-items-center z-10 bg-black opacity-60"></span>
-                                </div>
-                        </div>
-                    ))}
-                </div>
-                <div id="btn-wrap" className="pl-20 pr-15 py-10">
-                    <Link href="/services">
-                        <button className={`px-8 py-4 rounded-md border-1 border-black ${lato.className}
-                        hover:scale-105 hover:bg-gray-200 transition ease-in-out hover:cursor-pointer`}>
-                            <span className="flex gap-3">
-                                <h1>See More</h1>
-                                <ArrowRight />
-                            </span>
-                        </button>
+      <section id="services-section" className="grid mt-10">
+        <div className="px-20 pt-10 pb-20">
+          <h1 className="text-4xl agency mb-5">Services Offered</h1>
+          <p className={latoLite.className}>
+            My services are designed to capture, create, and enhance your visual presence—whether through dynamic sports photography, polished team portraits, compelling graphic design, or engaging social media content. From professional headshots to event coverage and highlight reels, we bring expertise and creativity to every project. Explore our offerings and elevate your brand, memories, and storytelling with impactful visuals.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-3 gap-6 px-6" id="services-grid">
+          {servicesShort.map((service, i) => (
+            <div key={i} className="relative overflow-hidden rounded-lg shadow-lg">
+              <Image 
+                src={service.imageSrc} 
+                alt={service.title} 
+                className="object-cover h-full"
+              />
+              <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center p-5">
+                <h2 className="text-3xl text-white agency">
+                    <Link href="/services" className="hover:cursor-pointer hover:scale-105 transition ease-in-out">
+                        <h1 className="transition duration-300 relative group">
+                            {service.title}
+                            <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-100 transition-all duration-300 group-hover:w-full"></span>
+                        </h1>
                     </Link>
-                </div>
-            </section>
-        </>
-    )
-}
-
-export default ServicesSection
+                </h2>
+                <p className={`text-md text-gray-300 ${oswald.className} mt-2`}>{service.captcha}</p>
+              </div>
+              <div className="absolute inset-0 bg-black opacity-70 ">
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="pl-20 pr-15 py-10 grid place-items-center">
+          <Link href="/services">
+            <button className={`px-26 py-6 rounded-md border-1 border-black ${lato.className} hover:scale-105 hover:bg-gray-100 hover:cursor-pointer transition ease-in-out`}> 
+              <span className="flex gap-3">
+                <span>See More</span>
+                <ArrowRight />
+              </span>
+            </button>
+          </Link>
+        </div>
+      </section>
+    );
+  };
+  
+  export default ServicesSection;
+  

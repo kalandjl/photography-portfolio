@@ -75,7 +75,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
       <ActionSection
         links={[
           { title: "Contact Me", link: "/contact" },
-          { title: "About Me", link: "/about" },
+          { title: "My Story", link: "/about" },
         ]}
       />
       <PortfolioSection />

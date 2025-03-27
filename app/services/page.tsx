@@ -2,7 +2,7 @@
 import Image, { StaticImageData } from "next/image"
 import HeroImage from "../../public/pictures/JMAI Post abits Rematch Retouched-2.jpg"
 import Nav from "@/components/Nav"
-import { ArrowDown } from "lucide-react"
+import { ArrowDown, Contact } from "lucide-react"
 import HeroImageSection from "@/components/HeroImageSection"
 import ServicePhoto1 from "@/public/pictures/Saitns Round 1 VARSITY-101.jpg"
 import ServicePhoto2 from "@/public/graphics/Senior day post.jpg"
@@ -18,6 +18,7 @@ import FAQSection from "@/components/FAQSection"
 import ContactSection from "@/components/ContactSection"
 import InstaSection from "@/components/InstaSection"
 import BarrierImageSection from "@/components/BarrierImageSection"
+import ActionSection from "@/components/ActionSection"
 
 
 let services: {title: string, description: string, imageSrc: StaticImageData, imageWidth: number, imageHeight: number, captcha: string}[] = [
@@ -169,6 +170,12 @@ const Home = () => {
                 })}
             </section>
             
+            <ActionSection
+            links={[
+            { title: "Contact Me", link: "/contact" },
+            { title: "My Story", link: "/about" },
+            ]}
+            />            
             <FAQSection />
 
             <ContactSection />

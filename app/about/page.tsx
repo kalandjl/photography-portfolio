@@ -55,7 +55,7 @@ const Home = () => {
                    </p>
                 </div>
             </section>
-            <BarrierImageSection src={BarrierImage} imageTop={true} barrierHeight={128} />
+            <BarrierImageSection src={BarrierImage} imageTop={true} barrierHeight={96} />
 
             <section id="about-section-2" className="grid py-20">
 

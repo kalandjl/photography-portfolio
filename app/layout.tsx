@@ -19,6 +19,11 @@ export default function RootLayout({
       <body>
         <QualityWrapper>{children}</QualityWrapper>
         <Footer />
+        <div className="hidden h-128"></div>
+        <div className="hidden h-144"></div>
+        <div className="hidden h-160"></div>
+        <div className="hidden h-192"></div>
+        <div className="hidden h-256"></div>
       </body>
     </html>
   );

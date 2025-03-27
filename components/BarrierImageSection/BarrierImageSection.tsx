@@ -17,7 +17,7 @@ const BarrierImageSection: FC<Props> = (props) => {
                 <div id="image-container" className="relative h-full overflow-hidden">
                     <motion.div
                         initial={{ scale: 1 }}
-                        whileInView={{ scale: 1.05 }}
+                        whileInView={{ scale: 1.02 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.5 }}
                         className="w-full h-full"
