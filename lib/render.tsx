@@ -84,6 +84,7 @@ export function renderNextImage(
               title={title}
               sizes={sizes}
               id="gallery-photo"
+              quality={75}
 
               className={`
                 ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
@@ -93,7 +94,6 @@ export function renderNextImage(
               `}
               loading="lazy" // Lazy loading for performance
               priority={false} // Do not prioritize all images
-              
             />
           </div>
             <div style={{position: "absolute", background: "transparent"}}></div>
