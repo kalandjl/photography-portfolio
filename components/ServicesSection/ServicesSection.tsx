@@ -142,7 +142,7 @@ const ServicesSection: FC = () => {
           <Link href="/services">
             <button className={`sm:px-26 px-16 py-6 rounded-md border-1 border-black ${lato.className} hover:scale-105 hover:bg-gray-100 hover:cursor-pointer transition ease-in-out`}> 
               <span className="flex gap-3">
-                <span className="w-max">See More</span>
+                <span className="w-max">More Services</span>
                 <ArrowRight />
               </span>
             </button>

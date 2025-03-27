@@ -71,9 +71,9 @@ const Nav: FC<Props> = ({ theme }) => {
 
     return (
         <>
-            <nav id="nav" className={`max-h-20 ${theme === "dark" ? "bg-stone-900" : ""}`}>
+            <nav id="nav" className={`max-h-22 ${theme === "dark" ? "bg-stone-900" : ""}`}>
                 <div id="nav-inner" className="flex lg:px-32 px-10 md:px-20 justify-between h-full items-center">
-                    <div id="logo" className="w-32 h-20 grid place-items-center py-2 hover:scale-105 transition ease-in-out">
+                    <div id="logo" className="w-32 h-22 grid place-items-center py-2 hover:scale-105 transition ease-in-out">
                         <Link href="/">
                             <div id="image-wrap" className="relative w-max h-max">
                                 <Image src={Icon} height={150} width={110} alt="icon logo" className="object-contain" />
@@ -96,7 +96,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                             </p>
                                         </Link>
                                         {/* Dropdown Menu */}
-                                        <div className={`z-20 absolute left-0 mt-2 w-48 bg-stone-800 rounded-sm shadow-lg overflow-hidden transition-all duration-200 ${isDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
+                                        <div className={`agency z-20 absolute left-0 mt-2 w-32 bg-stone-800 rounded-sm shadow-lg overflow-hidden transition-all duration-200 ${isDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
                                             {shuffledPortfolioLinks.map((item: any, index: number) => (
                                                 <Link key={index} href={item.href}>
                                                     <p className="block px-6 py-3 text-white text-lg hover:bg-stone-700 transition">

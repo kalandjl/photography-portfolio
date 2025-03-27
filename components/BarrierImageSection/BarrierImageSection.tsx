@@ -13,7 +13,7 @@ interface Props {
 const BarrierImageSection: FC<Props> = (props) => {
     return (
         <>
-            <section id="image-barrier-section" className={`w-full sm:h-${props.barrierHeight} h-48`}>
+            <section id="image-barrier-section" className={`w-full sm:h-${props.barrierHeight} h-48 `}>
                 <div id="image-container" className="relative h-full overflow-hidden">
                     <motion.div
                         initial={{ scale: 1 }}
