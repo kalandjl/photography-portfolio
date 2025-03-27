@@ -113,7 +113,7 @@ const ServicesSection: FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-3 gap-6 px-6" id="services-grid">
+        <div className="grid grid-flow-row sm:grid-flow-col sm:grid-cols-3 gap-6 px-6" id="services-grid">
           {servicesShort.map((service, i) => (
             <div key={i} className="relative overflow-hidden rounded-lg shadow-lg">
               <Image 
@@ -140,9 +140,9 @@ const ServicesSection: FC = () => {
         
         <div className="pl-20 pr-15 py-10 grid place-items-center">
           <Link href="/services">
-            <button className={`px-26 py-6 rounded-md border-1 border-black ${lato.className} hover:scale-105 hover:bg-gray-100 hover:cursor-pointer transition ease-in-out`}> 
+            <button className={`sm:px-26 px-16 py-6 rounded-md border-1 border-black ${lato.className} hover:scale-105 hover:bg-gray-100 hover:cursor-pointer transition ease-in-out`}> 
               <span className="flex gap-3">
-                <span>See More</span>
+                <span className="w-max">See More</span>
                 <ArrowRight />
               </span>
             </button>
