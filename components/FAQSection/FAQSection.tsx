@@ -39,7 +39,6 @@ const faqArr = [
     },
 ];
 
-
 const FAQSection: FC<Props> = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -55,12 +54,12 @@ const FAQSection: FC<Props> = () => {
     return (
         <section id="faq-section" className="min-h-128 mb-20 mt-32">
             <h1 className={`agency text-3xl text-center mt-20`}>Frequently Asked Questions</h1>
-            <div className="w-screen px-64 mx-auto p-6 space-y-4">
+            <div className="max-w-4xl w-full px-6 md:px-16 lg:px-32 mx-auto p-6 space-y-4">
                 {faqArr.map((faq, index) => (
                     <div key={index} className="border-b mt-10 first:mt-0">
                         <button 
-                            className={`w-full text-left text-xl font-medium py-3 focus:outline-none
-                            hover:cursor-pointer hover:text-gray-700 transition ease-in-out flex justify-between ${oswald.className}`}
+                            className={`w-full text-left text-lg md:text-xl font-medium py-3 focus:outline-none
+                            hover:cursor-pointer hover:text-gray-700 transition ease-in-out flex justify-between items-center ${oswald.className}`}
                             onClick={() => setOpenIndex(openIndex === index ? null : index)}
                         >
                             {faq.question}

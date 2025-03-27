@@ -55,7 +55,7 @@ const Home = () => {
         <>
             <main>
                 <HeroImageSection src={HeroImage} width={6674} height={4449} title="Contact" />
-                <section id="form-section" className="grid grid-flow-col grid-cols-5 h-screen pt-10">
+                <section id="form-section" className="grid sm:grid-flow-col grid-flow-row sm:grid-cols-5 sm:h-screen pt-10">
                     <div id="contact-form-paragraph" className="w-full col-span-2 px-20 py-16">
                         <div id="text-wrap grid gap-12 h-2/3">
                             <h1 className={`text-3xl agency mb-5`}>
@@ -65,7 +65,7 @@ const Home = () => {
                             Have a project in mind or need more details about my services? Fill out the form below to get in touch. Whether it’s photography, content creation, or social media strategy, I’m here to help bring your vision to life. Let’s create something unforgettable!                            </p>
                         </div>
                     </div>
-                    <div id="contact-form-wrap" className="px-16 py-10 col-span-3 grid gap-10">
+                    <div id="contact-form-wrap" className="sm:px-16 py-10 col-span-3 grid gap-10">
                         <div id="form-outer" className="px-16 py-16 bg-gray-100 h-min">
                             <form id="contact-form" className="w-full h-full" onSubmit={handleSubmit}>
                                 <div id="name-wrap">

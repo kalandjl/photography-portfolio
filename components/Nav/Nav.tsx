@@ -48,19 +48,26 @@ const Nav: FC<Props> = ({ theme }) => {
     useEffect(() => {
         return () => clearTimeout(timeoutId);
     }, []);
-
-
+    
     useEffect(() => {
         if (sidebarOpen) {
-            document.body.style.overflow = "hidden";  // Disable scrolling
+            document.body.style.overflow = "hidden"; // Disable scrolling
+            document.querySelectorAll("#slide-btn").forEach((el) => {
+                (el as HTMLElement).style.setProperty("z-index", "10");
+            });
         } else {
-            document.body.style.overflow = "";  // Re-enable scrolling
+            document.body.style.overflow = ""; // Re-enable scrolling
+            document.querySelectorAll("#slide-btn").forEach((el) => {
+                (el as HTMLElement).style.setProperty("z-index", "30");
+            });
         }
-
+    
         return () => {
-            document.body.style.overflow = "";  // Cleanup when component unmounts
+            document.body.style.overflow = ""; // Cleanup when component unmounts
         };
     }, [sidebarOpen]);
+    
+    
 
     return (
         <>

@@ -67,14 +67,16 @@ export default function Home() {
             ))}
             {/* Navigation Arrows */}
             <button
+              id="slide-btn"
               onClick={prevSlide}
-              className="absolute top-1/2 left-5 transform -translate-y-1/2 bg-black/50 p-2 rounded-full sm:fz-30 hover:cursor-pointer"
+              className="absolute top-1/2 left-5 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:cursor-pointer"
             >
               <ChevronLeft size={32} color="white" />
             </button>
             <button
+              id="slide-btn"
               onClick={nextSlide}
-              className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/50 p-2 rounded-full sm:z-30 hover:cursor-pointer"
+              className="absolute top-1/2 right-5 transform -translate-y-1/2 bg-black/50 p-2 rounded-full hover:cursor-pointer"
             >
               <ChevronRight size={32} color="white" />
             </button>

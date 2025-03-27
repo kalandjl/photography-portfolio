@@ -59,15 +59,15 @@ const Home = () => {
                         <div className="grid place-items-center">
                             <Link href="/portfolio/graphics" className="hover:scale-105 transition ease-in-out">
                                 <div className="grid grid-flow-col gap-4">
-                                    <div className="grid">
+                                <div className="grid">
                                         <h1 className={`${oswald.className} md:text-5xl text-2xl text-center underline sm:no-underline`}>Graphics</h1>
                                         <div className="mt-6"></div>
                                         <p className={`sm:text-md text-sm text-center ${nunito.className}`}>
-                                            Game day, Athlete commits
+                                            Game Day, Athlete Commits
                                         </p>
                                     </div>
                                     <div id="icon-wrap" className="grid h-full place-items-center">
-                                        <ArrowRight className="w-9 h-9" />
+                                        <ArrowRight className="w-9 h-9 sm:block hidden" />
                                     </div>
                                 </div>
                             </Link>
