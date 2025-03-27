@@ -12,6 +12,7 @@ import PortfolioSection from "@/components/PortfolioSection";
 import ActionSection from "@/components/ActionSection";
 import HeroImageSection from "@/components/HeroImageSection";
 import BarrierImageSection from "@/components/BarrierImageSection";
+import ServicesSection from "@/components/ServicesSection";
 
 const Home = () => {
 
@@ -80,6 +81,8 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
+            <ServicesSection />
 
             <ActionSection links={[
                 {

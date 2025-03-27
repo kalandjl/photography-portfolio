@@ -21,19 +21,17 @@ let links = [
     { title: "FAQ", href: "/FAQ" }
 ];
 
-// Random additional links for Portfolio dropdown
+// Static portfolio links
 const portfolioLinks = [
     { title: "Graphics", href: "/portfolio/graphics" },
     { title: "Sports", href: "/portfolio/sports" },
     { title: "Portraits", href: "/portfolio/portraits" },
 ];
 
-const shuffledPortfolioLinks = [...portfolioLinks].sort(() => Math.random() - 0.5).slice(0, portfolioLinks.length + 1);
-
 const Nav: FC<Props> = ({ theme }) => {
-
-    let [sidebarOpen, setSidebarOpen] = useState<boolean>(false)
+    const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [shuffledPortfolioLinks, setShuffledPortfolioLinks] = useState<any[]>([]);
     let timeoutId: NodeJS.Timeout;
 
     const handleMouseEnter = () => {
@@ -46,9 +44,13 @@ const Nav: FC<Props> = ({ theme }) => {
     };
 
     useEffect(() => {
+        setShuffledPortfolioLinks([...portfolioLinks].sort(() => Math.random() - 0.5).slice(0, portfolioLinks.length + 1));
+    }, []); // Shuffle only on client-side
+
+    useEffect(() => {
         return () => clearTimeout(timeoutId);
     }, []);
-    
+
     useEffect(() => {
         if (sidebarOpen) {
             document.body.style.overflow = "hidden"; // Disable scrolling
@@ -61,13 +63,11 @@ const Nav: FC<Props> = ({ theme }) => {
                 (el as HTMLElement).style.setProperty("z-index", "30");
             });
         }
-    
+
         return () => {
             document.body.style.overflow = ""; // Cleanup when component unmounts
         };
     }, [sidebarOpen]);
-    
-    
 
     return (
         <>
@@ -97,7 +97,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                         </Link>
                                         {/* Dropdown Menu */}
                                         <div className={`z-20 absolute left-0 mt-2 w-48 bg-stone-800 rounded-sm shadow-lg overflow-hidden transition-all duration-200 ${isDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
-                                            {shuffledPortfolioLinks.map((item, index) => (
+                                            {shuffledPortfolioLinks.map((item: any, index: number) => (
                                                 <Link key={index} href={item.href}>
                                                     <p className="block px-6 py-3 text-white text-lg hover:bg-stone-700 transition">
                                                         {item.title}

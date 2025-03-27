@@ -107,8 +107,8 @@ const Home = () => {
                     const isReversed = (i % 2 !== 0) === reverseLayout;
 
                     return (
-                        <>
-                            <div key={i} className="h-128 grid-cols-5 hidden sm:grid">
+                        <div key={i}>
+                            <div className="h-128 grid-cols-5 hidden sm:grid">
                                 {!isReversed ? (
                                     <>
                                         <div id="image-wrap" className="col-span-3 overflow-hidden h-full w-full relative">
@@ -151,7 +151,7 @@ const Home = () => {
                                     </>
                                 )}
                             </div>
-                            <div key={i} className="grid sm:hidden">
+                            <div className="grid sm:hidden">
                                 <div id="barrier-image-wrap" className="relative">
                                 <BarrierImageSection src={service.imageSrc} barrierHeight={64} />
                                     <span className="absolute inset-0 grid place-items-center z-20">
@@ -164,7 +164,7 @@ const Home = () => {
                                 </div>
                                 <div id="text-wrap" className="px-5 pt-5 pb-10">{service.description}</div>
                             </div>
-                        </>
+                        </div>
 
                     );
                 })}

@@ -12,12 +12,12 @@ const pics = [
     // Row 2
     { src: "/pictures/JMAI -038.jpg", width: 4158, height: 2772, big: true, bigLeft: true, bigWithRowBelow: true}, // big pic #2
     { src: "/hidden.jpeg", width: 7008, height: 4672, }, 
-    { src: "/hidden.jpeg", width: 4622, height: 3081}, 
+    { src: "/hidden1.jpeg", width: 4622, height: 3081}, 
 
 
     // Row 3
     { src: "/pictures/JMAI -069.jpg", width: 6645, height: 4430}, // left of big pic #3
-    { src: "/hidden.jpeg", width: 6671, height: 4447}, 
+    { src: "/hidden2.jpeg", width: 6671, height: 4447}, 
     { src: "/pictures/JMAI -220.jpg", width: 3889, height: 2593}, // right big pic #2
 
 
@@ -30,12 +30,12 @@ const pics = [
     { src: "/pictures/JMAI -001.jpg", width: 2048, height: 1365},
     { src: "/pictures/JMAI -148.jpg", width: 6087, height: 4058}, 
 
-    { src: "/hidden.jpeg", width: 5812, height: 3875}, 
+    { src: "/hidden3.jpeg", width: 5812, height: 3875}, 
 
 
     { src: "/pictures/JMAI Post abits Rematch Retouched-2.jpg", width: 6220, height: 4147},
     { src: "/pictures/JMAI -128.jpg", width: 7008, height: 4672}, 
-    { src: "/hidden.jpeg", width: 4622, height: 3081}, 
+    { src: "/hidden4.jpeg", width: 4622, height: 3081}, 
     { src: "/pictures/JMAI Post abits Rematch-018.jpg", width: 7008, height: 4672}, 
     { src: "/pictures/JMAI -009.jpg", width: 6426, height: 4284}, 
     { src: "/pictures/JMAI Post abits Rematch-031.jpg", width: 3620, height: 2413},

@@ -46,7 +46,7 @@ const Home = () => {
                     const isReversed = index % 2 !== 0 // Alternates layout
                     
                     return (
-                        <>
+                        <div key={index}>
                         <section key={id} id={`${id}-hero`} className="hidden sm:grid grid-cols-5 sm:h-144 h-64">
                             {/* Image (Left if index is even, Right if odd) */}
                             {!isReversed && (
@@ -99,7 +99,7 @@ const Home = () => {
                             )}
                         </section>
                         <section
-                            key={id}
+                            key={`${id}-mobile`}
                             id={`${id}-hero`}
                             className="flex flex-col sm:grid-cols-2 items-center gap-8 sm:hidden"
                         >
@@ -136,7 +136,7 @@ const Home = () => {
                                 </motion.div>
                             </div>
                         </section>
-                        </>
+                        </div>
                     )
                 })}
                 <ContactSection />

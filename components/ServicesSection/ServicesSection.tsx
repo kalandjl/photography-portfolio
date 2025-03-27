@@ -101,7 +101,7 @@ const ServicesSection: FC = () => {
   
     useEffect(() => {
       const randomIndexes = getUniqueRandomNumbers(3, services.length);
-      setServicesShort(randomIndexes.map(index => services[index]));
+      setServicesShort(randomIndexes.map(index => services[index - 1]));
     }, []);
   
     return (

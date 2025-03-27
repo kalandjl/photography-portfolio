@@ -60,7 +60,6 @@ export function renderNextImage(
   
   return (
     <>
-      {photo.src === "hidden.jpeg" ? <></> :
       <div className="block">
         <div className="relative">
           <div
@@ -90,7 +89,7 @@ export function renderNextImage(
                 ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
                 ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
                 ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-                ${photo.src === '/hidden.jpeg' ? "hidden" : ""}
+                ${photo.src.includes('hidden') ? "hidden" : ""}
               `}
               loading="eager" // Lazy loading for performance
               priority={false} // Do not prioritize all images
@@ -101,7 +100,6 @@ export function renderNextImage(
         </div>
 
       </div>
-      }
     </>
   );
 }
