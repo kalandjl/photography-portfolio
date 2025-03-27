@@ -91,8 +91,8 @@ export function renderNextImage(
                 ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
                 ${photo.src === '/hidden.jpeg' ? "hidden" : ""}
               `}
-              priority
-              unoptimized
+              loading="lazy" // Lazy loading for performance
+              priority={false} // Do not prioritize all images
               
             />
           </div>

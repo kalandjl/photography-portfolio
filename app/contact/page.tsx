@@ -17,7 +17,7 @@ import HeroImageSection from "@/components/HeroImageSection"
 import HeroImage from "@/public/pictures/_DSC0646-Enhanced-NR.jpg"
 
 const Home = () => {
-    const labelClass = `text-xl text-gray-800 font-thin ${nunito.className}`;
+    const labelClass = `text-xl text-gray-800 font-thin agency`;
     const inputClass = `${nunito.className} text-lg border-b-1 py-3 border-gray-800 w-full outline-none text-gray-800 mb-10 font-thin focus:bg-gray-100`;
 
     let [name, setName] = useState<string | undefined>(undefined);
@@ -58,7 +58,7 @@ const Home = () => {
                 <section id="form-section" className="grid grid-flow-col grid-cols-5 h-screen pt-10">
                     <div id="contact-form-paragraph" className="w-full col-span-2 px-20 py-16">
                         <div id="text-wrap grid gap-12 h-2/3">
-                            <h1 className={`text-3xl ${lato.className} mb-5`}>
+                            <h1 className={`text-3xl agency mb-5`}>
                                 Let's Work Together
                             </h1>
                             <p className={`${latoLite.className}`}>

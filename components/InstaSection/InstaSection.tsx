@@ -36,7 +36,7 @@ const InstaSection: FC<Props> = () => {
 
     return (
         <>
-            <section id="insta-section" className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-6 h-48 sm:h-64 sm:mt-20 grid-rows-1">
+            <section id="insta-section" className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 h-48 sm:h-64 sm:mt-20 grid-rows-1">
                 {/* Instagram CTA */}
                 <div id="action-section" className="bg-gray-100 grid place-items-center">
                     <Link href="https://www.instagram.com/jmai.photos/">

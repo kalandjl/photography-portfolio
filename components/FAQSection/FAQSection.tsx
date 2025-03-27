@@ -54,7 +54,7 @@ const FAQSection: FC<Props> = () => {
 
     return (
         <section id="faq-section" className="min-h-128 mb-20 mt-32">
-            <h1 className={`${oswald.className} text-3xl text-center mt-20`}>Frequently Asked Questions</h1>
+            <h1 className={`agency text-3xl text-center mt-20`}>Frequently Asked Questions</h1>
             <div className="w-screen px-64 mx-auto p-6 space-y-4">
                 {faqArr.map((faq, index) => (
                     <div key={index} className="border-b mt-10 first:mt-0">
