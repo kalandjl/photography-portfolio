@@ -13,7 +13,7 @@ import ServicePhoto6 from "@/public/pictures/insta/insta-photo-6.jpg"
 import ServicePhoto7 from "@/public/graphics/Winner.jpg"
 import ServicePhoto8 from "@/public/pictures/JMAI Post abits Rematch Retouched-2.jpg"
 import ServicePhoto9 from "@/public/pictures/Ryan and Taylor-005.jpg"
-import { lato, latoLite } from "../fonts"
+import { lato, latoLite, nunito, oswald } from "../fonts"
 import FAQSection from "@/components/FAQSection"
 import ContactSection from "@/components/ContactSection"
 import InstaSection from "@/components/InstaSection"
@@ -156,12 +156,12 @@ const Home = () => {
                                     <span className="absolute inset-0 grid place-items-center z-20">
                                         <div className="grid gap-5">
                                             <h1 className="text-3xl text-white agency w-64">{service.title}</h1>
-                                            <h1 className="text-md text-gray-300 agency absolute top-5 left-5">{service.captcha}</h1>
+                                            <h1 className={` ${oswald.className} text-md text-gray-300 agency absolute top-5 left-5`}>{service.captcha}</h1>
                                         </div>
                                     </span>
                                     <span className="absolute inset-0 grid place-items-center z-10 bg-black opacity-60"></span>
                                 </div>
-                                <div id="text-wrap" className="px-5 pt-5 pb-16">{service.description}</div>
+                                <div id="text-wrap" className="px-5 pt-5 pb-10">{service.description}</div>
                             </div>
                         </>
 

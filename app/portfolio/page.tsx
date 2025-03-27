@@ -20,7 +20,7 @@ const Home = () => {
 
             {/* Portfolio Links */}
             <main id="portfolio-links">
-                <section id="sports-hero" className="grid grid-cols-5 sm:h-144 h-96">
+                <section id="sports-hero" className="grid grid-cols-5 sm:h-144 h-64">
                     {/* Fixed Frame, Zooming Image */}
                     <div id="image-wrap" className="col-span-3 overflow-hidden">
                         <motion.div
@@ -54,7 +54,7 @@ const Home = () => {
                     </div>
                 </section>
 
-                <section id="graphics-hero" className="grid grid-cols-5 sm:h-144 h-96">
+                <section id="graphics-hero" className="grid grid-cols-5 sm:h-144 h-64">
                     <div id="link-wrap" className="col-span-2 grid place-items-center">
                         <div className="grid place-items-center">
                             <Link href="/portfolio/graphics" className="hover:scale-105 transition ease-in-out">
