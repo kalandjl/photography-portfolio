@@ -66,16 +66,16 @@ const Home = () => {
                     </h1>
                     <div id="list" className="grid gap-6">
                         <p className={aboutListTextStyle}>
-                            <span className={`font-semibold ${lato.className}`}> - A Storytelling Approach:</span> I don’t just take photos; I capture emotions, movement, and meaning. Every shot is intentional, bringing out the raw energy of the moment.
+                            <span className={`font-semibold ${lato.className}`}>A Storytelling Approach:</span> I don’t just take photos; I capture emotions, movement, and meaning. Every shot is intentional, bringing out the raw energy of the moment.
                         </p>
                         <p className={aboutListTextStyle}>
-                            <span className={`font-semibold ${lato.className}`}> - Athlete’s Perspective:</span> As a football player and sports enthusiast, I understand the pace, angles, and emotions behind every play. This allows me to anticipate key moments and frame them in ways that truly represent the game.
+                            <span className={`font-semibold ${lato.className}`}>Athlete’s Perspective:</span> As a football player and sports enthusiast, I understand the pace, angles, and emotions behind every play. This allows me to anticipate key moments and frame them in ways that truly represent the game.
                         </p>
                         <p className={aboutListTextStyle}>
-                            <span className={`font-semibold ${lato.className}`}> - Versatile & Detail-Oriented:</span> From high-speed action shots to cinematic brand visuals, I adapt my style to fit the vision of each project. Whether it’s a fast-paced sports event or a polished media day shoot, I bring a high level of precision and creativity.
+                            <span className={`font-semibold ${lato.className}`}>Versatile & Detail-Oriented:</span> From high-speed action shots to cinematic brand visuals, I adapt my style to fit the vision of each project. Whether it’s a fast-paced sports event or a polished media day shoot, I bring a high level of precision and creativity.
                         </p>
                         <p className={aboutListTextStyle}>
-                            <span className={`font-semibold ${lato.className}`}> - Social Media Strategy:</span> In today’s digital world, content isn’t just about looking good—it’s about engagement. I help athletes, businesses, and brands create visuals that stand out and drive results on social media. 
+                            <span className={`font-semibold ${lato.className}`}>Social Media Strategy:</span> In today’s digital world, content isn’t just about looking good—it’s about engagement. I help athletes, businesses, and brands create visuals that stand out and drive results on social media. 
                         </p>
                     </div>
                 </div>
