@@ -14,6 +14,7 @@ import InstaSection from "@/components/InstaSection";
 import ContactSection from "@/components/ContactSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import AboutMeSection from "@/components/AboutMeSection";
+import ServicesSection from "@/components/ServicesSection";
 
 const images = [
   HeroPic1,
@@ -110,6 +111,8 @@ export default function Home() {
       <AboutMeSection />
 
       <PortfolioSection />
+
+      <ServicesSection />
 
       <ContactSection />
 
