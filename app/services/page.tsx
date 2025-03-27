@@ -17,6 +17,7 @@ import { lato, latoLite } from "../fonts"
 import FAQSection from "@/components/FAQSection"
 import ContactSection from "@/components/ContactSection"
 import InstaSection from "@/components/InstaSection"
+import BarrierImageSection from "@/components/BarrierImageSection"
 
 
 let services: {title: string, description: string, imageSrc: StaticImageData, imageWidth: number, imageHeight: number, captcha: string}[] = [
@@ -105,49 +106,65 @@ const Home = () => {
                     const isReversed = (i % 2 !== 0) === reverseLayout;
 
                     return (
-                        <div key={i} className="h-128 grid grid-cols-5">
-                            {!isReversed ? (
-                                <>
-                                    <div id="image-wrap" className="col-span-3 overflow-hidden h-full w-full relative">
-                                        <Image 
-                                            src={service.imageSrc} 
-                                            height={service.imageHeight} 
-                                            width={service.imageWidth} 
-                                            alt="Service photo"
-                                            className="object-cover h-full w-full absolute" 
-                                        />
-                                        <div className="absolute inset-0 bg-black opacity-30"></div>
-                                    </div>
-                                    <div id="text-wrap" className="col-span-2 grid place-items-center px-20 w-3/4">
-                                        <div className="grid gap-5">
-                                            <h1 className="text-4xl agency">{service.title}</h1>
-                                            <p className={`text-lg ${latoLite.className}`}>{service.description}</p>
-                                            <p className={`text-lg ${latoLite.className} text-gray-700`}>{service.captcha}</p>
+                        <>
+                            <div key={i} className="h-128 grid-cols-5 hidden sm:grid">
+                                {!isReversed ? (
+                                    <>
+                                        <div id="image-wrap" className="col-span-3 overflow-hidden h-full w-full relative">
+                                            <Image 
+                                                src={service.imageSrc} 
+                                                height={service.imageHeight} 
+                                                width={service.imageWidth} 
+                                                alt="Service photo"
+                                                className="object-cover h-full w-full absolute" 
+                                            />
+                                            <div className="absolute inset-0 bg-black opacity-30"></div>
                                         </div>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    <div id="text-wrap" className="col-span-2 grid place-items-center px-20 w-3/4">
-                                        <div className="grid gap-5">
-                                            <h1 className="text-4xl agency">{service.title}</h1>
-                                            <p className={`text-lg ${latoLite.className}`}>{service.description}</p>
-                                            <p className={`text-lg ${latoLite.className} text-gray-700`}>{service.captcha}</p>
+                                        <div id="text-wrap" className="col-span-2 grid place-items-center px-20 w-3/4">
+                                            <div className="grid gap-5">
+                                                <h1 className="text-4xl agency">{service.title}</h1>
+                                                <p className={`text-lg ${latoLite.className}`}>{service.description}</p>
+                                                <p className={`text-lg ${latoLite.className} text-gray-700`}>{service.captcha}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div id="image-wrap" className="col-span-3 overflow-hidden h-full w-full relative">
-                                        <Image 
-                                            src={service.imageSrc} 
-                                            height={service.imageHeight} 
-                                            width={service.imageWidth} 
-                                            alt="Service photo"
-                                            className="object-cover h-full w-full absolute" 
-                                        />
-                                        <div className="absolute inset-0 bg-black opacity-30"></div>
-                                    </div>
-                                </>
-                            )}
-                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div id="text-wrap" className="col-span-2 grid place-items-center px-20 w-3/4">
+                                            <div className="grid gap-5">
+                                                <h1 className="text-4xl agency">{service.title}</h1>
+                                                <p className={`text-lg ${latoLite.className}`}>{service.description}</p>
+                                                <p className={`text-lg ${latoLite.className} text-gray-700`}>{service.captcha}</p>
+                                            </div>
+                                        </div>
+                                        <div id="image-wrap" className="col-span-3 overflow-hidden h-full w-full relative">
+                                            <Image 
+                                                src={service.imageSrc} 
+                                                height={service.imageHeight} 
+                                                width={service.imageWidth} 
+                                                alt="Service photo"
+                                                className="object-cover h-full w-full absolute" 
+                                            />
+                                            <div className="absolute inset-0 bg-black opacity-30"></div>
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+                            <div key={i} className="grid sm:hidden">
+                                <div id="barrier-image-wrap" className="relative">
+                                <BarrierImageSection src={service.imageSrc} barrierHeight={64} />
+                                    <span className="absolute inset-0 grid place-items-center z-20">
+                                        <div className="grid gap-5">
+                                            <h1 className="text-3xl text-white agency w-64">{service.title}</h1>
+                                            <h1 className="text-md text-gray-300 agency absolute top-5 left-5">{service.captcha}</h1>
+                                        </div>
+                                    </span>
+                                    <span className="absolute inset-0 grid place-items-center z-10 bg-black opacity-60"></span>
+                                </div>
+                                <div id="text-wrap" className="px-5 pt-5 pb-16">{service.description}</div>
+                            </div>
+                        </>
+
                     );
                 })}
             </section>
