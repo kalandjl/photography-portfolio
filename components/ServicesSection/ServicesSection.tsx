@@ -105,7 +105,7 @@ const ServicesSection: FC = () => {
     }, []);
   
     return (
-      <section id="services-section" className="grid mt-10">
+      <section id="services-section" className="grid pt-10 border-t-2 border-black">
         <div className="px-20 pt-10 pb-20">
           <h1 className="text-4xl agency mb-5">Services Offered</h1>
           <p className={latoLite.className}>

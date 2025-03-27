@@ -1,19 +1,54 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import HeroImage from "@/public/pictures/DSC01374.jpg"
 import CardImage1 from "@/public/pictures/_DSC2941.jpg"
 import CardImage2 from "@/public/graphics/Senior day post.jpg"
+import CardImage3 from "@/public/portraits/JMAi THEATRE HEADSHOTS-48.jpg"
 import Image from "next/image";
 import { lato, latoLite, oswald } from "@/app/fonts";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion"
 import GalleryCard from "./GalleryCard";
+import { getUniqueRandomNumbers } from "@/lib/num";
 
 interface Props {
 
 }
 
+let portfolioSections = [
+    {
+        src: CardImage1,
+        height: 6155,
+        width: 3902,
+        link: "/portfolio/sports",
+        title: "Sports"
+    },
+    {
+        src: CardImage2,
+        height: 7008,
+        width: 4672,
+        link: "/portfolio/graphics",
+        title: "Graphics"
+    },
+    {
+        src: CardImage3,
+        width: 4248, 
+        height: 6372,
+        link: "/portfolio/portraits",
+        title: "Portraits"
+    },
+]
+
 const PortfolioSection: FC<Props> = (props) => {
+
+    let [shuffledPortfolioLinks, setShuffledPortfolioLinks] = useState<{[x: string]: any}[]>([])
+
+    useEffect(() => {
+
+        const nums = getUniqueRandomNumbers(2, portfolioSections.length)
+
+        setShuffledPortfolioLinks(nums.map(num => portfolioSections[num - 1]))
+    }, [])
 
     return (
         <>
@@ -48,12 +83,12 @@ const PortfolioSection: FC<Props> = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className="hidden md:block">
-                    <GalleryCard src={CardImage1} width={3902} height={6155} link="/portfolio/sports" title="Sports" />
-                </div>
-                <div className="hidden md:block">
-                    <GalleryCard src={CardImage2} width={7008} height={4672} link="/portfolio/graphics" title="Graphics" />
-                </div>
+                {shuffledPortfolioLinks.map((portfolioLink, i) => (
+                    <div className="hidden md:block" key={i}>
+                        <GalleryCard src={portfolioLink.src} width={portfolioLink.width} height={portfolioLink.height} 
+                        link={portfolioLink.link} title={portfolioLink.title} />
+                    </div>
+                ))}
             </section>
         </>
     )
