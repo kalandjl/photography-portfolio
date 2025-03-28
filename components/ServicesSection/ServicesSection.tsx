@@ -117,6 +117,8 @@ const ServicesSection: FC = () => {
           {servicesShort.map((service, i) => (
             <div key={i} className="relative overflow-hidden rounded-lg shadow-lg">
               <Image 
+                quality={10}
+                loading="eager"
                 src={service.imageSrc} 
                 alt={service.title} 
                 className="object-cover h-full"

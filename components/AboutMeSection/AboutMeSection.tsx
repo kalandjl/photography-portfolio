@@ -22,6 +22,8 @@ const AboutMeSection: FC<Props> = (props) => {
                 className="w-full h-full">
                     <Image src={HeroImage} alt="about me photo" 
                     objectFit="cover"
+                    quality={75}
+                    loading="eager"
                     className="object-cover h-full" />
                 </motion.div>
             </div>

@@ -23,7 +23,10 @@ const GalleryCard: FC<Props> = (props) => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.5 }}
                 className="w-full h-full">
-                    <Image src={props.src} height={props.height} width={props.width} alt="card image" className="object-cover w-full h-full" /> 
+                    <Image 
+                    quality={50}
+                    loading="eager"
+                    src={props.src} height={props.height} width={props.width} alt="card image" className="object-cover w-full h-full" /> 
                 </motion.div>
                 {/* Overlay section */}
                 <div className="inset-0 absolute">
@@ -35,7 +38,6 @@ const GalleryCard: FC<Props> = (props) => {
                                     <Link href={props.link} className="flex gap-2 duration-300 relative group w-min hover:scale-105 transition ease-in-out">
                                         <p className={`text-white ${oswald.className} w-max text-3xl opacity-100 z-10 text-center`}>{props.title}</p>
                                         <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-200 transition-all duration-300 group-hover:w-full"></span>
-
                                     </Link>
                                 </div>
                             </div>
