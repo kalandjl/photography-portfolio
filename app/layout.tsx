@@ -16,7 +16,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="overflow-hidden">
+      <body className="overflow-x-hidden">
         <QualityWrapper>{children}</QualityWrapper>
         <Footer />
         <div className="hidden h-128"></div>
