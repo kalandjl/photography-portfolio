@@ -16,9 +16,6 @@ export function renderNextImage(
   // @ts-ignore
   let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow } = photo
 
-  console.log(sizes)
-
-
   let bigContainerStyle =  big && !bigLeft ? {
     width: "200%",
     height: "200%",
@@ -99,6 +96,69 @@ export function renderNextImage(
           </div>
         </div>
 
+      </div>
+    </>
+  );
+}
+
+export function renderNextImageMobile(
+  { alt = "", title, sizes }: RenderImageProps,
+  { photo, width, height }: RenderImageContext,
+) {
+
+  // @ts-ignore
+  let { big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow } = photo
+
+  // Override the logic for mobile, do not apply any large image or layout adjustments for big-related properties
+  let containerStyle = {
+    width: "100%",
+    aspectRatio: `${width} / ${height}`,
+    display: "block",
+    position: "relative",
+  }
+
+  let imageWrapperClass = "sm:p-4 p-2";
+
+  // If none of the 'big' flags apply, we can just use a simpler approach
+  if (big || leftBig || rightBig || firstRightBig) {
+    containerStyle = {
+      ...containerStyle,
+      width: "100%", // Reset to default
+      // @ts-ignore
+      height: "auto", // Ensure no forced height
+      zIndex: "auto", // Avoid layer issues on mobile
+    }
+    imageWrapperClass = "sm:p-4 p-2"; // Default padding for mobile
+  }
+
+  return (
+    <>
+      <div className="block">
+        <div className="relative">
+          <div
+          // @ts-ignore
+            style={containerStyle}
+          >
+            <div id="image-container-wrap" className={imageWrapperClass}>
+              <Image
+                fill
+                src={photo}
+                alt={alt}
+                title={title}
+                sizes={sizes}
+                id="gallery-photo"
+                quality={75}
+                className={`
+                  ${photo.src.includes('hidden') ? "hidden" : ""}
+                  ${imageWrapperClass}
+                `}
+                loading="eager"
+                priority={false}
+              />
+            </div>
+            <div style={{ position: "absolute", background: "transparent" }}></div>
+          </div>
+        </div>
       </div>
     </>
   );

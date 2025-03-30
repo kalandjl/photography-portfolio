@@ -11,7 +11,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const clients = [
-    "CAHSMUN", 
+    "CASHMUN", 
     "VANCOUVER COLLEGE ATHLETICS", 
     "VANCOUVER COLLEGE VARSITY BASKETBALL", 
     "RICHMOND RAIDERS FOOTBALL", 
@@ -19,14 +19,6 @@ const clients = [
 ];
 
 const testimonials = [
-    {
-        testimonial: "As Under-Secretary-General Marketing for Canadian High Schools Model United Nations (CAHSMUN) 2024, I had the pleasure of working with Johnson Mai, who played a vital role as one of our photographers. Johnson consistently demonstrated a keen artistic eye, capturing the energy and essence of our conference with professionalism and creativity. Beyond his technical skill, Johnson was incredibly reliable, meeting tight deadlines while adapting seamlessly to the fast-paced nature of the conference. His dedication to the media team was evident in every aspect of his work, from meticulous planning to his commitment to delivering high-quality content. Johnson’s contributions were invaluable.",
-        quote: "— Rachel Wei, Under-Secretary-General Marketing, CAHSMUN 2024"
-    },
-    {
-        testimonial: "As Under-Secretary-General Marketing for Canadian High Schools Model United Nations (CAHSMUN) 2024, I had the pleasure of working with Johnson Mai, who played a vital role as one of our photographers. Johnson consistently demonstrated a keen artistic eye, capturing the energy and essence of our conference with professionalism and creativity. Beyond his technical skill, Johnson was incredibly reliable, meeting tight deadlines while adapting seamlessly to the fast-paced nature of the conference. His dedication to the media team was evident in every aspect of his work, from meticulous planning to his commitment to delivering high-quality content. Johnson’s contributions were invaluable.",
-        quote: "— Rachel Wei, Under-Secretary-General Marketing, CAHSMUN 2024"
-    },
     {
         testimonial: "As Under-Secretary-General Marketing for Canadian High Schools Model United Nations (CAHSMUN) 2024, I had the pleasure of working with Johnson Mai, who played a vital role as one of our photographers. Johnson consistently demonstrated a keen artistic eye, capturing the energy and essence of our conference with professionalism and creativity. Beyond his technical skill, Johnson was incredibly reliable, meeting tight deadlines while adapting seamlessly to the fast-paced nature of the conference. His dedication to the media team was evident in every aspect of his work, from meticulous planning to his commitment to delivering high-quality content. Johnson’s contributions were invaluable.",
         quote: "— Rachel Wei, Under-Secretary-General Marketing, CAHSMUN 2024"
@@ -125,8 +117,11 @@ const Home = () => {
                             transition={{ duration: 0.6, ease: "easeInOut" }}
                             className="max-w-3xl mx-6 bg-white p-10 shadow-lg rounded-lg border border-gray-200"
                         >
-                            <p className={`text-lg text-gray-800 italic leading-relaxed ${lato.className}`}>
+                            <p className={`text-lg text-gray-800 italic leading-relaxed ${latoLite.className}`}>
                                 {testimonials[curSlide].testimonial}
+                            </p>
+                            <p className={`text-lg text-gray-800 italic leading-relaxed mt-10 ml-5 ${lato.className}`}>
+                                {testimonials[curSlide].quote}
                             </p>
                         </motion.div>
                     </AnimatePresence>

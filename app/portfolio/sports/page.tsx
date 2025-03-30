@@ -1,5 +1,8 @@
 import PortfolioLayout from "@/components/PortfolioLayout";
 import Head from "next/head";
+import HeroImage from "@/public/pictures/Windsor Champs-074.jpg"
+import HeroImageSection from "@/components/HeroImageSection";
+
 
 const pics = [
 
@@ -55,6 +58,7 @@ const pics = [
 const Home = () => {
     return (
         <>
+            <HeroImageSection src={HeroImage} width={7008} height={4672} title="Sports" />
             <PortfolioLayout pics={pics} title="Sports" />
         </>
     )

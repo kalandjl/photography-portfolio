@@ -55,7 +55,7 @@ const Home = () => {
         <>
             <main>
                 <HeroImageSection src={HeroImage} width={6674} height={4449} title="Contact" />
-                <section id="form-section" className="grid sm:grid-flow-col grid-flow-row sm:grid-cols-5 sm:h-screen pt-10">
+                <section id="form-section" className="grid sm:grid-flow-col grid-flow-row sm:grid-cols-5 pb-64 pt-10">
                     <div id="contact-form-paragraph" className="w-full col-span-2 px-20 py-16">
                         <div id="text-wrap grid gap-12 h-2/3">
                             <h1 className={`text-3xl agency mb-5`}>

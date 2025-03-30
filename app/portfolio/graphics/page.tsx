@@ -1,4 +1,6 @@
+import HeroImageSection from "@/components/HeroImageSection";
 import PortfolioLayout from "@/components/PortfolioLayout";
+import HeroImage from "@/public/graphics/Background.png"
 
 const pics = [
     { src: "/graphics/FINAL 6273341.jpg", width: 2160, height: 2160}, 
@@ -14,7 +16,10 @@ const pics = [
 
 const Home = () => {
     return (
-        <PortfolioLayout pics={pics} title="Graphics" />
+        <>
+            <HeroImageSection src={HeroImage} width={1920} height={1022} title="Graphics" />
+            <PortfolioLayout pics={pics} title="Graphics" />
+        </>
     )
 };
 

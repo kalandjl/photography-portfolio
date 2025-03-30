@@ -1,4 +1,6 @@
+import HeroImageSection from "@/components/HeroImageSection";
 import PortfolioLayout from "@/components/PortfolioLayout";
+import HeroImage from "@/public/portraits/Ryan and Taylor-005.jpg"
 
 const pics = [
     { src: "/portraits/Devine and Ngan-39.jpg", width: 3714, height: 5571}, 
@@ -18,13 +20,15 @@ const pics = [
     { src: "/portraits/JMAi THEATRE HEADSHOTS-23.jpg", width: 3787, height: 5681}, 
     { src: "/portraits/JMAi THEATRE HEADSHOTS-45.jpg", width: 4054, height: 6081}, 
     { src: "/portraits/JMAi THEATRE HEADSHOTS-48.jpg", width: 4248, height: 6372}, 
-    { src: "/portraits/Ryan and Taylor-005.jpg", width: 7008, height: 4672}, 
     { src: "/portraits/Ryan and Taylor-006.jpg", width: 4672, height: 7008}, 
 ];
 
 const Home = () => {
     return (
-        <PortfolioLayout pics={pics} title="Potraits" />
+        <>
+            <HeroImageSection src={HeroImage} width={7008} height={4672} title="Sports" />
+            <PortfolioLayout pics={pics} title="Potraits" />
+        </>
     )
 };
 
