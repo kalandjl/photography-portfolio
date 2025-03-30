@@ -45,6 +45,7 @@ const HeroImageSection: React.FC<Props> = (props) => {
                         className={`absolute w-full h-full object-cover 
                             ${props.imageTop ? "object-top" : "object-center"}`}
                         loading="eager"
+                        priority
                     />
                 </div>
             </section>
@@ -63,7 +64,7 @@ const HeroImageSection: React.FC<Props> = (props) => {
                         <ArrowDown 
                             onClick={handleArrowClick}
                             stroke="#ffffff" 
-                            className={`h-12 w-8 hover:cursor-pointer hover:scale-110 ease-in-out transition ${!hasScrolled ? "animate-bounce" : ""}`} 
+                            className={`h-12 w-8 hover:cursor-pointer hover:scale-110 ease-in-out transition ${!hasScrolled ? "animate-bounce" : "opacity-0"}`} 
                         />
                     </div>
                 </main>

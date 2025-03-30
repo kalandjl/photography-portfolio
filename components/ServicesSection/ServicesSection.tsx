@@ -120,7 +120,7 @@ const ServicesSection: FC = () => {
                             loading="eager"
                             src={service.imageSrc}
                             alt={service.title}
-                            className="object-cover h-full"
+                           className="object-cover h-full"
                         />
                         <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center p-5">
                             <h2 className="text-3xl text-white agency">
