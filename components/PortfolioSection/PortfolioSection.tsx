@@ -84,7 +84,7 @@ const PortfolioSection: FC<Props> = (props) => {
                     </div>
                 </div>
                 {shuffledPortfolioLinks.map((portfolioLink, i) => (
-                    <div className="hidden md:block" key={i}>
+                    <div className="hidden md:block max-h-128" key={i}>
                         <GalleryCard src={portfolioLink.src} width={portfolioLink.width} height={portfolioLink.height} 
                         link={portfolioLink.link} title={portfolioLink.title} />
                     </div>

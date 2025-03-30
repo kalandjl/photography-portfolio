@@ -15,6 +15,11 @@ interface Props {
 const HeroImageSection: React.FC<Props> = (props) => {
     const [hasScrolled, setHasScrolled] = useState(false);
 
+    const handleArrowClick = () => {
+
+        window.scrollBy({ top: window.innerHeight, behavior: "smooth" });
+    }
+
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
@@ -55,8 +60,9 @@ const HeroImageSection: React.FC<Props> = (props) => {
                     </h1>
                     <div id="arrow" className="absolute bottom-0 h-20 mb-16 grid place-items-center">
                         <ArrowDown 
+                            onClick={handleArrowClick}
                             stroke="#ffffff" 
-                            className={`h-12 w-8 ${!hasScrolled ? "animate-bounce" : ""}`} 
+                            className={`h-12 w-8 hover:cursor-pointer hover:scale-110 ease-in-out transition ${!hasScrolled ? "animate-bounce" : ""}`} 
                         />
                     </div>
                 </main>

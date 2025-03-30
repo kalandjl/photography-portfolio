@@ -57,7 +57,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
         </motion.div>
       </header>
 
-      <div className="px-6 md:px-32 lg:px-64 pb-20 pt-10">
+      <div className="px-6 md:px-32 lg:px-64 pt-10">
         <MasonryPhotoAlbum
           columns={3}
           spacing={0}
