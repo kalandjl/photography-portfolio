@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import Image, { StaticImageData } from "next/image";
 import Nav from "../Nav";
+import CustomImage from "../CustomImage";
 
 interface Props {
     src: StaticImageData;
@@ -36,7 +37,7 @@ const HeroImageSection: React.FC<Props> = (props) => {
             <section className="h-screen relative">
                 <div className="bg-black opacity-70 w-full h-full absolute z-10"></div>
                 <div className="relative w-full h-full">
-                    <Image 
+                    <CustomImage 
                         src={props.src} 
                         height={props.height} 
                         width={props.width} 

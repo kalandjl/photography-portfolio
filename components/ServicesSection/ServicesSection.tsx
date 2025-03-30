@@ -16,6 +16,7 @@ import Service from "@/types/Service";
 import { getUniqueRandomNumbers } from "@/lib/num";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import CustomImage from "../CustomImage";
 
 interface Props {
 
@@ -116,8 +117,7 @@ const ServicesSection: FC = () => {
         <div className="grid grid-flow-row sm:grid-flow-col sm:grid-cols-3 gap-6 px-6" id="services-grid">
           {servicesShort.map((service, i) => (
             <div key={i} className="relative overflow-hidden rounded-lg shadow-lg">
-              <Image 
-                quality={10}
+              <CustomImage 
                 loading="eager"
                 src={service.imageSrc} 
                 alt={service.title} 

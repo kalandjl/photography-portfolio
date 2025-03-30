@@ -10,6 +10,7 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion"
 import GalleryCard from "./GalleryCard";
 import { getUniqueRandomNumbers } from "@/lib/num";
+import CustomImage from "../CustomImage";
 
 interface Props {
 
@@ -60,7 +61,7 @@ const PortfolioSection: FC<Props> = (props) => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.5 }}
                     className="w-full h-full">
-                        <Image src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover h-full hover:scale-105" /> 
+                        <CustomImage src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover h-full hover:scale-105" /> 
                     </motion.div>
                     {/* Overlay section */}
                     <div className="inset-0 absolute">

@@ -4,6 +4,7 @@ import { FC, useState, useRef, useEffect } from "react";
 import SectionImage from "@/public/bg/JMAI -02.jpg"
 import PageImage from "@/public/bg/JMAI -01.jpg"
 import Image from "next/image";
+import CustomImage from "../CustomImage";
 
 interface Props {
     asSection: boolean
@@ -88,7 +89,7 @@ const FAQSection: FC<Props> = (props) => {
             </div>
             <div className="absolute inset-0 -z-10">
                 <div id="image-wrap" className="h-full relative">
-                    <Image src={props.asSection ? SectionImage : PageImage}  alt="background image"
+                    <CustomImage src={props.asSection ? SectionImage : PageImage}  alt="background image"
                        layout="fill"
                        objectFit="cover"  // this ensures object-cover behavior
                     className="object-cover" />

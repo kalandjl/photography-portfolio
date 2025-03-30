@@ -3,6 +3,7 @@ import { FC } from "react";
 import HeroImage from "@/public/pictures/_DSC6815.jpg"
 import { lato, latoLite } from "@/app/fonts";
 import Link from "next/link";
+import CustomImage from "../CustomImage";
 
 interface Props {
 
@@ -15,7 +16,7 @@ const ContactSection: FC<Props> = (props) => {
         <>
             <section id="contact-section" className="md:h-128 sm:h-96 h-64">
                 <div id="image-wrap" className="overflow-hidden h-full relative">
-                    <Image src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover" /> 
+                    <CustomImage src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover" /> 
                     {/* Overlay section */}
                     <div className="inset-0 absolute">
                         <div className="relative h-full">

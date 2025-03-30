@@ -3,6 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import { FC } from "react";
 import Nav from "../Nav";
 import { motion } from "framer-motion"
+import CustomImage from "../CustomImage";
 
 interface Props {
     src: StaticImageData;
@@ -22,7 +23,7 @@ const BarrierImageSection: FC<Props> = (props) => {
                         viewport={{ once: true, amount: 0.5 }}
                         className="w-full h-full"
                     >
-                        <Image 
+                        <CustomImage 
                             src={props.src} 
                             alt="hero pic"
                             layout="fill"

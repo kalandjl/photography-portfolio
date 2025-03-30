@@ -3,6 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { motion } from "framer-motion"
+import CustomImage from "../CustomImage";
 
 interface Props {
     src: StaticImageData
@@ -23,7 +24,7 @@ const GalleryCard: FC<Props> = (props) => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.5 }}
                 className="w-full h-full">
-                    <Image 
+                    <CustomImage 
                     quality={50}
                     loading="eager"
                     src={props.src} height={props.height} width={props.width} alt="card image" className="object-cover w-full h-full" /> 

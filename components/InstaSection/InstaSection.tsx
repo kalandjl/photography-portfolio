@@ -12,6 +12,7 @@ import InstaPhoto5 from "@/public/pictures/insta/insta-photo-5.jpg"
 import InstaPhoto6 from "@/public/pictures/insta/insta-photo-6.jpg"
 import InstaPhoto7 from "@/public/pictures/insta/insta-photo-7.jpg"
 import { getUniqueRandomNumbers } from "@/lib/num";
+import CustomImage from "../CustomImage";
 
 let preRandImages = [
     {src: InstaPhoto1, width: 2160, height: 2160, link: "https://www.instagram.com/p/DGxGFDtxXv4/?img_index=1"},
@@ -63,7 +64,7 @@ const InstaSection: FC<Props> = () => {
                 {images.map((image, i) => (
                     <Link href={image.link} key={i}>
                         <div className="relative w-full h-full overflow-hidden">
-                            <Image src={image.src} layout="fill" objectFit="cover" alt={`insta image ${i + 1}`}
+                            <CustomImage src={image.src} layout="fill" objectFit="cover" alt={`insta image ${i + 1}`}
                             className="hover:scale-105 hover:cursor-pointer transition ease-in-out " />
                         </div>
                     </Link>
