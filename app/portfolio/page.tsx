@@ -9,6 +9,7 @@ import ContactSection from "@/components/ContactSection";
 import HeroImageSection from "@/components/HeroImageSection";
 import HeroImage from "../../public/pictures/_DSC6971.jpg";
 import { nunito, oswald } from "../fonts";
+import CustomImage from "@/components/CustomImage";
 
 // Portfolio sections data
 const portfolioSections = [
@@ -125,7 +126,7 @@ const Home = () => {
                                         </h1>
                                         <p className={`mt-5 text-sm sm:text-md ${nunito.className}`}>{description}</p>
                                         <div className="flex justify-center sm:justify-start items-center gap-2 mt-4 text-blue-600">
-                                            <span className="flex gap-2"><p>See more</p> <ArrowRight /></span>
+                                            <span className="flex gap-2"><p>Link</p><ArrowRight /></span>
                                             <ArrowRight className="w-6 h-6 sm:block hidden group-hover:translate-x-1 transition" />
                                         </div>
                                     </Link>
@@ -140,12 +141,12 @@ const Home = () => {
                                         viewport={{ once: true, amount: 0.5 }}
                                         className="w-full h-full"
                                     >
-                                        <Image
+                                        <CustomImage
                                             src={image}
                                             width={6671}
                                             height={4447}
                                             alt={title}
-                                            className="w-full h-full object-cover object-top"  // Show top part of the image
+                                            className="w-full h-full object-cover object-top hidden sm:block"  // Show top part of the image
                                         />
                                     </motion.div>
                                 </div>
