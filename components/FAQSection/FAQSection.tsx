@@ -1,8 +1,13 @@
 import { lato, latoLite, oswald, oswaldBold } from "@/app/fonts";
 import { ArrowDown } from "lucide-react";
 import { FC, useState, useRef, useEffect } from "react";
+import SectionImage from "@/public/bg/JMAI -02.jpg"
+import PageImage from "@/public/bg/JMAI -01.jpg"
+import Image from "next/image";
 
-interface Props {}
+interface Props {
+    asSection: boolean
+}
 
 const faqArr = [
     { 
@@ -39,7 +44,7 @@ const faqArr = [
     },
 ];
 
-const FAQSection: FC<Props> = () => {
+const FAQSection: FC<Props> = (props) => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
     const contentRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -52,32 +57,43 @@ const FAQSection: FC<Props> = () => {
     }, [openIndex]);
 
     return (
-        <section id="faq-section" className="min-h-128 mb-20 mt-32">
-            <h1 className={`agency text-3xl text-center mt-20`}>Frequently Asked Questions</h1>
-            <div className="max-w-4xl w-full px-6 md:px-16 lg:px-32 mx-auto p-6 space-y-4">
-                {faqArr.map((faq, index) => (
-                    <div key={index} className="border-b mt-10 first:mt-0">
-                        <button 
-                            className={`w-full text-left text-lg md:text-xl font-medium py-3 focus:outline-none
-                            hover:cursor-pointer hover:text-gray-700 transition ease-in-out flex justify-between items-center ${oswald.className}`}
-                            onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                        >
-                            {faq.question}
-                            <ArrowDown
-                                className={`transform transition-transform duration-300 ${
-                                    openIndex === index ? "rotate-180" : ""
-                                }`}
-                            />
-                        </button>
-                        <div
-                        // @ts-ignore
-                            ref={(el) => (contentRefs.current[index] = el)}
-                            className={`overflow-hidden transition-all duration-300 ${latoLite.className}`}
-                        >
-                            <p className="text-gray-800 py-2">{faq.answer}</p>
+        <section id="faq-section" className="min-h-128 relative text-white">
+            <div className="py-20" id="content-wrap">
+                <h1 className={`agency text-3xl text-center mt-20`}>Frequently Asked Questions</h1>
+                <div className="max-w-4xl w-full px-6 md:px-16 lg:px-32 mx-auto p-6 space-y-4">
+                    {faqArr.map((faq, index) => (
+                        <div key={index} className="border-b mt-10 first:mt-0">
+                            <button 
+                                className={`w-full text-left text-lg md:text-xl font-medium py-3 focus:outline-none
+                                hover:cursor-pointer hover:text-gray-300 transition ease-in-out flex justify-between items-center ${oswald.className}`}
+                                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                            >
+                                {faq.question}
+                                <ArrowDown
+                                    className={`transform transition-transform duration-300 ${
+                                        openIndex === index ? "rotate-180" : ""
+                                    }`}
+                                />
+                            </button>
+                            <div
+                            // @ts-ignore
+                                ref={(el) => (contentRefs.current[index] = el)}
+                                className={`overflow-hidden transition-all duration-300 ${latoLite.className}`}
+                            >
+                                <p className="text-gray-200 py-2">{faq.answer}</p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+            </div>
+            <div className="absolute inset-0 -z-10">
+                <div id="image-wrap" className="h-full relative">
+                    <Image src={props.asSection ? SectionImage : PageImage}  alt="background image"
+                       layout="fill"
+                       objectFit="cover"  // this ensures object-cover behavior
+                    className="object-cover" />
+                    <div className="absolute inset-0 bg-black opacity-80 "></div>
+                </div>
             </div>
         </section>
     );

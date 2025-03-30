@@ -176,7 +176,7 @@ const Home = () => {
             { title: "My Story", link: "/about" },
             ]}
             />            
-            <FAQSection />
+            <FAQSection asSection={true} />
 
             <ContactSection />
 

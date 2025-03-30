@@ -12,7 +12,7 @@ const Home = () => {
             <Nav theme="dark" />
      
             
-            <FAQSection />
+            <FAQSection asSection={false} />
 
             <ActionSection links={[
                 {

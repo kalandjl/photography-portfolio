@@ -70,7 +70,7 @@ export function renderNextImage(
           ...rightBigContainerStyle, 
           ...firstRightBigContainerStyle,}}
         >
-          <div id="image-container-wrap" 
+        <div id="image-container-wrap" 
           className={`
           ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : "p-4"}`}>
             <Image
