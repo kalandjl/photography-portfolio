@@ -26,7 +26,7 @@ const pics = [
 const Home = () => {
     return (
         <>
-            <HeroImageSection src={HeroImage} width={7008} height={4672} title="Sports" />
+            <HeroImageSection src={HeroImage} width={7008} height={4672} title="Portraits" />
             <PortfolioLayout pics={pics} title="Potraits" />
         </>
     )
