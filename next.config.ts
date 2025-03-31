@@ -10,6 +10,18 @@ const nextConfig = {
       value: "public, max-age=31536000, immutable",
     },
   ],
+
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'firebasestorage.googleapis.com',
+        port: '',
+        pathname: '*',
+        search: '',
+      },
+    ],
+  }
 }
 
 export default nextConfig;

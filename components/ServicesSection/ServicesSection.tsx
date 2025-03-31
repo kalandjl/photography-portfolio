@@ -155,7 +155,7 @@ const ServicesSection: FC = () => {
 
             <div className="pl-6 pr-6 sm:pl-20 sm:pr-15 py-10 grid place-items-center">
                 <Link href="/services">
-                    <button className="sm:px-26 px-16 py-6 rounded-md border-1 border-black hover:scale-105 hover:bg-gray-100">
+                    <button className="sm:px-26 px-16 py-6 rounded-md border-1 border-black hover:scale-105 transition hover:cursor-pointer hover:bg-gray-100">
                         <span className="flex gap-3">
                             <span className="w-max">More Services</span>
                         </span>

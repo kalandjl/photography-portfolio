@@ -61,7 +61,7 @@ const PortfolioSection: FC<Props> = (props) => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.5 }}
                     className="w-full h-full">
-                        <CustomImage quality={25} src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover h-full hover:scale-105" fetchPriority="high" priority /> 
+                        <img src="https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/DSC01374.jpg?alt=media&token=f0cea1b2-8623-4046-9307-f53c85c574e2" height={6039} width={4025} alt="hero image" className="object-cover h-full hover:scale-105" fetchPriority="high" loading="eager"></img>
                     </motion.div>
                     {/* Overlay section */}
                     <div className="inset-0 absolute">
