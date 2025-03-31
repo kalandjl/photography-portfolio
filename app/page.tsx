@@ -15,6 +15,7 @@ import ContactSection from "@/components/ContactSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import AboutMeSection from "@/components/AboutMeSection";
 import ServicesSection from "@/components/ServicesSection";
+import { firebaseConfig } from "@/lib/firebase";
 
 const images = [
   HeroPic1,

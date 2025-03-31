@@ -19,6 +19,7 @@ interface Message {
 }
 
 const Home: React.FC = () => {
+
     const [user] = useAuthState(auth);
     const [messages, setMessages] = useState<Message[]>([]);
     const [messageRefs, setMessageRefs] = useState<{ [key: string]: boolean }>({});

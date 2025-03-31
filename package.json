@@ -10,8 +10,11 @@
     "static": "next export"
   },
   "dependencies": {
+    "@next/env": "^15.2.4",
+    "dotenv": "^16.4.7",
     "firebase": "^11.4.0",
     "framer-motion": "^12.5.0",
+    "fs": "^0.0.1-security",
     "heroicons": "^2.2.0",
     "lucide-react": "^0.479.0",
     "next": "15.2.3",
