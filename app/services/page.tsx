@@ -19,6 +19,8 @@ import ContactSection from "@/components/ContactSection"
 import InstaSection from "@/components/InstaSection"
 import BarrierImageSection from "@/components/BarrierImageSection"
 import ActionSection from "@/components/ActionSection"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
 
 
 let services: {title: string, description: string, imageSrc: StaticImageData, imageWidth: number, imageHeight: number, captcha: string}[] = [
@@ -98,6 +100,9 @@ let services: {title: string, description: string, imageSrc: StaticImageData, im
 const reverseLayout = false; // Set to true if you want to start with text first
 
 const Home = () => {
+
+    const [selectedImage, setSelectedImage] = useState<StaticImageData | null>(null);
+
     return (
         <>
             <HeroImageSection src={HeroImage} width={7008} height={4672} title="Services" />
@@ -111,16 +116,24 @@ const Home = () => {
                             <div className="h-128 grid-cols-5 hidden sm:grid">
                                 {!isReversed ? (
                                     <>
-                                        <div id="image-wrap" className="col-span-3 overflow-hidden h-full w-full relative">
-                                            <Image 
-                                                src={service.imageSrc} 
-                                                height={service.imageHeight} 
-                                                width={service.imageWidth} 
-                                                alt="Service photo"
-                                                className="object-cover h-full w-full absolute" 
-                                            />
+                                        <motion.div
+                                            initial={{ opacity: 0, x: -50 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true, amount: 0.2 }}
+                                            transition={{ duration: 1 }}
+                                            onClick={() => setSelectedImage(service.imageSrc)}
+                                            id="image-wrap" 
+                                            className="col-span-3 overflow-hidden h-full w-full relative"
+                                        >
+                                                <Image 
+                                                    src={service.imageSrc} 
+                                                    height={service.imageHeight} 
+                                                    width={service.imageWidth} 
+                                                    alt="Service photo"
+                                                    className="object-cover h-full w-full absolute" 
+                                                />
                                             <div className="absolute inset-0 bg-black opacity-30"></div>
-                                        </div>
+                                        </motion.div>
                                         <div id="text-wrap" className="col-span-2 grid place-items-center px-20 w-3/4">
                                             <div className="grid gap-5">
                                                 <h1 className="text-4xl agency">{service.title}</h1>
@@ -138,7 +151,15 @@ const Home = () => {
                                                 <p className={`text-lg ${latoLite.className} text-gray-700`}>{service.captcha}</p>
                                             </div>
                                         </div>
-                                        <div id="image-wrap" className="col-span-3 overflow-hidden h-full w-full relative">
+                                        <motion.div
+                                            initial={{ opacity: 0, x: 50 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true, amount: 0.2 }}
+                                            transition={{ duration: 1 }}
+                                            onClick={() => setSelectedImage(service.imageSrc)}
+                                            id="image-wrap" 
+                                            className="col-span-3 overflow-hidden h-full w-full relative"
+                                        >
                                             <Image 
                                                 src={service.imageSrc} 
                                                 height={service.imageHeight} 
@@ -147,7 +168,7 @@ const Home = () => {
                                                 className="object-cover h-full w-full absolute" 
                                             />
                                             <div className="absolute inset-0 bg-black opacity-30"></div>
-                                        </div>
+                                        </motion.div>
                                     </>
                                 )}
                             </div>
@@ -169,6 +190,36 @@ const Home = () => {
                     );
                 })}
             </section>
+
+            {/* Image Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-50 p-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.8 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0.8 }}
+                            transition={{ duration: 0.3 }}
+                            className="relative flex justify-center items-center w-[90vw] h-[95vh] max-w-4xl max-h-[95vh]"
+                        >
+                            <Image
+                                src={selectedImage}
+                                width={800} // Fixed width
+                                height={600} // Fixed height
+                                alt="Enlarged Image"
+                                className="rounded-lg object-contain w-full h-full"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             
             <ActionSection
             links={[

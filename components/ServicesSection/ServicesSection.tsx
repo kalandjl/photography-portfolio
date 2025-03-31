@@ -107,7 +107,7 @@ const ServicesSection: FC = () => {
     }, []);
 
     return (
-        <section id="services-section" className="grid pt-10 border-t-2 border-black overflow-hidden">
+        <section id="services-section" className="grid pt-10 border-t-2 border-black">
             <motion.div
             initial={{ opacity: 0, x: -300 }} // Start below the view (50px down) and hidden (opacity 0)
             whileInView={{ opacity: 1, x: 0 }} // Animate to the original position and opacity 1
@@ -153,7 +153,13 @@ const ServicesSection: FC = () => {
                 ))}
             </div>
 
-            <div className="pl-6 pr-6 sm:pl-20 sm:pr-15 py-10 grid place-items-center">
+            <motion.div
+            initial={{ opacity: 0, y: 150 }} // Start below the view (50px down) and hidden (opacity 0)
+            whileInView={{ opacity: 1, y: 0 }} // Animate to the original position and opacity 1
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+            transition={{ duration: 1 }}
+            className="pl-6 pr-6 sm:pl-20 sm:pr-15 py-10 grid place-items-center"
+            >
                 <Link href="/services">
                     <button className="sm:px-26 px-16 py-6 rounded-md border-1 border-black hover:scale-105 transition hover:cursor-pointer hover:bg-gray-100">
                         <span className="flex gap-3">
@@ -161,7 +167,7 @@ const ServicesSection: FC = () => {
                         </span>
                     </button>
                 </Link>
-            </div>
+            </motion.div>
         </section>
     );
 };

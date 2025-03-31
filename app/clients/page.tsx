@@ -97,13 +97,21 @@ const Home = () => {
                     </p>
                 </div>
 
-                <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 px-6 sm:px-32">
+                <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 1 }}
+                // onClick={() => setSelectedImage(image)}
+                id="image-wrap" 
+                className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 px-6 sm:px-32"
+                >
                     {clients.map((client, index) => (
                         <div key={index} className="bg-gray-200 p-6 rounded-sm transform transition">
                             <p className={`text-2xl font-semibold text-gray-800 ${oswald.className}`}>{client}</p>
                         </div>
                     ))}
-                </div>
+                </motion.div>
             </section>
 
             <div
