@@ -3,7 +3,6 @@
 # dependencies
 /node_modules
 /.pnp
-/lib/firebase.ts
 .pnp.*
 .yarn/*
 !.yarn/patches
