@@ -50,23 +50,30 @@ const Home = () => {
                             <section key={id} id={`${id}-hero`} className="hidden sm:grid grid-cols-5 sm:h-144 h-64">
                                 {/* Image (Left if index is even, Right if odd) */}
                                 {!isReversed && (
-                                    <div className="col-span-3 overflow-hidden">
-                                        <motion.div
-                                            initial={{ scale: 1 }}
-                                            whileInView={{ scale: 1.02 }}
-                                            transition={{ duration: 0.6, ease: "easeOut" }}
-                                            viewport={{ once: true, amount: 0.5 }}
-                                            className="w-full h-full"
-                                        >
-                                            <Image
-                                                src={image}
-                                                width={6671}
-                                                height={4447}
-                                                alt={title}
-                                                className="w-full h-full object-cover object-top"  // Show top part of the image
-                                            />
-                                        </motion.div>
-                                    </div>
+                                    <motion.div
+                                    initial={{ opacity: 0, x: -50 }} // Start below the view (50px down) and hidden (opacity 0)
+                                    whileInView={{ opacity: 1, x: 0 }} // Animate to the original position and opacity 1
+                                    viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+                                    transition={{ duration: 1 }}
+                                    className="col-span-3 overflow-hidden">
+                                        <div>
+                                            <motion.div
+                                                initial={{ scale: 1 }}
+                                                whileInView={{ scale: 1.02 }}
+                                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                                viewport={{ once: true, amount: 0.5 }}
+                                                className="w-full h-full"
+                                            >
+                                                <Image
+                                                    src={image}
+                                                    width={6671}
+                                                    height={4447}
+                                                    alt={title}
+                                                    className="w-full h-full object-cover object-top"  // Show top part of the image
+                                                />
+                                            </motion.div>
+                                        </div>
+                                    </motion.div>
                                 )}
 
                                 {/* Text & Link */}
@@ -93,7 +100,59 @@ const Home = () => {
 
                                 {/* Image (Right if index is odd, Left if even) */}
                                 {isReversed && (
-                                    <div className="col-span-3 overflow-hidden">
+                                    <motion.div
+                                    initial={{ opacity: 0, x: 50 }} // Start below the view (50px down) and hidden (opacity 0)
+                                    whileInView={{ opacity: 1, x: 0 }} // Animate to the original position and opacity 1
+                                    viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+                                    transition={{ duration: 1 }}
+                                    className="col-span-3 overflow-hidden">
+                                        <div>
+                                            <motion.div
+                                                initial={{ scale: 1 }}
+                                                whileInView={{ scale: 1.02 }}
+                                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                                viewport={{ once: true, amount: 0.5 }}
+                                                className="w-full h-full"
+                                            >
+                                                <Image
+                                                    src={image}
+                                                    width={6671}
+                                                    height={4447}
+                                                    alt={title}
+                                                    className="w-full h-full object-cover object-top"  // Show top part of the image
+                                                />
+                                            </motion.div>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </section>
+
+                            <motion.div 
+                            initial={{ opacity: 0, y: 50 }} // Start below the view (50px down) and hidden (opacity 0)
+                            whileInView={{ opacity: 1, y: 0 }} // Animate to the original position and opacity 1
+                            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+                            transition={{ duration: 1 }}
+                            className="flex flex-col sm:grid-cols-2 items-center gap-8 sm:hidden">
+                                <section
+                                    key={`${id}-mobile`}
+                                    id={`${id}-hero`}
+                                >
+                                    {/* Text & Link: Mobile (Below Image), Desktop (Alternating) */}
+                                    <div className="text-center sm:text-left px-6 py-5">
+                                        <Link href={link} className="group block hover:scale-105 transition ease-in-out">
+                                            <h1 className={`${oswald.className} text-3xl sm:text-5xl underline sm:no-underline`}>
+                                                {title}
+                                            </h1>
+                                            <p className={`mt-5 text-sm sm:text-md ${nunito.className}`}>{description}</p>
+                                            <div className="flex justify-center sm:justify-start items-center gap-2 mt-4 text-blue-600">
+                                                <span className="flex gap-2"><p>Link</p><ArrowRight /></span>
+                                                <ArrowRight className="w-6 h-6 sm:block hidden group-hover:translate-x-1 transition" />
+                                            </div>
+                                        </Link>
+                                    </div>
+
+                                    {/* Image Placement: Mobile (Top), Desktop (Alternating) */}
+                                    <div className={`w-full overflow-hidden ${isReversed ? "sm:order-2" : "sm:order-1"}`}>
                                         <motion.div
                                             initial={{ scale: 1 }}
                                             whileInView={{ scale: 1.02 }}
@@ -101,56 +160,17 @@ const Home = () => {
                                             viewport={{ once: true, amount: 0.5 }}
                                             className="w-full h-full"
                                         >
-                                            <Image
+                                            <CustomImage
                                                 src={image}
                                                 width={6671}
                                                 height={4447}
                                                 alt={title}
-                                                className="w-full h-full object-cover object-top"  // Show top part of the image
+                                                className="w-full h-full object-cover object-top hidden sm:block"  // Show top part of the image
                                             />
                                         </motion.div>
                                     </div>
-                                )}
-                            </section>
-
-                            <section
-                                key={`${id}-mobile`}
-                                id={`${id}-hero`}
-                                className="flex flex-col sm:grid-cols-2 items-center gap-8 sm:hidden"
-                            >
-                                {/* Text & Link: Mobile (Below Image), Desktop (Alternating) */}
-                                <div className="text-center sm:text-left px-6 py-5">
-                                    <Link href={link} className="group block hover:scale-105 transition ease-in-out">
-                                        <h1 className={`${oswald.className} text-3xl sm:text-5xl underline sm:no-underline`}>
-                                            {title}
-                                        </h1>
-                                        <p className={`mt-5 text-sm sm:text-md ${nunito.className}`}>{description}</p>
-                                        <div className="flex justify-center sm:justify-start items-center gap-2 mt-4 text-blue-600">
-                                            <span className="flex gap-2"><p>Link</p><ArrowRight /></span>
-                                            <ArrowRight className="w-6 h-6 sm:block hidden group-hover:translate-x-1 transition" />
-                                        </div>
-                                    </Link>
-                                </div>
-
-                                {/* Image Placement: Mobile (Top), Desktop (Alternating) */}
-                                <div className={`w-full overflow-hidden ${isReversed ? "sm:order-2" : "sm:order-1"}`}>
-                                    <motion.div
-                                        initial={{ scale: 1 }}
-                                        whileInView={{ scale: 1.02 }}
-                                        transition={{ duration: 0.6, ease: "easeOut" }}
-                                        viewport={{ once: true, amount: 0.5 }}
-                                        className="w-full h-full"
-                                    >
-                                        <CustomImage
-                                            src={image}
-                                            width={6671}
-                                            height={4447}
-                                            alt={title}
-                                            className="w-full h-full object-cover object-top hidden sm:block"  // Show top part of the image
-                                        />
-                                    </motion.div>
-                                </div>
-                            </section>
+                                </section>
+                            </motion.div>
                         </div>
                     );
                 })}
