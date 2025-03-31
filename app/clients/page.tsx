@@ -22,11 +22,7 @@ const testimonials = [
     {
         testimonial: "As Under-Secretary-General Marketing for Canadian High Schools Model United Nations (CAHSMUN) 2024, I had the pleasure of working with Johnson Mai, who played a vital role as one of our photographers. Johnson consistently demonstrated a keen artistic eye, capturing the energy and essence of our conference with professionalism and creativity. Beyond his technical skill, Johnson was incredibly reliable, meeting tight deadlines while adapting seamlessly to the fast-paced nature of the conference. His dedication to the media team was evident in every aspect of his work, from meticulous planning to his commitment to delivering high-quality content. Johnson’s contributions were invaluable.",
         quote: "— Rachel Wei, Under-Secretary-General Marketing, CAHSMUN 2024"
-    },
-    {
-        testimonial: "As Under-Secretary-General Marketing for Canadian High Schools Model United Nations (CAHSMUN) 2024, I had the pleasure of working with Johnson Mai, who played a vital role as one of our photographers. Johnson consistently demonstrated a keen artistic eye, capturing the energy and essence of our conference with professionalism and creativity. Beyond his technical skill, Johnson was incredibly reliable, meeting tight deadlines while adapting seamlessly to the fast-paced nature of the conference. His dedication to the media team was evident in every aspect of his work, from meticulous planning to his commitment to delivering high-quality content. Johnson’s contributions were invaluable.",
-        quote: "— Rachel Wei, Under-Secretary-General Marketing, CAHSMUN 2024"
-    },
+    }
 ];
 
 const Home = () => {
@@ -89,13 +85,20 @@ const Home = () => {
             <HeroImageSection src={HeroImage} width={3889} height={2593} title="Clients" />
 
             <section className="px-6 sm:px-12 py-24 text-center" id="clients-section">
-                <div className="max-w-4xl mx-auto">
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 1 }}
+                // onClick={() => setSelectedImage(image)}
+                id="image-wrap" 
+                className="max-w-4xl mx-auto">
                     <h1 className="text-3xl sm:text-5xl font-bold tracking-tight uppercase agency">My Clients</h1>
                     <p className={`mt-6 text-lg text-gray-800 ${latoLite.className}`}>
                         I’ve had the privilege of working with incredible clients, capturing their most meaningful moments with authenticity and artistry. 
                         From personal projects to commercial shoots, each collaboration is a story waiting to be told.
                     </p>
-                </div>
+                </motion.div>
 
                 <motion.div
                 initial={{ opacity: 0, y: 50 }}
