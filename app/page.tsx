@@ -15,6 +15,7 @@ import ContactSection from "@/components/ContactSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import AboutMeSection from "@/components/AboutMeSection";
 import ServicesSection from "@/components/ServicesSection";
+import { motion } from "framer-motion";
 
 const images = [
   HeroPic1,
@@ -99,14 +100,18 @@ export default function Home() {
         <section className="relative z-10 w-full">
           <Nav />
           <main className="lg:px-32 md:px-20 px-10 grid place-items-center mt-10">
-            <div id="text-wrap" className="grid gap-6">
-              <h1 className={`font-bold text-5xl md:px-10 py-10 text-white grid place-items-center h-64 ${roboto.className}`}>
-                <p className="px-6 py-3 shadow-2xl agency">JMAI.PHOTOS</p>
-              </h1>
-              <p className={`${lato.className} text-white px-64 text-center`}>
-                I’m Johnson Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
-              </p>
-            </div>
+            <motion.div
+            initial={{ opacity: 0, y: 50 }} // Start below the view (50px down) and hidden (opacity 0)
+            whileInView={{ opacity: 1, y: 0 }} // Animate to the original position and opacity 1
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+            transition={{ duration: 1 }}
+            className="grid gap-6">
+              <div id="text-wrap">
+                <h1 className={`font-bold text-5xl md:px-10 py-10 text-white grid place-items-center h-96 ${roboto.className}`}>
+                  <p className="px-6 py-3 shadow-2xl agency">JMAI.PHOTOS</p>
+                </h1>
+              </div>
+            </motion.div>
           </main>
         </section>
 
