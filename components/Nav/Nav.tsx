@@ -6,6 +6,7 @@ import Icon from "@/public/icon.png"
 import Image from "next/image";
 import { LucideSidebar, Sidebar, SidebarIcon, SidebarOpenIcon, XIcon } from "lucide-react";
 import { Bars3 } from "@/app/icons";
+import { usePathname } from "next/navigation";
 
 interface Props {
     theme?: "dark" | "light";
@@ -29,6 +30,8 @@ const portfolioLinks = [
 ];
 
 const Nav: FC<Props> = ({ theme }) => {
+
+    const pathname = usePathname(); // Get current path
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [shuffledPortfolioLinks, setShuffledPortfolioLinks] = useState<any[]>([]);
@@ -67,7 +70,7 @@ const Nav: FC<Props> = ({ theme }) => {
         return () => {
             document.body.style.overflow = ""; // Cleanup when component unmounts
         };
-    }, [sidebarOpen]);
+    }, [sidebarOpen])
 
     return (
         <>
@@ -91,7 +94,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                         onMouseLeave={handleMouseLeave}
                                     >
                                         <Link href={link.href}>
-                                            <p className={`text-white lg:text-lg font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency`}>
+                                            <p className={`text-white lg:text-lg font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency ${link.href === pathname ? "bg-stone-800" : ""}`}>
                                                 {link.title} 
                                             </p>
                                         </Link>
@@ -99,7 +102,8 @@ const Nav: FC<Props> = ({ theme }) => {
                                         <div className={`agency z-20 absolute left-0 mt-2 w-32 bg-stone-800 rounded-sm shadow-lg overflow-hidden transition-all duration-200 ${isDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
                                             {shuffledPortfolioLinks.map((item: any, index: number) => (
                                                 <Link key={index} href={item.href}>
-                                                    <p className="block px-6 py-3 text-white text-lg hover:bg-stone-700 transition">
+                                                    <p className={`text-white font-semibold px-4 py-2 rounded-sm transition lg:text-xl 
+                                                    }`}>
                                                         {item.title}
                                                     </p>
                                                 </Link>
@@ -108,7 +112,8 @@ const Nav: FC<Props> = ({ theme }) => {
                                     </div>
                                 ) : (
                                     <Link href={link.href} key={i} className="border-r border-gray-500 last:border-r-0 lg:px-5">
-                                        <p className={`text-white font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency lg:text-xl`}>
+                                        <p className={`text-white font-semibold px-4 py-2 hover:bg-stone-800 rounded-sm transition agency lg:text-xl
+                                            ${link.href === pathname ? "bg-stone-800" : ""}`}>
                                             {link.title}
                                         </p>
                                     </Link>

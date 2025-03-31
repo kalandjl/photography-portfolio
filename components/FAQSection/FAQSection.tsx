@@ -5,6 +5,7 @@ import SectionImage from "@/public/bg/JMAI -02.jpg"
 import PageImage from "@/public/bg/JMAI -01.jpg"
 import Image from "next/image";
 import CustomImage from "../CustomImage";
+import { motion } from "framer-motion";
 
 interface Props {
     asSection: boolean
@@ -59,7 +60,13 @@ const FAQSection: FC<Props> = (props) => {
 
     return (
         <section id="faq-section" className="min-h-128 relative text-white">
-            <div className="py-20" id="content-wrap">
+            <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1 }}
+            className="py-20" id="content-wrap"
+            >
                 <h1 className={`agency text-3xl text-center mt-20`}>Frequently Asked Questions</h1>
                 <div className="max-w-4xl w-full px-6 md:px-16 lg:px-32 mx-auto p-6 space-y-4">
                     {faqArr.map((faq, index) => (
@@ -86,7 +93,8 @@ const FAQSection: FC<Props> = (props) => {
                         </div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
+
             <div className="absolute inset-0 -z-10">
                 <div id="image-wrap" className="h-full relative">
                     <CustomImage src={props.asSection ? SectionImage : PageImage}  alt="background image"
