@@ -30,6 +30,12 @@ const AboutMeSection: FC<Props> = (props) => {
             <div id="text-wrap" className="sm:col-span-3 px-10 sm:px-20 grid place-items-center pb-16">
                 <div>
                     {/* Centered Text Section */}
+                    <motion.div
+                    initial={{ opacity: 0, x: 150 }} // Start below the view (50px down) and hidden (opacity 0)
+                    whileInView={{ opacity: 1, x: 0 }} // Animate to the original position and opacity 1
+                    viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+                    transition={{ duration: 1 }} // Set the duration for the fly-in effect
+                    >
                     <div id="about-text" className="flex flex-col justify-center items-center text-center p-6 md:col-span-7 mt-10">
                         <h1 className={`americain text-black text-3xl md:text-4xl mb-6`}>
                             Hi, I'm Johnson Mai
@@ -39,6 +45,7 @@ const AboutMeSection: FC<Props> = (props) => {
 
                         </p>
                     </div>
+                    </motion.div>
                     <div id="button-wrap" className="grid place-items-center mt-5">
                         <Link href="/about">
                             <button className={`${lato.className} rounded-md border-1 border-black px-8 py-5 hover:bg-gray-200 transition ease-in-out hover:scale-105 hover:cursor-pointer`}>See more</button>

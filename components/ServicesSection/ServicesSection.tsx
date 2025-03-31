@@ -108,13 +108,19 @@ const ServicesSection: FC = () => {
 
     return (
         <section id="services-section" className="grid pt-10 border-t-2 border-black overflow-hidden">
-            <div className="px-6 sm:px-20 pt-10 pb-20">
-                <h1 className="text-4xl agency mb-5">Services Offered</h1>
-                <p>
-                    My services are designed to capture, create, and enhance your visual presence...
-                </p>
-            </div>
-
+            <motion.div
+            initial={{ opacity: 0, x: -300 }} // Start below the view (50px down) and hidden (opacity 0)
+            whileInView={{ opacity: 1, x: 0 }} // Animate to the original position and opacity 1
+            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+            transition={{ duration: 1 }} // Set the duration for the fly-in effect
+            >
+                <div className="px-6 sm:px-20 pt-10 pb-20">
+                    <h1 className="text-4xl agency mb-5">Services Offered</h1>
+                    <p>
+                        My services are designed to capture, create, and enhance your visual presence...
+                    </p>
+                </div>
+            </motion.div>
             <div className="grid grid-flow-row sm:grid-flow-col sm:grid-cols-3 gap-6 px-6" id="services-grid">
                 {servicesShort.map((service, i) => (
                     <motion.div
