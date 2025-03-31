@@ -18,6 +18,7 @@ import { getUniqueRandomNumbers } from "@/lib/num";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import CustomImage from "../CustomImage";
+import { motion } from "framer-motion";
 
 interface Props {}
 
@@ -97,6 +98,7 @@ let services: Service[] = [
 ];
 
 const ServicesSection: FC = () => {
+
     const [servicesShort, setServicesShort] = useState<Service[]>([]);
 
     useEffect(() => {
@@ -108,42 +110,48 @@ const ServicesSection: FC = () => {
         <section id="services-section" className="grid pt-10 border-t-2 border-black overflow-hidden">
             <div className="px-6 sm:px-20 pt-10 pb-20">
                 <h1 className="text-4xl agency mb-5">Services Offered</h1>
-                <p className={latoLite.className}>
-                    My services are designed to capture, create, and enhance your visual presence—whether through dynamic sports photography, polished team portraits, compelling graphic design, or engaging social media content. From professional headshots to event coverage and highlight reels, we bring expertise and creativity to every project. Explore our offerings and elevate your brand, memories, and storytelling with impactful visuals.
+                <p>
+                    My services are designed to capture, create, and enhance your visual presence...
                 </p>
             </div>
 
             <div className="grid grid-flow-row sm:grid-flow-col sm:grid-cols-3 gap-6 px-6" id="services-grid">
                 {servicesShort.map((service, i) => (
-                    <div key={i} className="relative overflow-hidden rounded-lg shadow-lg">
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 150 }} // Start below the view (50px down) and hidden (opacity 0)
+                        whileInView={{ opacity: 1, y: 0 }} // Animate to the original position and opacity 1
+                        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+                        transition={{ duration: 1 }} // Set the duration for the fly-in effect
+                        className="relative overflow-hidden rounded-lg shadow-lg"
+                    >
                         <CustomImage
                             loading="eager"
                             src={service.imageSrc}
                             alt={service.title}
-                           className="object-cover h-full"
+                            className="object-cover h-full transition ease-in-out"
                         />
                         <div className="absolute inset-0 z-20 flex flex-col justify-center items-center text-center p-5">
                             <h2 className="text-3xl text-white agency">
-                                <Link href="/services" className="hover:cursor-pointer hover:scale-105 transition ease-in-out">
+                                <Link href="/services">
                                     <h1 className="transition duration-300 relative group">
                                         {service.title}
                                         <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-gray-100 transition-all duration-300 group-hover:w-full"></span>
                                     </h1>
                                 </Link>
                             </h2>
-                            <p className={`text-md text-gray-300 ${oswald.className} mt-2`}>{service.captcha}</p>
+                            <p className="text-md text-gray-300 mt-2">{service.captcha}</p>
                         </div>
-                        <div className="absolute inset-0 bg-black opacity-70 " />
-                    </div>
+                        <div className="absolute inset-0 bg-black opacity-70" />
+                    </motion.div>
                 ))}
             </div>
 
             <div className="pl-6 pr-6 sm:pl-20 sm:pr-15 py-10 grid place-items-center">
                 <Link href="/services">
-                    <button className={`sm:px-26 px-16 py-6 rounded-md border-1 border-black ${lato.className} hover:scale-105 hover:bg-gray-100 hover:cursor-pointer transition ease-in-out`}>
+                    <button className="sm:px-26 px-16 py-6 rounded-md border-1 border-black hover:scale-105 hover:bg-gray-100">
                         <span className="flex gap-3">
                             <span className="w-max">More Services</span>
-                            <ArrowRight />
                         </span>
                     </button>
                 </Link>

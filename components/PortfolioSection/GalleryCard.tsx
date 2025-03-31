@@ -20,7 +20,7 @@ const GalleryCard: FC<Props> = (props) => {
             <div id="image-wrap" className="overflow-hidden h-full relative">
                 <motion.div
                 initial={{ scale: 1 }}
-                whileInView={{ scale: 1.05 }}
+                whileInView={{ scale: 1.1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.5 }}
                 className="w-full h-full">

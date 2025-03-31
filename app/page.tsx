@@ -9,7 +9,7 @@ import HeroPic4 from "../public/pictures/JMAI Post abits Rematch-094.jpg"
 import HeroPic5 from "../public/pictures/_DSC6815.jpg"
 import HeroPic6 from "../public/pictures/Ryan and Taylor-005.jpg"
 import Nav from "../components/Nav"; // Adjust the import path as needed
-import { roboto } from "./fonts";
+import { lato, roboto } from "./fonts";
 import InstaSection from "@/components/InstaSection";
 import ContactSection from "@/components/ContactSection";
 import PortfolioSection from "@/components/PortfolioSection";
@@ -99,9 +99,14 @@ export default function Home() {
         <section className="relative z-10 w-full">
           <Nav />
           <main className="lg:px-32 md:px-20 px-10 grid place-items-center mt-10">
-            <h1 className={`font-bold text-5xl md:px-10 py-10 text-white grid place-items-center h-96 ${roboto.className}`}>
-              <p className="px-6 py-3 shadow-2xl agency">JMAI.PHOTOS</p>
-            </h1>
+            <div id="text-wrap" className="grid gap-6">
+              <h1 className={`font-bold text-5xl md:px-10 py-10 text-white grid place-items-center h-64 ${roboto.className}`}>
+                <p className="px-6 py-3 shadow-2xl agency">JMAI.PHOTOS</p>
+              </h1>
+              <p className={`${lato.className} text-white px-64 text-center`}>
+                I’m Johnson Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
+              </p>
+            </div>
           </main>
         </section>
 

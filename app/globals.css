@@ -90,3 +90,12 @@ html, body {
   overflow-x: hidden;
   width: 100vw;
 }
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
