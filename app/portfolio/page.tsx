@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -9,74 +10,65 @@ import ContactSection from "@/components/ContactSection";
 import HeroImageSection from "@/components/HeroImageSection";
 import HeroImage from "../../public/pictures/_DSC6971.jpg";
 import { nunito, oswald } from "../fonts";
-import CustomImage from "@/components/CustomImage";
 
-// Portfolio sections data
 const portfolioSections = [
     {
-        "id": "sports",
-        "title": "Sports",
-        "description": "Capturing the intensity and emotion of sports like hockey, basketball, football, and more.",
-        "image": "/pictures/_DSC2941.jpg",
-        "link": "/portfolio/sports"
+        id: "sports",
+        title: "Sports",
+        description: "Capturing the intensity and emotion of sports like hockey, basketball, football, and more.",
+        image: "/pictures/_DSC2941.jpg",
+        link: "/portfolio/sports"
     },
     {
-        "id": "portraits",
-        "title": "Portraits",
-        "description": "Highlighting individuality and expression through carefully composed portrait photography.",
-        "image": "/portraits/JMAI LAX MEDIA DAY-26.jpg",
-        "link": "/portfolio/portraits"
+        id: "portraits",
+        title: "Portraits",
+        description: "Highlighting individuality and expression through carefully composed portrait photography.",
+        image: "/portraits/JMAI LAX MEDIA DAY-26.jpg",
+        link: "/portfolio/portraits"
     },
     {
-        "id": "graphics",
-        "title": "Graphics",
-        "description": "Creating dynamic visuals for game days, athlete commitments, and other sports-related designs.",
-        "image": "/graphics/Nathan Lowden Queens Commit Final.jpg",
-        "link": "/portfolio/graphics"
+        id: "graphics",
+        title: "Graphics",
+        description: "Creating dynamic visuals for game days, athlete commitments, and other sports-related designs.",
+        image: "/graphics/Nathan Lowden Queens Commit Final.jpg",
+        link: "/portfolio/graphics"
     }
 ];
 
 const Home = () => {
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
     return (
         <>
             <HeroImageSection src={HeroImage} width={7008} height={4672} title="Portfolio" />
 
             <main id="portfolio-links">
                 {portfolioSections.map(({ id, title, description, image, link }, index) => {
-                    const isReversed = index % 2 !== 0; // Alternates layout
-                    
+                    const isReversed = index % 2 !== 0;
+
                     return (
-                        <div key={index}>
-                            <section key={id} id={`${id}-hero`} className="hidden sm:grid grid-cols-5 sm:h-144 h-64">
-                                {/* Image (Left if index is even, Right if odd) */}
+                        <div key={id}>
+                            {/* Desktop View */}
+                            <section className="hidden sm:grid grid-cols-5 sm:h-144 h-64">
                                 {!isReversed && (
                                     <motion.div
-                                    initial={{ opacity: 0, x: -50 }} // Start below the view (50px down) and hidden (opacity 0)
-                                    whileInView={{ opacity: 1, x: 0 }} // Animate to the original position and opacity 1
-                                    viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-                                    transition={{ duration: 1 }}
-                                    className="col-span-3 overflow-hidden">
-                                        <div>
-                                            <motion.div
-                                                initial={{ scale: 1 }}
-                                                whileInView={{ scale: 1.02 }}
-                                                transition={{ duration: 0.6, ease: "easeOut" }}
-                                                viewport={{ once: true, amount: 0.5 }}
-                                                className="w-full h-full"
-                                            >
-                                                <Image
-                                                    src={image}
-                                                    width={6671}
-                                                    height={4447}
-                                                    alt={title}
-                                                    className="w-full h-full object-cover object-top"  // Show top part of the image
-                                                />
-                                            </motion.div>
-                                        </div>
+                                        initial={{ opacity: 0, x: -50 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true, amount: 0.2 }}
+                                        transition={{ duration: 1 }}
+                                        className="col-span-3 overflow-hidden cursor-pointer"
+                                        onClick={() => setSelectedImage(image)}
+                                    >
+                                        <Image
+                                            src={image}
+                                            width={6671}
+                                            height={4447}
+                                            alt={title}
+                                            className="w-full h-full object-cover object-top"
+                                        />
                                     </motion.div>
                                 )}
 
-                                {/* Text & Link */}
                                 <div className="col-span-2 grid place-items-center">
                                     <div className="grid place-items-center">
                                         <Link href={link} className="hover:scale-105 transition ease-in-out">
@@ -85,59 +77,46 @@ const Home = () => {
                                                     <h1 className={`${oswald.className} md:text-5xl text-2xl text-center underline sm:no-underline`}>
                                                         {title}
                                                     </h1>
-                                                    <div className="mt-6"></div>
-                                                    <p className={`sm:text-md text-sm text-center ${nunito.className}`}>
+                                                    <p className={`sm:text-md text-sm text-center ${nunito.className} mt-6`}>
                                                         {description}
                                                     </p>
                                                 </div>
-                                                <div id="icon-wrap" className="grid h-full place-items-center">
-                                                    <ArrowRight className="w-9 h-9 sm:block hidden" />
-                                                </div>
+                                                <ArrowRight className="w-9 h-9 sm:block hidden" />
                                             </div>
                                         </Link>
                                     </div>
                                 </div>
 
-                                {/* Image (Right if index is odd, Left if even) */}
                                 {isReversed && (
                                     <motion.div
-                                    initial={{ opacity: 0, x: 50 }} // Start below the view (50px down) and hidden (opacity 0)
-                                    whileInView={{ opacity: 1, x: 0 }} // Animate to the original position and opacity 1
-                                    viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-                                    transition={{ duration: 1 }}
-                                    className="col-span-3 overflow-hidden">
-                                        <div>
-                                            <motion.div
-                                                initial={{ scale: 1 }}
-                                                whileInView={{ scale: 1.02 }}
-                                                transition={{ duration: 0.6, ease: "easeOut" }}
-                                                viewport={{ once: true, amount: 0.5 }}
-                                                className="w-full h-full"
-                                            >
-                                                <Image
-                                                    src={image}
-                                                    width={6671}
-                                                    height={4447}
-                                                    alt={title}
-                                                    className="w-full h-full object-cover object-top"  // Show top part of the image
-                                                />
-                                            </motion.div>
-                                        </div>
+                                        initial={{ opacity: 0, x: 50 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true, amount: 0.2 }}
+                                        transition={{ duration: 1 }}
+                                        className="col-span-3 overflow-hidden cursor-pointer"
+                                        onClick={() => setSelectedImage(image)}
+                                    >
+                                        <Image
+                                            src={image}
+                                            width={6671}
+                                            height={4447}
+                                            alt={title}
+                                            className="w-full h-full object-cover object-top"
+                                        />
                                     </motion.div>
                                 )}
                             </section>
 
-                            <motion.div 
-                            initial={{ opacity: 0, y: 50 }} // Start below the view (50px down) and hidden (opacity 0)
-                            whileInView={{ opacity: 1, y: 0 }} // Animate to the original position and opacity 1
-                            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-                            transition={{ duration: 1 }}
-                            className="flex flex-col sm:grid-cols-2 items-center gap-8 sm:hidden">
-                                <section
-                                    key={`${id}-mobile`}
-                                    id={`${id}-hero`}
-                                >
-                                    {/* Text & Link: Mobile (Below Image), Desktop (Alternating) */}
+                            {/* Mobile View */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 1 }}
+                                className="flex flex-col sm:grid-cols-2 items-center gap-8 sm:hidden"
+                            >
+                                <section key={`${id}-mobile`} id={`${id}-hero`}>
+                                    {/* Text & Link: Mobile (Below Image) */}
                                     <div className="text-center sm:text-left px-6 py-5">
                                         <Link href={link} className="group block hover:scale-105 transition ease-in-out">
                                             <h1 className={`${oswald.className} text-3xl sm:text-5xl underline sm:no-underline`}>
@@ -146,13 +125,12 @@ const Home = () => {
                                             <p className={`mt-5 text-sm sm:text-md ${nunito.className}`}>{description}</p>
                                             <div className="flex justify-center sm:justify-start items-center gap-2 mt-4 text-blue-600">
                                                 <span className="flex gap-2"><p>Link</p><ArrowRight /></span>
-                                                <ArrowRight className="w-6 h-6 sm:block hidden group-hover:translate-x-1 transition" />
                                             </div>
                                         </Link>
                                     </div>
 
-                                    {/* Image Placement: Mobile (Top), Desktop (Alternating) */}
-                                    <div className={`w-full overflow-hidden ${isReversed ? "sm:order-2" : "sm:order-1"}`}>
+                                    {/* Image: Mobile (Tappable for Enlargement) */}
+                                    <div className="w-full overflow-hidden cursor-pointer" onClick={() => setSelectedImage(image)}>
                                         <motion.div
                                             initial={{ scale: 1 }}
                                             whileInView={{ scale: 1.02 }}
@@ -160,12 +138,12 @@ const Home = () => {
                                             viewport={{ once: true, amount: 0.5 }}
                                             className="w-full h-full"
                                         >
-                                            <CustomImage
+                                            <Image
                                                 src={image}
                                                 width={6671}
                                                 height={4447}
                                                 alt={title}
-                                                className="w-full h-full object-cover object-top hidden sm:block"  // Show top part of the image
+                                                className="w-full h-full object-cover object-top"
                                             />
                                         </motion.div>
                                     </div>
@@ -174,9 +152,39 @@ const Home = () => {
                         </div>
                     );
                 })}
-                <ContactSection />
-                <InstaSection />
             </main>
+
+            {/* Image Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex justify-center items-center z-50"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedImage(null)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.8 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0.8 }}
+                            transition={{ duration: 0.3 }}
+                            className="relative"
+                        >
+                            <Image
+                                src={selectedImage}
+                                width={1000}
+                                height={667}
+                                alt="Enlarged Image"
+                                className="rounded-lg"
+                            />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <ContactSection />
+            <InstaSection />
         </>
     );
 };
