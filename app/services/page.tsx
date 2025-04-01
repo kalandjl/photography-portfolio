@@ -165,7 +165,7 @@ const Home = () => {
                                                 height={service.imageHeight} 
                                                 width={service.imageWidth} 
                                                 alt="Service photo"
-                                                className="object-cover h-full w-full absolute" 
+                                                className="object-cover h-full w-full absolute object-top" 
                                             />
                                             <div className="absolute inset-0 bg-black opacity-30"></div>
                                         </motion.div>

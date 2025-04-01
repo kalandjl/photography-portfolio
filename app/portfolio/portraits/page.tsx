@@ -12,7 +12,7 @@ const pics = [
     { src: "/portraits/DSC01374.jpg", width: 3902, height: 6165}, 
     { src: "/portraits/JMAI LAX MEDIA DAY-01.jpg", width: 4672, height: 5671}, 
     { src: "/portraits/JMAI LAX MEDIA DAY-06-2.jpg", width: 1684, height: 2048}, 
-    { src: "/portraits/JMAI LAX MEDIA DAY-06-2.jpg", width: 4672, height: 4936}, 
+    { src: "/portraits/JMAI LAX MEDIA DAY-08.jpg", width: 4672, height: 4936}, 
     { src: "/portraits/JMAI LAX MEDIA DAY-11-2.jpg", width: 1493, height: 2048}, 
     { src: "/portraits/JMAI LAX MEDIA DAY-13-2.jpg", width: 2048, height: 2030}, 
     { src: "/portraits/JMAI LAX MEDIA DAY-26.jpg", width: 4240, height: 5144}, 
