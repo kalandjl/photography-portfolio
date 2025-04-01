@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import AboutImage from "@/public/pictures/about/AF12AB09-D1A6-462D-AB8D-7D07817FA537.jpeg";
+import AboutImage2 from "@/public/pictures/about/Johnson 1.png"
 import Nav from "@/components/Nav";
 import HeroImage from "@/public/pictures/about/Screenshot 2025-03-13 at 9.27.54 PM.png";
 import BarrierImage from "@/public/pictures/about/Jmai.png";
@@ -22,34 +23,31 @@ const Home = () => {
     return (
         <>
             <HeroImageSection src={HeroImage} height={7008} width={4672} title="About" imageTop={true} />
-
-            <section id="about-section-1" className="grid grid-cols-1 md:grid-cols-7 py-32">
-                {/* Fullscreen Image */}
-                <div id="image-container" className="relative h-screen md:col-span-0 overflow-hidden hidden">
-                    <motion.div
-                        initial={{ scale: 1 }}
-                        whileInView={{ scale: 1.05 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        className="w-full h-full"
-                    >
-                        <Image 
-                            src={HeroImage} 
-                            alt="hero pic"
-                            layout="fill"
-                            objectFit="cover"
-                            className="absolute top-0"
-                            priority
-                        />
-                    </motion.div>
-                </div>
-
+            <section id="about-section-1" className="grid grid-cols-1 md:grid-cols-7 py-32 px-6 md:px-20 gap-12 items-center">
+                
+                {/* About Image 2 */}
+                <motion.div
+                    initial={{ opacity: 0, x: 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 1 }}
+                    className="flex justify-center md:justify-end md:col-span-3"
+                >
+                    <Image
+                        src={AboutImage2}
+                        alt="Johnson Mai"
+                        width={500}
+                        height={500}
+                        className="rounded-sm shadow-lg"
+                    />
+                </motion.div>
+                
                 <motion.div
                     initial={{ opacity: 0, y: 100 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 1 }}
-                    className="flex flex-col justify-center items-center text-center p-6 md:col-span-7"
+                    className="flex flex-col justify-center items-center text-center md:items-start md:text-left md:col-span-4"
                 >
                     <div id="about-text">
                         <h1 className={`${latoLite.className} text-black text-5xl md:text-6xl mb-6`}>
@@ -60,6 +58,7 @@ const Home = () => {
                         </p>
                     </div>
                 </motion.div>
+
             </section>
 
             <BarrierImageSection src={BarrierImage} imageTop={true} barrierHeight={96} />
