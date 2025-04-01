@@ -14,7 +14,7 @@ export function renderNextImage(
 ) {
 
   // @ts-ignore
-  let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow } = photo
+  let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, hidden } = photo
 
   let bigContainerStyle =  big && !bigLeft ? {
     width: "200%",
@@ -53,8 +53,6 @@ export function renderNextImage(
     right: "-100%",
   } : {}
 
-
-  
   return (
     <>
       <div className="block">
