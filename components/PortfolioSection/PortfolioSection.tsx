@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import HeroImage from "@/public/pictures/DSC01374.jpg"
+import HeroImage from "@/public/pictures/_DSC9997-Enhanced-NR.jpg"
 import CardImage1 from "@/public/pictures/_DSC2941.jpg"
 import CardImage2 from "@/public/graphics/Senior day post.jpg"
 import CardImage3 from "@/public/portraits/JMAi THEATRE HEADSHOTS-48.jpg"
@@ -61,7 +61,7 @@ const PortfolioSection: FC<Props> = (props) => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.5 }}
                     className="w-full h-full">
-                        <img src="https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/DSC01374.jpg?alt=media&token=f0cea1b2-8623-4046-9307-f53c85c574e2" height={6039} width={4025} alt="hero image" className="object-cover h-full hover:scale-105" fetchPriority="high" loading="eager"></img>
+                        <Image src={HeroImage} height={6039} width={4025} alt="hero image" className="object-cover h-full hover:scale-105" fetchPriority="high" loading="eager" />
                     </motion.div>
                     {/* Overlay section */}
                     <div className="inset-0 absolute">
