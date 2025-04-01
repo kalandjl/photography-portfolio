@@ -86,7 +86,7 @@ const Home = () => {
 
     return (
         <>
-            <HeroImageSection src={HeroImage} width={3889} height={2593} title="Clients" />
+            <HeroImageSection src={HeroImage} width={3889} height={2593} title="Testimonials" />
 
             <section className="px-6 sm:px-12 py-24 text-center" id="clients-section">
             <motion.div
