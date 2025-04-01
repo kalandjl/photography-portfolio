@@ -9,6 +9,7 @@ const pics = [
     { src: "/graphics/Prov Sec.jpg", width: 1080, height: 1350 },
     { src: "/graphics/Saints day post.jpg", width: 5400, height: 7200 },
     { src: "/graphics/Senior day post.jpg", width: 5358, height: 7200 },
+    { src: "/graphics/24 hours.png", width: 1080, height: 1350 },
     { src: "/graphics/V3 6238121.jpg", width: 2160, height: 2160 },
     { src: "/graphics/Varsity Poster Final.jpg", width: 5400, height: 7200 },
     { src: "/graphics/Winner.jpg", width: 6391, height: 4261 },
@@ -17,7 +18,8 @@ const pics = [
 const Home = () => {
     return (
         <>
-            <HeroImageSection src={HeroImage} width={1920} height={1022} title="Graphics" />
+            <HeroImageSection src={HeroImage} width={1920} height={1022} title="Graphics" opacity={85} />
+            <div className="opacity-85"></div>
             <PortfolioLayout pics={pics} title="Graphics" />
         </>
     )

@@ -11,6 +11,7 @@ interface Props {
     height: number;
     title: string;
     imageTop?: boolean;
+    opacity?: number
 }
 
 const HeroImageSection: React.FC<Props> = (props) => {
@@ -35,7 +36,7 @@ const HeroImageSection: React.FC<Props> = (props) => {
     return (
         <main id="hero-section">
             <section className="h-screen relative">
-                <div className="bg-black opacity-70 w-full h-full absolute z-10"></div>
+                <div className={`bg-black opacity-${props.opacity ?? "70"} w-full h-full absolute z-10`}></div>
                 <div className="relative w-full h-full">
                     <CustomImage 
                         src={props.src} 

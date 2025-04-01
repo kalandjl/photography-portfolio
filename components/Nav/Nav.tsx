@@ -97,7 +97,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                             <p className={`text-white lg:text-lg font-semibold px-4 py-2 ${link.href != pathname ? "hover:bg-stone-800": ""} group-hover:bg-stone-800 rounded-sm transition agency`}>
                                                 {link.title} 
                                             </p>
-                                            {link.href === pathname && (
+                                            {(pathname.includes(link.href) && pathname !== "/") && (
                                                 <div className="absolute bottom-1 h-1 px-2 right-0 left-0 block group-hover:opacity-0 transition ease-in-out">
                                                     <span className="h-full bg-stone-200 block"></span>
                                                 </div>
@@ -107,7 +107,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                         <div className={`agency z-20 absolute left-0 mt-2 w-32 bg-stone-800 rounded-sm shadow-lg overflow-hidden transition-all duration-200 ${isDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
                                             {shuffledPortfolioLinks.map((item: any, index: number) => (
                                                 <Link key={index} href={item.href}>
-                                                    <p className={`text-white font-semibold px-4 py-2 rounded-sm transition lg:text-xl hover:bg-stone-900
+                                                    <p className={`text-white font-semibold px-4 py-2 transition lg:text-xl hover:bg-stone-900
                                                     }`}>
                                                         {item.title}
                                                     </p>
@@ -119,13 +119,13 @@ const Nav: FC<Props> = ({ theme }) => {
                                     <Link href={link.href} key={i} className="border-r border-gray-500 last:border-r-0 lg:px-5 relative">
                                         <p className={`text-white font-semibold px-4 py-2 ${link.href !== pathname ? "hover:bg-stone-800": ""} rounded-sm transition agency lg:text-xl`}>
                                             {link.title}
-                                            {link.href === pathname && (
-                                                <div className="absolute bottom-0 h-1 px-7 right-0 left-0 block">
-                                                    <span className="h-full bg-stone-200 block"></span>
-                                                </div>
-                                            )}
                                         </p>
-                                    </Link>
+                                        {link.href === pathname && (
+                                            <div className="absolute bottom-0 h-1 px-7 right-0 left-0 block">
+                                                <span className="h-full bg-stone-200 block"></span>
+                                            </div>
+                                        )}
+                                </Link>
                                 )
                             )}
                         </div>
