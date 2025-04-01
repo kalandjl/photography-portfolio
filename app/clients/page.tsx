@@ -22,6 +22,10 @@ const testimonials = [
     {
         testimonial: "As Under-Secretary-General Marketing for Canadian High Schools Model United Nations (CAHSMUN) 2024, I had the pleasure of working with Johnson Mai, who played a vital role as one of our photographers. Johnson consistently demonstrated a keen artistic eye, capturing the energy and essence of our conference with professionalism and creativity. Beyond his technical skill, Johnson was incredibly reliable, meeting tight deadlines while adapting seamlessly to the fast-paced nature of the conference. His dedication to the media team was evident in every aspect of his work, from meticulous planning to his commitment to delivering high-quality content. Johnson’s contributions were invaluable.",
         quote: "— Rachel Wei, Under-Secretary-General Marketing, CAHSMUN 2024"
+    },
+    {
+        testimonial: "As the Head of VC Basketball, I had the privilege of working with Johnson Mai, who was instrumental in enhancing our program’s social media presence. Johnson brought a fresh and creative perspective, capturing the excitement and energy of our games through compelling and visually striking content. His ability to tell our program’s story—whether through highlight reels, player spotlights, or event coverage—helped us engage more deeply with our community. Johnson was also incredibly dependable, consistently meeting tight deadlines and adapting quickly to the fast-paced nature of the basketball season. His attention to detail, professionalism, and dedication to delivering top-quality content made a significant impact on promoting our program. I truly appreciate Johnson’s contributions and the value he brought to VC Basketball.",
+        quote: "— Ryan Shams, Head of VC Basketball 2025"
     }
 ];
 
