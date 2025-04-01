@@ -13,9 +13,10 @@ interface Props {
   pics: Pic[];
   mobilePicsProps?: Pic[];
   title: string;
+  columns?: number
 }
 
-const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps }) => {
+const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) => {
   
 
   let [mobilePics, setMobilePics] = useState<any>([])
@@ -77,7 +78,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps }) => {
       <div className="px-6 md:px-32 lg:px-64 pt-10">
         <div className="sm:block hidden">
           <MasonryPhotoAlbum
-            columns={3}
+            columns={columns ?? 3}
             spacing={0}
             padding={0}
             photos={pics.filter(pics => pics.src.includes("hdden") ? false : true).slice(0, loadedImages)} // Only render loaded images
@@ -91,7 +92,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps }) => {
         </div>
         <div className="sm:hidden block">
           <MasonryPhotoAlbum
-              columns={2}
+              columns={columns ? columns - 1 : 2}
               spacing={0}
               padding={0}
               photos={mobilePicsProps ?? mobilePics.slice(0, loadedImagesMobile)} // Only render loaded images
