@@ -14,7 +14,10 @@ export function renderNextImage(
 ) {
 
   // @ts-ignore
-  let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, hidden } = photo
+  let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, hidden, badImage } = photo
+
+  console.log(badImage)
+
 
   let bigContainerStyle =  big && !bigLeft ? {
     width: "200%",
@@ -71,7 +74,26 @@ export function renderNextImage(
         >
         <div id="image-container-wrap" 
           className={`
-          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : "p-4"}`}>
+          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : badImage ? "" : "p-4"}`}>
+            {badImage ? 
+            <>
+              <img 
+                src={photo.src}
+                alt={alt}
+                title={title}
+                sizes={sizes}
+                id="gallery-photo"
+  
+                className={`
+                  ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+                  ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+                  ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+                  ${photo.src.includes('hidden') ? "hidden" : ""}
+                `}
+                loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+                />
+            </>
+            :
             <Image
               fill
               src={photo}
@@ -79,7 +101,7 @@ export function renderNextImage(
               title={title}
               sizes={sizes}
               id="gallery-photo"
-              quality={big ? 99 : 80}
+              quality={big ? undefined : 80}
 
               className={`
                 ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
@@ -90,6 +112,7 @@ export function renderNextImage(
               loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
               priority={false} // Do not prioritize all images
             />
+            }
           </div>
             <div style={{position: "absolute", background: "transparent"}}></div>
           </div>
@@ -106,7 +129,7 @@ export function renderNextImageMobile(
 ) {
 
   // @ts-ignore
-  let { big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow } = photo
+  let { big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, badImage } = photo
 
 
     let bigContainerStyle =  big && !bigLeft ? {
@@ -188,7 +211,26 @@ export function renderNextImageMobile(
         >
         <div id="image-container-wrap" 
           className={`
-          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : "p-4"}`}>
+          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3":  badImage ? "" : "p-4"}`}>
+            {badImage ?
+            <>
+            <img 
+                src={photo.src}
+                alt={alt}
+                title={title}
+                sizes={sizes}
+                id="gallery-photo"
+  
+                className={`
+                  ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+                  ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+                  ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+                  ${photo.src.includes('hidden') ? "hidden" : ""}
+                `}
+                loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+                />
+              </>
+            :
             <Image
               fill
               src={photo}
@@ -206,7 +248,7 @@ export function renderNextImageMobile(
               `}
               loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
               priority={false} // Do not prioritize all images
-            />
+            />}
           </div>
             <div style={{position: "absolute", background: "transparent"}}></div>
           </div>

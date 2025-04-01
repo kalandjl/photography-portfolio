@@ -23,7 +23,6 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
 
   useEffect(() => {
 
-    console.log(pics)
     setMobilePics(pics.filter(pic => pic.src.includes("hidden") ? false : true))
   }, [])
 
@@ -54,12 +53,6 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
         timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
     };
   }, [pics, mobilePics]);
-
-  useEffect(() => {console.log(mobilePics)}, [mobilePics])
-
-
-  
-
 
   // Disable right-click on images
   useEffect(() => {

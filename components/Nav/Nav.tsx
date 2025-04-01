@@ -16,7 +16,7 @@ let links = [
     { title: "Home", href: "/" },
     { title: "About", href: "/about" },
     { title: "Portfolio", href: "/portfolio" },
-    { title: "Clients", href: "/clients" },
+    { title: "Testimonials", href: "/testimonials" },
     { title: "Services", href: "/services" },
     { title: "Contact", href: "/contact" },
     { title: "FAQ", href: "/FAQ" }
