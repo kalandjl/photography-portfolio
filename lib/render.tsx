@@ -60,6 +60,7 @@ export function renderNextImage(
       <div className="block">
         <div className="relative">
           <div
+            id={`img-${photo.src}`}
           style={{...{
             width: "100%",
             aspectRatio: `${width} / ${height}`,
@@ -136,7 +137,7 @@ export function renderNextImageMobile(
       <div className="block">
         <div className="relative">
           <div
-          // @ts-ignore
+            // @ts-ignore
             style={containerStyle}
           >
             <div id="image-container-wrap" className={imageWrapperClass}>
