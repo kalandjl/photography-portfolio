@@ -35,7 +35,7 @@ const ContactSection: FC<Props> = (props) => {
                                     <div className="grid gap-10">
                                         <p className={`text-white ${lato.className} w-max lg:text-5xl md:text-4xl sm:text-3xl text-2xl opacity-100 z-10`}>Let's Get In Touch</p>
                                         <Link href="/contact">
-                                            <button className="border-1 border-white px-4 md:px-8 md:py-5 py-2 z-10 md:text-xl text-sm text-white hover:bg-white hover:text-black transition ease-in-out hover:cursor-pointer">
+                                            <button className="rounded-sm border-1 border-white px-4 md:px-8 md:py-5 py-2 z-10 md:text-xl text-sm text-white hover:bg-white hover:text-black transition ease-in-out hover:cursor-pointer">
                                                 <p className={`w-max ${latoLite.className}`}>Contact Me</p>
                                             </button>
                                         </Link>

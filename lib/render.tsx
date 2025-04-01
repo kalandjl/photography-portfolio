@@ -61,7 +61,7 @@ export function renderNextImage(
       <div className="block">
         <div className="relative">
           <div
-            id={`img-${photo.src}`}
+          id={`img-${photo.src}`}
           style={{...{
             width: "100%",
             aspectRatio: `${width} / ${height}`,
@@ -101,8 +101,6 @@ export function renderNextImage(
               title={title}
               sizes={sizes}
               id="gallery-photo"
-              quality={big ? undefined : 80}
-
               className={`
                 ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
                 ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
