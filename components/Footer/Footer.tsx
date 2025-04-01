@@ -30,9 +30,16 @@ const Footer: FC<Props> = (props) => {
                         </Link>
                     ))}
                 </div>
-                <div id="copyright" className="px-10">
+                <div id="copyright" className="px-10 w-screen flex">
                     <p className={`${latoLite.className}`}>
-                        {`© JMAI.PHOTOS, ${new Date().getFullYear()}`}
+                        {`© ${new Date().getFullYear()} JMAI.PHOTOS. `}
+                        <span className="italic flex">
+                            {`Designed and Developed by`}
+                            <span className="w-1"></span>
+                            <Link href="https://www.github.com/kalandjl" className="text-blue-500 not-italic underline">
+                                Kalan Jarvis-Loewen
+                            </Link>
+                        </span>
                     </p>
                 </div>
             </footer>
