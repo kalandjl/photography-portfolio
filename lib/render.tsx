@@ -79,7 +79,7 @@ export function renderNextImage(
               title={title}
               sizes={sizes}
               id="gallery-photo"
-              quality={big ? 99 : 75}
+              quality={big ? 99 : 80}
 
               className={`
                 ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}

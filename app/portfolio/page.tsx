@@ -74,8 +74,11 @@ const Home = () => {
                                         <Link href={link} className="hover:scale-105 transition ease-in-out">
                                             <div className="grid grid-flow-col gap-4 px-10">
                                                 <div className="grid">
-                                                    <h1 className={`${oswald.className} md:text-5xl text-2xl text-center underline sm:no-underline`}>
+                                                    <h1 className={`${oswald.className} md:text-5xl text-2xl text-center underline sm:no-underline group relative`}>
                                                         {title}
+                                                        <span className="absolute left-0 -bottom-1 w-full h-1 grid place-items-center overflow-hidden">
+                                                        </span>
+
                                                     </h1>
                                                     <p className={`sm:text-md text-sm text-center ${nunito.className} mt-6`}>
                                                         {description}

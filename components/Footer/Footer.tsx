@@ -20,7 +20,7 @@ const Footer: FC<Props> = (props) => {
 
     return (
         <>
-            <footer id="footer" className="px-10 grid py-5 gap-5">
+            <footer id="footer" className="px-4 sm:px-10 grid py-5 gap-5">
                 <div id="links" className="sm:flex hidden gap-3">
                     {links.map((link, i) => (
                         <Link href={link.href} key={i} className="hover:scale-105 hover:bg-gray-100 transition ease-in-out">
@@ -30,18 +30,14 @@ const Footer: FC<Props> = (props) => {
                         </Link>
                     ))}
                 </div>
-                <div id="copyright" className="px-10 w-screen flex">
-                    <p className={`${latoLite.className}`}>
-                        {`© ${new Date().getFullYear()} JMAI.PHOTOS. `}
-                        <span className="italic flex">
-                            {`Designed and Developed by`}
-                            <span className="w-1"></span>
-                            <Link href="https://www.github.com/kalandjl" className="text-blue-500 not-italic underline">
-                                Kalan Jarvis-Loewen
-                            </Link>
-                        </span>
-                    </p>
-                </div>
+                <div id="copyright" className="px-10 w-full text-center">
+                <p className={`${latoLite.className} text-sm text-gray-700`}>
+                    © {new Date().getFullYear()} JMAI.PHOTOS. Designed and Developed by{" "}
+                    <Link href="https://www.github.com/kalandjl" className="text-blue-500 underline">
+                        Kalan Jarvis-Loewen
+                    </Link>
+                </p>
+            </div>
             </footer>
         </>
     )

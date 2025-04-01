@@ -75,7 +75,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
   return (
     <section id="portfolio-gallery" className="min-h-screen text-black transition-opacity duration-500">
 
-      <div className="px-6 md:px-32 lg:px-64 pt-10">
+      <div className="px-4 md:px-10 lg:px-64 pt-10">
         <div className="sm:block hidden">
           <MasonryPhotoAlbum
             columns={columns ?? 3}
