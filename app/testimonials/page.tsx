@@ -9,6 +9,9 @@ import { lato, latoLite, oswald } from "../fonts";
 import { useState, useEffect, useRef } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import TestimonialImage1 from "@/public/testimonials/Cahsmun.jpeg"
+import TestimonialImage2 from "@/public/testimonials/BC CATHOLICS FINAL-106.jpg"
+import Image from "next/image";
 
 const clients = [
     "CASHMUN", 
@@ -21,11 +24,17 @@ const clients = [
 const testimonials = [
     {
         testimonial: "As Under-Secretary-General Marketing for Canadian High Schools Model United Nations (CAHSMUN) 2024, I had the pleasure of working with Johnson Mai, who played a vital role as one of our photographers. Johnson consistently demonstrated a keen artistic eye, capturing the energy and essence of our conference with professionalism and creativity. Beyond his technical skill, Johnson was incredibly reliable, meeting tight deadlines while adapting seamlessly to the fast-paced nature of the conference. His dedication to the media team was evident in every aspect of his work, from meticulous planning to his commitment to delivering high-quality content. Johnson’s contributions were invaluable.",
-        quote: "— Rachel Wei, Under-Secretary-General Marketing, CAHSMUN 2024"
+        quote: "— Rachel Wei, Under-Secretary-General Marketing, CAHSMUN 2024",
+        imageSrc: TestimonialImage1,
+        imageHeight: 4672,
+        imageWidth: 7008
     },
     {
         testimonial: "As the Head of VC Basketball, I had the privilege of working with Johnson Mai, who was instrumental in enhancing our program’s social media presence. Johnson brought a fresh and creative perspective, capturing the excitement and energy of our games through compelling and visually striking content. His ability to tell our program’s story—whether through highlight reels, player spotlights, or event coverage—helped us engage more deeply with our community. Johnson was also incredibly dependable, consistently meeting tight deadlines and adapting quickly to the fast-paced nature of the basketball season. His attention to detail, professionalism, and dedication to delivering top-quality content made a significant impact on promoting our program. I truly appreciate Johnson’s contributions and the value he brought to VC Basketball.",
-        quote: "— Ryan Shams, Head of VC Basketball 2025"
+        quote: "— Ryan Shams, Head of VC Basketball 2025",
+        imageSrc: TestimonialImage2,
+        imageHeight: 3767,
+        imageWidth: 5651
     }
 ];
 
@@ -121,7 +130,7 @@ const Home = () => {
                 </motion.div>
             </section>
 
-            <div
+            <section
                 id="testimonials-section"
                 ref={testimonialsRef}
                 className="px-6 sm:px-20 py-20 bg-gray-50"
@@ -136,6 +145,13 @@ const Home = () => {
                                 key={index}
                                 className="bg-white p-6 shadow-lg rounded-lg border border-gray-200"
                             >
+                                <Image 
+                                    src={testimonials[curSlide].imageSrc} 
+                                    alt="Testimonial Image" 
+                                    width={500} 
+                                    height={300} 
+                                    className="rounded-lg mx-auto mb-6" 
+                                />
                                 <p className={`text-lg text-gray-800 italic leading-relaxed ${latoLite.className}`}>
                                     {testimonial.testimonial}
                                 </p>
@@ -147,42 +163,41 @@ const Home = () => {
                     </div>
                 ) : (
                     <div className="flex items-center justify-center mt-10">
-                        {testimonials.length > 1 && (
-                            <button
-                                className="hover:scale-110 transition ease-in-out hover:cursor-pointer"
-                                onClick={prevSlide}
-                            >
-                                <ArrowLeftIcon className="w-8 h-8 text-gray-600 hover:text-gray-900 mr-6 sm:mr-20" />
-                            </button>
-                        )}
-
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={curSlide}
-                                initial={{ opacity: 0, x: slideDirection === 'forward' ? 100 : -100 }}
-                                animate={inView ? { opacity: 1, x: 0 } : { opacity: 1, x: slideDirection === 'forward' ? 100 : -100 }}
-                                exit={{ opacity: 0, x: slideDirection === 'forward' ? -100 : 100 }}
-                                transition={{ duration: 0.6, ease: "easeInOut" }}
-                                className="max-w-3xl mx-6 bg-white p-10 shadow-lg rounded-lg border border-gray-200"
-                            >
-                                <p className={`text-lg text-gray-800 italic leading-relaxed ${latoLite.className}`}>
-                                    {testimonials[curSlide].testimonial}
-                                </p>
-                                <p className={`text-lg text-gray-800 italic leading-relaxed mt-10 ml-5 ${lato.className}`}>
-                                    {testimonials[curSlide].quote}
-                                </p>
-                            </motion.div>
-                        </AnimatePresence>
-
-                        {testimonials.length > 1 && (
-                            <button
-                                className="hover:scale-110 transition ease-in-out hover:cursor-pointer ml-6 sm:ml-20"
-                                onClick={nextSlide}
-                            >
-                                <ArrowRightIcon className="w-8 h-8 text-gray-600 hover:text-gray-900" />
-                            </button>
-                        )}
-                    </div>
+                    {testimonials.length > 1 && (
+                        <button className="hover:scale-110 transition ease-in-out hover:cursor-pointer" onClick={prevSlide}>
+                            <ArrowLeftIcon className="w-8 h-8 text-gray-600 hover:text-gray-900 mr-6 sm:mr-20" />
+                        </button>
+                    )}
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={curSlide}
+                            initial={{ opacity: 0, x: slideDirection === 'forward' ? 100 : -100 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: slideDirection === 'forward' ? -100 : 100 }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                            className="max-w-3xl mx-6 bg-white p-10 shadow-lg rounded-lg border border-gray-200 text-center"
+                        >
+                            <Image 
+                                src={testimonials[curSlide].imageSrc} 
+                                alt="Testimonial Image" 
+                                width={500} 
+                                height={300} 
+                                className="rounded-lg mx-auto mb-6" 
+                            />
+                            <p className={`text-lg text-gray-800 italic leading-relaxed ${latoLite.className}`}>
+                                {testimonials[curSlide].testimonial}
+                            </p>
+                            <p className={`text-lg text-gray-800 italic leading-relaxed mt-10 ml-5 ${lato.className}`}>
+                                {testimonials[curSlide].quote}
+                            </p>
+                        </motion.div>
+                    </AnimatePresence>
+                    {testimonials.length > 1 && (
+                        <button className="hover:scale-110 transition ease-in-out hover:cursor-pointer ml-6 sm:ml-20" onClick={nextSlide}>
+                            <ArrowRightIcon className="w-8 h-8 text-gray-600 hover:text-gray-900" />
+                        </button>
+                    )}
+                </div>
                 )}
 
                 {testimonials.length > 1 && !isMobile && (
@@ -199,7 +214,7 @@ const Home = () => {
                         ))}
                     </div>
                 )}
-            </div>
+            </section>
 
             <ServicesSection />
             <ContactSection />
