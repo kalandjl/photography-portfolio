@@ -6,8 +6,8 @@ const pics = [
 
     // Row 1
     { src: "/portraits/Devine and Ngan-39.jpg", width: 3714, height: 5571}, 
-    { src: "/portraits/Devine and Ngan-46.jpg", width: 4317, height: 6476, big: true }, 
-    { src: "/portraits/Devine and Ngan-49.jpg", width: 4672, height: 7008, leftBig: true }, 
+    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Devine%20and%20Ngan-46.jpg?alt=media&token=849ae63b-a37a-45bc-ab96-75219c294fe7", width: 4317, height: 6476, big: true, badImage: true }, 
+    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Devine%20and%20Ngan-49.jpg?alt=media&token=ceee4d7c-2788-415e-a0c7-44cf4e75a909", width: 4672, height: 7008, leftBig: true }, 
 
     { src: "/hidden.jpeg", width: 4672, height: 7008}, 
     
@@ -16,7 +16,7 @@ const pics = [
     { src: "/portraits/DSC01063.jpg", width: 4672, height: 7008}, 
     { src: "/hidden1.jpeg", width: 4672, height: 7008}, 
     { src: "/portraits/DSC01374.jpg", width: 4672, height: 7008}, 
-    { src: "/portraits/JMAI LAX MEDIA DAY-01.jpg", width: 4672, height: 5671, big: true}, 
+    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/JMAI%20LAX%20MEDIA%20DAY-01.jpg?alt=media&token=eacb03c6-c249-48d0-891c-526b3557ccc0", width: 4672, height: 5671, big: true, badImage: true}, 
     { src: "/portraits/DSC01032.jpg", width: 4672, height: 7008}, 
     { src: "/portraits/JMAI LAX MEDIA DAY-06-2.jpg", width: 1684, height: 2048}, 
     { src: "/portraits/JMAI LAX MEDIA DAY-08.jpg", width: 4672, height: 4936}, 
