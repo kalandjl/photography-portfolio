@@ -14,9 +14,7 @@ export function renderNextImage(
 ) {
 
   // @ts-ignore
-  let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, hidden, badImage } = photo
-
-  console.log(badImage)
+  let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, badImage, quality, blurDataURL } = photo
 
 
   let bigContainerStyle =  big && !bigLeft ? {
@@ -100,6 +98,7 @@ export function renderNextImage(
               alt={alt}
               title={title}
               sizes={sizes}
+              blurDataURL={blurDataURL}
               id="gallery-photo"
               className={`
                 ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
@@ -107,7 +106,7 @@ export function renderNextImage(
                 ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
                 ${photo.src.includes('hidden') ? "hidden" : ""}
               `}
-              loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+              loading={`${big ? "eager" : "eager"}`} // Lazy loading for performance
               priority={false} // Do not prioritize all images
             />
             }
@@ -127,7 +126,7 @@ export function renderNextImageMobile(
 ) {
 
   // @ts-ignore
-  let { big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, badImage } = photo
+  let { big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, badImage, quality, loadingImage } = photo
 
 
     let bigContainerStyle =  big && !bigLeft ? {
@@ -236,7 +235,9 @@ export function renderNextImageMobile(
               title={title}
               sizes={sizes}
               id="gallery-photo"
-              quality={50}
+              quality={quality??50}
+              onLoad={e => console.log(e)}
+              blurDataURL={loadingImage}
 
               className={`
                 ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}

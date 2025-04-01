@@ -7,9 +7,12 @@ import HeroImageSection from "@/components/HeroImageSection";
 const pics = [
 
     // Row 1
-    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/_DSC0316-Enhanced-NR.jpg?alt=media&token=d4e8b41a-239b-4c1a-a64c-04eceea66be0", width: 5994, height: 3996 }, 
-    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Saitns%20Round%201%20VARSITY-131.jpg?alt=media&token=df61a4b6-4934-45ee-848b-7d0688159605", width: 7008, height: 4672, big: true, badImage: true }, 
-    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Saitns%20Round%201%20VARSITY-101.jpg?alt=media&token=2841c480-5927-4206-a0b3-541455f2cb35", width: 2400, height: 1600, leftBig: true }, 
+    { src: "/pictures/_DSC0316-Enhanced-NR.jpg", width: 5994, height: 3996 }, 
+    { 
+    src: "/pictures/Saitns Round 1 VARSITY-131.jpg",
+    // src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Saitns%20Round%201%20VARSITY-131.jpg?alt=media&token=df61a4b6-4934-45ee-848b-7d0688159605&?q=50&?w=32", 
+    width: 1500, height: 1000, big: true, blurDataURL: "/pictures/Saitns Round 1 VARSITY-131.jpg", badImage: true}, 
+    { src: "/pictures/Saitns Round 1 VARSITY-101.jpg", width: 2400, height: 1600, leftBig: true }, 
 
 
     // Row 2
