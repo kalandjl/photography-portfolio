@@ -11,10 +11,11 @@ import PortfolioSection from "../PortfolioSection";
 
 interface Props {
   pics: Pic[];
+  mobilePicsProps?: Pic[];
   title: string;
 }
 
-const PortfolioLayout: FC<Props> = ({ pics, title }) => {
+const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps }) => {
   
 
   let [mobilePics, setMobilePics] = useState<any>([])
@@ -79,7 +80,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
             columns={3}
             spacing={0}
             padding={0}
-            photos={pics.slice(0, loadedImages)} // Only render loaded images
+            photos={pics.filter(pics => pics.src.includes("hdden") ? false : true).slice(0, loadedImages)} // Only render loaded images
             render={{ image: renderNextImage }}
             defaultContainerWidth={1200}
             sizes={{
@@ -93,7 +94,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title }) => {
               columns={2}
               spacing={0}
               padding={0}
-              photos={mobilePics.slice(0, loadedImagesMobile)} // Only render loaded images
+              photos={mobilePicsProps ?? mobilePics.slice(0, loadedImagesMobile)} // Only render loaded images
               render={{ image: renderNextImageMobile }}
               defaultContainerWidth={1200}
               sizes={{
