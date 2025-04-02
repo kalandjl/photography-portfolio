@@ -187,7 +187,7 @@ const Nav: FC<Props> = ({ theme }) => {
                 className="absolute inset-0 object-cover z-30" // Ensures the image is behind content
                 alt=""
             />
-            <div className="absolute inset-0 bg-black opacity-80 z-40"></div>
+            <div className="absolute top-0 -bottom-10 right-0 left-0 bg-black opacity-80 z-40"></div>
 
             {/* Inner Content */}
             <div id="inner" className="h-full relative z-50">
