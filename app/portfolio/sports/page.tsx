@@ -11,7 +11,7 @@ const pics = [
     { 
     src: "/pictures/Saitns Round 1 VARSITY-131.jpg",
     // src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Saitns%20Round%201%20VARSITY-131.jpg?alt=media&token=df61a4b6-4934-45ee-848b-7d0688159605&?q=50&?w=32", 
-    width: 1500, height: 1000, big: true, blurDataURL: "/pictures/Saitns Round 1 VARSITY-131.jpg" }, 
+    width: 1500, height: 1000, big: true, blurDataURL: "/pictures/Saitns Round 1 VARSITY-131.jpg", badImage: true }, 
     { src: "/pictures/Saitns Round 1 VARSITY-101.jpg", width: 2400, height: 1600, leftBig: true }, 
 
 
