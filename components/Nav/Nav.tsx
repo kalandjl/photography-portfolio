@@ -99,7 +99,7 @@ const Nav: FC<Props> = ({ theme }) => {
                                                 {link.title} 
                                             </p>
                                             {link.href === pathname && (
-                                                <div className="absolute bottom-0 h-1 px-7 right-0 left-0 block">
+                                                <div className="absolute bottom-0 h-1 px-3 right-0 left-0 block">
                                                     <div className="relative h-full">
                                                         <motion.div
                                                             initial={{ opacity: 0, right: "100%" }} // Start below the view (50px down) and hidden (opacity 0)
