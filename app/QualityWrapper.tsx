@@ -32,8 +32,8 @@ export default function QualityWrapper({ children }: { children: React.ReactNode
       const handleResizeOrBlur = () => {
 
         if (
-          window.outerWidth - window.innerWidth > 100 ||
-          window.outerHeight - window.innerHeight > 200
+          (window.outerWidth - window.innerWidth > 100 ||
+          window.outerHeight - window.innerHeight > 100) && window.outerWidth > 700
         ) {
           console.warn("use client");
           setDevToolsDetected(true);
