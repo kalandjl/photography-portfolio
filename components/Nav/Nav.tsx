@@ -7,6 +7,7 @@ import Image from "next/image";
 import { LucideSidebar, Sidebar, SidebarIcon, SidebarOpenIcon, XIcon } from "lucide-react";
 import { Bars3 } from "@/app/icons";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 interface Props {
     theme?: "dark" | "light";
@@ -97,9 +98,20 @@ const Nav: FC<Props> = ({ theme }) => {
                                             <p className={`text-white lg:text-lg font-semibold px-4 py-2 ${link.href != pathname ? "hover:bg-stone-800": ""} group-hover:bg-stone-800 rounded-sm transition agency`}>
                                                 {link.title} 
                                             </p>
-                                            {(pathname.includes(link.href) && pathname !== "/") && (
-                                                <div className="absolute bottom-1 h-1 px-2 right-0 left-0 block group-hover:opacity-0 transition ease-in-out">
-                                                    <span className="h-full bg-stone-200 block"></span>
+                                            {link.href === pathname && (
+                                                <div className="absolute bottom-0 h-1 px-7 right-0 left-0 block">
+                                                    <div className="relative h-full">
+                                                        <motion.div
+                                                            initial={{ opacity: 0, right: "100%" }} // Start below the view (50px down) and hidden (opacity 0)
+                                                            whileInView={{ opacity: 1, right: "0" }} // Animate to the original position and opacity 1
+                                                            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+                                                            transition={{ duration: 0.7 }} // Set the duration for the fly-in effect
+                                                            className="h-full bg-stone-200 block absolute top-0 bottom-0 left-0"
+                                                        >
+                                                            <span></span>
+                                                        </motion.div>
+                                                    </div>
+        
                                                 </div>
                                             )}
                                         </Link>
@@ -120,9 +132,21 @@ const Nav: FC<Props> = ({ theme }) => {
                                         <p className={`text-white font-semibold px-4 py-2 ${link.href !== pathname ? "hover:bg-stone-800": ""} rounded-sm transition agency lg:text-xl`}>
                                             {link.title}
                                         </p>
+ 
                                         {link.href === pathname && (
                                             <div className="absolute bottom-0 h-1 px-7 right-0 left-0 block">
-                                                <span className="h-full bg-stone-200 block"></span>
+                                                <div className="relative h-full">
+                                                    <motion.div
+                                                        initial={{ opacity: 0, right: "100%" }} // Start below the view (50px down) and hidden (opacity 0)
+                                                        whileInView={{ opacity: 1, right: "0" }} // Animate to the original position and opacity 1
+                                                        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+                                                        transition={{ duration: 0.7 }} // Set the duration for the fly-in effect
+                                                        className="h-full bg-stone-200 block absolute top-0 bottom-0 left-0"
+                                                    >
+                                                        <span></span>
+                                                    </motion.div>
+                                                </div>
+     
                                             </div>
                                         )}
                                 </Link>
