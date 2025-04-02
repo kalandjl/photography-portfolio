@@ -33,7 +33,7 @@ export default function QualityWrapper({ children }: { children: React.ReactNode
 
         if (
           window.outerWidth - window.innerWidth > 100 ||
-          window.outerHeight - window.innerHeight > 100
+          window.outerHeight - window.innerHeight > 200
         ) {
           console.warn("use client");
           setDevToolsDetected(true);
