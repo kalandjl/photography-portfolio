@@ -6,8 +6,10 @@ import Icon from "@/public/icon.png"
 import Image from "next/image";
 import { LucideSidebar, Sidebar, SidebarIcon, SidebarOpenIcon, XIcon } from "lucide-react";
 import { Bars3 } from "@/app/icons";
+import SidebarImage from "@/public/bg/JMAI -02.jpg"
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
+import CustomImage from "../CustomImage";
 
 interface Props {
     theme?: "dark" | "light";
@@ -160,18 +162,34 @@ const Nav: FC<Props> = ({ theme }) => {
                     </div>
                 </div>
             </nav>
+            <div
+            id="sidebar"
+            className={`${sidebarOpen ? "z-20" : "hidden"} px-10 -z-10 py-5 fixed inset-0 bg-stone-800 scroll`}
+            >
+            {/* Background Image */}
+            <Image
+                src={SidebarImage}
+                layout="fill"
+                objectFit="cover"
+                className="absolute inset-0 object-cover -z-20" // Ensures the image is behind content
+                alt=""
+            />
+            <div className="absolute inset-0 bg-black opacity-80 -z-20"></div>
 
-            {/* Sidebar */}
-            <div id="sidebar" className={`${sidebarOpen ? "z-20": "hidden"} px-10 -z-10 py-5 fixed inset-0 bg-stone-800 scroll`}>
-                <p className="text-white hover:scale-105 hover:cursor-pointer" onClick={() => setSidebarOpen(false)}><XIcon stroke="#ffffff"/></p>
+            {/* Inner Content */}
+            <div id="inner" className="h-full relative z-10">
+                <p className="text-white hover:scale-105 hover:cursor-pointer" onClick={() => setSidebarOpen(false)}>
+                    <XIcon stroke="#ffffff" />
+                </p>
 
                 <div id="links" className="grid gap-3 pt-10">
-                    {links.map((link, i) => (
-                        <Link key={i} href={link.href} className={`text-white ${lato.className}`}>
-                            {link.title}
-                        </Link>
-                    ))}
+                {links.map((link, i) => (
+                    <Link key={i} href={link.href} className={`text-white ${lato.className} text-lg`}>
+                        {link.title}
+                    </Link>
+                ))}
                 </div>
+            </div>
             </div>
         </>
     );
