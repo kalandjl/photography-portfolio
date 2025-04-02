@@ -58,6 +58,19 @@ const Nav: FC<Props> = ({ theme }) => {
     }, []);
 
     useEffect(() => {
+
+        if (sidebarOpen) {
+            document.body.style.height = "100vh"; // Disable scrolling
+        } else {
+            document.body.style.height = ""; // Re-enable scrolling
+        }
+    
+        return () => {
+            document.body.style.overflow = "auto"; // Cleanup on unmount
+        };
+    }, [sidebarOpen]);
+
+    useEffect(() => {
         if (sidebarOpen) {
             document.body.style.overflow = "hidden"; // Disable scrolling
             document.querySelectorAll("#slide-btn").forEach((el) => {
@@ -171,10 +184,10 @@ const Nav: FC<Props> = ({ theme }) => {
                 src={SidebarImage}
                 layout="fill"
                 objectFit="cover"
-                className="absolute inset-0 object-cover z-40" // Ensures the image is behind content
+                className="absolute inset-0 object-cover z-30" // Ensures the image is behind content
                 alt=""
             />
-            <div className="absolute inset-0 bg-black opacity-80 z-30"></div>
+            <div className="absolute inset-0 bg-black opacity-80 z-40"></div>
 
             {/* Inner Content */}
             <div id="inner" className="h-full relative z-50">
