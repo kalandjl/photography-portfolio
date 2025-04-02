@@ -61,7 +61,10 @@ const pics = [
 const mobilePics = [
 
     { src: "/hddenmobile.jpeg", width: 7008, height: 4672,  },
-    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Saitns%20Round%201%20VARSITY-131.jpg?alt=media&token=217b1ab0-437d-4a8b-90ec-6cb49fa7de7d", width: 7008, height: 4672, big: true, badImage: true }, 
+    { 
+        src: "/pictures/Saitns Round 1 VARSITY-131.jpg",
+        // src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Saitns%20Round%201%20VARSITY-131.jpg?alt=media&token=df61a4b6-4934-45ee-848b-7d0688159605&?q=50&?w=32", 
+        width: 1500, height: 1000, big: true, blurDataURL: "/pictures/Saitns Round 1 VARSITY-131.jpg", quality: 80}, 
     { src: "/hddenmobile1.jpeg", width: 7008, height: 4672,  },
     { src: "/pictures/_DSC0316-Enhanced-NR.jpg", width: 5994, height: 3996}, 
     { src: "/pictures/Saitns Round 1 VARSITY-101.jpg", width: 2400, height: 1600}, 
