@@ -171,13 +171,13 @@ const Nav: FC<Props> = ({ theme }) => {
                 src={SidebarImage}
                 layout="fill"
                 objectFit="cover"
-                className="absolute inset-0 object-cover -z-20" // Ensures the image is behind content
+                className="absolute inset-0 object-cover z-40" // Ensures the image is behind content
                 alt=""
             />
-            <div className="absolute inset-0 bg-black opacity-80 -z-20"></div>
+            <div className="absolute inset-0 bg-black opacity-80 z-30"></div>
 
             {/* Inner Content */}
-            <div id="inner" className="h-full relative z-10">
+            <div id="inner" className="h-full relative z-50">
                 <p className="text-white hover:scale-105 hover:cursor-pointer" onClick={() => setSidebarOpen(false)}>
                     <XIcon stroke="#ffffff" />
                 </p>
