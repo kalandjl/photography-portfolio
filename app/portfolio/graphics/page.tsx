@@ -25,7 +25,7 @@ const pics = [
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/24%20hours.png?alt=media&token=37bb413c-03c0-4f58-b848-5ce197ab62bc", width: 1080, height: 1350, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/V3%206238121.jpg?alt=media&token=9f9bf11c-52cb-44c4-8252-29ea0d4f02da", width: 2160, height: 2160, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Varsity%20Poster%20Final.jpg?alt=media&token=e8e0adf9-f75d-4b4b-94ff-9ac881b3a35a", width: 5400, height: 7200, badImage: true },
-    { src: "https://firebasestttps://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Winner.jpg?alt=media&token=f4bfad90-8695-4854-bce4-ca54c8c51f6c", width: 6391, height: 4261 },
+    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Winner.jpg?alt=media&token=f4bfad90-8695-4854-bce4-ca54c8c51f6c", width: 6391, height: 4261, badImage: true },
 ];
 
 const Home = () => {

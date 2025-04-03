@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import {
   RenderImageContext,
   RenderImageProps,
@@ -54,6 +55,8 @@ export function renderNextImage(
     right: "-100%",
   } : {}
 
+  let [modal, setModal] = useState<boolean>(false)
+
   return (
     <>
       <div className="block">
@@ -72,7 +75,12 @@ export function renderNextImage(
         >
         <div id="image-container-wrap" 
           className={`
-          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : badImage ? "" : "p-4"}`}>
+          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : badImage ? "" : "p-4"}
+          ${modal ? "!fixed max-h-screen bg-black z-50 inset-0 py-10" : ""}
+          onc
+          
+          `}
+          onClick={() => modal ? setModal(false) : ""}>
             {badImage ? 
             <>
               <img 
@@ -81,14 +89,15 @@ export function renderNextImage(
                 title={title}
                 sizes={sizes}
                 id="gallery-photo"
-  
                 className={`
                   ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
                   ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
                   ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+                  ${modal ? "!static" : ""}
                   ${photo.src.includes('hidden') ? "hidden" : ""}
                 `}
                 loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+                onClick={() => setModal(true)}
                 />
             </>
             :
@@ -105,6 +114,7 @@ export function renderNextImage(
                 ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
                 ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
                 ${photo.src.includes('hidden') ? "hidden" : ""}
+                ${modal ? "!static w-auto h-screen" : ""}
               `}
               loading={`${big ? "eager" : "eager"}`} // Lazy loading for performance
               priority={false} // Do not prioritize all images
@@ -114,7 +124,6 @@ export function renderNextImage(
             <div style={{position: "absolute", background: "transparent"}}></div>
           </div>
         </div>
-
       </div>
     </>
   );
@@ -124,6 +133,8 @@ export function renderNextImageMobile(
   { alt = "", title, sizes }: RenderImageProps,
   { photo, width, height }: RenderImageContext,
 ) {
+
+  let [modal, setModal] = useState<boolean>(false)
 
   // @ts-ignore
   let { big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, badImage, quality, loadingImage } = photo
@@ -190,6 +201,10 @@ export function renderNextImageMobile(
     imageWrapperClass = "sm:p-4 p-2"; // Default padding for mobile
   }
 
+  let [state, setState] = useState(0)
+
+  useEffect(() => {console.log(state)}, [state])
+
   return (
     <>
       <div className="block">
@@ -208,7 +223,10 @@ export function renderNextImageMobile(
         >
         <div id="image-container-wrap" 
           className={`
-          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3":  badImage ? "" : "p-4"}`}>
+          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3":  badImage ? "" : "p-4"}
+          ${modal ? "!fixed max-h-screen bg-black z-50 inset-0 py-10" : ""}
+          `}
+          onClick={() => modal ? setModal(false) : ""}>
             {badImage ?
             <>
             <img 
@@ -225,6 +243,7 @@ export function renderNextImageMobile(
                   ${photo.src.includes('hidden') ? "hidden" : ""}
                 `}
                 loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+                onClick={() => setModal(true)}
                 />
               </>
             :
