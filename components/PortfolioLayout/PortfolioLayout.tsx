@@ -39,28 +39,6 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-
-      pics.forEach((pic) => {
-        const el = document.getElementById(`img-${pic.src}`);
-        if (!el) return;
-
-        const data = el.getAttribute("data-modal")
-
-        if (data === "true") {
-
-          console.log('fsadf')
-          setModal(pic)
-        }
-      });
-
-      setCount((prevCount) => prevCount + 1);
-    }, 500);
-
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [pics]);
-
-  useEffect(() => {
     let timeoutIds: NodeJS.Timeout[] = [];
 
     // Handle the image loading for desktop
@@ -146,42 +124,6 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
       />
       <PortfolioSection />
       <InstaSection />
-
-      {modal ?
-        <div
-      id="modal"
-      className="fixed inset-0 flex items-center justify-center z-50 p-4"
-      onClick={() => closeModal()} // Click outside to close
-    >
-      {/* Background overlay */}
-      <div className="absolute inset-0 bg-black opacity-90 z-40"></div>
-
-      {/* Modal content (Centered, Scrollable if needed) */}
-      <div
-        className="relative bg-white rounded-lg shadow-lg z-50 max-w-[90vw] max-h-[90vh] overflow-auto"
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
-      >
-        {/* Close button (Positioned properly) */}
-        <button
-          onClick={() => closeModal()}
-          className="absolute top-3 right-3 text-white bg-black rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-700 transition"
-        >
-          ✕
-        </button>
-
-        {/* Image (Resizes properly) */}
-        <Image
-          src={modal.src}
-          height={modal.height}
-          width={modal.width}
-          className="object-contain max-h-[80vh] max-w-full rounded-md"
-          alt=""
-        />
-      </div>
-    </div>
-        :
-        <></>
-      }
       
     </section>
   );

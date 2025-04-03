@@ -1,5 +1,6 @@
 "use client";
 import { MagnifyingGlassIcon } from "@/app/icons";
+import { XCircleIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
@@ -15,118 +16,150 @@ export function renderNextImage(
   { photo, width, height }: RenderImageContext,
 ) {
 
-  // @ts-ignore
-  let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, badImage, quality, blurDataURL } = photo
+    // @ts-ignore
+    let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, badImage, quality, blurDataURL } = photo
 
-  let [modal, setModal] = useState(false)
+    let [modal, setModal] = useState(false)
 
 
-  let bigContainerStyle =  big && !bigLeft ? {
-    width: "200%",
-    height: "200%",
-    top: "0",
-    bottom: "0",
-    zIndex: "-10",
-  } : big && bigLeft && !bigWithRowBelow ? {
-    width: "300%",
-    height: "300%",
-    top: "0",
-    zIndex: "-10",
-  } : big && bigLeft && bigWithRowBelow ? {
-    width: "300%",
-    height: "300%",
-    top: "0",
-    zIndex: "-10",
-  } : big && !bigLeft && bigWithRowBelow ? {
-    width: "300%",
-    height: "300%",
-    top: "0",
-    zIndex: "-10",
-  } : {}
+    let bigContainerStyle =  big && !bigLeft ? {
+        width: "200%",
+        height: "200%",
+        top: "0",
+        bottom: "0",
+        zIndex: "-10",
+    } : big && bigLeft && !bigWithRowBelow ? {
+        width: "300%",
+        height: "300%",
+        top: "0",
+        zIndex: "-10",
+    } : big && bigLeft && bigWithRowBelow ? {
+        width: "300%",
+        height: "300%",
+        top: "0",
+        zIndex: "-10",
+    } : big && !bigLeft && bigWithRowBelow ? {
+        width: "300%",
+        height: "300%",
+        top: "0",
+        zIndex: "-10",
+    } : {}
 
-  let leftBigContainerStyle = leftBig ? {
-    bottom: -height ,
-    left: "-200%",
-  } : {}
+    let leftBigContainerStyle = leftBig ? {
+        bottom: -height ,
+        left: "-200%",
+    } : {}
 
-  let rightBigContainerStyle = rightBig ? {
-    bottom: -height ,
-    right: "",
-  } : {}
+    let rightBigContainerStyle = rightBig ? {
+        bottom: -height ,
+        right: "",
+    } : {}
 
-  let firstRightBigContainerStyle = firstRightBig ? {
-    right: "-100%",
-  } : {}
+    let firstRightBigContainerStyle = firstRightBig ? {
+        right: "-100%",
+    } : {}
+
+    useEffect(() => {
+
+    }, [modal])
 
   const img = (
-  <div onClick={() => setModal(true)}>
-  {badImage ? 
-    (<>
-      <img 
-        src={photo.src}
+    <div onClick={() => setModal(true)}>
+    {badImage ? 
+        (<>
+        <img 
+            src={photo.src}
+            alt={alt}
+            title={title}
+            sizes={sizes}
+            id="gallery-photo"
+            className={`
+            ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+            ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+            ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+            ${photo.src.includes('hidden') ? "hidden" : ""}
+            `}
+            loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+            />
+        </>)
+        :
+        (<Image
+        fill
+        src={photo}
         alt={alt}
         title={title}
         sizes={sizes}
+        blurDataURL={blurDataURL}
         id="gallery-photo"
         className={`
-          ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-          ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-          ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-          ${photo.src.includes('hidden') ? "hidden" : ""}
+            ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+            ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+            ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+            ${photo.src.includes('hidden') ? "hidden" : ""}
         `}
-        loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+        loading={`${big ? "eager" : "eager"}`} // Lazy loading for performance
+        priority={false} // Do not prioritize all images
         />
-    </>)
-    :
-    (<Image
-      fill
-      src={photo}
-      alt={alt}
-      title={title}
-      sizes={sizes}
-      blurDataURL={blurDataURL}
-      id="gallery-photo"
-      className={`
-        ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-        ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-        ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-        ${photo.src.includes('hidden') ? "hidden" : ""}
-      `}
-      loading={`${big ? "eager" : "eager"}`} // Lazy loading for performance
-      priority={false} // Do not prioritize all images
-    />
-    )}
-  </div>
+        )}
+    </div>
   )
 
   return (
-    <div className="block" onClick={() => big ? setModal(true) : "" }>
-      <div className="relative">
-        <div
-        id={`img-${photo.src}`}
-        // To detect with modal dectecting loop
-        data-modal={`${modal ? true : false}`}
-        style={{...{
-          width: "100%",
-          aspectRatio: `${width} / ${height}`,
-          display: "",
-          position: "relative",
-        }, ...bigContainerStyle, 
-        ...leftBigContainerStyle, 
-        ...rightBigContainerStyle, 
-        ...firstRightBigContainerStyle,}}
-      >
-      <div id="image-container-wrap" 
-        className={`
-        ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : badImage ? "" : "p-4"}
-        `}>
-            {img}
+    <>
+        <div className="block" onClick={() => big ? setModal(true) : "" }>
+            <div className="relative">
+                <div
+                id={`img-${photo.src}`}
+                // To detect with modal dectecting loop
+                data-modal={`${modal ? true : false}`}
+                style={{...{
+                width: "100%",
+                aspectRatio: `${width} / ${height}`,
+                display: "",
+                position: "relative",
+                }, ...bigContainerStyle, 
+                ...leftBigContainerStyle, 
+                ...rightBigContainerStyle, 
+                ...firstRightBigContainerStyle,}}
+            >
+            <div id="image-container-wrap" 
+                className={`
+                ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : badImage ? "" : "p-4"}
+                `}>
+                    {img}
+                </div>
+                    <div style={{position: "absolute", background: "transparent"}}></div>
+                </div>
+            </div>
         </div>
-          <div style={{position: "absolute", background: "transparent"}}></div>
+        <div id="modal" className={`${modal ? "" : "hidden"} fixed inset-0 z-50 flex items-center justify-center`}>
+            {/* Background overlay */}
+            <div className="absolute bg-black opacity-80 inset-0" onClick={() => setModal(false)}></div>
+
+            {/* Modal container */}
+            <div className="relative max-w-[90vw] max-h-[90vh] bg-white p-4 rounded-lg shadow-lg z-50">
+                <img
+                src={photo.src}
+                width={photo.width}
+                height={photo.height}
+                alt=""
+                className="max-h-[80vh] max-w-full object-contain rounded-md"
+                />
+                <div className="top-0 right-0 absolute">
+                    {/* Close button (Positioned properly) */}
+                    <button
+                    onClick={() => setModal(false)}
+                    className="absolute top-3 right-3 text-white bg-black rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-700 transition"
+                    >
+                    ✕
+                    </button>
+                </div>
+            </div>
+
         </div>
-      </div>
-    </div>
-  );
+
+    </>
+  )
 }
 
 export function renderNextImageMobile(
