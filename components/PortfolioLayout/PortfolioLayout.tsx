@@ -19,8 +19,6 @@ interface Props {
 
 const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) => {
 
-
-
   const closeModal = () => {
     if (!modal) return
     document.getElementById(`img-${modal.src}`)?.setAttribute("data-modal", "false")
@@ -48,7 +46,12 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
         if (!el) return;
 
         const data = el.getAttribute("data-modal")
-        if (data === "true") setModal(pic)
+
+        if (data === "true") {
+
+          console.log('fsadf')
+          setModal(pic)
+        }
       });
 
       setCount((prevCount) => prevCount + 1);
@@ -101,8 +104,6 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-
-
   return (
     <section id="portfolio-gallery" className="min-h-screen text-black transition-opacity duration-500">
 
@@ -153,11 +154,11 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
       onClick={() => closeModal()} // Click outside to close
     >
       {/* Background overlay */}
-      <div className="absolute inset-0 bg-black opacity-50 z-40"></div>
+      <div className="absolute inset-0 bg-black opacity-90 z-40"></div>
 
       {/* Modal content (Centered, Scrollable if needed) */}
       <div
-        className="relative bg-white rounded-lg shadow-lg z-50 p-6 max-w-[90vw] max-h-[90vh] overflow-auto"
+        className="relative bg-white rounded-lg shadow-lg z-50 max-w-[90vw] max-h-[90vh] overflow-auto"
         onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
       >
         {/* Close button (Positioned properly) */}
@@ -179,7 +180,8 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
       </div>
     </div>
         :
-        <></>}
+        <></>
+      }
       
     </section>
   );

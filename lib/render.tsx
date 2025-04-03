@@ -1,4 +1,5 @@
 "use client";
+import { MagnifyingGlassIcon } from "@/app/icons";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
@@ -99,34 +100,31 @@ export function renderNextImage(
   )
 
   return (
-    <div>
-      <div className="block">
-        <div className="relative">
-          <div
-          id={`img-${photo.src}`}
-          // To detect with modal dectecting loop
-          data-modal={`${modal ? true : false}`}
-          style={{...{
-            width: "100%",
-            aspectRatio: `${width} / ${height}`,
-            display: "",
-            position: "relative",
-          }, ...bigContainerStyle, 
-          ...leftBigContainerStyle, 
-          ...rightBigContainerStyle, 
-          ...firstRightBigContainerStyle,}}
-        >
-        <div id="image-container-wrap" 
-          className={`
-          ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : badImage ? "" : "p-4"}
-          `}>
-              {img}
-          </div>
-            <div style={{position: "absolute", background: "transparent"}}></div>
-          </div>
+    <div className="block" onClick={() => big ? setModal(true) : "" }>
+      <div className="relative">
+        <div
+        id={`img-${photo.src}`}
+        // To detect with modal dectecting loop
+        data-modal={`${modal ? true : false}`}
+        style={{...{
+          width: "100%",
+          aspectRatio: `${width} / ${height}`,
+          display: "",
+          position: "relative",
+        }, ...bigContainerStyle, 
+        ...leftBigContainerStyle, 
+        ...rightBigContainerStyle, 
+        ...firstRightBigContainerStyle,}}
+      >
+      <div id="image-container-wrap" 
+        className={`
+        ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : badImage ? "" : "p-4"}
+        `}>
+            {img}
+        </div>
+          <div style={{position: "absolute", background: "transparent"}}></div>
         </div>
       </div>
-
     </div>
   );
 }
@@ -201,16 +199,75 @@ export function renderNextImageMobile(
     imageWrapperClass = "sm:p-4 p-2"; // Default padding for mobile
   }
 
-  let [state, setState] = useState(0)
+  let [modal, setModal] = useState(false)
 
-  useEffect(() => {console.log(state)}, [state])
+  const img = (
+    <div onClick={() => setModal(true)} className={`${big ? "z-50" : ""}`}>
+      {badImage ?
+        <>
+        <img 
+          src={photo.src}
+          alt={alt}
+          title={title}
+          sizes={sizes}
+          id="gallery-photo"
+
+          className={`
+            ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+            ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+            ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+            ${photo.src.includes('hiddn') ? "hidden" : ""}
+          `}
+          loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+          />
+        </>
+        :
+        <>
+        <Image
+          fill
+          src={photo}
+          alt={alt}
+          title={title}
+          sizes={sizes}
+          id="gallery-photo"
+          quality={quality??50}
+          blurDataURL={loadingImage}
+
+          className={`
+            h-full
+            ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+            ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+            ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+            ${photo.src.includes('hidden') || photo.src.includes("hdden") ? "hidden" : ""}
+          `}
+          loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+          priority={false} // Do not prioritize all images
+        />
+        </>
+      }
+      {/* {
+        big ?
+      <div className="absolute -right-5 top-0 h-10 w-10 bg-white grid place-items-center z-50">
+        <MagnifyingGlassIcon stroke="#000000" className="rotate-90 w-2/3" onClick={() => console.log("asdfkl")} />
+      </div>
+      :
+      <></>
+      } */}
+    </div>
+    )
+
+  useEffect(() => {
+    if (modal) setInterval(() => setModal(false), 1000)
+  }, [modal])
 
   return (
     <>
-      <div className="block">
+      <div className="block" onClick={() => big ? setModal(true) : "" }>
         <div className="relative">
           <div
-            id={`img-${photo.src}`}
+          id={`img-${photo.src}`}
+          onClick={() => setModal(true)}
+          data-modal={`${modal ? true : false}`}
           style={{...{
             width: "100%",
             aspectRatio: `${width} / ${height}`,
@@ -226,50 +283,11 @@ export function renderNextImageMobile(
           ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3":  badImage ? "" : "p-4"}
           `}
           >
-            {badImage ?
-            <>
-            <img 
-                src={photo.src}
-                alt={alt}
-                title={title}
-                sizes={sizes}
-                id="gallery-photo"
-  
-                className={`
-                  ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-                  ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-                  ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-                  ${photo.src.includes('hidden') ? "hidden" : ""}
-                `}
-                loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
-                />
-              </>
-            :
-            <Image
-              fill
-              src={photo}
-              alt={alt}
-              title={title}
-              sizes={sizes}
-              id="gallery-photo"
-              quality={quality??50}
-              onLoad={e => console.log(e)}
-              blurDataURL={loadingImage}
-
-              className={`
-                ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-                ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-                ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-                ${photo.src.includes('hidden') || photo.src.includes("hdden") ? "hidden" : ""}
-              `}
-              loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
-              priority={false} // Do not prioritize all images
-            />}
+            {img}
           </div>
             <div style={{position: "absolute", background: "transparent"}}></div>
           </div>
         </div>
-
       </div>
     </>
   );
