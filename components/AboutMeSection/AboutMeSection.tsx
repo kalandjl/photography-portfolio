@@ -24,7 +24,7 @@ const AboutMeSection: FC<Props> = (props) => {
                     objectFit="cover"
                     quality={75}
                     loading="eager"
-                    className="object-cover h-full" />
+                    className="object-cover h-full xl:object-top object-center" />
                 </motion.div>
             </div>
             <div id="text-wrap" className="sm:col-span-3 px-10 sm:px-20 grid place-items-center pb-16">
