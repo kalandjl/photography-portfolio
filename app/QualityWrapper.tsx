@@ -14,15 +14,13 @@ export default function QualityWrapper({ children }: { children: React.ReactNode
   }, []);
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_NODE_ENV === "production") {
+    if (process.env.NEXT_PUBLIC_NODE_ENV === "producion") {
       const checkDevTools = () => {
         const threshold = 50;
         const start = performance.now();
         debugger;
         const duration = performance.now() - start;
 
-        console.log(duration)
-        
         if (duration > threshold) {
           console.warn("use client");
           setDevToolsDetected(true);
