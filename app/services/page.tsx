@@ -9,7 +9,7 @@ import ServicePhoto2 from "@/public/portraits/JMAI LAX MEDIA DAY-41.jpg"
 import ServicePhoto3 from "@/public/graphics/Nathan Lowden Queens Commit Final.jpg"
 import ServicePhoto4 from "@/public/graphics/Saints day post.jpg"
 import ServicePhoto5 from "@/public/pictures/_DSC0666-Enhanced-NR.jpg"
-import ServicePhoto6 from "@/public/portraits/JMAi THEATRE HEADSHOTS-45.jpg"
+import ServicePhoto6 from "@/public/portraits/headshot section img.jpg"
 import ServicePhoto7 from "@/public/graphics/Winner.jpg"
 import ServicePhoto8 from "@/public/pictures/JMAI Post abits Rematch Retouched-2.jpg"
 import ServicePhoto9 from "@/public/pictures/Ryan and Taylor-005.jpg"
@@ -112,9 +112,11 @@ const Home = () => {
                 {services.map((service, i) => {
                     const isReversed = (i % 2 !== 0) === reverseLayout;
 
+                    console.log(service.objectTop, service.title)
+
                     return (
                         <div key={i}>
-                            <div className="h-auto xl:h-128 grid-cols-5 hidden sm:grid">
+                            <div className="h-auto xl:h-128 lg:h-96 md:h-128 grid-cols-5 hidden sm:grid overflow-hidden">
                                 {!isReversed ? (
                                     <>
                                         <motion.div
@@ -135,21 +137,25 @@ const Home = () => {
                                                 />
                                             <div className="absolute inset-0 bg-black opacity-30"></div>
                                         </motion.div>
-                                        <div id="text-wrap" className="col-span-2 grid place-items-center px-20 w-3/4">
-                                            <div className="grid gap-5">
-                                                <h1 className="text-4xl agency">{service.title}</h1>
-                                                <p className={`text-lg ${latoLite.className}`}>{service.description}</p>
-                                                <p className={`text-lg ${latoLite.className} text-gray-700`}>{service.captcha}</p>
+                                        <div id="text-wrap" className="col-span-2 grid place-items-center  xl:py-0 py-5 xl:px-20 xl:w-3/4 px-4">
+                                            <div className="h-full pt-10">
+                                                <div className="grid gap-5">
+                                                    <h1 className="text-4xl agency">{service.title}</h1>
+                                                    <p className={`text-lg ${latoLite.className}`}>{service.description}</p>
+                                                    <p className={`text-lg ${latoLite.className} text-gray-700`}>{service.captcha}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </>
                                 ) : (
                                     <>
-                                        <div id="text-wrap" className="col-span-2 grid place-items-center px-20 w-3/4">
-                                            <div className="grid gap-5">
-                                                <h1 className="text-4xl agency">{service.title}</h1>
-                                                <p className={`text-lg ${latoLite.className}`}>{service.description}</p>
-                                                <p className={`text-lg ${latoLite.className} text-gray-700`}>{service.captcha}</p>
+                                        <div id="text-wrap" className="col-span-2 grid place-items-center xl:py-0 py-5 xl:px-20 xl:w-3/4 px-4">
+                                        <div className="h-full lg:pt-10">
+                                                <div className="grid gap-5">
+                                                    <h1 className="text-4xl agency">{service.title}</h1>
+                                                    <p className={`text-lg ${latoLite.className}`}>{service.description}</p>
+                                                    <p className={`text-lg ${latoLite.className} text-gray-700`}>{service.captcha}</p>
+                                                </div>
                                             </div>
                                         </div>
                                         <motion.div
@@ -166,7 +172,7 @@ const Home = () => {
                                                 height={service.imageHeight} 
                                                 width={service.imageWidth} 
                                                 alt="Service photo"
-                                                className="object-cover h-full w-full absolute object-top" 
+                                                className={`object-cover h-full w-full absolute  ${service.objectTop ? "object-top" : "object-center"}`} 
                                             />
                                             <div className="absolute inset-0 bg-black opacity-30"></div>
                                         </motion.div>
