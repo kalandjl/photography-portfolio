@@ -17,6 +17,8 @@ export function renderNextImage(
   // @ts-ignore
   let {big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, badImage, quality, blurDataURL } = photo
 
+  let [modal, setModal] = useState(false)
+
 
   let bigContainerStyle =  big && !bigLeft ? {
     width: "200%",
@@ -55,14 +57,55 @@ export function renderNextImage(
     right: "-100%",
   } : {}
 
-  let [modal, setModal] = useState<boolean>(false)
+  const img = (
+  <div onClick={() => setModal(true)}>
+  {badImage ? 
+    (<>
+      <img 
+        src={photo.src}
+        alt={alt}
+        title={title}
+        sizes={sizes}
+        id="gallery-photo"
+        className={`
+          ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+          ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+          ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+          ${photo.src.includes('hidden') ? "hidden" : ""}
+        `}
+        loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+        />
+    </>)
+    :
+    (<Image
+      fill
+      src={photo}
+      alt={alt}
+      title={title}
+      sizes={sizes}
+      blurDataURL={blurDataURL}
+      id="gallery-photo"
+      className={`
+        ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+        ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+        ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+        ${photo.src.includes('hidden') ? "hidden" : ""}
+      `}
+      loading={`${big ? "eager" : "eager"}`} // Lazy loading for performance
+      priority={false} // Do not prioritize all images
+    />
+    )}
+  </div>
+  )
 
   return (
-    <>
+    <div>
       <div className="block">
         <div className="relative">
           <div
           id={`img-${photo.src}`}
+          // To detect with modal dectecting loop
+          data-modal={`${modal ? true : false}`}
           style={{...{
             width: "100%",
             aspectRatio: `${width} / ${height}`,
@@ -76,56 +119,15 @@ export function renderNextImage(
         <div id="image-container-wrap" 
           className={`
           ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3" : badImage ? "" : "p-4"}
-          ${modal ? "!fixed max-h-screen bg-black z-50 inset-0 py-10" : ""}
-          onc
-          
-          `}
-          onClick={() => modal ? setModal(false) : ""}>
-            {badImage ? 
-            <>
-              <img 
-                src={photo.src}
-                alt={alt}
-                title={title}
-                sizes={sizes}
-                id="gallery-photo"
-                className={`
-                  ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-                  ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-                  ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-                  ${modal ? "!static" : ""}
-                  ${photo.src.includes('hidden') ? "hidden" : ""}
-                `}
-                loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
-                onClick={() => setModal(true)}
-                />
-            </>
-            :
-            <Image
-              fill
-              src={photo}
-              alt={alt}
-              title={title}
-              sizes={sizes}
-              blurDataURL={blurDataURL}
-              id="gallery-photo"
-              className={`
-                ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-                ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-                ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-                ${photo.src.includes('hidden') ? "hidden" : ""}
-                ${modal ? "!static w-auto h-screen" : ""}
-              `}
-              loading={`${big ? "eager" : "eager"}`} // Lazy loading for performance
-              priority={false} // Do not prioritize all images
-            />
-            }
+          `}>
+              {img}
           </div>
             <div style={{position: "absolute", background: "transparent"}}></div>
           </div>
         </div>
       </div>
-    </>
+
+    </div>
   );
 }
 
@@ -133,8 +135,6 @@ export function renderNextImageMobile(
   { alt = "", title, sizes }: RenderImageProps,
   { photo, width, height }: RenderImageContext,
 ) {
-
-  let [modal, setModal] = useState<boolean>(false)
 
   // @ts-ignore
   let { big, leftBig, rightBig, firstRightBig, bigLeft, bigWithRowBelow, badImage, quality, loadingImage } = photo
@@ -224,9 +224,8 @@ export function renderNextImageMobile(
         <div id="image-container-wrap" 
           className={`
           ${big && bigLeft ? "absolute bottom-0 top-1/3 left-0 right-1/3":  badImage ? "" : "p-4"}
-          ${modal ? "!fixed max-h-screen bg-black z-50 inset-0 py-10" : ""}
           `}
-          onClick={() => modal ? setModal(false) : ""}>
+          >
             {badImage ?
             <>
             <img 
@@ -243,7 +242,6 @@ export function renderNextImageMobile(
                   ${photo.src.includes('hidden') ? "hidden" : ""}
                 `}
                 loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
-                onClick={() => setModal(true)}
                 />
               </>
             :

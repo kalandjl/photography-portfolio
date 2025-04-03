@@ -1,15 +1,15 @@
 "use client";
 
 import { FC, useEffect, useState } from "react";
-import ServicePhoto1 from "@/public/pictures/Saitns Round 1 VARSITY-101.jpg";
-import ServicePhoto2 from "@/public/graphics/Senior day post.jpg";
-import ServicePhoto3 from "@/public/graphics/Nathan Lowden Queens Commit Final.jpg";
-import ServicePhoto4 from "@/public/graphics/Saints day post.jpg";
-import ServicePhoto5 from "@/public/pictures/_DSC0666-Enhanced-NR.jpg";
-import ServicePhoto6 from "@/public/pictures/insta/insta-photo-6.jpg";
-import ServicePhoto7 from "@/public/graphics/Winner.jpg";
-import ServicePhoto8 from "@/public/pictures/JMAI Post abits Rematch Retouched-2.jpg";
-import ServicePhoto9 from "@/public/pictures/Ryan and Taylor-005.jpg";
+import ServicePhoto1 from "@/public/pictures/Saitns Round 1 VARSITY-101.jpg"
+import ServicePhoto2 from "@/public/portraits/JMAI LAX MEDIA DAY-41.jpg"
+import ServicePhoto3 from "@/public/graphics/Nathan Lowden Queens Commit Final.jpg"
+import ServicePhoto4 from "@/public/graphics/Saints day post.jpg"
+import ServicePhoto5 from "@/public/pictures/_DSC0666-Enhanced-NR.jpg"
+import ServicePhoto6 from "@/public/portraits/JMAi THEATRE HEADSHOTS-45.jpg"
+import ServicePhoto7 from "@/public/graphics/Winner.jpg"
+import ServicePhoto8 from "@/public/pictures/JMAI Post abits Rematch Retouched-2.jpg"
+import ServicePhoto9 from "@/public/pictures/Ryan and Taylor-005.jpg"
 import Image, { StaticImageData } from "next/image";
 import BarrierImageSection from "../BarrierImageSection";
 import { lato, latoLite, oswald } from "@/app/fonts";

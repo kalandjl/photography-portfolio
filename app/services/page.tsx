@@ -5,11 +5,11 @@ import Nav from "@/components/Nav"
 import { ArrowDown, Contact } from "lucide-react"
 import HeroImageSection from "@/components/HeroImageSection"
 import ServicePhoto1 from "@/public/pictures/Saitns Round 1 VARSITY-101.jpg"
-import ServicePhoto2 from "@/public/graphics/Senior day post.jpg"
+import ServicePhoto2 from "@/public/portraits/JMAI LAX MEDIA DAY-41.jpg"
 import ServicePhoto3 from "@/public/graphics/Nathan Lowden Queens Commit Final.jpg"
 import ServicePhoto4 from "@/public/graphics/Saints day post.jpg"
 import ServicePhoto5 from "@/public/pictures/_DSC0666-Enhanced-NR.jpg"
-import ServicePhoto6 from "@/public/pictures/insta/insta-photo-6.jpg"
+import ServicePhoto6 from "@/public/portraits/JMAi THEATRE HEADSHOTS-45.jpg"
 import ServicePhoto7 from "@/public/graphics/Winner.jpg"
 import ServicePhoto8 from "@/public/pictures/JMAI Post abits Rematch Retouched-2.jpg"
 import ServicePhoto9 from "@/public/pictures/Ryan and Taylor-005.jpg"
@@ -23,7 +23,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 
 
-let services: {title: string, description: string, imageSrc: StaticImageData, imageWidth: number, imageHeight: number, captcha: string}[] = [
+let services: {title: string, description: string, imageSrc: StaticImageData, imageWidth: number, imageHeight: number, captcha: string, objectTop?: boolean}[] = [
     {
         title: "Sports Photography",
         description: "High-energy shots that capture the excitement, passion, and intensity of sports. Ideal for athletes, teams, and organizations looking to document seasons or promote programs.",
@@ -34,6 +34,7 @@ let services: {title: string, description: string, imageSrc: StaticImageData, im
     },
     {
         title: "Team Media Day",
+        objectTop: true,
         description: "Professional portraits that showcase team spirit, perfect for social media, promotions, and player profiles. These polished images enhance your team’s presence and serve as cherished keepsakes.",
         imageSrc: ServicePhoto2,
         imageWidth: 7002,
@@ -113,7 +114,7 @@ const Home = () => {
 
                     return (
                         <div key={i}>
-                            <div className="h-128 grid-cols-5 hidden sm:grid">
+                            <div className="h-auto xl:h-128 grid-cols-5 hidden sm:grid">
                                 {!isReversed ? (
                                     <>
                                         <motion.div
@@ -130,7 +131,7 @@ const Home = () => {
                                                     height={service.imageHeight} 
                                                     width={service.imageWidth} 
                                                     alt="Service photo"
-                                                    className="object-cover h-full w-full absolute" 
+                                                    className={`object-cover h-full w-full absolute ${service.objectTop ? "object-top" : "object-center"}`}
                                                 />
                                             <div className="absolute inset-0 bg-black opacity-30"></div>
                                         </motion.div>
