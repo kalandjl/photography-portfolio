@@ -146,7 +146,7 @@ const Home = () => {
                                 className="bg-white p-6 shadow-lg rounded-lg border border-gray-200"
                             >
                                 <Image 
-                                    src={testimonials[curSlide].imageSrc} 
+                                    src={testimonial.imageSrc} 
                                     alt="Testimonial Image" 
                                     width={500} 
                                     height={300} 
