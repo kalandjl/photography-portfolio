@@ -322,6 +322,31 @@ export function renderNextImageMobile(
           </div>
         </div>
       </div>
+      <div id="modal" className={`${modal ? "" : "hidden"} fixed inset-0 z-50 flex items-center justify-center`}>
+            {/* Background overlay */}
+            <div className="absolute bg-black opacity-80 inset-0" onClick={() => setModal(false)}></div>
+
+            {/* Modal container */}
+            <div className="relative max-w-[90vw] max-h-[90vh] bg-white p-4 rounded-lg shadow-lg z-50">
+                <img
+                src={photo.src}
+                width={photo.width}
+                height={photo.height}
+                alt=""
+                className="max-h-[80vh] max-w-full object-contain rounded-md"
+                />
+                <div className="top-0 right-0 absolute">
+                    {/* Close button (Positioned properly) */}
+                    <button
+                    onClick={() => setModal(false)}
+                    className="absolute top-3 right-3 text-white bg-black rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-700 transition"
+                    >
+                    ✕
+                    </button>
+                </div>
+            </div>
+
+        </div>
     </>
   );
 }
