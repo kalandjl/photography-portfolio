@@ -9,6 +9,7 @@ import {
   RowsPhotoAlbum,
 } from "react-photo-album";
 import "react-photo-album/rows.css";
+import { motion } from "framer-motion"
 
 
 export function renderNextImage(
@@ -64,44 +65,51 @@ export function renderNextImage(
     }, [modal])
 
   const img = (
-    <div onClick={() => setModal(true)}>
-    {badImage ? 
-        (<>
-        <img 
-            src={photo.src}
-            alt={alt}
-            title={title}
-            sizes={sizes}
-            id="gallery-photo"
-            className={`
-            ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-            ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-            ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-            ${photo.src.includes('hidden') ? "hidden" : ""}
-            `}
-            loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
-            />
-        </>)
-        :
-        (<Image
-        fill
-        src={photo}
-        alt={alt}
-        title={title}
-        sizes={sizes}
-        blurDataURL={blurDataURL}
-        id="gallery-photo"
-        className={`
-            ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-            ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-            ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-            ${photo.src.includes('hidden') ? "hidden" : ""}
-        `}
-        loading={`${big ? "eager" : "eager"}`} // Lazy loading for performance
-        priority={false} // Do not prioritize all images
-        />
-        )}
-    </div>
+    <motion.div
+    initial={{ opacity: 0 }} // Start below the view (50px down) and hidden (opacity 0)
+    whileInView={{ opacity: 1}} // Animate to the original position and opacity 1
+    viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+    transition={{ duration: 1 }}
+    >
+      <div onClick={() => setModal(true)}>
+      {badImage ? 
+          (<>
+          <img 
+              src={photo.src}
+              alt={alt}
+              title={title}
+              sizes={sizes}
+              id="gallery-photo"
+              className={`
+              ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+              ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+              ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+              ${photo.src.includes('hidden') ? "hidden" : ""}
+              `}
+              loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+              />
+          </>)
+          :
+          (<Image
+          fill
+          src={photo}
+          alt={alt}
+          title={title}
+          sizes={sizes}
+          blurDataURL={blurDataURL}
+          id="gallery-photo"
+          className={`
+              ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+              ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+              ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+              ${photo.src.includes('hidden') ? "hidden" : ""}
+          `}
+          loading={`${big ? "eager" : "eager"}`} // Lazy loading for performance
+          priority={false} // Do not prioritize all images
+          />
+          )}
+      </div>
+    </motion.div>
   )
 
   return (
@@ -235,58 +243,65 @@ export function renderNextImageMobile(
   let [modal, setModal] = useState(false)
 
   const img = (
-    <div onClick={() => setModal(true)} className={`${big ? "z-50" : ""}`}>
-      {badImage ?
-        <>
-        <img 
-          src={photo.src}
-          alt={alt}
-          title={title}
-          sizes={sizes}
-          id="gallery-photo"
+    <motion.div
+    initial={{ opacity: 0, y: 150 }} // Start below the view (50px down) and hidden (opacity 0)
+    whileInView={{ opacity: 1, y: 0 }} // Animate to the original position and opacity 1
+    viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
+    transition={{ duration: 1 }}
+    >
+      <div onClick={() => setModal(true)} className={`${big ? "z-50" : ""}`}>
+        {badImage ?
+          <>
+          <img 
+            src={photo.src}
+            alt={alt}
+            title={title}
+            sizes={sizes}
+            id="gallery-photo"
 
-          className={`
-            ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-            ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-            ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-            ${photo.src.includes('hiddn') ? "hidden" : ""}
-          `}
-          loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+            className={`
+              ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+              ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+              ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+              ${photo.src.includes('hiddn') ? "hidden" : ""}
+            `}
+            loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+            />
+          </>
+          :
+          <>
+          <Image
+            fill
+            src={photo}
+            alt={alt}
+            title={title}
+            sizes={sizes}
+            id="gallery-photo"
+            quality={quality??50}
+            blurDataURL={loadingImage}
+
+            className={`
+              h-full
+              ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
+              ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
+              ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
+              ${photo.src.includes('hidden') || photo.src.includes("hdden") ? "hidden" : ""}
+            `}
+            loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
+            priority={false} // Do not prioritize all images
           />
-        </>
+          </>
+        }
+        {/* {
+          big ?
+        <div className="absolute -right-5 top-0 h-10 w-10 bg-white grid place-items-center z-50">
+          <MagnifyingGlassIcon stroke="#000000" className="rotate-90 w-2/3" onClick={() => console.log("asdfkl")} />
+        </div>
         :
-        <>
-        <Image
-          fill
-          src={photo}
-          alt={alt}
-          title={title}
-          sizes={sizes}
-          id="gallery-photo"
-          quality={quality??50}
-          blurDataURL={loadingImage}
-
-          className={`
-            h-full
-            ${big && !bigLeft ? "absolute" : "sm:p-4 p-2"}
-            ${big && bigLeft ? "block !top-0" : "sm:p-4 p-2"}
-            ${leftBig || rightBig || firstRightBig ? "absolute sm:p-4 p-2 w-1/2 h-1/2" : "sm:p-4 p-2"}
-            ${photo.src.includes('hidden') || photo.src.includes("hdden") ? "hidden" : ""}
-          `}
-          loading={`${big ? "lazy" : "eager"}`} // Lazy loading for performance
-          priority={false} // Do not prioritize all images
-        />
-        </>
-      }
-      {/* {
-        big ?
-      <div className="absolute -right-5 top-0 h-10 w-10 bg-white grid place-items-center z-50">
-        <MagnifyingGlassIcon stroke="#000000" className="rotate-90 w-2/3" onClick={() => console.log("asdfkl")} />
+        <></>
+        } */}
       </div>
-      :
-      <></>
-      } */}
-    </div>
+    </motion.div>
     )
 
   useEffect(() => {
