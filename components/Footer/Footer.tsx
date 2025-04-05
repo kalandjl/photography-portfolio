@@ -1,4 +1,5 @@
 import { lato, latoLite, nunito, oswald, shoulders } from "@/app/fonts";
+import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
@@ -32,11 +33,44 @@ const Footer: FC<Props> = (props) => {
                 </div>
                 <div id="copyright" className="px-10 w-full text-center">
                 <p className={`${latoLite.className} text-sm text-gray-700`}>
-                    © {new Date().getFullYear()} JMAI.PHOTOS. Designed and Developed by{" "}
-                    <Link href="https://www.github.com/kalandjl" className="text-blue-500 underline">
-                        Kalan Jarvis-Loewen
-                    </Link>
+                    © {new Date().getFullYear()} JMAI.PHOTOS.{" "}
                 </p>
+                <div className="grid place-items-center sm:flex mt-5">
+                    <div id="icons" className="flex gap-3">
+                        <Link 
+                            href="https://www.instagram.com/jmai.photos" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            aria-label="Instagram Profile"
+                            className="w-8 h-8 flex items-center justify-center"
+                        >
+                            <Image 
+                                src="/icons/insta-logo.png" 
+                                width={32} 
+                                height={32} 
+                                alt="Instagram logo" 
+                                className="w-15 h-15 object-contain hover:scale-115 transition ease-in-out"
+                            />
+                        </Link>
+                        <Link 
+                            href="https://www.github.com/kalandjl" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            aria-label="GitHub Profile"
+                            className="w-5 flex items-center justify-center hover:scale-115 transition ease-in-out"
+                        >
+                            <Image 
+                                src="/icons/github.png" 
+                                width={32} 
+                                height={32} 
+                                alt="GitHub logo" 
+                                className="w-8 h-8 object-contain"
+                            />
+                        </Link>
+                    </div>
+                </div>
+
+
             </div>
             </footer>
         </>

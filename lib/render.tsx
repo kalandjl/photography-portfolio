@@ -69,7 +69,7 @@ export function renderNextImage(
     initial={{ opacity: 0 }} // Start below the view (50px down) and hidden (opacity 0)
     whileInView={{ opacity: 1}} // Animate to the original position and opacity 1
     viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-    transition={{ duration: 1 }}
+    transition={{ duration: 1 }} 
     >
       <div onClick={() => setModal(true)}>
       {badImage ? 
