@@ -11,6 +11,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import TestimonialImage1 from "@/public/testimonials/Cahsmun.jpeg"
 import TestimonialImage2 from "@/public/testimonials/BC CATHOLICS FINAL-106.jpg"
+import TestimonialImage3 from "@/public/pictures/insta/insta-photo-5.jpg"
 import Image from "next/image";
 
 const clients = [
@@ -35,6 +36,28 @@ const testimonials = [
         imageSrc: TestimonialImage2,
         imageHeight: 3767,
         imageWidth: 5651
+    },
+    {
+        testimonial: `In February and March, Johnson assisted BC School Sports as a student media
+volunteer at the 2025 Wrestling and Boys Basketball Championships. Throughout the
+events, he expressed a keen interest to learn and adapt in a fast-paced environment.
+Johnson was tasked with capturing high-quality photos of student-athletes, coaches,
+and spectators during both events. He provided excellent images that were featured
+across all BCSS social media platforms and included in several of our print publications.
+Johnson worked efficiently throughout both championships, making a key
+contribution to BC School Sports' media coverage of the events. In high-pressure
+situations, he took initiatives with his photography to ensure that he captured
+significant moments, particularly the team and student-athlete celebrations on
+championship day. Additionally, Johnson showed a strong willingness to receive
+feedback and was a collaborative team player, maintaining a positive attitude even
+during the long days.
+I am confident that Johnson will be able to meet the needs of other clients due to his
+exceptional photography skills and eagerness to learn and adapt in changing
+environments.`,
+        quote: " - Josephine Delisa, BC Sports Graphic Design & Content Coordinator",
+        imageSrc: TestimonialImage3,
+        imageWidth: 1080,
+        imageHeight: 1350
     }
 ];
 
