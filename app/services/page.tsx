@@ -97,6 +97,14 @@ let services: {title: string, description: string, imageSrc: StaticImageData, im
         imageHeight: 3016,
         captcha: "Cherish Today. Remember Forever.",
     },
+    {
+        title: "Family Portraits",
+        description: "Timeless portraits that celebrate families and relationships—perfect for holidays, milestones, or capturing everyday moments.",
+        imageSrc: ServicePhoto9,
+        imageWidth: 7002,
+        imageHeight: 3016,
+        captcha: "Cherish Today. Remember Forever.",
+    },
 ];
 const reverseLayout = false; // Set to true if you want to start with text first
 

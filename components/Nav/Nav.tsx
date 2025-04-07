@@ -2,7 +2,7 @@
 import { lato } from "@/app/fonts";
 import Link from "next/link";
 import { FC, useState, useEffect } from "react";
-import Icon from "@/public/icon.png"
+import Icon from "@/public/whiteicon.png"
 import Image from "next/image";
 import { LucideSidebar, Sidebar, SidebarIcon, SidebarOpenIcon, XIcon } from "lucide-react";
 import { Bars3 } from "@/app/icons";
