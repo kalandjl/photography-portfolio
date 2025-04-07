@@ -10,6 +10,7 @@ import ServicePhoto6 from "@/public/portraits/JMAi THEATRE HEADSHOTS-45.jpg"
 import ServicePhoto7 from "@/public/graphics/Winner.jpg"
 import ServicePhoto8 from "@/public/pictures/JMAI Post abits Rematch Retouched-2.jpg"
 import ServicePhoto9 from "@/public/pictures/Ryan and Taylor-005.jpg"
+import ServicePhoto10 from "@/public/Andres BC All Stars Game.png"
 import Image, { StaticImageData } from "next/image";
 import BarrierImageSection from "../BarrierImageSection";
 import { lato, latoLite, oswald } from "@/app/fonts";
@@ -95,6 +96,14 @@ let services: Service[] = [
         imageHeight: 3016,
         captcha: "Cherish Today. Remember Forever.",
     },
+    {
+        title: "Commitment or Player Recognition",
+        description: "Celebrate dedication and achievement with my custom graphics designed to honor outstanding commitment or recognize exceptional players in your organization",
+        imageSrc: ServicePhoto10,
+        imageWidth: 5400,
+        imageHeight: 7200,
+        captcha: "For those who deservce the recognition",
+    },
 ];
 
 const ServicesSection: FC = () => {
@@ -150,7 +159,7 @@ const ServicesSection: FC = () => {
                         </div>
                         <div className="absolute inset-0 bg-black opacity-70" />
                     </motion.div>
-                ))}
+            ))}
             </div>
 
             <motion.div

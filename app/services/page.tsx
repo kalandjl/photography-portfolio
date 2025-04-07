@@ -13,6 +13,7 @@ import ServicePhoto6 from "@/public/portraits/headshot section img.jpg"
 import ServicePhoto7 from "@/public/graphics/Winner.jpg"
 import ServicePhoto8 from "@/public/pictures/JMAI Post abits Rematch Retouched-2.jpg"
 import ServicePhoto9 from "@/public/pictures/Ryan and Taylor-005.jpg"
+import ServicePhoto10 from "@/public/Andres BC All Stars Game.png"
 import { lato, latoLite, nunito, oswald } from "../fonts"
 import FAQSection from "@/components/FAQSection"
 import ContactSection from "@/components/ContactSection"
@@ -98,12 +99,12 @@ let services: {title: string, description: string, imageSrc: StaticImageData, im
         captcha: "Cherish Today. Remember Forever.",
     },
     {
-        title: "Family Portraits",
-        description: "Timeless portraits that celebrate families and relationships—perfect for holidays, milestones, or capturing everyday moments.",
-        imageSrc: ServicePhoto9,
-        imageWidth: 7002,
-        imageHeight: 3016,
-        captcha: "Cherish Today. Remember Forever.",
+        title: "Commitment or Player Recognition",
+        description: "Celebrate dedication and achievement with my custom graphics designed to honor outstanding commitment or recognize exceptional players in your organization",
+        imageSrc: ServicePhoto10,
+        imageWidth: 5400,
+        imageHeight: 7200,
+        captcha: "For those who deservce the recognition",
     },
 ];
 const reverseLayout = false; // Set to true if you want to start with text first
