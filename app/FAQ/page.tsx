@@ -9,10 +9,15 @@ const Home = () => {
 
     return (
         <> 
-            <Nav theme="dark" />
+            <main className="relative">
+                <div id="nav-wrap" className="absolute top-0 right-0 left-0 z-20">
+                    <Nav />
+                </div>
+                <FAQSection asSection={false} />
+
+            </main>
      
             
-            <FAQSection asSection={false} />
 
             <ActionSection links={[
                 {
