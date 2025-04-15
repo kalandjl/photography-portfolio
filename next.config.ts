@@ -3,9 +3,6 @@ const nextConfig = {
   images: {
     formats: ['image/webp'],
     minimumCacheTTL: 60,
-    deviceSizes: [320, 640, 960, 1200],
-    imageSizes: [16, 32, 48, 64, 96],
-    quality: 60,
     remotePatterns: [
       {
         protocol: 'https',
@@ -15,6 +12,8 @@ const nextConfig = {
     ],
     domains: ['firebasestorage.googleapis.com'], // Alternative option
   },
+  output: 'export',
+
   
   async headers() {
     return [
