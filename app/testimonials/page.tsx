@@ -25,7 +25,7 @@ const clients = [
 const testimonials = [
     {
         testimonial: "As Under-Secretary-General Marketing for Canadian High Schools Model United Nations (CASHMUN) 2024, I had the pleasure of working with Johnson Mai, who played a vital role as one of our photographers. Johnson consistently demonstrated a keen artistic eye, capturing the energy and essence of our conference with professionalism and creativity. Beyond his technical skill, Johnson was incredibly reliable, meeting tight deadlines while adapting seamlessly to the fast-paced nature of the conference. His dedication to the media team was evident in every aspect of his work, from meticulous planning to his commitment to delivering high-quality content. Johnson’s contributions were invaluable.",
-        quote: "— Rachel Wei, Under-Secretary-General Marketing, CAHSMUN 2024",
+        quote: "— Rachel Wei, Under-Secretary-General Marketing, CASHMUN 2024",
         imageSrc: TestimonialImage1,
         imageHeight: 4672,
         imageWidth: 7008
