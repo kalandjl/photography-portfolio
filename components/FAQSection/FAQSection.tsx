@@ -37,10 +37,6 @@ const faqArr = [
         answer: "I provide a digital collection of all photos from the shoot. If you’d like physical prints, they can be arranged for an additional cost." 
     },
     { 
-        question: "How can you help manage or grow my social media?", 
-        answer: "While I can’t guarantee specific results, my content creation and strategy expertise can help improve engagement and online presence over time." 
-    },
-    { 
         question: "What payment methods are available?", 
         answer: "E-transfer is the preferred payment method, but let me know if you need an alternative." 
     },
