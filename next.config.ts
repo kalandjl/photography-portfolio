@@ -11,6 +11,7 @@ const nextConfig = {
       },
     ],
     domains: ['firebasestorage.googleapis.com'], // Alternative option
+    unoptimized: true
   },
   output: 'export',
 
