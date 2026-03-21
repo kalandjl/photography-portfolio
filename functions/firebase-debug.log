@@ -1,0 +1,34 @@
+[debug] [2026-03-21T20:00:36.552Z] ----------------------------------------------------------------------
+[debug] [2026-03-21T20:00:36.554Z] Command:       /Users/kalanjarvis-loewen/.nvm/versions/node/v22.11.0/bin/node /Users/kalanjarvis-loewen/.nvm/versions/node/v22.11.0/bin/firebase deploy --only functions
+[debug] [2026-03-21T20:00:36.554Z] CLI Version:   13.27.0
+[debug] [2026-03-21T20:00:36.554Z] Platform:      darwin
+[debug] [2026-03-21T20:00:36.554Z] Node Version:  v22.11.0
+[debug] [2026-03-21T20:00:36.555Z] Time:          Sat Mar 21 2026 16:00:36 GMT-0400 (Eastern Daylight Time)
+[debug] [2026-03-21T20:00:36.555Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-21T20:00:36.599Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-21T20:00:36.599Z] > authorizing via signed-in user (karj5903@gmail.com)
+[debug] [2026-03-21T20:00:36.599Z] [iam] checking project photography-portfolio-e32a8 for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2026-03-21T20:00:36.600Z] Checked if tokens are valid: true, expires at: 1774125244204
+[debug] [2026-03-21T20:00:36.600Z] Checked if tokens are valid: true, expires at: 1774125244204
+[debug] [2026-03-21T20:00:36.600Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/photography-portfolio-e32a8:testIamPermissions [none]
+[debug] [2026-03-21T20:00:36.600Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/photography-portfolio-e32a8:testIamPermissions x-goog-quota-user=projects/photography-portfolio-e32a8
+[debug] [2026-03-21T20:00:36.600Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/photography-portfolio-e32a8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-03-21T20:00:39.767Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/photography-portfolio-e32a8:testIamPermissions 200
+[debug] [2026-03-21T20:00:39.767Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/photography-portfolio-e32a8:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2026-03-21T20:00:39.768Z] Checked if tokens are valid: true, expires at: 1774125244204
+[debug] [2026-03-21T20:00:39.768Z] Checked if tokens are valid: true, expires at: 1774125244204
+[debug] [2026-03-21T20:00:39.768Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/photography-portfolio-e32a8/serviceAccounts/photography-portfolio-e32a8@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2026-03-21T20:00:39.768Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/photography-portfolio-e32a8/serviceAccounts/photography-portfolio-e32a8@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2026-03-21T20:00:42.949Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/photography-portfolio-e32a8/serviceAccounts/photography-portfolio-e32a8@appspot.gserviceaccount.com:testIamPermissions 404
+[debug] [2026-03-21T20:00:42.949Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/photography-portfolio-e32a8/serviceAccounts/photography-portfolio-e32a8@appspot.gserviceaccount.com:testIamPermissions {"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}}
+[debug] [2026-03-21T20:00:42.949Z] [functions] service account IAM check errored, deploy may fail: Request to https://iam.googleapis.com/v1/projects/photography-portfolio-e32a8/serviceAccounts/photography-portfolio-e32a8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Unknown service account","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://iam.googleapis.com/v1/projects/photography-portfolio-e32a8/serviceAccounts/photography-portfolio-e32a8@appspot.gserviceaccount.com:testIamPermissions had HTTP Error: 404, Unknown service account","status":404}
+[info] 
+[info] === Deploying to 'photography-portfolio-e32a8'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: npm --prefix "$RESOURCE_DIR" run build
+[info] ✔  functions: Finished running predeploy script. 
+[debug] [2026-03-21T20:00:47.572Z] Checked if tokens are valid: true, expires at: 1774125244204
+[debug] [2026-03-21T20:00:47.572Z] Checked if tokens are valid: true, expires at: 1774125244204
+[debug] [2026-03-21T20:00:47.573Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/photography-portfolio-e32a8 [none]
