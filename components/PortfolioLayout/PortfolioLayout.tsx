@@ -116,14 +116,7 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
         </div>
       </div>
 
-      <ActionSection
-        links={[
-          { title: "Contact Me", link: "/contact" },
-          { title: "My Story", link: "/about" },
-        ]}
-      />
-      <PortfolioSection />
-      <InstaSection />
+ 
       
     </section>
   );

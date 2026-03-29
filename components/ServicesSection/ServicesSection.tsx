@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from "react";
 import ServicePhoto1 from "@/public/pictures/Saitns Round 1 VARSITY-101.jpg"
 import ServicePhoto2 from "@/public/portraits/JMAI LAX MEDIA DAY-41.jpg"
 import ServicePhoto3 from "@/public/graphics/Nathan Lowden Queens Commit Final.jpg"
-import ServicePhoto4 from "@/public/graphics/Saints day post.jpg"
+import ServicePhoto4 from "@/public/graphics/VC Football Senior Day Jerome.png"
 import ServicePhoto5 from "@/public/pictures/_DSC0666-Enhanced-NR.jpg"
 import ServicePhoto6 from "@/public/portraits/JMAi THEATRE HEADSHOTS-45.jpg"
 import ServicePhoto7 from "@/public/graphics/Winner.jpg"
@@ -102,7 +102,7 @@ let services: Service[] = [
         imageSrc: ServicePhoto10,
         imageWidth: 5400,
         imageHeight: 7200,
-        captcha: "For those who deservce the recognition",
+        captcha: "For those who deserve the recognition",
     },
 ];
 

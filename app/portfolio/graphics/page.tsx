@@ -3,6 +3,21 @@ import PortfolioLayout from "@/components/PortfolioLayout";
 import HeroImage from "@/public/graphics/Background.png"
 
 const mobilePics = [
+    
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    // { src: "", width: 0, height: 0, badImage: true },
+    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/DSC00878.jpg?alt=media&token=50ed9300-7909-4b0b-b90d-bb5e1fc68119", width: 5492, height: 3255, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Andres%20BC%20All%20Stars%20Game.png?alt=media&token=a4034167-2b79-44ae-b9e3-f81d4d07c881", width: 5400, height: 7200, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Varsity%20Poster%20Final.jpg?alt=media&token=e8e0adf9-f75d-4b4b-94ff-9ac881b3a35a", width: 5400, height: 7200, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/488968301_1765443150672408_7674308146999412494_n.jpg?alt=media&token=6f3161f1-8288-44a2-a1d9-2aadef1e4bb6", width: 1170, height: 1560, badImage: true}, 
@@ -18,6 +33,7 @@ const mobilePics = [
 ];
 
 const pics = [
+    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/DSC00878.jpg?alt=media&token=50ed9300-7909-4b0b-b90d-bb5e1fc68119", width: 5492, height: 3255, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Andres%20BC%20All%20Stars%20Game.png?alt=media&token=a4034167-2b79-44ae-b9e3-f81d4d07c881", width: 5400, height: 7200, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Varsity%20Poster%20Final.jpg?alt=media&token=e8e0adf9-f75d-4b4b-94ff-9ac881b3a35a", width: 5400, height: 7200, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/488968301_1765443150672408_7674308146999412494_n.jpg?alt=media&token=6f3161f1-8288-44a2-a1d9-2aadef1e4bb6", width: 1170, height: 1560, badImage: true}, 
@@ -30,6 +46,7 @@ const pics = [
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/24%20hours.png?alt=media&token=37bb413c-03c0-4f58-b848-5ce197ab62bc", width: 1080, height: 1350, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/V3%206238121.jpg?alt=media&token=9f9bf11c-52cb-44c4-8252-29ea0d4f02da", width: 2160, height: 2160, badImage: true },
     { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/Winner.jpg?alt=media&token=f4bfad90-8695-4854-bce4-ca54c8c51f6c", width: 6391, height: 4261, badImage: true },
+    { src: "https://firebasestorage.googleapis.com/v0/b/photography-portfolio-e32a8.firebasestorage.app/o/VC%20Football%20Senior%20Day%20Jerome.png?alt=media&token=f43be889-df9c-495c-86ef-aedce557c2e3", width: 1000, height: 1250, badImage: true}
 ];
 
 const Home = () => {

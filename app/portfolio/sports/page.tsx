@@ -1,7 +1,11 @@
+"use client"
 import PortfolioLayout from "@/components/PortfolioLayout";
 import Head from "next/head";
 import HeroImage from "@/public/pictures/Windsor Champs-074.jpg"
 import HeroImageSection from "@/components/HeroImageSection";
+import ActionSection from "@/components/ActionSection";
+import PortfolioSection from "@/components/PortfolioSection";
+import InstaSection from "@/components/InstaSection";
 
 
 const pics = [
@@ -58,6 +62,134 @@ const pics = [
     { src: "/pictures/_DSC9997-Enhanced-NR.jpg", width: 3763, height: 5645, badImage: true}
 ];
 
+const newPics = [
+  {
+    "src": "/pictures/DSC00878.jpg",
+    "width": 5492,
+    "height": 3255
+  },
+  {
+    "src": "/pictures/DSC06860.jpg",
+    "width": 3607,
+    "height": 2627
+  },
+  {
+    "src": "/pictures/DSC06900.jpg",
+    "width": 3278,
+    "height": 2487
+  },
+  {
+    "src": "/pictures/DSC07181.jpg",
+    "width": 3031,
+    "height": 2223
+  },
+  {
+    "src": "/pictures/DSC07246.jpg",
+    "width": 2048,
+    "height": 1450
+  },
+  {
+    "src": "/pictures/DSC07296.jpg",
+    "width": 2710,
+    "height": 2076
+  },
+  {
+    "src": "/pictures/DSC07351.jpg",
+    "width": 3789,
+    "height": 2643
+  },
+  {
+    "src": "/pictures/DSC07551.jpg",
+    "width": 2048,
+    "height": 1364
+  },
+  {
+    "src": "/pictures/DSC08229.jpg",
+    "width": 2048,
+    "height": 1299
+  },
+  {
+    "src": "/pictures/SFU MBB VS Seattle-33.jpg",
+    "width": 2048,
+    "height": 1498
+  },
+  {
+    "src": "/pictures/UBC Homecoming Covered By JMAI.PHOTOS-045.jpg",
+    "width": 6299,
+    "height": 3907
+  },
+  {
+    "src": "/pictures/UBC Homecoming Covered By JMAI.PHOTOS-069.jpg",
+    "width": 2671,
+    "height": 1715
+  },
+  {
+    "src": "/pictures/UBC Homecoming Covered By JMAI.PHOTOS-074.jpg",
+    "width": 5466,
+    "height": 3706
+  },
+  {
+    "src": "/pictures/UBC Homecoming Covered By JMAI.PHOTOS-093.jpg",
+    "width": 3545,
+    "height": 2198
+  },
+  {
+    "src": "/pictures/UBC MVB Jan 16 2026-01.jpg",
+    "width": 2048,
+    "height": 1419
+  },
+  {
+    "src": "/pictures/UBC MVB Jan 16 2026-23.jpg",
+    "width": 2048,
+    "height": 1332
+  },
+  {
+    "src": "/pictures/UBC MVB Jan 16 2026-35.jpg",
+    "width": 2048,
+    "height": 1609
+  },
+  {
+    "src": "/pictures/VC FB Finals-042.jpg",
+    "width": 3598,
+    "height": 2359
+  },
+  {
+    "src": "/pictures/VC FB Finals-081.jpg",
+    "width": 2555,
+    "height": 1748
+  },
+  {
+    "src": "/pictures/VC FB Finals-149.jpg",
+    "width": 2675,
+    "height": 1732
+  },
+  {
+    "src": "/pictures/VC FB Finals-187.jpg",
+    "width": 2860,
+    "height": 1847
+  },
+  {
+    "src": "/pictures/VC VS SD-259.jpg",
+    "width": 3429,
+    "height": 2367
+  },
+  {
+    "src": "/pictures/VC VS TF Play off  Game One-192.jpg",
+    "width": 6638,
+    "height": 4425
+  },
+  {
+    "src": "/pictures/VCBBAll VS Dover Finals-103.jpg",
+    "width": 2048,
+    "height": 1701
+  },
+  {
+    "src": "/pictures/VCBBAll VS Dover Finals-375.jpg",
+    "width": 2048,
+    "height": 1373
+  }
+]
+
 const mobilePics = [
 
     { src: "/hddenmobile.jpeg", width: 7008, height: 4672,  },
@@ -98,13 +230,154 @@ const mobilePics = [
     { src: "/pictures/_DSC9997-Enhanced-NR.jpg", width: 3763, height: 5645}
 ];
 
+const newMobilePics = [
+  {
+    "src": "/pictures/DSC00878.jpg",
+    "width": 5492,
+    "height": 3255
+  },
+  {
+    "src": "/pictures/DSC06860.jpg",
+    "width": 3607,
+    "height": 2627
+  },
+  {
+    "src": "/pictures/DSC06900.jpg",
+    "width": 3278,
+    "height": 2487
+  },
+  {
+    "src": "/pictures/DSC07181.jpg",
+    "width": 3031,
+    "height": 2223
+  },
+  {
+    "src": "/pictures/DSC07246.jpg",
+    "width": 2048,
+    "height": 1450
+  },
+  {
+    "src": "/pictures/DSC07296.jpg",
+    "width": 2710,
+    "height": 2076
+  },
+  {
+    "src": "/pictures/DSC07351.jpg",
+    "width": 3789,
+    "height": 2643
+  },
+  {
+    "src": "/pictures/DSC07551.jpg",
+    "width": 2048,
+    "height": 1364
+  },
+  {
+    "src": "/pictures/DSC08229.jpg",
+    "width": 2048,
+    "height": 1299
+  },
+  {
+    "src": "/pictures/SFU MBB VS Seattle-33.jpg",
+    "width": 2048,
+    "height": 1498
+  },
+  {
+    "src": "/pictures/UBC Homecoming Covered By JMAI.PHOTOS-045.jpg",
+    "width": 6299,
+    "height": 3907
+  },
+  {
+    "src": "/pictures/UBC Homecoming Covered By JMAI.PHOTOS-069.jpg",
+    "width": 2671,
+    "height": 1715
+  },
+  {
+    "src": "/pictures/UBC Homecoming Covered By JMAI.PHOTOS-074.jpg",
+    "width": 5466,
+    "height": 3706
+  },
+  {
+    "src": "/pictures/UBC Homecoming Covered By JMAI.PHOTOS-093.jpg",
+    "width": 3545,
+    "height": 2198
+  },
+  {
+    "src": "/pictures/UBC MVB Jan 16 2026-01.jpg",
+    "width": 2048,
+    "height": 1419
+  },
+  {
+    "src": "/pictures/UBC MVB Jan 16 2026-23.jpg",
+    "width": 2048,
+    "height": 1332
+  },
+  {
+    "src": "/pictures/UBC MVB Jan 16 2026-35.jpg",
+    "width": 2048,
+    "height": 1609
+  },
+  {
+    "src": "/pictures/VC FB Finals-042.jpg",
+    "width": 3598,
+    "height": 2359
+  },
+  {
+    "src": "/pictures/VC FB Finals-081.jpg",
+    "width": 2555,
+    "height": 1748
+  },
+  {
+    "src": "/pictures/VC FB Finals-149.jpg",
+    "width": 2675,
+    "height": 1732
+  },
+  {
+    "src": "/pictures/VC FB Finals-187.jpg",
+    "width": 2860,
+    "height": 1847
+  },
+  {
+    "src": "/pictures/VC VS SD-259.jpg",
+    "width": 3429,
+    "height": 2367
+  },
+  {
+    "src": "/pictures/VC VS TF Play off  Game One-192.jpg",
+    "width": 6638,
+    "height": 4425
+  },
+  {
+    "src": "/pictures/VCBBAll VS Dover Finals-103.jpg",
+    "width": 2048,
+    "height": 1701
+  },
+  {
+    "src": "/pictures/VCBBAll VS Dover Finals-375.jpg",
+    "width": 2048,
+    "height": 1373
+  }
+]
+
 const Home = () => {
     return (
         <>
             <HeroImageSection src={HeroImage} width={7008} height={4672} title="Sports" />
+            <div>
+            <PortfolioLayout pics={newPics} mobilePicsProps={newMobilePics} title="Sports" />
             <PortfolioLayout pics={pics} mobilePicsProps={mobilePics} title="Sports" />
+            </div>
+
+                <ActionSection
+                links={[
+                { title: "Contact Me", link: "/contact" },
+                { title: "My Story", link: "/about" },
+                ]}
+            />
+            <PortfolioSection />
+            <InstaSection />
         </>
     )
 };
 
 export default Home;
+

@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import HeroImage from "@/public/pictures/_DSC9997-Enhanced-NR.jpg"
+import HeroImage from "@/public/section/DSC01631.jpg"
 import CardImage1 from "@/public/pictures/_DSC2941.jpg"
 import CardImage2 from "@/public/graphics/Senior day post.jpg"
 import CardImage3 from "@/public/portraits/JMAi THEATRE HEADSHOTS-48.jpg"

@@ -14,7 +14,7 @@ import FAQSection from "@/components/FAQSection";
 import BarrierImageSection from "@/components/BarrierImageSection";
 import BarrierImage from "@/public/pictures/_DSC0316-Enhanced-NR.jpg";
 import HeroImageSection from "@/components/HeroImageSection";
-import HeroImage from "@/public/pictures/_DSC0646-Enhanced-NR.jpg";
+import HeroImage from "@/public/DSC07916.jpg";
 import { motion } from "framer-motion";
 
 const Home = () => {

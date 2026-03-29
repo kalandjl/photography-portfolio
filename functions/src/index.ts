@@ -7,7 +7,7 @@ admin.initializeApp();
 
 exports.twillioFirestoreReroute = onDocumentWritten({
     document: "messages/{docId}",
-    secrets: ["TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN", "CLIENT_PHONE_NUMBER"],
+    secrets: ["TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN", "CLIENT_PHONE_NUMBER", "TWILIO_PHONE_NUMBER"],
   }, async (event) => {
   const change: any = event.data;
 
@@ -47,32 +47,35 @@ exports.twillioFirestoreReroute = onDocumentWritten({
         const accountSid = process.env.TWILIO_ACCOUNT_SID
         const authToken = process.env.TWILIO_AUTH_TOKEN
         const clientPhoneNumber = process.env.CLIENT_PHONE_NUMBER
+        const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER
 
         const client = require('twilio')(accountSid, authToken);
         const message1 = await client.messages
             .create({
                 body: `New message from "${messageData.name}", "${messageData.email}"Message: "${messageData.message}"`,
-                from: '+13658326339',
+                from: `+1${twilioPhoneNumber}`,
                 to: '+12366680975'
             })
 
-        const message2 = await client.messages
+        let message2;
+
+        if (messageData.email != "karj5903@gmail.com") {
+
+            message2 = await client.messages
             .create({
                 body: `New message from "${messageData.name}", "${messageData.email}"Message: "${messageData.message}"`,
-                from: '+13658326339',
-                to: clientPhoneNumber
+                from: `+1${twilioPhoneNumber}`,
+                to: `+1${clientPhoneNumber}`
             })
+            
+            console.log("Message 2 status:", message2.status);
+        }
 
         console.log("Message 1 status:", message1.status);
-        console.log("Message 2 status:", message2.status);
 
         const smsRef = admin.firestore().collection("logs").doc();
 
-        await smsRef.set({
-            ...messageData,
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
-            messages: [
-            {
+        const messages = message2 ? [{
                 to: "+12366680975",
                 sid: message1.sid,
                 status: message1.status,
@@ -81,8 +84,18 @@ exports.twillioFirestoreReroute = onDocumentWritten({
                 to: clientPhoneNumber,
                 sid: message2.sid,
                 status: message2.status,
-            },
-            ],
+            }
+        ] : [{
+            to: "+12366680975",
+            sid: message1.sid,
+            status: message1.status,
+        },]
+  
+
+        await smsRef.set({
+            ...messageData,
+            createdAt: admin.firestore.FieldValue.serverTimestamp(),
+            messages: messages
         });
 
 
