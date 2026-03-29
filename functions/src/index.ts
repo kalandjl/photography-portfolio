@@ -1,122 +1,122 @@
-import {onDocumentWritten} from "firebase-functions/v2/firestore";
-import * as admin from "firebase-admin";
-import {logger} from "firebase-functions";
+// import {onDocumentWritten} from "firebase-functions/v2/firestore";
+// import * as admin from "firebase-admin";
+// import {logger} from "firebase-functions";
 
-// Initialize Firebase Admin SDK
-admin.initializeApp();
+// // Initialize Firebase Admin SDK
+// admin.initializeApp();
 
-exports.twillioFirestoreReroute = onDocumentWritten({
-    document: "messages/{docId}",
-    secrets: ["TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN", "CLIENT_PHONE_NUMBER", "TWILIO_PHONE_NUMBER"],
-  }, async (event) => {
-  const change: any = event.data;
+// exports.twillioFirestoreReroute = onDocumentWritten({
+//     document: "messages/{docId}",
+//     secrets: ["TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN", "CLIENT_PHONE_NUMBER", "TWILIO_PHONE_NUMBER"],
+//   }, async (event) => {
+//   const change: any = event.data;
 
-  if (!change) {
-    logger.error("No change data found.");
-    return;
-  }
+//   if (!change) {
+//     logger.error("No change data found.");
+//     return;
+//   }
 
-  const afterDoc = change.after;
+//   const afterDoc = change.after;
 
-  if (afterDoc.exists) {
-    const messageData = afterDoc.data();
+//   if (afterDoc.exists) {
+//     const messageData = afterDoc.data();
 
-    if (messageData) {
-      try {
-        // const smsRef = admin.firestore().collection("sms").doc();
+//     if (messageData) {
+//       try {
+//         // const smsRef = admin.firestore().collection("sms").doc();
 
-        // await smsRef.set({
-        //   ...messageData,
-        //   createdAt: admin.firestore.FieldValue.serverTimestamp(),
-        //   to: "+12366680975",
-        //   body: 
-        //   `New message from "${messageData.name}", "${messageData.email}" Message: "${messageData.message}"`
-        // });
-        // await smsRef.set({
-        //   ...messageData,
-        //   createdAt: admin.firestore.FieldValue.serverTimestamp(),
-        //   to: "+17789576007",
-        //   body: 
-        //   `New message from "${messageData.name}", "${messageData.email}"Message: "${messageData.message}"`
-        // });
+//         // await smsRef.set({
+//         //   ...messageData,
+//         //   createdAt: admin.firestore.FieldValue.serverTimestamp(),
+//         //   to: "+12366680975",
+//         //   body: 
+//         //   `New message from "${messageData.name}", "${messageData.email}" Message: "${messageData.message}"`
+//         // });
+//         // await smsRef.set({
+//         //   ...messageData,
+//         //   createdAt: admin.firestore.FieldValue.serverTimestamp(),
+//         //   to: "+17789576007",
+//         //   body: 
+//         //   `New message from "${messageData.name}", "${messageData.email}"Message: "${messageData.message}"`
+//         // });
 
-        // logger.info(
-        //   `Document added to 'sms' collection with ID: ${smsRef.id}`
-        // );
+//         // logger.info(
+//         //   `Document added to 'sms' collection with ID: ${smsRef.id}`
+//         // );
 
-        const accountSid = process.env.TWILIO_ACCOUNT_SID
-        const authToken = process.env.TWILIO_AUTH_TOKEN
-        const clientPhoneNumber = process.env.CLIENT_PHONE_NUMBER
-        const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER
+//         const accountSid = process.env.TWILIO_ACCOUNT_SID
+//         const authToken = process.env.TWILIO_AUTH_TOKEN
+//         const clientPhoneNumber = process.env.CLIENT_PHONE_NUMBER
+//         const twilioPhoneNumber = process.env.TWILIO_PHONE_NUMBER
 
-        const client = require('twilio')(accountSid, authToken);
-        const message1 = await client.messages
-            .create({
-                body: `New message from "${messageData.name}", "${messageData.email}"Message: "${messageData.message}"`,
-                from: `+1${twilioPhoneNumber}`,
-                to: '+12366680975'
-            })
+//         const client = require('twilio')(accountSid, authToken);
+//         const message1 = await client.messages
+//             .create({
+//                 body: `New message from "${messageData.name}", "${messageData.email}"Message: "${messageData.message}"`,
+//                 from: `+1${twilioPhoneNumber}`,
+//                 to: '+12366680975'
+//             })
 
-        let message2;
+//         let message2;
 
-        if (messageData.email != "karj5903@gmail.com") {
+//         if (messageData.email != "karj5903@gmail.com") {
 
-            message2 = await client.messages
-            .create({
-                body: `New message from "${messageData.name}", "${messageData.email}"Message: "${messageData.message}"`,
-                from: `+1${twilioPhoneNumber}`,
-                to: `+1${clientPhoneNumber}`
-            })
+//             message2 = await client.messages
+//             .create({
+//                 body: `New message from "${messageData.name}", "${messageData.email}"Message: "${messageData.message}"`,
+//                 from: `+1${twilioPhoneNumber}`,
+//                 to: `+1${clientPhoneNumber}`
+//             })
             
-            console.log("Message 2 status:", message2.status);
-        }
+//             console.log("Message 2 status:", message2.status);
+//         }
 
-        console.log("Message 1 status:", message1.status);
+//         console.log("Message 1 status:", message1.status);
 
-        const smsRef = admin.firestore().collection("logs").doc();
+//         const smsRef = admin.firestore().collection("logs").doc();
 
-        const messages = message2 ? [{
-                to: "+12366680975",
-                sid: message1.sid,
-                status: message1.status,
-            },
-            {
-                to: clientPhoneNumber,
-                sid: message2.sid,
-                status: message2.status,
-            }
-        ] : [{
-            to: "+12366680975",
-            sid: message1.sid,
-            status: message1.status,
-        },]
+//         const messages = message2 ? [{
+//                 to: "+12366680975",
+//                 sid: message1.sid,
+//                 status: message1.status,
+//             },
+//             {
+//                 to: clientPhoneNumber,
+//                 sid: message2.sid,
+//                 status: message2.status,
+//             }
+//         ] : [{
+//             to: "+12366680975",
+//             sid: message1.sid,
+//             status: message1.status,
+//         },]
   
 
-        await smsRef.set({
-            ...messageData,
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
-            messages: messages
-        });
+//         await smsRef.set({
+//             ...messageData,
+//             createdAt: admin.firestore.FieldValue.serverTimestamp(),
+//             messages: messages
+//         });
 
 
 
 
-      } catch (error: any) {
-            console.error("Twilio error:", error);
+//       } catch (error: any) {
+//             console.error("Twilio error:", error);
 
-            const smsRef = admin.firestore().collection("logs").doc();
+//             const smsRef = admin.firestore().collection("logs").doc();
 
-            await smsRef.set({
-                ...messageData,
-                createdAt: admin.firestore.FieldValue.serverTimestamp(),
-                error: error.message,
-                status: "failed",
-        });      
-        }
-    }
-  } else {
-    logger.info("Document was deleted or does not exist after the change.");
-  }
-});
+//             await smsRef.set({
+//                 ...messageData,
+//                 createdAt: admin.firestore.FieldValue.serverTimestamp(),
+//                 error: error.message,
+//                 status: "failed",
+//         });      
+//         }
+//     }
+//   } else {
+//     logger.info("Document was deleted or does not exist after the change.");
+//   }
+// });
 
 
