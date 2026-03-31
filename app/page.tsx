@@ -8,6 +8,17 @@ import HeroPic3 from "../public/pictures/_DSC6639.jpg"
 import HeroPic4 from "../public/pictures/JMAI Post abits Rematch-094.jpg"
 import HeroPic5 from "../public/pictures/_DSC6815.jpg"
 import HeroPic6 from "../public/pictures/Ryan and Taylor-005.jpg"
+import HeroPic7 from "../public/slideshow/DSC00994.jpg"
+import HeroPic8 from "../public/slideshow/DSC01148.jpg"
+import HeroPic9 from "../public/slideshow/DSC07332.jpg"
+import HeroPic10 from "../public/slideshow/DSC07524.jpg"
+import HeroPic11 from "../public/slideshow/DSC07836.jpg"
+import HeroPic12 from "../public/slideshow/SFU MBB VS Seattle-64.jpg"
+import HeroPic13 from "../public/slideshow/UBC Homecoming Covered By JMAI.PHOTOS-045.jpg"
+import HeroPic14 from "../public/slideshow/UBC Homecoming Covered By JMAI.PHOTOS-092.jpg"
+import HeroPic15 from "../public/slideshow/VC FB Finals-010.jpg"
+import HeroPic16 from "../public/slideshow/VC VS SD-172.jpg"
+import HeroPic17 from "../public/slideshow/VC VS TF Play off  Game One-193.jpg"
 import Nav from "../components/Nav"; // Adjust the import path as needed
 import { lato, roboto } from "./fonts";
 import InstaSection from "@/components/InstaSection";
@@ -18,12 +29,17 @@ import ServicesSection from "@/components/ServicesSection";
 import { motion } from "framer-motion";
 
 const images = [
-  HeroPic1,
-  HeroPic2,
-  HeroPic3,
-  HeroPic4,
-  HeroPic5,
-  HeroPic6
+  HeroPic7,
+  HeroPic8,
+  HeroPic9,
+  HeroPic10,
+  HeroPic11,
+  HeroPic12,
+  HeroPic13,
+  HeroPic14,
+  HeroPic15,
+  HeroPic16,
+  HeroPic17,
 ];
 
 

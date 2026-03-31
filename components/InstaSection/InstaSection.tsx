@@ -13,8 +13,10 @@ import InstaPhoto6 from "@/public/pictures/insta/insta-photo-6.jpg"
 import InstaPhoto7 from "@/public/pictures/insta/insta-photo-7.jpg"
 import { getUniqueRandomNumbers } from "@/lib/num";
 import CustomImage from "../CustomImage";
+import { httpsCallable } from "firebase/functions";
+import { functions } from "@/lib/firebase";
 
-let preRandImages = [
+let preRandDefaultImages = [
     {src: InstaPhoto1, width: 2160, height: 2160, link: "https://www.instagram.com/p/DGxGFDtxXv4/?img_index=1"},
     {src: InstaPhoto2, width: 2160, height: 2160, link: "https://www.instagram.com/p/DGWmsanR5V-/?img_index=1"},
     {src: InstaPhoto3, width: 2160, height: 2160, link: "https://www.instagram.com/p/C2B4l4hO06v/?img_index=1"},
@@ -31,9 +33,38 @@ const InstaSection: FC<Props> = () => {
 
     useEffect(() => {
         const numArr = getUniqueRandomNumbers(4, 7);
-        const imageArr = numArr.map(num => preRandImages[num - 1]);
+        const imageArr = numArr.map(num => preRandDefaultImages[num - 1]);
+
         setImages(imageArr);
+
+
+        // // Try dynamic fetching (latest posts)
+        // const doAsync = async () => {
+
+        //     try {
+        //         // @ts-ignore
+        //         const res: {x: string, height: number, width: number, link: string} = (await httpsCallable(functions, "fetchLatestPosts").call([])).data
+                
+        //         // @ts-ignore
+        //         setImages(res)
+        //     }
+        //     catch (e) {
+        //         console.error("Error loading instagram posts " + e)
+        //     }
+        // }
+
+        // doAsync()
     }, []);
+
+    useEffect(() => {
+
+        const doAsync = async () => {
+
+            const res = httpsCallable(functions, "fetchLatestPosts")
+        }
+
+        doAsync()
+    })
 
     return (
         <>
