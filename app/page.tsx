@@ -29,13 +29,13 @@ import ServicesSection from "@/components/ServicesSection";
 import { motion } from "framer-motion";
 
 const images = [
+  HeroPic13,
   HeroPic7,
   HeroPic8,
   HeroPic9,
   HeroPic10,
   HeroPic11,
   HeroPic12,
-  HeroPic13,
   HeroPic14,
   HeroPic15,
   HeroPic16,
