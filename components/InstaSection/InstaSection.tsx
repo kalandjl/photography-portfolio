@@ -17,13 +17,13 @@ import { httpsCallable } from "firebase/functions";
 import { functions } from "@/lib/firebase";
 
 let preRandDefaultImages = [
-    {src: InstaPhoto1, width: 2160, height: 2160, link: "https://www.instagram.com/p/DGxGFDtxXv4/?img_index=1"},
-    {src: InstaPhoto2, width: 2160, height: 2160, link: "https://www.instagram.com/p/DGWmsanR5V-/?img_index=1"},
-    {src: InstaPhoto3, width: 2160, height: 2160, link: "https://www.instagram.com/p/C2B4l4hO06v/?img_index=1"},
-    {src: InstaPhoto4, width: 2160, height: 2160, link: "https://www.instagram.com/p/DG1sKEYxsAv/?img_index=3"},
-    {src: InstaPhoto5, width: 2160, height: 2160, link: "https://www.instagram.com/p/DGWmsanR5V-/?img_index=4"},
-    {src: InstaPhoto6, width: 2160, height: 2160, link: "https://www.instagram.com/p/DDsR5wry_xS/?img_index=1"},
-    {src: InstaPhoto7, width: 2160, height: 2160, link: "https://www.instagram.com/p/DAkVHGuJ-DR/?img_index=1"},
+    {src: InstaPhoto1, width: 2160, height: 2160, link: "https://www.instagram.com/p/DWP_5iLFFl3/?img_index=1"},
+    {src: InstaPhoto2, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVovusYki5L/?img_index=1"},
+    {src: InstaPhoto3, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVm_UAVFKUX/?img_index=1"},
+    {src: InstaPhoto4, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVmt1u-lJIf/?img_index=1"},
+    {src: InstaPhoto5, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVmdsXBlMmm/?img_index=1"},
+    {src: InstaPhoto6, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVkYSNWFOXT/?img_index=1"},
+    {src: InstaPhoto7, width: 2160, height: 2160, link: "https://www.instagram.com/p/DViNMpslPdN/?img_index=1"},
 ]
 
 interface Props {}
