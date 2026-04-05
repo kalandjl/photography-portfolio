@@ -90,7 +90,7 @@ const Nav: FC<Props> = ({ theme }) => {
 
     return (
         <>
-            <nav id="nav" className={`max-h-22 ${theme === "dark" ? "bg-stone-900" : ""}`}>
+            <nav id="nav" className={` ${theme === "dark" ? "bg-stone-900 h-30" : "max-h-22"}`}>
                 <div id="nav-inner" className="flex lg:px-32 px-10 md:px-20 justify-between h-full items-center">
                     <div id="logo" className="w-32 h-22 grid place-items-center py-2 hover:scale-105 transition ease-in-out">
                         <Link href="/">

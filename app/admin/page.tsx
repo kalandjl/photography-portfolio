@@ -25,6 +25,7 @@ const Home: React.FC = () => {
     const [messageRefs, setMessageRefs] = useState<{ [key: string]: boolean }>({});
     const [modalVisible, setModalVisible] = useState<boolean>(false);
     const [selectedMessageId, setSelectedMessageId] = useState<string | null>(null);
+    console.log(user?.email)
 
     useEffect(() => {
         const fetchMessages = async () => {
@@ -65,7 +66,7 @@ const Home: React.FC = () => {
     return (
         <>
             <Nav theme="dark" />
-            <main className="h-screen px-32 py-10">
+            <main className="px-32 py-10">
                 <h1 className={`${roboto.className} text-4xl`}>Admin Dashboard</h1>
                 {!user ? (
                     <>
