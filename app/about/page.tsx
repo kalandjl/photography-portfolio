@@ -35,7 +35,7 @@ const Home = () => {
                 >
                     <Image
                         src={AboutImage2}
-                        alt="Johnson Mai"
+                        alt="John Mai"
                         width={500}
                         height={500}
                         className="rounded-sm shadow-lg"
@@ -51,10 +51,10 @@ const Home = () => {
                 >
                     <div id="about-text">
                         <h1 className={`${latoLite.className} text-black text-5xl md:text-6xl mb-6`}>
-                            Hi, I'm <span className={`${lato.className}`}>Johnson Mai</span>
+                            Hi, I'm <span className={`${lato.className}`}>John Mai</span>
                         </h1>
                         <p className="text-lg md:text-xl max-w-prose">
-                            I’m Johnson Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
+                            I’m John Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
                         </p>
                     </div>
                 </motion.div>
@@ -102,7 +102,7 @@ const Home = () => {
                 >
                     <Image
                         src={AboutImage}
-                        alt="Johnson Mai"
+                        alt="John Mai"
                         width={500}
                         height={500}
                         className="rounded-sm shadow-lg"
