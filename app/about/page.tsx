@@ -102,7 +102,7 @@ const Home = () => {
                 >
                     <Image
                         src={AboutImage}
-                        alt="John Mai"
+                        alt="Johnson Mai"
                         width={500}
                         height={500}
                         className="rounded-sm shadow-lg"
