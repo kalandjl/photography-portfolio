@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import AboutImage from "@/public/pictures/about/AF12AB09-D1A6-462D-AB8D-7D07817FA537.jpeg";
-import AboutImage2 from "@/public/pictures/about/Johnson 1.png"
+import AboutImage from "@/public/about/Untitled-2.jpeg";
+import AboutImage2 from "@/public/about/about_me_photo.jpeg"
 import Nav from "@/components/Nav";
 import HeroImage from "@/public/pictures/about/Screenshot 2025-03-13 at 9.27.54 PM.png";
 import BarrierImage from "@/public/pictures/about/Jmai.png";
@@ -54,7 +54,7 @@ const Home = () => {
                             Hi, I'm <span className={`${lato.className}`}>Johnson Mai</span>
                         </h1>
                         <p className="text-lg md:text-xl max-w-prose">
-                            I’m John Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
+                            I’m Johnson Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
                         </p>
                     </div>
                 </motion.div>

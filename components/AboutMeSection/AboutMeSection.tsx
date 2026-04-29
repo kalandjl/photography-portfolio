@@ -1,7 +1,7 @@
 import { lato, nunito } from "@/app/fonts";
 import Image from "next/image";
 import { FC } from "react";
-import HeroImage from "@/public/pictures/about/Johnson 1.png"
+import HeroImage from "@/public/about/about_me_photo.jpeg"
 import Link from "next/link";
 import { motion } from "framer-motion"
 
