@@ -1,7 +1,7 @@
 import { lato, nunito } from "@/app/fonts";
 import Image from "next/image";
 import { FC } from "react";
-import HeroImage from "@/public/about/about_me_photo.jpeg"
+import HeroImage from "@/public/about/Untitled-2.jpeg"
 import Link from "next/link";
 import { motion } from "framer-motion"
 
@@ -24,7 +24,7 @@ const AboutMeSection: FC<Props> = (props) => {
                     objectFit="cover"
                     quality={75}
                     loading="eager"
-                    className="object-cover h-full object-top object-center" />
+                    className="object-cover h-full object-top" />
                 </motion.div>
             </div>
             <div id="text-wrap" className="sm:col-span-3 px-10 sm:px-20 grid place-items-center pb-16">
