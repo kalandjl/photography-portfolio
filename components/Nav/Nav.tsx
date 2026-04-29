@@ -58,6 +58,7 @@ const Nav: FC<Props> = ({ theme }) => {
     }, []);
 
     useEffect(() => {
+        // test
 
         if (sidebarOpen) {
             document.body.style.height = "100vh"; // Disable scrolling
