@@ -67,7 +67,7 @@ const Home: React.FC = () => {
     return (
         <>
             <Nav theme="dark" />
-            <main className="px-32 py-10">
+            <main className="px-6 sm:px-16 lg:px-32 py-10">
                 <h1 className={`${roboto.className} text-4xl`}>Admin Dashboard</h1>
                 {!user ? (
                     <>
@@ -100,17 +100,17 @@ const Home: React.FC = () => {
                         )}
                         <div className="grid gap-5">
                             {messages.map(message => (
-                                <div key={message.id} className={`bg-neutral-50 border border-neutral-200 border-l-2 border-l-neutral-400 px-10 py-5 flex justify-between ${messageRefs[message.id] ? "block" : "hidden"}`}>
-                                    <div>
-                                        <p className={`${lato.className} text-xl flex`}>
+                                <div key={message.id} className={`bg-neutral-50 border border-neutral-200 border-l-2 border-l-neutral-400 px-5 sm:px-10 py-5 flex flex-col sm:flex-row sm:justify-between gap-3 sm:gap-6 ${messageRefs[message.id] ? "block" : "hidden"}`}>
+                                    <div className="min-w-0">
+                                        <p className={`${lato.className} text-xl flex flex-wrap items-center gap-x-3 gap-y-1 break-words`}>
                                             {message.name}
-                                            <span className="ml-3 font-normal">{message.email}</span>
-                                            <span className="ml-3 font-normal bg-gray-300 px-2">{new Date(message.createdAt.seconds * 1000).toLocaleDateString()}</span>
+                                            <span className="font-normal break-all">{message.email}</span>
+                                            <span className="font-normal bg-gray-300 px-2">{new Date(message.createdAt.seconds * 1000).toLocaleDateString()}</span>
                                         </p>
-                                        <p>{message.message}</p>
+                                        <p className="break-words">{message.message}</p>
                                     </div>
                                     <p
-                                        className="text-red-500 hover:cursor-pointer hover:text-red-700 underline decoration-transparent hover:decoration-red-700 underline-offset-4 transition-colors duration-150"
+                                        className="text-red-500 hover:cursor-pointer hover:text-red-700 underline decoration-transparent hover:decoration-red-700 underline-offset-4 transition-colors duration-150 shrink-0 self-start"
                                         onClick={() => confirmDelete(message.id)}
                                     >
                                         Delete
