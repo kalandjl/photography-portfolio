@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "JMAI.PHOTOS",
   description: "Photography portfolio for John Mai",
   icons: {
-    icon: "/whiteicon.png",
+    icon: "/icons/whiteicon.png",
   },
 };
 
@@ -23,7 +23,7 @@ export default function RootLayout({
       <Head>
         <meta property="og:title" content="The Rock" />
         <meta property="og:url" content="https://www.jmai.photos" />
-        <meta property="og:image" content="https://www.jmai.photos/whiteicon.png" />
+        <meta property="og:image" content="https://www.jmai.photos/icons/whiteicon.png" />
       </Head>
       <body className="overflow-x-hidden">
         <QualityWrapper>

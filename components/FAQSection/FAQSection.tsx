@@ -1,8 +1,8 @@
 import { latoLite, oswald } from "@/app/fonts";
 import { ArrowDown } from "lucide-react";
 import { FC, useState, useRef, useEffect } from "react";
-import SectionImage from "@/public/bg/JMAI -02.jpg"
-import PageImage from "@/public/bg/JMAI -01.jpg"
+import SectionImage from "@/public/images/sections/JMAI -02.jpg"
+import PageImage from "@/public/images/sections/JMAI -01.jpg"
 import CustomImage from "../CustomImage";
 import { motion } from "framer-motion";
 

@@ -2,17 +2,17 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import HeroPic7 from "../public/slideshow/DSC00994.jpg"
-import HeroPic8 from "../public/slideshow/DSC01148.jpg"
-import HeroPic9 from "../public/slideshow/DSC07332.jpg"
-import HeroPic10 from "../public/slideshow/DSC07524.jpg"
-import HeroPic11 from "../public/slideshow/DSC07836.jpg"
-import HeroPic12 from "../public/slideshow/SFU MBB VS Seattle-64.jpg"
-import HeroPic13 from "../public/slideshow/UBC Homecoming Covered By JMAI.PHOTOS-045.jpg"
-import HeroPic14 from "../public/slideshow/UBC Homecoming Covered By JMAI.PHOTOS-092.jpg"
-import HeroPic15 from "../public/slideshow/VC FB Finals-010.jpg"
-import HeroPic16 from "../public/slideshow/VC VS SD-172.jpg"
-import HeroPic17 from "../public/slideshow/VC VS TF Play off  Game One-193.jpg"
+import HeroPic7 from "../public/images/hero/DSC00994.jpg"
+import HeroPic8 from "../public/images/hero/DSC01148.jpg"
+import HeroPic9 from "../public/images/hero/DSC07332.jpg"
+import HeroPic10 from "../public/images/hero/DSC07524.jpg"
+import HeroPic11 from "../public/images/hero/DSC07836.jpg"
+import HeroPic12 from "../public/images/hero/SFU MBB VS Seattle-64.jpg"
+import HeroPic13 from "../public/images/hero/UBC Homecoming Covered By JMAI.PHOTOS-045.jpg"
+import HeroPic14 from "../public/images/hero/UBC Homecoming Covered By JMAI.PHOTOS-092.jpg"
+import HeroPic15 from "../public/images/hero/VC FB Finals-010.jpg"
+import HeroPic16 from "../public/images/hero/VC VS SD-172.jpg"
+import HeroPic17 from "../public/images/hero/VC VS TF Play off  Game One-193.jpg"
 import Nav from "../components/Nav"; // Adjust the import path as needed
 import { lato, roboto } from "./fonts";
 import InstaSection from "@/components/InstaSection";

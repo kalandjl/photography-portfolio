@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FC } from "react";
-import HeroImage from "@/public/section/VC FB Finals-010.jpg"
+import HeroImage from "@/public/images/sections/VC FB Finals-010.jpg"
 import { lato, latoLite } from "@/app/fonts";
 import Link from "next/link";
 import CustomImage from "../CustomImage";
