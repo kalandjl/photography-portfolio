@@ -157,7 +157,7 @@ const Home = () => {
                         src={AboutImage2}
                         alt="John Mai"
                         width={500}
-                        height={500}
+                        height={720}
                         className="rounded-sm shadow-lg"
                     />
                 </motion.div>
