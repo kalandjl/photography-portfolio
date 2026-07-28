@@ -75,8 +75,8 @@ const Home: React.FC = () => {
                             onClick={async () => {
                                 try {
                                     await signInWithPopup(auth, provider);
-                                } catch (e: any) {
-                                    console.log(`Code ${e.code}, ${e.message}`);
+                                } catch {
+                                    // Most rejections here are the user closing the popup; nothing to surface.
                                 }
                             }}
                         >
@@ -92,7 +92,7 @@ const Home: React.FC = () => {
                         <div className={`${roboto.className} mt-10 text-xl font-bold bg-gray-300 px-6 py-3 w-min mb-5`}>Message Inbox</div>
                         <div className="grid gap-5">
                             {messages.map(message => (
-                                <div key={message.id} className={`bg-gray-200 px-10 py-5 flex justify-between ${messageRefs[message.id] ? "block" : "hidden"}`}>
+                                <div key={message.id} className={`bg-neutral-50 border border-neutral-200 border-l-2 border-l-neutral-400 px-10 py-5 flex justify-between ${messageRefs[message.id] ? "block" : "hidden"}`}>
                                     <div>
                                         <p className={`${lato.className} text-xl flex`}>
                                             {message.name}
@@ -102,7 +102,7 @@ const Home: React.FC = () => {
                                         <p>{message.message}</p>
                                     </div>
                                     <p
-                                        className="text-red-500 hover:cursor-pointer hover:underline hover:scale-105 transition ease-in-out"
+                                        className="text-red-500 hover:cursor-pointer hover:text-red-700 underline decoration-transparent hover:decoration-red-700 underline-offset-4 transition-colors duration-150"
                                         onClick={() => confirmDelete(message.id)}
                                     >
                                         Delete
