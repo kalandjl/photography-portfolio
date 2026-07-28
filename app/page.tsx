@@ -103,6 +103,7 @@ export default function Home() {
                 width={5000}
                 height={5000}
                 alt={`slide-${index}`}
+                priority={index === 0}
                 className={`absolute w-full h-full object-cover transition-opacity duration-700 ${
                   index === currentIndex ? "opacity-100" : "opacity-0"
                 }`}
