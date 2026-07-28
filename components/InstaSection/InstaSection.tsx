@@ -14,8 +14,6 @@ import InstaPhoto6 from "@/public/pictures/insta/insta-photo-6.jpg"
 import InstaPhoto7 from "@/public/pictures/insta/insta-photo-7.jpg"
 import { getUniqueRandomNumbers } from "@/lib/num";
 import CustomImage from "../CustomImage";
-import { httpsCallable } from "firebase/functions";
-import { functions } from "@/lib/firebase";
 
 // Always shown, pinned to the first and third square (not subject to the random rotation below).
 let permanentImages = [
@@ -44,35 +42,7 @@ const InstaSection: FC<Props> = () => {
         // Fixed positions: square 1 and square 3 are always the pinned photos;
         // squares 2 and 4 are filled with two random picks from the rotating pool.
         setImages([permanentImages[0], rotatingPicks[0], permanentImages[1], rotatingPicks[1]]);
-
-
-        // // Try dynamic fetching (latest posts)
-        // const doAsync = async () => {
-
-        //     try {
-        //         // @ts-ignore
-        //         const res: {x: string, height: number, width: number, link: string} = (await httpsCallable(functions, "fetchLatestPosts").call([])).data
-                
-        //         // @ts-ignore
-        //         setImages(res)
-        //     }
-        //     catch (e) {
-        //         console.error("Error loading instagram posts " + e)
-        //     }
-        // }
-
-        // doAsync()
     }, []);
-
-    useEffect(() => {
-
-        const doAsync = async () => {
-
-            const res = httpsCallable(functions, "fetchLatestPosts")
-        }
-
-        doAsync()
-    })
 
     return (
         <>
@@ -83,7 +53,7 @@ const InstaSection: FC<Props> = () => {
                         <div id="text-wrap" className="grid gap-3 hover:scale-105 transition ease-in-out">
                             <div id="image-wrap" className="grid place-items-center">
                                 <div id="image-cover" className="w-7 h-7 relative overflow-hidden">
-                                    <Image src={InstaLogo} layout="fill" objectFit="cover" alt="instagram-logo" />
+                                    <Image src={InstaLogo} fill className="object-cover" alt="instagram-logo" />
                                 </div>
                             </div>
                             <p className={`${lato.className} text-center md:text-lg`}>
@@ -111,8 +81,8 @@ const InstaSection: FC<Props> = () => {
                     >
                         <Link href={image.link}>
                             <div className="relative w-full h-full overflow-hidden">
-                                <CustomImage src={image.src} layout="fill" objectFit="cover" alt={`insta image ${i + 1}`}
-                                className={`hover:scale-105 hover:cursor-pointer transition ease-in-out ${image.objectPosition === "top" ? "object-top" : ""}`} />
+                                <CustomImage src={image.src} fill alt={`insta image ${i + 1}`}
+                                className={`object-cover hover:scale-105 hover:cursor-pointer transition ease-in-out ${image.objectPosition === "top" ? "object-top" : ""}`} />
                             </div>
                         </Link>
                     </motion.div>
