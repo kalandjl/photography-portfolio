@@ -37,6 +37,30 @@ const sidebarLinkVariants = {
     visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
 };
 
+// Desktop portfolio dropdown: panel scales/settles in from its top edge
+// rather than a flat opacity/scale-95 fade, and its rows stagger in after.
+const dropdownPanelVariants = {
+    hidden: { opacity: 0, scaleY: 0.82, y: -6 },
+    visible: {
+        opacity: 1, scaleY: 1, y: 0,
+        transition: { duration: 0.32, ease: [0.16, 1, 0.3, 1] },
+    },
+    exit: {
+        opacity: 0, scaleY: 0.9, y: -4,
+        transition: { duration: 0.14, ease: [0.4, 0, 1, 1] },
+    },
+};
+
+const dropdownListVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
+};
+
+const dropdownItemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.28, ease: [0.22, 1, 0.36, 1] } },
+};
+
 let links = [
     { title: "Home", href: "/" },
     { title: "About", href: "/about" },
@@ -129,16 +153,40 @@ const Nav: FC<Props> = ({ theme }) => {
                                             )}
                                         </Link>
                                         {/* Dropdown Menu */}
-                                        <div className={`agency z-20 absolute left-0 mt-2 w-32 bg-stone-800 rounded-sm shadow-lg overflow-hidden transition-all duration-200 ${isDropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
-                                            {shuffledPortfolioLinks.map((item: any, index: number) => (
-                                                <Link key={index} href={item.href}>
-                                                    <p className={`text-white font-semibold px-4 py-2 transition lg:text-xl hover:bg-stone-900
-                                                    }`}>
-                                                        {item.title}
-                                                    </p>
-                                                </Link>
-                                            ))}
-                                        </div>
+                                        <AnimatePresence>
+                                            {isDropdownOpen && (
+                                                <motion.div
+                                                    className="agency z-20 absolute left-0 mt-2 w-40 rounded-md overflow-hidden bg-gradient-to-b from-stone-800 to-stone-950 ring-1 ring-white/10 shadow-2xl shadow-black/50"
+                                                    style={{ originY: 0 }}
+                                                    variants={dropdownPanelVariants}
+                                                    initial="hidden"
+                                                    animate="visible"
+                                                    exit="exit"
+                                                >
+                                                    <motion.span
+                                                        className="block h-px bg-white/25 origin-left"
+                                                        initial={{ scaleX: 0 }}
+                                                        animate={{ scaleX: 1 }}
+                                                        transition={{ duration: 0.4, delay: 0.12, ease: [0.65, 0, 0.35, 1] }}
+                                                    />
+                                                    <motion.div variants={dropdownListVariants}>
+                                                        {shuffledPortfolioLinks.map((item: any, index: number) => (
+                                                            <motion.div key={index} variants={dropdownItemVariants}>
+                                                                <Link
+                                                                    href={item.href}
+                                                                    className="group/drop relative flex items-center px-4 py-2.5 border-b border-white/5 last:border-b-0 overflow-hidden"
+                                                                >
+                                                                    <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-white/80 scale-y-0 origin-center transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover/drop:scale-y-100" />
+                                                                    <p className="text-white font-semibold lg:text-xl transition-[transform,letter-spacing] duration-300 ease-out group-hover/drop:translate-x-1.5 group-hover/drop:tracking-wide">
+                                                                        {item.title}
+                                                                    </p>
+                                                                </Link>
+                                                            </motion.div>
+                                                        ))}
+                                                    </motion.div>
+                                                </motion.div>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
                                 ) : (
                                     <Link href={link.href} key={i} className="border-r border-gray-500 last:border-r-0 lg:px-5 relative">
