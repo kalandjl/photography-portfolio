@@ -138,6 +138,8 @@ const Nav: FC<Props> = ({ theme }) => {
                                         className="relative border-r-1 border-gray-500 lg:px-5 group"
                                         onMouseEnter={handleMouseEnter}
                                         onMouseLeave={handleMouseLeave}
+                                        onFocus={handleMouseEnter}
+                                        onBlur={handleMouseLeave}
                                     >
                                         <Link href={link.href} className="relative outline-none">
                                             <p className={`text-white lg:text-lg font-semibold px-4 py-2 ${link.href != pathname ? "hover:bg-stone-800": ""} group-hover:bg-stone-800 group-has-[:focus-visible]:bg-stone-800 rounded-sm transition agency`}>
