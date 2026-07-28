@@ -3,11 +3,53 @@ import Image from "next/image";
 import { FC } from "react";
 import HeroImage from "@/public/images/about/Untitled-2.jpeg"
 import Link from "next/link";
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 interface Props {
-    
+
 }
+
+// Heading leads on a blurred quint-ease rise, paragraph settles in behind it on a softer
+// ease with its own delay, button arrives last on a spring -- three distinct stages instead
+// of one shared opacity/x block.
+const textGroupVariants: Variants = {
+    hidden: {},
+    visible: {
+        transition: {
+            delayChildren: 0.1,
+            staggerChildren: 0.22,
+        },
+    },
+};
+
+const headingVariants: Variants = {
+    hidden: { opacity: 0, x: 90, filter: "blur(8px)" },
+    visible: {
+        opacity: 1,
+        x: 0,
+        filter: "blur(0px)",
+        transition: { duration: 0.85, ease: [0.16, 1, 0.3, 1] },
+    },
+};
+
+const paragraphVariants: Variants = {
+    hidden: { opacity: 0, x: 40 },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.9, ease: "easeOut" },
+    },
+};
+
+const buttonVariants: Variants = {
+    hidden: { opacity: 0, y: 16, scale: 0.92 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { type: "spring", stiffness: 160, damping: 18, mass: 0.8 },
+    },
+};
 
 const AboutMeSection: FC<Props> = (props) => {
 
@@ -28,30 +70,29 @@ const AboutMeSection: FC<Props> = (props) => {
                 </motion.div>
             </div>
             <div id="text-wrap" className="sm:col-span-3 px-10 sm:px-20 grid place-items-center pb-16">
-                <div>
-                    {/* Centered Text Section */}
-                    <motion.div
-                    initial={{ opacity: 0, x: 150 }} // Start below the view (50px down) and hidden (opacity 0)
-                    whileInView={{ opacity: 1, x: 0 }} // Animate to the original position and opacity 1
-                    viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-                    transition={{ duration: 1 }} // Set the duration for the fly-in effect
-                    >
+                <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={textGroupVariants}
+                >
                     <div id="about-text" className="flex flex-col justify-center items-center text-center p-6 md:col-span-7 mt-10">
-                        <h1 className={`americain text-black text-3xl md:text-4xl mb-6`}>
+                        <motion.h1 variants={headingVariants} className={`americain text-black text-3xl md:text-4xl mb-6`}>
                             Hi, I'm John Mai
-                        </h1>
-                        <p className={`md:text-xl max-w-prose agency ${nunito.className}`}>
+                        </motion.h1>
+                        <motion.p variants={paragraphVariants} className={`md:text-xl max-w-prose agency ${nunito.className}`}>
                         I’m John Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
 
-                        </p>
+                        </motion.p>
                     </div>
-                    </motion.div>
-                    <div id="button-wrap" className="grid place-items-center mt-5">
-                        <Link href="/about">
-                            <button className={`${lato.className} rounded-md border-1 border-black px-8 py-5 hover:bg-gray-200 transition ease-in-out hover:scale-105 hover:cursor-pointer`}>See more</button>
+                    <motion.div variants={buttonVariants} id="button-wrap" className="grid place-items-center mt-5">
+                        <Link href="/about" className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-black/80 px-8 py-5">
+                            <span aria-hidden className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-2 w-2 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-black transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[30]"></span>
+                            <span className={`${lato.className} relative z-10 text-black transition-colors duration-300 delay-200 group-hover:text-white`}>See more</span>
+                            <span aria-hidden className="relative z-10 inline-block text-black transition-all duration-300 delay-200 group-hover:translate-x-1 group-hover:text-white">&rarr;</span>
                         </Link>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     )
