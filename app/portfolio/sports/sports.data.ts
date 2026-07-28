@@ -70,7 +70,7 @@ export const mobile: CuratedEntry[] = [
   { file: "Saitns Round 1 VARSITY-131.jpg", big: true, quality: 80 },
   { file: "_DSC0316-Enhanced-NR.jpg" },
   { file: "Saitns Round 1 VARSITY-101.jpg" },
-  { file: "_DSC2941.jpg" },
+  { file: "_DSC2941.jpg", dir: "pictures/" },
   { file: "JMAI Post abits Rematch Retouched-2.jpg" },
   { file: "JMAI -128.jpg" },
   { file: "JMAI Post abits Rematch-018.jpg" },
