@@ -96,27 +96,29 @@ const FAQSection: FC<Props> = (props) => {
                             <motion.div key={index} variants={rowVariants} className="group relative border-b border-white/15">
                                 {/* Active/hover accent -- grows from the top edge, stays lit while the
                                     row is open, distinct from the fill-sweep/ink-blot mechanics used
-                                    elsewhere tonight. */}
+                                    elsewhere tonight. Also lights up on keyboard focus-visible, via
+                                    group-has-[:focus-visible] on the row wrapper -- real mouse clicks on
+                                    a <button> don't grant it focus-visible, so this stays keyboard-only. */}
                                 <span
                                     aria-hidden
-                                    className={`absolute left-0 top-0 bottom-0 w-[2px] bg-white origin-top transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                                    className={`absolute left-0 top-0 bottom-0 w-[2px] bg-white origin-top transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-has-[:focus-visible]:scale-y-100 ${
                                         isOpen ? "scale-y-100" : "scale-y-0 group-hover:scale-y-100"
                                     }`}
                                 />
                                 <button
-                                    className="w-full text-left py-5 pl-6 md:pl-8 pr-2 flex items-center gap-4 md:gap-6 focus:outline-none hover:cursor-pointer"
+                                    className="w-full text-left py-5 pl-6 md:pl-8 pr-2 flex items-center gap-4 md:gap-6 focus:outline-none hover:cursor-pointer transition-colors duration-300 focus-visible:bg-white/[0.06]"
                                     onClick={() => setOpenIndex(isOpen ? null : index)}
                                     aria-expanded={isOpen}
                                 >
                                     <span className={`text-xs md:text-sm tabular-nums transition-colors duration-300 ${oswald.className} ${
-                                        isOpen ? "text-white" : "text-white/30 group-hover:text-white/60"
+                                        isOpen ? "text-white" : "text-white/30 group-hover:text-white/60 group-has-[:focus-visible]:text-white/60"
                                     }`}>
                                         {String(index + 1).padStart(2, "0")}
                                     </span>
                                     <span className={`flex-1 text-lg md:text-xl transition-all duration-300 ease-out ${oswald.className} ${
                                         isOpen
                                             ? "font-semibold text-white translate-x-1"
-                                            : "font-medium text-white/75 group-hover:text-white group-hover:translate-x-1"
+                                            : "font-medium text-white/75 group-hover:text-white group-hover:translate-x-1 group-has-[:focus-visible]:text-white group-has-[:focus-visible]:translate-x-1"
                                     }`}>
                                         {faq.question}
                                     </span>
