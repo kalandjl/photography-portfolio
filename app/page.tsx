@@ -2,10 +2,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import HeroPic1 from "../public/pictures/Saitns Round 1 VARSITY-101.jpg"
-import HeroPic3 from "../public/pictures/_DSC6639.jpg"
-import HeroPic5 from "../public/pictures/_DSC6815.jpg"
-import HeroPic6 from "../public/pictures/Ryan and Taylor-005.jpg"
 import HeroPic7 from "../public/slideshow/DSC00994.jpg"
 import HeroPic8 from "../public/slideshow/DSC01148.jpg"
 import HeroPic9 from "../public/slideshow/DSC07332.jpg"

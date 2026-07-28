@@ -1,9 +1,8 @@
-import { lato, latoLite, oswald, oswaldBold } from "@/app/fonts";
+import { latoLite, oswald } from "@/app/fonts";
 import { ArrowDown } from "lucide-react";
 import { FC, useState, useRef, useEffect } from "react";
 import SectionImage from "@/public/bg/JMAI -02.jpg"
 import PageImage from "@/public/bg/JMAI -01.jpg"
-import Image from "next/image";
 import CustomImage from "../CustomImage";
 import { motion } from "framer-motion";
 
@@ -80,8 +79,7 @@ const FAQSection: FC<Props> = (props) => {
                                 />
                             </button>
                             <div
-                            // @ts-ignore
-                                ref={(el) => (contentRefs.current[index] = el)}
+                                ref={(el) => { contentRefs.current[index] = el; }}
                                 className={`overflow-hidden transition-all duration-300 ${latoLite.className}`}
                             >
                                 <p className="text-gray-200 py-2">{faq.answer}</p>
@@ -93,10 +91,8 @@ const FAQSection: FC<Props> = (props) => {
 
             <div className="absolute inset-0 -z-10">
                 <div id="image-wrap" className="h-full relative">
-                    <CustomImage src={props.asSection ? SectionImage : PageImage}  alt="background image"
-                       layout="fill"
-                       objectFit="cover"  // this ensures object-cover behavior
-                    className="object-cover" />
+                    <CustomImage src={props.asSection ? SectionImage : PageImage} alt="background image"
+                    fill className="object-cover" />
                     <div className="absolute inset-0 bg-black opacity-80 "></div>
                 </div>
             </div>

@@ -1,15 +1,14 @@
 "use client"
 import { lato } from "@/app/fonts";
 import Link from "next/link";
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useRef } from "react";
 import Icon from "@/public/whiteicon.png"
 import Image from "next/image";
-import { LucideSidebar, Sidebar, SidebarIcon, SidebarOpenIcon, XIcon } from "lucide-react";
+import { XIcon } from "lucide-react";
 import { Bars3 } from "@/app/icons";
 import SidebarImage from "@/public/bg/JMAI -02.jpg"
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import CustomImage from "../CustomImage";
 
 interface Props {
     theme?: "dark" | "light";
@@ -38,55 +37,39 @@ const Nav: FC<Props> = ({ theme }) => {
     const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [shuffledPortfolioLinks, setShuffledPortfolioLinks] = useState<any[]>([]);
-    let timeoutId: NodeJS.Timeout;
+    const dropdownTimeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
     const handleMouseEnter = () => {
-        clearTimeout(timeoutId);
+        clearTimeout(dropdownTimeoutRef.current);
         setIsDropdownOpen(true);
     };
 
     const handleMouseLeave = () => {
-        timeoutId = setTimeout(() => setIsDropdownOpen(false), 200); // Small delay to prevent flickering
+        dropdownTimeoutRef.current = setTimeout(() => setIsDropdownOpen(false), 200); // Small delay to prevent flickering
     };
 
     useEffect(() => {
-        setShuffledPortfolioLinks([...portfolioLinks].sort(() => Math.random() - 0.5).slice(0, portfolioLinks.length + 1));
+        setShuffledPortfolioLinks([...portfolioLinks].sort(() => Math.random() - 0.5));
     }, []); // Shuffle only on client-side
 
     useEffect(() => {
-        return () => clearTimeout(timeoutId);
+        return () => clearTimeout(dropdownTimeoutRef.current);
     }, []);
 
+    // Lock/unlock body scroll while the mobile sidebar is open, and keep the
+    // homepage slideshow's prev/next buttons (#slide-btn) below the sidebar overlay.
     useEffect(() => {
+        document.body.style.height = sidebarOpen ? "100vh" : "";
+        document.body.style.overflow = sidebarOpen ? "hidden" : "";
+        document.querySelectorAll("#slide-btn").forEach((el) => {
+            (el as HTMLElement).style.setProperty("z-index", sidebarOpen ? "10" : "30");
+        });
 
-        if (sidebarOpen) {
-            document.body.style.height = "100vh"; // Disable scrolling
-        } else {
-            document.body.style.height = ""; // Re-enable scrolling
-        }
-    
         return () => {
-            document.body.style.overflow = "auto"; // Cleanup on unmount
+            document.body.style.height = "";
+            document.body.style.overflow = "";
         };
     }, [sidebarOpen]);
-
-    useEffect(() => {
-        if (sidebarOpen) {
-            document.body.style.overflow = "hidden"; // Disable scrolling
-            document.querySelectorAll("#slide-btn").forEach((el) => {
-                (el as HTMLElement).style.setProperty("z-index", "10");
-            });
-        } else {
-            document.body.style.overflow = ""; // Re-enable scrolling
-            document.querySelectorAll("#slide-btn").forEach((el) => {
-                (el as HTMLElement).style.setProperty("z-index", "30");
-            });
-        }
-
-        return () => {
-            document.body.style.overflow = ""; // Cleanup when component unmounts
-        };
-    }, [sidebarOpen])
 
     return (
         <>
@@ -182,9 +165,8 @@ const Nav: FC<Props> = ({ theme }) => {
             {/* Background Image */}
             <Image
                 src={SidebarImage}
-                layout="fill"
-                objectFit="cover"
-                className="absolute inset-0 object-cover z-30" // Ensures the image is behind content
+                fill
+                className="object-cover z-30" // Ensures the image is behind content
                 alt=""
             />
             <div className="absolute top-0 -bottom-10 right-0 left-0 bg-black opacity-80 z-40"></div>

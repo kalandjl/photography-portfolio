@@ -11,7 +11,7 @@ let links = [
     { title: "Home", href: "/" },
     { title: "About", href: "/about" },
     { title: "Portfolio", href: "/portfolio" },
-    { title: "Clients", href: "/clients" },
+    { title: "Clients", href: "/testimonials" },
     { title: "Services", href: "/services" },
     { title: "Contact", href: "/contact" }
 ];
@@ -44,12 +44,12 @@ const Footer: FC<Props> = (props) => {
                             aria-label="Instagram Profile"
                             className="w-8 h-8 flex items-center justify-center"
                         >
-                            <Image 
-                                src="/icons/insta-logo.png" 
-                                width={32} 
-                                height={32} 
-                                alt="Instagram logo" 
-                                className="w-15 h-15 object-contain hover:scale-115 transition ease-in-out"
+                            <Image
+                                src="/icons/insta-logo.png"
+                                width={32}
+                                height={32}
+                                alt="Instagram logo"
+                                className="w-8 h-8 object-contain hover:scale-110 transition ease-in-out"
                             />
                         </Link>
                         <Link 

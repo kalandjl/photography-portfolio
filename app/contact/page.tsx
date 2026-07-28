@@ -2,17 +2,11 @@
 
 import Nav from "@/components/Nav";
 import { lato, latoLite, nunito } from "../fonts";
-import InstaLogo from "@/public/icons/insta-logo.png";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { firestore } from "@/lib/firebase";
-import AboutMeSection from "@/components/AboutMeSection";
 import InstaSection from "@/components/InstaSection";
-import Image from "next/image";
-import Link from "next/link";
 import FAQSection from "@/components/FAQSection";
-import BarrierImageSection from "@/components/BarrierImageSection";
-import BarrierImage from "@/public/pictures/_DSC0316-Enhanced-NR.jpg";
 import HeroImageSection from "@/components/HeroImageSection";
 import HeroImage from "@/public/DSC07916.jpg";
 import { motion } from "framer-motion";
@@ -24,6 +18,7 @@ const Home = () => {
     let [name, setName] = useState<string | undefined>(undefined);
     let [email, setEmail] = useState<string | undefined>(undefined);
     let [message, setMessage] = useState<string | undefined>(undefined);
+    const formRef = useRef<HTMLFormElement>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault(); // Prevent submission first
@@ -46,6 +41,10 @@ const Home = () => {
 
             localStorage.setItem("lastContactFormSubmit", now.toString());
             alert("Message sent successfully!");
+            formRef.current?.reset();
+            setName(undefined);
+            setEmail(undefined);
+            setMessage(undefined);
         } catch (error) {
             console.error("Error sending message:", error);
             alert("Failed to send message. Please try again.");
@@ -65,7 +64,7 @@ const Home = () => {
                         className="w-full col-span-2 px-20 py-16"
                     >
                         <div id="contact-form-paragraph" >
-                            <div id="text-wrap grid gap-12 h-2/3">
+                            <div id="text-wrap" className="grid gap-12 h-2/3">
                                 <h1 className={`text-3xl agency mb-5`}>
                                     Let's Work Together
                                 </h1>
@@ -84,7 +83,7 @@ const Home = () => {
                     >
                         <div id="contact-form-wrap" >
                             <div id="form-outer" className="px-16 py-16 bg-gray-100 h-min">
-                                <form id="contact-form" className="w-full h-full" onSubmit={handleSubmit}>
+                                <form id="contact-form" ref={formRef} className="w-full h-full" onSubmit={handleSubmit}>
                                     <div id="name-wrap">
                                         <label htmlFor="name-input" className={labelClass}>Name *</label>
                                         <input

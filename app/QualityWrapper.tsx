@@ -49,7 +49,5 @@ export default function QualityWrapper({ children }: { children: React.ReactNode
     }
   }, []);
 
-  useEffect(() => {}, [devToolsDetected])
-
   return <>{qualityCheck && !devToolsDetected ? children : null}</>;
 }

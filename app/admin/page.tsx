@@ -25,7 +25,6 @@ const Home: React.FC = () => {
     const [messageRefs, setMessageRefs] = useState<{ [key: string]: boolean }>({});
     const [modalVisible, setModalVisible] = useState<boolean>(false);
     const [selectedMessageId, setSelectedMessageId] = useState<string | null>(null);
-    console.log(user?.email)
 
     useEffect(() => {
         const fetchMessages = async () => {

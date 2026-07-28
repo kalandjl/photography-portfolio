@@ -5,4 +5,5 @@ export default interface Service {
     imageWidth: number;
     imageHeight: number;
     captcha: string;
+    objectTop?: boolean;
 }
