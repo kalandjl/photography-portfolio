@@ -3,9 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import HeroPic1 from "../public/pictures/Saitns Round 1 VARSITY-101.jpg"
-import HeroPic2 from "../public/pictures/_DSC0646-Enhanced-NR.jpg"
 import HeroPic3 from "../public/pictures/_DSC6639.jpg"
-import HeroPic4 from "../public/pictures/JMAI Post abits Rematch-094.jpg"
 import HeroPic5 from "../public/pictures/_DSC6815.jpg"
 import HeroPic6 from "../public/pictures/Ryan and Taylor-005.jpg"
 import HeroPic7 from "../public/slideshow/DSC00994.jpg"

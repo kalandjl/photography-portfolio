@@ -4,7 +4,7 @@ import ContactSection from "@/components/ContactSection";
 import HeroImageSection from "@/components/HeroImageSection";
 import InstaSection from "@/components/InstaSection";
 import ServicesSection from "@/components/ServicesSection";
-import HeroImage from "@/public/pictures/JMAI -220.jpg";
+import HeroImage from "@/public/testimonials/VC Mothers Day 2026-60.jpeg";
 import { lato, latoLite, oswald } from "../fonts";
 import { useState, useEffect, useRef } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
@@ -118,7 +118,7 @@ const Home = () => {
 
     return (
         <>
-            <HeroImageSection src={HeroImage} width={3889} height={2593} title="Testimonials" />
+            <HeroImageSection src={HeroImage} width={2048} height={1250} title="Testimonials" />
 
             <section className="px-6 sm:px-12 py-24 text-center" id="clients-section">
             <motion.div

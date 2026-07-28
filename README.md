@@ -1,36 +1,75 @@
-# Photographer Portfolio Website
+# JMAI.PHOTOS — Photography Portfolio
 
-A responsive portfolio and booking website for a freelance photographer. Built with Next.js, Tailwind CSS, and Firebase to showcase photography work, accept inquiries, and manage sessions. Includes a dynamic gallery powered by `react-image-gallery`.
+Portfolio site for photographer John Mai, built with Next.js (App Router) and exported as a static site. Deployed as static hosting via Firebase.
 
-## Features
+## Tech stack
 
-- Fullscreen, responsive image gallery with filtering and slideshow
-- Firebase Firestore backend for inquiries and session tracking
-- Booking and contact form with validation and Firebase Functions
-- Clean, minimalist aesthetic with mobile-first layout
-- Accessible and SEO-friendly design
-- Custom color palette and typography with Tailwind CSS
+- **Next.js 16** (App Router, `output: "export"` — fully static site, no Node server in production)
+- **React 19** + **TypeScript**
+- **Tailwind CSS 4**
+- **Framer Motion** for scroll/hover animations
+- **A hand-rolled CSS Grid masonry** for the photo galleries — no external gallery library (see [GALLERY.md](./GALLERY.md) for how this works)
+- **Firebase**
+  - **Firestore** stores contact-form submissions, read on `/admin`
+  - **Firebase Auth** (Google sign-in) gates the `/admin` page — allowed emails live in [res/adminList.ts](./res/adminList.ts)
+  - **Firebase Functions** (`functions/`) exists in the project but its only function is currently commented out (see below)
+- **@vercel/analytics** for pageview analytics
 
-## Tech Stack
+## Pages
 
-- [Next.js](https://nextjs.org/) – Framework for static and dynamic page generation
-- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS for scalable design
-- [TypeScript](https://www.typescriptlang.org/) – Type-safe development
-- [Firebase Functions](https://firebase.google.com/docs/functions) – Serverless backend for form handling and logic
-- [Firebase Firestore](https://firebase.google.com/docs/firestore) – NoSQL database for form entries and data management
-- [react-image-gallery](https://www.npmjs.com/package/react-image-gallery) – Responsive and performant photo gallery component
+| Route | Purpose |
+|---|---|
+| `/` | Homepage — hero, portfolio teaser, about teaser, Instagram section |
+| `/portfolio` | Links into the three galleries below |
+| `/portfolio/sports`, `/portfolio/portraits`, `/portfolio/graphics` | The actual photo galleries — see [GALLERY.md](./GALLERY.md) |
+| `/about` | Photographer bio |
+| `/services` | Services offered |
+| `/testimonials` | Client testimonials |
+| `/FAQ` | Frequently asked questions |
+| `/contact` | Contact form (writes to Firestore) |
+| `/admin` | Password-free, Google-login-gated inbox for contact form submissions (not linked in nav — used internally) |
 
-## Getting Started
+## Images
+
+Every image is local, served from `public/` (bundled into the static export) — there's no remote/Firebase Storage image sourcing anymore.
+
+`next.config.ts` sets `images.unoptimized: true`, which is required for static export — Next's built-in image optimizer does not run in production. `next/image` is still used for its lazy-loading and layout behavior, not for resizing/compression. Because of that, **source images are pre-resized and recompressed before they ever go in `public/`** via `npm run optimize:images` (see `scripts/optimize-images.ts`) — otherwise the browser would download full camera-resolution originals (routinely 20-40MB each) with zero server-side processing. If you add a new photo anywhere on the site, run that script before shipping it.
+
+The three portfolio galleries additionally generate their photo data (real dimensions, resolved file paths) from hand-curated `.data.ts` files via `npm run gen:gallery` — see [GALLERY.md](./GALLERY.md) for the full system.
+
+## Getting started
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/photographer-portfolio-site.git
-
-# Navigate into the directory
-cd photographer-portfolio-site
-
-# Install dependencies
 npm install
+npm run dev        # local dev server, http://localhost:3000
+npm run build       # static export, output goes to /out
+```
 
-# Run the development server
-npm run dev
+Environment variables (Firebase config) live in `.env` — see `lib/firebase.ts` for the expected keys (`NEXT_PUBLIC_API_KEY`, `NEXT_PUBLIC_AUTH_DOMAIN`, etc). `.env` is gitignored; ask whoever set up the Firebase project for the values if you don't have a copy.
+
+## Deployment
+
+The site is a static export deployed to **Firebase Hosting** (see `firebase.json` / `.firebaserc`, project `photography-portfolio-e32a8`):
+
+```bash
+npm run build
+firebase deploy --only hosting
+```
+
+## Firebase Functions (currently dormant)
+
+`functions/src/index.ts` is entirely commented out. The commented code shows it was previously used (or drafted) to:
+- Text/SMS the photographer via Twilio when a new contact-form message arrives in Firestore
+- Fetch and cache an Instagram feed via the Instagram Graph API
+
+Nothing in `functions/` is live right now — the contact form only writes to Firestore, and `/admin` is the only way messages are currently read. If you re-enable this, `firebase deploy --only functions` deploys it separately from hosting.
+
+## Known rough edges
+
+See [GALLERY.md](./GALLERY.md) for a full writeup of the gallery system and how to safely add/remove photos. A few things worth knowing project-wide:
+
+- `functions/lib`, `.next`, and `out` are all build output — never edit them directly, they're regenerated by `npm run build` / `firebase deploy`. `app/portfolio/*/​*.generated.ts` are also build output (from `npm run gen:gallery`) — edit the matching `.data.ts` instead.
+- A handful of images in `public/pictures/about/` and elsewhere aren't referenced by any page (leftover uploads). Harmless, just unused — safe to ignore or delete if you're sure they're not needed.
+- `app/services/page.tsx` and `components/ServicesSection/ServicesSection.tsx` each define their own, slightly different list of service photos — a pre-existing inconsistency, not something this cleanup touched.
+- `app/portfolio/page.tsx`'s click-to-enlarge modal hardcodes a 3:2 aspect ratio, which visibly distorts portrait-oriented thumbnails (portraits/graphics) when clicked. Worth a quick fix next time someone's in that file.
+- `npm audit` currently reports some vulnerabilities in transitive dependencies (mostly in `react-photo-album`'s dependency tree). None are exploitable in a static, client-rendered site like this, but worth revisiting before any major dependency bump.

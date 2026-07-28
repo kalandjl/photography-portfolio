@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# image optimization script state
+scripts/.image-optimize-manifest.json

@@ -1,67 +1,75 @@
 "use client";
-import { motion } from "framer-motion";
-import { useState, useEffect, FC } from "react";
-import Nav from "../Nav";
-import "react-photo-album/masonry.css";
-import { MasonryPhotoAlbum } from "react-photo-album";
-import { renderNextImage, renderNextImageMobile } from "@/lib/render";
-import ActionSection from "../ActionSection";
-import InstaSection from "../InstaSection";
-import PortfolioSection from "../PortfolioSection";
-import Image from "next/image";
+import { useEffect, useLayoutEffect, useRef, useState, FC } from "react";
+import { GalleryPhoto } from "@/lib/render";
+
+interface GridProps {
+  photos: Pic[];
+  columns: number;
+}
+
+// A deterministic CSS Grid masonry: each photo's row-span is computed from its
+// real aspect ratio (grid-auto-rows: 1px, so a span of N is exactly N pixels
+// tall), and `big` photos just span 2 columns. `grid-auto-flow: dense` packs
+// everything else around them automatically -- no manual spacer entries, and no
+// dependency on which photo happens to land next to a "big" one, so adding or
+// removing photos anywhere in the list can never break another photo's layout.
+const MasonryGrid: FC<GridProps> = ({ photos, columns }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerWidth, setContainerWidth] = useState<number>(0);
+
+  useLayoutEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver((entries) => {
+      const width = entries[0]?.contentRect.width;
+      if (width) setContainerWidth(width);
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const colWidth = containerWidth / columns;
+
+  return (
+    <div
+      ref={containerRef}
+      className="grid"
+      style={{
+        gridTemplateColumns: `repeat(${columns}, 1fr)`,
+        gridAutoRows: "1px",
+        gridAutoFlow: "dense",
+      }}
+    >
+      {containerWidth > 0 &&
+        photos.map((photo, i) => {
+          const spanCols = photo.big ? Math.min(2, columns) : 1;
+          const cellWidth = spanCols * colWidth;
+          const cellHeight = cellWidth * (photo.height / photo.width);
+          return (
+            <div
+              key={`${photo.src}-${i}`}
+              style={{
+                gridColumn: `span ${spanCols}`,
+                gridRowEnd: `span ${Math.max(1, Math.round(cellHeight))}`,
+              }}
+            >
+              <GalleryPhoto photo={photo} />
+            </div>
+          );
+        })}
+    </div>
+  );
+};
 
 interface Props {
   pics: Pic[];
   mobilePicsProps?: Pic[];
   title: string;
-  columns?: number
+  columns?: number;
 }
 
 const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) => {
-
-  const closeModal = () => {
-    if (!modal) return
-    document.getElementById(`img-${modal.src}`)?.setAttribute("data-modal", "false")
-    setModal(undefined)
-  }
-  let [mobilePics, setMobilePics] = useState<any>([])
-
-  useEffect(() => {
-
-    setMobilePics(pics.filter(pic => pic.src.includes("hidden") ? false : true))
-  }, [])
-
-
-  const [loadedImages, setLoadedImages] = useState<number>(0);
-  const [loadedImagesMobile, setLoadedImagesMobile] = useState<number>(0);
-
-  const [modal, setModal] = useState<Pic | undefined>()
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let timeoutIds: NodeJS.Timeout[] = [];
-
-    // Handle the image loading for desktop
-    pics.forEach((_, index) => {
-        const timeoutId = setTimeout(() => {
-            setLoadedImages((prev) => prev + 1);
-        }, index * 100); // Delay each image by 100ms (adjust as needed)
-        timeoutIds.push(timeoutId);
-    });
-
-    // Handle the image loading for mobile
-    mobilePics.forEach((_: any, index: any) => {
-        const timeoutId = setTimeout(() => {
-            setLoadedImagesMobile((prev) => prev + 1);
-        }, index * 100); // Delay each image by 100ms (adjust as needed)
-        timeoutIds.push(timeoutId);
-    });
-
-    // Cleanup function to clear the timeouts on component unmount
-    return () => {
-        timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
-    };
-  }, [pics, mobilePics]);
+  const mobilePics = mobilePicsProps ?? pics;
 
   // Disable right-click on images
   useEffect(() => {
@@ -74,50 +82,16 @@ const PortfolioLayout: FC<Props> = ({ pics, title, mobilePicsProps, columns }) =
     return () => document.removeEventListener("contextmenu", disableRightClick);
   }, []);
 
-  useEffect(() => {
-    const handleKeyDown = (e: any) => {
-      if (e.key === "Escape") closeModal()
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
   return (
     <section id="portfolio-gallery" className="min-h-screen text-black transition-opacity duration-500">
-
       <div className="px-4 md:px-8 lg:px-12 pt-10">
         <div className="sm:block hidden">
-          <MasonryPhotoAlbum
-            columns={columns ?? 3}
-            spacing={0}
-            padding={0}
-            photos={pics.filter(pics => pics.src.includes("hdden") ? false : true).slice(0, loadedImages)} // Only render loaded images
-            render={{ image: renderNextImage }}
-            defaultContainerWidth={1200}
-            sizes={{
-              size: "1168px",
-              sizes: [{ viewport: "(max-width: 1200px)", size: "calc(100vw - 32px)" }],
-            }}
-          />
+          <MasonryGrid photos={pics} columns={columns ?? 3} />
         </div>
         <div className="sm:hidden block">
-          <MasonryPhotoAlbum
-              columns={columns ? columns - 1 : 2}
-              spacing={0}
-              padding={0}
-              photos={mobilePicsProps ?? mobilePics.slice(0, loadedImagesMobile)} // Only render loaded images
-              render={{ image: renderNextImageMobile }}
-              defaultContainerWidth={1200}
-              sizes={{
-                size: "1168px",
-                sizes: [{ viewport: "(max-width: 1200px)", size: "calc(100vw - 32px)" }],
-              }}
-            />
+          <MasonryGrid photos={mobilePics} columns={columns ? columns - 1 : 2} />
         </div>
       </div>
-
- 
-      
     </section>
   );
 };
