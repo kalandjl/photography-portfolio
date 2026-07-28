@@ -25,6 +25,7 @@ const Home: React.FC = () => {
     const [messageRefs, setMessageRefs] = useState<{ [key: string]: boolean }>({});
     const [modalVisible, setModalVisible] = useState<boolean>(false);
     const [selectedMessageId, setSelectedMessageId] = useState<string | null>(null);
+    const [deleteError, setDeleteError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchMessages = async () => {
@@ -47,6 +48,7 @@ const Home: React.FC = () => {
 
     const confirmDelete = (id: string) => {
         setSelectedMessageId(id);
+        setDeleteError(null);
         setModalVisible(true);
     };
 
@@ -56,7 +58,7 @@ const Home: React.FC = () => {
             try {
                 await deleteDoc(doc(firestore, `/messages/${selectedMessageId}`));
             } catch (error) {
-                alert("Error deleting document: " + error);
+                setDeleteError("Error deleting document: " + error);
             }
             setModalVisible(false);
         }
@@ -90,6 +92,12 @@ const Home: React.FC = () => {
                     <section id="admin-console">
                         <h1>Signed in as admin</h1>
                         <div className={`${roboto.className} mt-10 text-xl font-bold bg-gray-300 px-6 py-3 w-min mb-5`}>Message Inbox</div>
+                        {deleteError && (
+                            <p className="text-red-600 bg-red-50 border border-red-200 px-4 py-2 mb-5 text-sm">
+                                {deleteError}
+                                <button className="ml-3 underline hover:no-underline" onClick={() => setDeleteError(null)}>Dismiss</button>
+                            </p>
+                        )}
                         <div className="grid gap-5">
                             {messages.map(message => (
                                 <div key={message.id} className={`bg-neutral-50 border border-neutral-200 border-l-2 border-l-neutral-400 px-10 py-5 flex justify-between ${messageRefs[message.id] ? "block" : "hidden"}`}>
