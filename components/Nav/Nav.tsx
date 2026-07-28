@@ -8,11 +8,34 @@ import { XIcon } from "lucide-react";
 import { Bars3 } from "@/app/icons";
 import SidebarImage from "@/public/images/sections/JMAI -02.jpg"
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Props {
     theme?: "dark" | "light";
 }
+
+// Shared active-tab indicator: springs open from the center rather than
+// sliding in from one edge, so it reads distinct from the site's default
+// fade/slide-on-scroll recipe.
+const ActiveTabIndicator: FC = () => (
+    <motion.div
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={{ scaleX: 1, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 280, damping: 22, mass: 0.7 }}
+        style={{ originX: 0.5 }}
+        className="h-full w-full bg-stone-200 block absolute top-0 bottom-0 left-0"
+    />
+);
+
+const sidebarLinksContainerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.06, delayChildren: 0.3 } },
+};
+
+const sidebarLinkVariants = {
+    hidden: { opacity: 0, x: 28 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+};
 
 let links = [
     { title: "Home", href: "/" },
@@ -99,17 +122,9 @@ const Nav: FC<Props> = ({ theme }) => {
                                             {link.href === pathname && (
                                                 <div className="absolute bottom-0 h-1 px-3 right-0 left-0 block">
                                                     <div className="relative h-full">
-                                                        <motion.div
-                                                            initial={{ opacity: 0, right: "100%" }} // Start below the view (50px down) and hidden (opacity 0)
-                                                            whileInView={{ opacity: 1, right: "0" }} // Animate to the original position and opacity 1
-                                                            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-                                                            transition={{ duration: 0.7 }} // Set the duration for the fly-in effect
-                                                            className="h-full bg-stone-200 block absolute top-0 bottom-0 left-0"
-                                                        >
-                                                            <span></span>
-                                                        </motion.div>
+                                                        <ActiveTabIndicator />
                                                     </div>
-        
+
                                                 </div>
                                             )}
                                         </Link>
@@ -134,17 +149,9 @@ const Nav: FC<Props> = ({ theme }) => {
                                         {link.href === pathname && (
                                             <div className="absolute bottom-0 h-1 px-7 right-0 left-0 block">
                                                 <div className="relative h-full">
-                                                    <motion.div
-                                                        initial={{ opacity: 0, right: "100%" }} // Start below the view (50px down) and hidden (opacity 0)
-                                                        whileInView={{ opacity: 1, right: "0" }} // Animate to the original position and opacity 1
-                                                        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-                                                        transition={{ duration: 0.7 }} // Set the duration for the fly-in effect
-                                                        className="h-full bg-stone-200 block absolute top-0 bottom-0 left-0"
-                                                    >
-                                                        <span></span>
-                                                    </motion.div>
+                                                    <ActiveTabIndicator />
                                                 </div>
-     
+
                                             </div>
                                         )}
                                 </Link>
@@ -158,34 +165,64 @@ const Nav: FC<Props> = ({ theme }) => {
                     </div>
                 </div>
             </nav>
-            <div
-            id="sidebar"
-            className={`${sidebarOpen ? "z-20" : "hidden"} px-10 -z-10 py-5 fixed inset-0 bg-stone-800 scroll`}
-            >
-            {/* Background Image */}
-            <Image
-                src={SidebarImage}
-                fill
-                className="object-cover z-30" // Ensures the image is behind content
-                alt=""
-            />
-            <div className="absolute top-0 -bottom-10 right-0 left-0 bg-black opacity-80 z-40"></div>
+            <AnimatePresence>
+                {sidebarOpen && (
+                    <motion.div
+                        id="sidebar"
+                        className="z-20 px-10 py-5 fixed inset-0 bg-stone-800 overflow-hidden scroll"
+                        initial={{ x: "100%" }}
+                        animate={{ x: 0 }}
+                        exit={{ x: "100%" }}
+                        transition={{ type: "spring", stiffness: 280, damping: 32, mass: 0.9 }}
+                    >
+                        {/* Background Image */}
+                        <motion.div
+                            className="absolute inset-0"
+                            initial={{ scale: 1.15, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <Image
+                                src={SidebarImage}
+                                fill
+                                className="object-cover z-30" // Ensures the image is behind content
+                                alt=""
+                            />
+                            <div className="absolute top-0 -bottom-10 right-0 left-0 bg-black opacity-80 z-40"></div>
+                        </motion.div>
 
-            {/* Inner Content */}
-            <div id="inner" className="h-full relative z-50">
-                <p className="text-white hover:scale-105 hover:cursor-pointer" onClick={() => setSidebarOpen(false)}>
-                    <XIcon stroke="#ffffff" />
-                </p>
+                        {/* Inner Content */}
+                        <div id="inner" className="h-full relative z-50">
+                            <motion.p
+                                className="text-white hover:cursor-pointer inline-block"
+                                whileHover={{ rotate: 90 }}
+                                whileTap={{ rotate: 90, scale: 0.85 }}
+                                transition={{ type: "spring", stiffness: 300, damping: 14 }}
+                                onClick={() => setSidebarOpen(false)}
+                            >
+                                <XIcon stroke="#ffffff" />
+                            </motion.p>
 
-                <div id="links" className="grid gap-3 pt-10">
-                {links.map((link, i) => (
-                    <Link key={i} href={link.href} className={`text-white ${lato.className} text-lg`}>
-                        {link.title}
-                    </Link>
-                ))}
-                </div>
-            </div>
-            </div>
+                            <motion.div
+                                id="links"
+                                className="grid gap-3 pt-10"
+                                variants={sidebarLinksContainerVariants}
+                                initial="hidden"
+                                animate="visible"
+                            >
+                                {links.map((link, i) => (
+                                    <motion.div key={i} variants={sidebarLinkVariants}>
+                                        <Link href={link.href} className={`text-white ${lato.className} text-lg`}>
+                                            {link.title}
+                                        </Link>
+                                    </motion.div>
+                                ))}
+                            </motion.div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 };
