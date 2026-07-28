@@ -6,7 +6,7 @@ export const dir = "images/gallery/graphics/";
 // Same set on desktop and mobile -- this gallery has no "big" layout flags and no
 // spacers, so there's nothing that needs to differ between breakpoints.
 const entries: CuratedEntry[] = [
-  { file: "Andres BC All Stars Game.png", dir: "" },
+  { file: "Andres BC All Stars Game.png" },
   { file: "Varsity Poster Final.jpg" },
   { file: "488968301_1765443150672408_7674308146999412494_n.jpg" },
   { file: "Nathan Lowden Queens Commit Final.jpg", dir: "graphics/" },

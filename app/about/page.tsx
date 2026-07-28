@@ -5,7 +5,7 @@ import Image from "next/image";
 import AboutImage from "@/public/images/about/Untitled-2.jpeg";
 import AboutImage2 from "@/public/images/about/about_me_photo.jpeg"
 import Nav from "@/components/Nav";
-import HeroImage from "@/public/images/about/Screenshot 2025-03-13 at 9.27.54 PM.png";
+import HeroImage from "@/public/images/about/Screenshot 2025-03-13 at 9.27.54 PM.png";
 import BarrierImage from "@/public/images/about/Jmai.png";
 import { lato, latoLite, nunito, oswald } from "../fonts";
 import { ArrowDown } from "lucide-react";
