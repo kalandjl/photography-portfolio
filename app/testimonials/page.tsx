@@ -234,7 +234,7 @@ const Home = () => {
                 viewport={{ once: true, amount: 0.2 }}
                 variants={clientGridVariants}
                 id="image-wrap"
-                className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 px-6 sm:px-32"
+                className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-10 px-6 sm:px-32"
                 >
                     {clients.map((client, index) => (
                         <motion.div key={index} variants={clientTagVariants(index)}>
