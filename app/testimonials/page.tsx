@@ -6,7 +6,7 @@ import InstaSection from "@/components/InstaSection";
 import ServicesSection from "@/components/ServicesSection";
 import HeroImage from "@/public/images/testimonials/VC Mothers Day 2026-60.jpeg";
 import { lato, latoLite, oswald } from "../fonts";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import TestimonialImage1 from "@/public/images/testimonials/Cahsmun.jpeg"
@@ -173,46 +173,23 @@ const NavArrow = ({
 
 const Home = () => {
     const [curSlide, setCurSlide] = useState(0);
-    const [inView, setInView] = useState(false);
-    const [animationTriggered, setAnimationTriggered] = useState(false);
     const [slideDirection, setSlideDirection] = useState<string | null>(null);
     const [isMobile, setIsMobile] = useState(false); // Track if the screen is mobile
-    const testimonialsRef = useRef(null);
 
     useEffect(() => {
         // Detect if on mobile
         const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-        
+
         // Add resize listener
         window.addEventListener("resize", checkMobile);
 
         // Initial check
         checkMobile();
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                const entry = entries[0];
-                if (entry.isIntersecting && !animationTriggered) {
-                    setInView(true);
-                    setAnimationTriggered(true);
-                }
-            },
-            {
-                threshold: 0.5,
-            }
-        );
-
-        if (testimonialsRef.current) {
-            observer.observe(testimonialsRef.current);
-        }
-
         return () => {
             window.removeEventListener("resize", checkMobile); // Cleanup on unmount
-            if (testimonialsRef.current) {
-                observer.unobserve(testimonialsRef.current);
-            }
         };
-    }, [animationTriggered]);
+    }, []);
 
     const prevSlide = () => {
         if (testimonials.length <= 1) return;
@@ -278,7 +255,6 @@ const Home = () => {
 
             <section
                 id="testimonials-section"
-                ref={testimonialsRef}
                 className="px-6 sm:px-20 py-20 bg-gray-50"
             >
                 <motion.h1
