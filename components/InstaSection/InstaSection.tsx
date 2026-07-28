@@ -16,10 +16,15 @@ import CustomImage from "../CustomImage";
 import { httpsCallable } from "firebase/functions";
 import { functions } from "@/lib/firebase";
 
-let preRandDefaultImages = [
-    {src: InstaPhoto1, width: 2160, height: 2160, link: "https://www.instagram.com/p/DWP_5iLFFl3/?img_index=1"},
+// Always shown, pinned to the first and third square (not subject to the random rotation below).
+let permanentImages = [
+    {src: InstaPhoto1, width: 1200, height: 1500, link: "https://www.instagram.com/p/DZ0LfsfHbtt/?img_index=1", objectPosition: "top"},
+    {src: InstaPhoto3, width: 1280, height: 1600, link: "https://www.instagram.com/p/DW5lC3clU40/?img_index=1", objectPosition: "top"},
+]
+
+// Two of these are randomly picked each load to fill out the remaining squares.
+let rotatingImages = [
     {src: InstaPhoto2, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVovusYki5L/?img_index=1"},
-    {src: InstaPhoto3, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVm_UAVFKUX/?img_index=1"},
     {src: InstaPhoto4, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVmt1u-lJIf/?img_index=1"},
     {src: InstaPhoto5, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVmdsXBlMmm/?img_index=1"},
     {src: InstaPhoto6, width: 2160, height: 2160, link: "https://www.instagram.com/p/DVkYSNWFOXT/?img_index=1"},
@@ -29,13 +34,15 @@ let preRandDefaultImages = [
 interface Props {}
 
 const InstaSection: FC<Props> = () => {
-    let [images, setImages] = useState<{ src: StaticImageData, height: number, width: number, link: string }[]>([])
+    let [images, setImages] = useState<{ src: StaticImageData, height: number, width: number, link: string, objectPosition?: string }[]>([])
 
     useEffect(() => {
-        const numArr = getUniqueRandomNumbers(4, 7);
-        const imageArr = numArr.map(num => preRandDefaultImages[num - 1]);
+        const numArr = getUniqueRandomNumbers(2, rotatingImages.length);
+        const rotatingPicks = numArr.map(num => rotatingImages[num - 1]);
 
-        setImages(imageArr);
+        // Fixed positions: square 1 and square 3 are always the pinned photos;
+        // squares 2 and 4 are filled with two random picks from the rotating pool.
+        setImages([permanentImages[0], rotatingPicks[0], permanentImages[1], rotatingPicks[1]]);
 
 
         // // Try dynamic fetching (latest posts)
@@ -96,7 +103,7 @@ const InstaSection: FC<Props> = () => {
                     <Link href={image.link} key={i}>
                         <div className="relative w-full h-full overflow-hidden">
                             <CustomImage src={image.src} layout="fill" objectFit="cover" alt={`insta image ${i + 1}`}
-                            className="hover:scale-105 hover:cursor-pointer transition ease-in-out " />
+                            className={`hover:scale-105 hover:cursor-pointer transition ease-in-out ${image.objectPosition === "top" ? "object-top" : ""}`} />
                         </div>
                     </Link>
                 ))}
