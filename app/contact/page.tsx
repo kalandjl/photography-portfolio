@@ -50,6 +50,20 @@ const fieldVariants = {
     visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: BACK_OUT } },
 };
 
+// Keyboard-focus-only affordance: four viewfinder-style AF brackets snap in
+// around the active field, echoing the form panel's own corner brackets at a
+// smaller scale. group-has-[:focus-visible] keys off the field's ancestor
+// .group so this fires only for real focus-visible state, not mouse clicks
+// (browsers do still grant text inputs focus-visible on click -- see report).
+const FocusBrackets = () => (
+    <>
+        <span aria-hidden className="pointer-events-none absolute -top-2 -left-2 h-3 w-3 border-t-2 border-l-2 border-gray-900 opacity-0 scale-125 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-has-[:focus-visible]:opacity-100 group-has-[:focus-visible]:scale-100" />
+        <span aria-hidden className="pointer-events-none absolute -top-2 -right-2 h-3 w-3 border-t-2 border-r-2 border-gray-900 opacity-0 scale-125 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-has-[:focus-visible]:opacity-100 group-has-[:focus-visible]:scale-100" />
+        <span aria-hidden className="pointer-events-none absolute -bottom-2 -left-2 h-3 w-3 border-b-2 border-l-2 border-gray-900 opacity-0 scale-125 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-has-[:focus-visible]:opacity-100 group-has-[:focus-visible]:scale-100" />
+        <span aria-hidden className="pointer-events-none absolute -bottom-2 -right-2 h-3 w-3 border-b-2 border-r-2 border-gray-900 opacity-0 scale-125 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-has-[:focus-visible]:opacity-100 group-has-[:focus-visible]:scale-100" />
+    </>
+);
+
 const Home = () => {
     const labelClass = `text-xl text-gray-800 font-thin agency transition-colors duration-300 group-focus-within:text-black`;
     const inputClass = `${nunito.className} text-lg border-b-1 py-3 border-gray-300 w-full outline-none text-gray-800 font-thin bg-transparent`;
@@ -149,6 +163,7 @@ const Home = () => {
                                                 required
                                             />
                                             <span className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-gray-900 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-focus-within:scale-x-100" />
+                                            <FocusBrackets />
                                         </div>
                                     </motion.div>
                                     <motion.div id="email-wrap" className="group" variants={fieldVariants}>
@@ -162,6 +177,7 @@ const Home = () => {
                                                 required
                                             />
                                             <span className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-gray-900 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-focus-within:scale-x-100" />
+                                            <FocusBrackets />
                                         </div>
                                     </motion.div>
                                     <motion.div id="message-wrap" className="group mb-10" variants={fieldVariants}>
@@ -176,6 +192,7 @@ const Home = () => {
                                                 required
                                             />
                                             <span className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-gray-900 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-focus-within:scale-x-100" />
+                                            <FocusBrackets />
                                         </div>
                                     </motion.div>
                                     <motion.button
