@@ -3,6 +3,7 @@ import { lato } from "@/app/fonts";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import InstaLogo from "@/public/icons/insta-logo.png"
 import InstaPhoto1 from "@/public/pictures/insta/insta-photo-1.jpg" 
 import InstaPhoto2 from "@/public/pictures/insta/insta-photo-2.jpg"
@@ -75,9 +76,9 @@ const InstaSection: FC<Props> = () => {
 
     return (
         <>
-            <section id="insta-section" className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-5 h-48 sm:h-64 sm:mt-20 grid-rows-1">
+            <section id="insta-section" className="grid grid-cols-3 sm:grid-cols-5 sm:h-64 sm:mt-20">
                 {/* Instagram CTA */}
-                <div id="action-section" className="bg-gray-100 grid place-items-center">
+                <div id="action-section" className="bg-gray-100 grid place-items-center aspect-square sm:aspect-auto sm:h-full">
                     <Link href="https://www.instagram.com/jmai.photos/">
                         <div id="text-wrap" className="grid gap-3 hover:scale-105 transition ease-in-out">
                             <div id="image-wrap" className="grid place-items-center">
@@ -100,12 +101,21 @@ const InstaSection: FC<Props> = () => {
 
                 {/* Instagram Images */}
                 {images.map((image, i) => (
-                    <Link href={image.link} key={i}>
-                        <div className="relative w-full h-full overflow-hidden">
-                            <CustomImage src={image.src} layout="fill" objectFit="cover" alt={`insta image ${i + 1}`}
-                            className={`hover:scale-105 hover:cursor-pointer transition ease-in-out ${image.objectPosition === "top" ? "object-top" : ""}`} />
-                        </div>
-                    </Link>
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: i * 0.1 }}
+                        className="aspect-square sm:aspect-auto sm:h-full"
+                    >
+                        <Link href={image.link}>
+                            <div className="relative w-full h-full overflow-hidden">
+                                <CustomImage src={image.src} layout="fill" objectFit="cover" alt={`insta image ${i + 1}`}
+                                className={`hover:scale-105 hover:cursor-pointer transition ease-in-out ${image.objectPosition === "top" ? "object-top" : ""}`} />
+                            </div>
+                        </Link>
+                    </motion.div>
                 ))}
             </section>
         </>
