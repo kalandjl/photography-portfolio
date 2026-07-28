@@ -139,9 +139,9 @@ const Nav: FC<Props> = ({ theme }) => {
                                         onMouseEnter={handleMouseEnter}
                                         onMouseLeave={handleMouseLeave}
                                     >
-                                        <Link href={link.href} className="relative">
-                                            <p className={`text-white lg:text-lg font-semibold px-4 py-2 ${link.href != pathname ? "hover:bg-stone-800": ""} group-hover:bg-stone-800 rounded-sm transition agency`}>
-                                                {link.title} 
+                                        <Link href={link.href} className="relative outline-none">
+                                            <p className={`text-white lg:text-lg font-semibold px-4 py-2 ${link.href != pathname ? "hover:bg-stone-800": ""} group-hover:bg-stone-800 group-has-[:focus-visible]:bg-stone-800 rounded-sm transition agency`}>
+                                                {link.title}
                                             </p>
                                             {link.href === pathname && (
                                                 <div className="absolute bottom-0 h-1 px-3 right-0 left-0 block">
@@ -151,6 +151,13 @@ const Nav: FC<Props> = ({ theme }) => {
 
                                                 </div>
                                             )}
+                                            {/* Keyboard-focus underline: same accent color/position as the
+                                                active-tab indicator, snaps in via group-has-[:focus-visible]
+                                                on the row wrapper so real mouse clicks don't trigger it. */}
+                                            <span
+                                                aria-hidden
+                                                className="pointer-events-none absolute bottom-0 left-3 right-3 h-0.5 bg-stone-200 scale-x-0 origin-center transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-has-[:focus-visible]:scale-x-100"
+                                            />
                                         </Link>
                                         {/* Dropdown Menu */}
                                         <AnimatePresence>
@@ -174,10 +181,10 @@ const Nav: FC<Props> = ({ theme }) => {
                                                             <motion.div key={index} variants={dropdownItemVariants}>
                                                                 <Link
                                                                     href={item.href}
-                                                                    className="group/drop relative flex items-center px-4 py-2.5 border-b border-white/5 last:border-b-0 overflow-hidden"
+                                                                    className="group/drop relative flex items-center px-4 py-2.5 border-b border-white/5 last:border-b-0 overflow-hidden outline-none"
                                                                 >
-                                                                    <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-white/80 scale-y-0 origin-center transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover/drop:scale-y-100" />
-                                                                    <p className="text-white font-semibold lg:text-xl transition-[transform,letter-spacing] duration-300 ease-out group-hover/drop:translate-x-1.5 group-hover/drop:tracking-wide">
+                                                                    <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-white/80 scale-y-0 origin-center transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover/drop:scale-y-100 group-focus-visible/drop:scale-y-100" />
+                                                                    <p className="text-white font-semibold lg:text-xl transition-[transform,letter-spacing] duration-300 ease-out group-hover/drop:translate-x-1.5 group-hover/drop:tracking-wide group-focus-visible/drop:translate-x-1.5 group-focus-visible/drop:tracking-wide">
                                                                         {item.title}
                                                                     </p>
                                                                 </Link>
@@ -189,11 +196,11 @@ const Nav: FC<Props> = ({ theme }) => {
                                         </AnimatePresence>
                                     </div>
                                 ) : (
-                                    <Link href={link.href} key={i} className="border-r border-gray-500 last:border-r-0 lg:px-5 relative">
-                                        <p className={`text-white font-semibold px-4 py-2 ${link.href !== pathname ? "hover:bg-stone-800": ""} rounded-sm transition agency lg:text-xl`}>
+                                    <Link href={link.href} key={i} className="group border-r border-gray-500 last:border-r-0 lg:px-5 relative outline-none">
+                                        <p className={`text-white font-semibold px-4 py-2 ${link.href !== pathname ? "hover:bg-stone-800 group-focus-visible:bg-stone-800": ""} rounded-sm transition agency lg:text-xl`}>
                                             {link.title}
                                         </p>
- 
+
                                         {link.href === pathname && (
                                             <div className="absolute bottom-0 h-1 px-7 right-0 left-0 block">
                                                 <div className="relative h-full">
@@ -202,14 +209,26 @@ const Nav: FC<Props> = ({ theme }) => {
 
                                             </div>
                                         )}
+                                        {/* Keyboard-focus underline, same accent/position language as the
+                                            active-tab indicator; group-focus-visible so a mouse click
+                                            (no focus-visible on links) leaves this untouched. */}
+                                        <span
+                                            aria-hidden
+                                            className="pointer-events-none absolute bottom-0 left-7 right-7 h-0.5 bg-stone-200 scale-x-0 origin-center transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-focus-visible:scale-x-100"
+                                        />
                                 </Link>
                                 )
                             )}
                         </div>
-                        <div id="sidebar-btn" className="sm:flex md:hidden w-10 h-full hover:cursor-pointer" 
-                        onClick={() => setSidebarOpen(true)}>
+                        <button
+                            type="button"
+                            id="sidebar-btn"
+                            aria-label="Open menu"
+                            className="sm:flex md:hidden w-10 h-full items-center justify-center hover:cursor-pointer rounded-md outline-none transition-shadow duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] focus-visible:ring-2 focus-visible:ring-stone-200"
+                            onClick={() => setSidebarOpen(true)}
+                        >
                             {Bars3}
-                        </div>
+                        </button>
                     </div>
                 </div>
             </nav>
@@ -242,15 +261,17 @@ const Nav: FC<Props> = ({ theme }) => {
 
                         {/* Inner Content */}
                         <div id="inner" className="h-full relative z-50">
-                            <motion.p
-                                className="text-white hover:cursor-pointer inline-block"
+                            <motion.button
+                                type="button"
+                                aria-label="Close menu"
+                                className="text-white hover:cursor-pointer inline-block rounded-full outline-none transition-shadow duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] focus-visible:ring-2 focus-visible:ring-stone-200"
                                 whileHover={{ rotate: 90 }}
                                 whileTap={{ rotate: 90, scale: 0.85 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 14 }}
                                 onClick={() => setSidebarOpen(false)}
                             >
                                 <XIcon stroke="#ffffff" />
-                            </motion.p>
+                            </motion.button>
 
                             <motion.div
                                 id="links"
@@ -261,7 +282,16 @@ const Nav: FC<Props> = ({ theme }) => {
                             >
                                 {links.map((link, i) => (
                                     <motion.div key={i} variants={sidebarLinkVariants}>
-                                        <Link href={link.href} className={`text-white ${lato.className} text-lg`}>
+                                        <Link
+                                            href={link.href}
+                                            className={`group relative inline-flex items-center text-white ${lato.className} text-lg outline-none transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] focus-visible:translate-x-2`}
+                                        >
+                                            {/* Left accent tick, same idiom as the desktop dropdown's
+                                                per-item bar, scoped to keyboard focus only. */}
+                                            <span
+                                                aria-hidden
+                                                className="pointer-events-none absolute -left-4 top-1/2 -translate-y-1/2 h-4 w-0.5 bg-stone-200 scale-y-0 origin-center transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-focus-visible:scale-y-100"
+                                            />
                                             {link.title}
                                         </Link>
                                     </motion.div>
