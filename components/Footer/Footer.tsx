@@ -22,12 +22,17 @@ const Footer: FC<Props> = (props) => {
     return (
         <>
             <footer id="footer" className="px-4 sm:px-10 grid py-5 gap-5">
-                <div id="links" className="sm:flex hidden gap-3">
+                <div id="links" className="group/nav sm:flex hidden gap-3">
                     {links.map((link, i) => (
-                        <Link href={link.href} key={i} className="hover:scale-105 hover:bg-gray-100 transition ease-in-out">
-                            <p className={`text-black font-semibold px-4 py-2 rounded-lg transition ${lato.className}`}>
+                        <Link
+                            href={link.href}
+                            key={i}
+                            className="group relative px-4 py-2 transition-opacity duration-300 ease-out group-hover/nav:[&:not(:hover)]:opacity-40"
+                        >
+                            <p className={`text-black font-semibold transition-[letter-spacing] duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] hover:tracking-wide ${lato.className}`}>
                                 {link.title}
                             </p>
+                            <span className="absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-black transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:w-[calc(100%-2rem)]" />
                         </Link>
                     ))}
                 </div>
@@ -37,35 +42,37 @@ const Footer: FC<Props> = (props) => {
                 </p>
                 <div className="grid place-items-center sm:flex mt-5">
                     <div id="icons" className="flex gap-3">
-                        <Link 
-                            href="https://www.instagram.com/jmai.photos" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
+                        <Link
+                            href="https://www.instagram.com/jmai.photos"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             aria-label="Instagram Profile"
-                            className="w-8 h-8 flex items-center justify-center"
+                            className="group/insta relative w-8 h-8 flex items-center justify-center"
                         >
+                            <span className="absolute inset-0 scale-75 rounded-full border border-black/0 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover/insta:scale-110 group-hover/insta:border-black/25 group-hover/insta:opacity-100" />
                             <Image
                                 src="/icons/insta-logo.png"
                                 width={32}
                                 height={32}
                                 alt="Instagram logo"
-                                className="w-8 h-8 object-contain hover:scale-110 transition ease-in-out"
+                                className="relative w-8 h-8 object-contain transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover/insta:rotate-[18deg]"
                             />
                         </Link>
-                        <Link 
-                            href="https://www.github.com/kalandjl" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
+                        <Link
+                            href="https://www.github.com/kalandjl"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             aria-label="GitHub Profile"
-                            className="w-5 flex items-center justify-center hover:scale-115 transition ease-in-out"
+                            className="group/github relative w-8 h-8 flex items-center justify-center"
                         >
-                            <Image 
-                                src="/icons/github.png" 
-                                width={32} 
-                                height={32} 
-                                alt="GitHub logo" 
-                                className="w-8 h-8 object-contain"
+                            <Image
+                                src="/icons/github.png"
+                                width={32}
+                                height={32}
+                                alt="GitHub logo"
+                                className="w-8 h-8 object-contain transition-opacity duration-300 ease-out group-hover/github:opacity-60"
                             />
+                            <span className="absolute -bottom-1 left-1/2 h-px w-0 -translate-x-1/2 bg-black transition-all duration-300 ease-out group-hover/github:w-4" />
                         </Link>
                     </div>
                 </div>
