@@ -20,7 +20,38 @@ import ContactSection from "@/components/ContactSection";
 import PortfolioSection from "@/components/PortfolioSection";
 import AboutMeSection from "@/components/AboutMeSection";
 import ServicesSection from "@/components/ServicesSection";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+
+const HERO_TEXT = "JMAI.PHOTOS";
+
+// Per-character mask reveal: each glyph rises out of its own clipped box like a shutter
+// lifting, rather than the whole-block blur/letter-spacing moves used elsewhere on the site.
+const heroWordVariants: Variants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.05, delayChildren: 0.25 },
+  },
+};
+
+const heroCharVariants: Variants = {
+  hidden: { y: "110%" },
+  visible: {
+    y: "0%",
+    transition: { duration: 0.75, ease: [0.19, 1, 0.22, 1] },
+  },
+};
+
+// Rule draws in just as the last character settles -- a small deliberate flourish, not a
+// second competing animation.
+const HERO_LAST_CHAR_DELAY = 0.25 + (HERO_TEXT.length - 1) * 0.05;
+const heroRuleVariants: Variants = {
+  hidden: { scaleX: 0, opacity: 0 },
+  visible: {
+    scaleX: 1,
+    opacity: 1,
+    transition: { duration: 0.6, delay: HERO_LAST_CHAR_DELAY + 0.65, ease: [0.65, 0, 0.35, 1] },
+  },
+};
 
 const images = [
   HeroPic13,
@@ -111,14 +142,28 @@ export default function Home() {
           <Nav />
           <main className="lg:px-32 md:px-20 px-10 grid place-items-center mt-10">
             <motion.div
-            initial={{ opacity: 0, y: 50 }} // Start below the view (50px down) and hidden (opacity 0)
-            whileInView={{ opacity: 1, y: 0 }} // Animate to the original position and opacity 1
-            viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-            transition={{ duration: 1 }}
+            initial="hidden"
+            animate="visible"
+            variants={heroWordVariants}
             className="grid gap-6">
               <div id="text-wrap">
                 <h1 className={`font-bold text-5xl md:px-10 py-10 text-white grid place-items-center h-96 ${roboto.className}`}>
-                  <p className="px-6 py-3 shadow-2xl agency">JMAI.PHOTOS</p>
+                  <div className="flex flex-col items-center">
+                    <p className="px-6 py-3 shadow-2xl agency" aria-label={HERO_TEXT}>
+                      {HERO_TEXT.split("").map((char, index) => (
+                        <span key={index} aria-hidden="true" className="inline-block overflow-hidden align-bottom">
+                          <motion.span variants={heroCharVariants} className="inline-block">
+                            {char}
+                          </motion.span>
+                        </span>
+                      ))}
+                    </p>
+                    <motion.span
+                      aria-hidden="true"
+                      variants={heroRuleVariants}
+                      className="mt-3 h-px w-20 bg-white/70 origin-center"
+                    />
+                  </div>
                 </h1>
               </div>
             </motion.div>
