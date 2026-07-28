@@ -135,7 +135,7 @@ const Home = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
-                    className="grid sm:grid-flow-col grid-flow-row sm:grid-cols-5 pb-32 pt-10"
+                    className="grid md:grid-flow-col grid-flow-row md:grid-cols-5 pb-32 pt-10"
                     style={{ perspective: 1200 }}
                 >
                     <div className="w-full col-span-2 px-20 py-16">
