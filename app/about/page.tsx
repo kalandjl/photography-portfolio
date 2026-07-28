@@ -168,7 +168,7 @@ const Home = () => {
                 >
                     <div id="about-text">
                         <h1 style={{ perspective: 800 }} className={`${latoLite.className} text-black text-5xl md:text-6xl mb-6`}>
-                            <motion.span variants={heroWordVariants} className="inline-block">Hi, I'm </motion.span><motion.span variants={heroNameVariants} className={`inline-block ${lato.className}`}>John Mai</motion.span>
+                            <motion.span variants={heroWordVariants} className="inline-block">Hi, I'm</motion.span>{" "}<motion.span variants={heroNameVariants} className={`inline-block ${lato.className}`}>John Mai</motion.span>
                         </h1>
                         <motion.p variants={section1ParagraphVariants} className="text-lg md:text-xl max-w-prose">
                             I’m John Mai, a photographer, content creator, and social media strategist based in Burnaby, BC. My passion lies in capturing authentic moments—whether it’s the intensity of a sports game, the energy of a live event, or the personality behind a brand. With a background in sports media and content creation, I specialize in telling stories through powerful visuals that leave a lasting impact.
