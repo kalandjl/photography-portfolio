@@ -21,14 +21,13 @@ const BarrierImageSection: FC<Props> = (props) => {
                         whileInView={{ scale: 1.02 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                         viewport={{ once: true, amount: 0.5 }}
-                        className="w-full h-full"
+                        className="relative w-full h-full"
                     >
-                        <CustomImage 
-                            src={props.src} 
+                        <CustomImage
+                            src={props.src}
                             alt="hero pic"
-                            layout="fill"
-                            objectFit="cover"
-                            className={`absolute w-full h-full object-cover 
+                            fill
+                            className={`absolute w-full h-full object-cover
                                 ${props.imageTop ? "object-top" : "object-center"}`}
                             priority
                         />
