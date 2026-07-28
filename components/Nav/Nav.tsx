@@ -125,7 +125,7 @@ const Nav: FC<Props> = ({ theme }) => {
                     <div id="logo" className="w-32 h-22 grid place-items-center py-2 hover:scale-105 transition ease-in-out">
                         <Link href="/">
                             <div id="image-wrap" className="relative w-max h-max">
-                                <Image src={Icon} height={150} width={110} alt="icon logo" className="object-contain" />
+                                <Image src={Icon} height={110} width={110} alt="icon logo" className="object-contain" priority />
                             </div>
                         </Link>
                     </div>
