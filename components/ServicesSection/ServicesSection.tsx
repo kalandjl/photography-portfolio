@@ -69,7 +69,10 @@ const buttonVariants: Variants = {
 
 const ServicesSection: FC = () => {
 
-    const [servicesShort, setServicesShort] = useState<Service[]>([]);
+    // Seeded with the first 3 services (deterministic, matches server render) so there's
+    // real content on first paint -- the client-side shuffle below then swaps in a random
+    // trio after mount instead of the grid popping in from empty.
+    const [servicesShort, setServicesShort] = useState<Service[]>(() => services.slice(0, 3));
 
     useEffect(() => {
         const randomIndexes = getUniqueRandomNumbers(3, services.length);
