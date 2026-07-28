@@ -4,14 +4,14 @@ import ContactSection from "@/components/ContactSection";
 import HeroImageSection from "@/components/HeroImageSection";
 import InstaSection from "@/components/InstaSection";
 import ServicesSection from "@/components/ServicesSection";
-import HeroImage from "@/public/testimonials/VC Mothers Day 2026-60.jpeg";
+import HeroImage from "@/public/images/testimonials/VC Mothers Day 2026-60.jpeg";
 import { lato, latoLite, oswald } from "../fonts";
 import { useState, useEffect, useRef } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import TestimonialImage1 from "@/public/testimonials/Cahsmun.jpeg"
-import TestimonialImage2 from "@/public/testimonials/BC CATHOLICS FINAL-106.jpg"
-import TestimonialImage3 from "@/public/pictures/insta/insta-photo-5.jpg"
+import TestimonialImage1 from "@/public/images/testimonials/Cahsmun.jpeg"
+import TestimonialImage2 from "@/public/images/testimonials/BC CATHOLICS FINAL-106.jpg"
+import TestimonialImage3 from "@/public/images/insta/insta-photo-5.jpg"
 import Image from "next/image";
 
 const clients = [

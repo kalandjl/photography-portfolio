@@ -1,6 +1,6 @@
 "use client"
 import Image, { StaticImageData } from "next/image"
-import HeroImage from "../../public/pictures/JMAI Post abits Rematch Retouched-2.jpg"
+import HeroImage from "../../public/images/gallery/sports/JMAI Post abits Rematch Retouched-2.jpg"
 import Nav from "@/components/Nav"
 import HeroImageSection from "@/components/HeroImageSection"
 import { lato, latoLite, nunito, oswald } from "../fonts"

@@ -2,11 +2,11 @@
 import { lato } from "@/app/fonts";
 import Link from "next/link";
 import { FC, useState, useEffect, useRef } from "react";
-import Icon from "@/public/whiteicon.png"
+import Icon from "@/public/icons/whiteicon.png"
 import Image from "next/image";
 import { XIcon } from "lucide-react";
 import { Bars3 } from "@/app/icons";
-import SidebarImage from "@/public/bg/JMAI -02.jpg"
+import SidebarImage from "@/public/images/sections/JMAI -02.jpg"
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 

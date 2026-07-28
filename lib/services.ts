@@ -1,13 +1,13 @@
-import ServicePhoto1 from "@/public/pictures/Saitns Round 1 VARSITY-101.jpg";
-import ServicePhoto2 from "@/public/portraits/JMAI LAX MEDIA DAY-41.jpg";
+import ServicePhoto1 from "@/public/images/gallery/sports/Saitns Round 1 VARSITY-101.jpg";
+import ServicePhoto2 from "@/public/images/gallery/portraits/JMAI LAX MEDIA DAY-41.jpg";
 import ServicePhoto3 from "@/public/graphics/Nathan Lowden Queens Commit Final.jpg";
-import ServicePhoto4 from "@/public/graphics/Saints day post.jpg";
-import ServicePhoto5 from "@/public/pictures/DSC07868.jpg";
-import ServicePhoto6 from "@/public/portraits/JMAi THEATRE HEADSHOTS-48 copy.jpg";
-import ServicePhoto7 from "@/public/graphics/Winner.jpg";
-import ServicePhoto8 from "@/public/pictures/JMAI Post abits Rematch Retouched-2.jpg";
-import ServicePhoto9 from "@/public/pictures/Ryan and Taylor-005.jpg";
-import ServicePhoto10 from "@/public/Andres BC All Stars Game.png";
+import ServicePhoto4 from "@/public/images/gallery/graphics/Saints day post.jpg";
+import ServicePhoto5 from "@/public/images/gallery/sports/DSC07868.jpg";
+import ServicePhoto6 from "@/public/images/gallery/portraits/JMAi THEATRE HEADSHOTS-48 copy.jpg";
+import ServicePhoto7 from "@/public/images/gallery/graphics/Winner.jpg";
+import ServicePhoto8 from "@/public/images/gallery/sports/JMAI Post abits Rematch Retouched-2.jpg";
+import ServicePhoto9 from "@/public/images/gallery/sports/Ryan and Taylor-005.jpg";
+import ServicePhoto10 from "@/public/images/gallery/graphics/Andres BC All Stars Game.png";
 import Service from "@/types/Service";
 
 // Single source of truth for the services list -- both the /services page (full

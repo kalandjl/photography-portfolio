@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from "react";
-import HeroImage from "@/public/section/DSC01631.jpg"
+import HeroImage from "@/public/images/sections/DSC01631.jpg"
 import CardImage1 from "@/public/pictures/_DSC2941.jpg"
-import CardImage2 from "@/public/graphics/Senior day post.jpg"
-import CardImage3 from "@/public/portraits/JMAi THEATRE HEADSHOTS-48.jpg"
+import CardImage2 from "@/public/images/gallery/graphics/Senior day post.jpg"
+import CardImage3 from "@/public/images/gallery/portraits/JMAi THEATRE HEADSHOTS-48.jpg"
 import Image from "next/image";
 import { lato, latoLite, oswald } from "@/app/fonts";
 import Link from "next/link";

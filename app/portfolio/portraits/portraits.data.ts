@@ -1,6 +1,6 @@
 import type { CuratedEntry } from "@/lib/galleryTypes";
 
-export const dir = "portraits/";
+export const dir = "images/gallery/portraits/";
 
 export const desktop: CuratedEntry[] = [
   { file: "Devine and Ngan-39.jpg" },
@@ -11,7 +11,7 @@ export const desktop: CuratedEntry[] = [
   { file: "JMAI LAX MEDIA DAY-06-2.jpg" },
   { file: "JMAI LAX MEDIA DAY-08.jpg" },
   { file: "JMAI LAX MEDIA DAY-13-2.jpg" },
-  { file: "JMAI LAX MEDIA DAY-26.jpg" },
+  { file: "JMAI LAX MEDIA DAY-26.jpg", dir: "portraits/" },
   { file: "JMAi THEATRE HEADSHOTS-23.jpg" },
   { file: "JMAI LAX MEDIA DAY-11-2.jpg" },
   { file: "JMAI LAX MEDIA DAY-41.jpg" },
@@ -41,7 +41,7 @@ export const mobile: CuratedEntry[] = [
   { file: "JMAI LAX MEDIA DAY-06-2.jpg" },
   { file: "JMAI LAX MEDIA DAY-08.jpg" },
   { file: "JMAI LAX MEDIA DAY-13-2.jpg" },
-  { file: "JMAI LAX MEDIA DAY-26.jpg" },
+  { file: "JMAI LAX MEDIA DAY-26.jpg", dir: "portraits/" },
   { file: "JMAI LAX MEDIA DAY-11-2.jpg" },
   { file: "JMAi THEATRE HEADSHOTS-48.jpg" },
   { file: "JMAI LAX MEDIA DAY-41.jpg" },

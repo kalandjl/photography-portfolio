@@ -1,6 +1,6 @@
 import type { CuratedEntry } from "@/lib/galleryTypes";
 
-export const dir = "pictures/";
+export const dir = "images/gallery/sports/";
 
 // New photos (from the old "newPics"/"newMobilePics" arrays) are appended after the
 // original set, rather than rendered as a second stacked gallery -- that was bug #2
@@ -49,7 +49,7 @@ export const desktop: CuratedEntry[] = [
   { file: "Saitns Round 1 VARSITY-131.jpg", big: true },
   { file: "Saitns Round 1 VARSITY-101.jpg" },
 
-  { file: "_DSC2941.jpg" },
+  { file: "_DSC2941.jpg", dir: "pictures/" },
   { file: "_DSC6059-Enhanced-NR.jpg", big: true },
 
   { file: "JMAI Post abits Rematch Retouched-2.jpg" },
@@ -57,7 +57,7 @@ export const desktop: CuratedEntry[] = [
   { file: "JMAI Post abits Rematch-018.jpg" },
   { file: "JMAI Post abits Rematch-031.jpg" },
   { file: "_DSC6815.jpg" },
-  { file: "_DSC6971.jpg" },
+  { file: "_DSC6971.jpg", dir: "pictures/" },
   { file: "_DSC9083.jpg" },
   { file: "_DSC9997-Enhanced-NR.jpg" },
 
@@ -77,7 +77,7 @@ export const mobile: CuratedEntry[] = [
   { file: "_DSC6059-Enhanced-NR.jpg", big: true },
   { file: "JMAI Post abits Rematch-031.jpg" },
   { file: "_DSC6815.jpg" },
-  { file: "_DSC6971.jpg" },
+  { file: "_DSC6971.jpg", dir: "pictures/" },
   { file: "_DSC9083.jpg" },
   { file: "_DSC9997-Enhanced-NR.jpg" },
 

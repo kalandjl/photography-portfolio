@@ -5,13 +5,13 @@ import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import InstaLogo from "@/public/icons/insta-logo.png"
-import InstaPhoto1 from "@/public/pictures/insta/insta-photo-1.jpg" 
-import InstaPhoto2 from "@/public/pictures/insta/insta-photo-2.jpg"
-import InstaPhoto3 from "@/public/pictures/insta/insta-photo-3.jpg"
-import InstaPhoto4 from "@/public/pictures/insta/insta-photo-4.jpg"
-import InstaPhoto5 from "@/public/pictures/insta/insta-photo-5.jpg"
-import InstaPhoto6 from "@/public/pictures/insta/insta-photo-6.jpg"
-import InstaPhoto7 from "@/public/pictures/insta/insta-photo-7.jpg"
+import InstaPhoto1 from "@/public/images/insta/insta-photo-1.jpg"
+import InstaPhoto2 from "@/public/images/insta/insta-photo-2.jpg"
+import InstaPhoto3 from "@/public/images/insta/insta-photo-3.jpg"
+import InstaPhoto4 from "@/public/images/insta/insta-photo-4.jpg"
+import InstaPhoto5 from "@/public/images/insta/insta-photo-5.jpg"
+import InstaPhoto6 from "@/public/images/insta/insta-photo-6.jpg"
+import InstaPhoto7 from "@/public/images/insta/insta-photo-7.jpg"
 import { getUniqueRandomNumbers } from "@/lib/num";
 import CustomImage from "../CustomImage";
 
