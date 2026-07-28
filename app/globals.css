@@ -98,3 +98,21 @@ html, body {
 .fade-in.visible {
   opacity: 1;
 }
+
+/* Required by CustomCursor: hides the native OS pointer on desktop so the bespoke
+   dot/ring overlay reads as the only cursor, instead of trailing alongside the real
+   one. Scoped to fine pointers so touch devices are untouched, and the "!important"
+   is needed only because several buttons/links carry an explicit Tailwind
+   `cursor-pointer` utility that would otherwise win over an inherited `cursor: none`.
+   Real text inputs are carved back out so the native I-beam still shows through. */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+  textarea,
+  [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
