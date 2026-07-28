@@ -11,9 +11,49 @@ import HeroImageSection from "@/components/HeroImageSection";
 import HeroImage from "@/public/images/sections/DSC07916.jpg";
 import { motion } from "framer-motion";
 
+const EXPO_OUT = [0.16, 1, 0.3, 1] as const;
+const BACK_OUT = [0.34, 1.56, 0.64, 1] as const;
+
+const columnContainerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.14, delayChildren: 0.05 } },
+};
+
+const wordVariants = {
+    hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.7, ease: EXPO_OUT } },
+};
+
+const paragraphVariants = {
+    hidden: { opacity: 0, y: 16, filter: "blur(4px)" },
+    visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.9, ease: EXPO_OUT, delay: 0.15 } },
+};
+
+const panelVariants = {
+    hidden: { opacity: 0, y: 48, rotateX: -10, scale: 0.96 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        rotateX: 0,
+        scale: 1,
+        transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
+    },
+};
+
+const formStaggerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12, delayChildren: 0.25 } },
+};
+
+const fieldVariants = {
+    hidden: { opacity: 0, x: 24 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.55, ease: BACK_OUT } },
+};
+
 const Home = () => {
-    const labelClass = `text-xl text-gray-800 font-thin agency`;
-    const inputClass = `${nunito.className} text-lg border-b-1 py-3 border-gray-800 w-full outline-none text-gray-800 mb-10 font-thin focus:bg-gray-100`;
+    const labelClass = `text-xl text-gray-800 font-thin agency transition-colors duration-300 group-focus-within:text-black`;
+    const inputClass = `${nunito.className} text-lg border-b-1 py-3 border-gray-300 w-full outline-none text-gray-800 font-thin bg-transparent`;
+    const headline = "Let's Work Together";
 
     let [name, setName] = useState<string | undefined>(undefined);
     let [email, setEmail] = useState<string | undefined>(undefined);
@@ -55,78 +95,104 @@ const Home = () => {
         <>
             <main>
                 <HeroImageSection src={HeroImage} width={6674} height={4449} title="Contact" />
-                <section id="form-section" className="grid sm:grid-flow-col grid-flow-row sm:grid-cols-5 pb-32 pt-10">
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }} // Start below the view (50px down) and hidden (opacity 0)
-                        whileInView={{ opacity: 1, x: 0 }} // Animate to the original position and opacity 1
-                        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-                        transition={{ duration: 1 }}
-                        className="w-full col-span-2 px-20 py-16"
-                    >
+                <motion.section
+                    id="form-section"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="grid sm:grid-flow-col grid-flow-row sm:grid-cols-5 pb-32 pt-10"
+                    style={{ perspective: 1200 }}
+                >
+                    <div className="w-full col-span-2 px-20 py-16">
                         <div id="contact-form-paragraph" >
-                            <div id="text-wrap" className="grid gap-12 h-2/3">
-                                <h1 className={`text-3xl agency mb-5`}>
-                                    Let's Work Together
+                            <motion.div id="text-wrap" className="grid gap-12 h-2/3" variants={columnContainerVariants}>
+                                <h1 className={`text-3xl agency mb-5 flex flex-wrap gap-x-3`}>
+                                    {headline.split(" ").map((word, i) => (
+                                        <motion.span key={i} variants={wordVariants} className="inline-block">
+                                            {word}
+                                        </motion.span>
+                                    ))}
                                 </h1>
-                                <p className={`${latoLite.className}`}>
+                                <motion.p variants={paragraphVariants} className={`${latoLite.className}`}>
                                     Have a project in mind or need more details about my services? Fill out the form below to get in touch. Whether it’s photography, content creation, or social media strategy, I’m here to help bring your vision to life. Let’s create something unforgettable!
-                                </p>
-                            </div>
+                                </motion.p>
+                            </motion.div>
                         </div>
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, y: 100 }} // Start below the view (50px down) and hidden (opacity 0)
-                        whileInView={{ opacity: 1, y: 0 }} // Animate to the original position and opacity 1
-                        viewport={{ once: true, amount: 0.2 }} // Trigger when 20% of the element is visible
-                        transition={{ duration: 1 }}
-                        className="sm:px-16 py-10 col-span-3 grid gap-10"
-                    >
+                    </div>
+                    <div className="sm:px-16 py-10 col-span-3 grid gap-10">
                         <div id="contact-form-wrap" >
-                            <div id="form-outer" className="px-16 py-16 bg-gray-100 h-min">
-                                <form id="contact-form" ref={formRef} className="w-full h-full" onSubmit={handleSubmit}>
-                                    <div id="name-wrap">
+                            <motion.div
+                                id="form-outer"
+                                variants={panelVariants}
+                                className="relative px-16 py-16 bg-gradient-to-br from-white via-stone-50 to-stone-100 ring-1 ring-stone-200 shadow-[0_25px_60px_-20px_rgba(15,15,15,0.25)] h-min"
+                            >
+                                <span className="pointer-events-none absolute -top-2 -left-2 h-6 w-6 border-t-2 border-l-2 border-gray-900/70" />
+                                <span className="pointer-events-none absolute -top-2 -right-2 h-6 w-6 border-t-2 border-r-2 border-gray-900/70" />
+                                <span className="pointer-events-none absolute -bottom-2 -left-2 h-6 w-6 border-b-2 border-l-2 border-gray-900/70" />
+                                <span className="pointer-events-none absolute -bottom-2 -right-2 h-6 w-6 border-b-2 border-r-2 border-gray-900/70" />
+                                <motion.form
+                                    id="contact-form"
+                                    ref={formRef}
+                                    className="w-full h-full"
+                                    onSubmit={handleSubmit}
+                                    variants={formStaggerVariants}
+                                >
+                                    <motion.div id="name-wrap" className="group" variants={fieldVariants}>
                                         <label htmlFor="name-input" className={labelClass}>Name *</label>
-                                        <input
-                                            type="text"
-                                            id="name-input"
-                                            className={inputClass}
-                                            onChange={e => setName(e.target.value)}
-                                            maxLength={50}
-                                            required
-                                        />
-                                    </div>
-                                    <div id="email-wrap">
+                                        <div className="relative mb-10">
+                                            <input
+                                                type="text"
+                                                id="name-input"
+                                                className={inputClass}
+                                                onChange={e => setName(e.target.value)}
+                                                maxLength={50}
+                                                required
+                                            />
+                                            <span className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-gray-900 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-focus-within:scale-x-100" />
+                                        </div>
+                                    </motion.div>
+                                    <motion.div id="email-wrap" className="group" variants={fieldVariants}>
                                         <label htmlFor="email-input" className={labelClass}>Email *</label>
-                                        <input
-                                            type="email"
-                                            id="email-input"
-                                            className={inputClass}
-                                            onChange={e => setEmail(e.target.value)}
-                                            required
-                                        />
-                                    </div>
-                                    <div id="message-wrap" className="mb-10">
+                                        <div className="relative mb-10">
+                                            <input
+                                                type="email"
+                                                id="email-input"
+                                                className={inputClass}
+                                                onChange={e => setEmail(e.target.value)}
+                                                required
+                                            />
+                                            <span className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-gray-900 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-focus-within:scale-x-100" />
+                                        </div>
+                                    </motion.div>
+                                    <motion.div id="message-wrap" className="group mb-10" variants={fieldVariants}>
                                         <label htmlFor="message-input" className={labelClass}>Message *</label>
-                                        <textarea
-                                            id="message-input"
-                                            className={`${lato.className} text-lg border-b-1 py-3 border-gray-700 w-full outline-none text-gray-600 h-32`}
-                                            onChange={e => setMessage(e.target.value)}
-                                            minLength={20}
-                                            maxLength={200}
-                                            required
-                                        />
-                                    </div>
-                                    <button
+                                        <div className="relative">
+                                            <textarea
+                                                id="message-input"
+                                                className={`${lato.className} text-lg border-b-1 py-3 border-gray-300 w-full outline-none text-gray-600 h-32 bg-transparent`}
+                                                onChange={e => setMessage(e.target.value)}
+                                                minLength={20}
+                                                maxLength={200}
+                                                required
+                                            />
+                                            <span className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-gray-900 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-focus-within:scale-x-100" />
+                                        </div>
+                                    </motion.div>
+                                    <motion.button
                                         type="submit"
-                                        className={`border-1 px-10 py-3 border-gray-900 ${nunito.className} rounded-md hover:bg-gray-300 transition ease-in-out hover:scale-105 hover:cursor-pointer`}
+                                        variants={fieldVariants}
+                                        className={`group relative border-1 px-10 py-3 border-gray-900 ${nunito.className} rounded-md transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-[0_18px_30px_-12px_rgba(0,0,0,0.35)] hover:cursor-pointer`}
                                     >
-                                        Send Message
-                                    </button>
-                                </form>
-                            </div>
+                                        <span className="relative inline-block">
+                                            Send Message
+                                            <span className="absolute -bottom-1 left-1/2 h-[1.5px] w-0 -translate-x-1/2 bg-gray-900 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:w-full" />
+                                        </span>
+                                    </motion.button>
+                                </motion.form>
+                            </motion.div>
                         </div>
-                    </motion.div>
-                </section>
+                    </div>
+                </motion.section>
                 <FAQSection asSection={true} />
                 <InstaSection />
             </main>
