@@ -61,9 +61,9 @@ const AboutMeSection: FC<Props> = (props) => {
                 whileInView={{ scale: 1.1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.5 }}
-                className="w-full h-full">
-                    <Image src={HeroImage} alt="about me photo" 
-                    objectFit="cover"
+                className="relative w-full h-full">
+                    <Image src={HeroImage} alt="about me photo"
+                    fill
                     quality={75}
                     loading="eager"
                     className="object-cover h-full object-top" />
