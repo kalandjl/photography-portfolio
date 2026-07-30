@@ -97,7 +97,7 @@ const InstaSection: FC<Props> = () => {
     return (
         <motion.section
             id="insta-section"
-            className="grid grid-cols-3 sm:grid-cols-5 sm:h-64 sm:mt-20"
+            className="grid grid-cols-2 sm:grid-cols-5 sm:h-64 sm:mt-20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.25 }}
@@ -107,7 +107,7 @@ const InstaSection: FC<Props> = () => {
             <motion.div
                 id="action-section"
                 variants={ctaCellVariants}
-                className="group bg-gradient-to-br from-white to-neutral-100 ring-1 ring-inset ring-black/5 hover:from-neutral-50 hover:to-neutral-200 transition-colors duration-700 grid place-items-center aspect-square sm:aspect-auto sm:h-full"
+                className="group bg-gradient-to-br from-white to-neutral-100 ring-1 ring-inset ring-black/5 hover:from-neutral-50 hover:to-neutral-200 transition-colors duration-700 grid place-items-center col-span-2 py-10 sm:col-span-1 sm:aspect-auto sm:py-0 sm:h-full"
             >
                 <Link href="https://www.instagram.com/jmai.photos/">
                     <div id="text-wrap" className="grid gap-3">
