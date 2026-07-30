@@ -110,6 +110,7 @@ html, body {
     radial-gradient(ellipse 65% 85% at 85% 65%, rgba(255, 255, 255, 0.4), transparent 70%);
   background-size: 200% 200%;
   background-repeat: no-repeat;
+  background-clip: content-box;
   animation: image-haze-drift 4.5s ease-in-out infinite;
 }
 
