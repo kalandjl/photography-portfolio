@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import CustomImage from "@/components/CustomImage";
 
 interface Props {
   photo: Pic;
@@ -25,7 +25,7 @@ export function GalleryPhoto({ photo }: Props) {
         className="relative w-full h-full"
       >
         <div className="relative w-full h-full" onClick={() => setModal(true)}>
-          <Image
+          <CustomImage
             fill
             src={photo}
             alt=""
