@@ -42,3 +42,15 @@ next-env.d.ts
 
 # image optimization script state
 scripts/.image-optimize-manifest.json
+
+# overnight manager/engineer automation harness (local tooling, not site code)
+/automation.sh
+/automation.log
+/personas/
+/manager/
+/handoff/
+/logs/
+/MEMO.md
+/CHECKLIST.md
+/TLDR.md
+/STOP

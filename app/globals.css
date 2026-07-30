@@ -99,6 +99,35 @@ html, body {
   opacity: 1;
 }
 
+/* Loading placeholder shown over an image (via CustomImage / the gallery's GalleryPhoto)
+   until it's actually decoded and painted -- two soft, blurred grey blooms slowly drifting
+   past each other over a neutral base. Deliberately not a spinner and not a hard-edged
+   shimmer bar; reads as a quiet, intentional loading state rather than a layout gap. */
+.image-haze {
+  background-color: #e3e3e1;
+  background-image:
+    radial-gradient(ellipse 65% 85% at 15% 35%, rgba(255, 255, 255, 0.6), transparent 70%),
+    radial-gradient(ellipse 65% 85% at 85% 65%, rgba(255, 255, 255, 0.4), transparent 70%);
+  background-size: 200% 200%;
+  background-repeat: no-repeat;
+  animation: image-haze-drift 4.5s ease-in-out infinite;
+}
+
+@keyframes image-haze-drift {
+  0%, 100% {
+    background-position: 0% 25%, 100% 75%;
+  }
+  50% {
+    background-position: 100% 75%, 0% 25%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-haze {
+    animation: none;
+  }
+}
+
 /* Required by CustomCursor: hides the native OS pointer on desktop so the bespoke
    dot/ring overlay reads as the only cursor, instead of trailing alongside the real
    one. Scoped to fine pointers so touch devices are untouched, and the "!important"
