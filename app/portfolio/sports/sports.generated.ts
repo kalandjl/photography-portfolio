@@ -2,6 +2,15 @@
 // edit sports.data.ts instead and regenerate (this also runs automatically before `dev`/`build`).
 
 export const pics: Pic[] = [
+  { src: "/pictures/A1_02604.jpeg", width: 2105, height: 2200 },
+  { src: "/pictures/A1_03161.jpeg", width: 1924, height: 2200 },
+  { src: "/pictures/DSC07534.jpeg", width: 2200, height: 1382 },
+  { src: "/pictures/Off Season Training July 11-057.jpeg", width: 2200, height: 2020 },
+  { src: "/pictures/Off Season Training July 11-068.jpeg", width: 2200, height: 2153 },
+  { src: "/pictures/Off Season Training July 11-073.jpeg", width: 2200, height: 2185 },
+  { src: "/pictures/Off Season Training July 11-106.jpeg", width: 1908, height: 2200 },
+  { src: "/pictures/Off Season Training July 11-120.jpeg", width: 2200, height: 2009 },
+  { src: "/pictures/Off Season Training July 11-124.jpeg", width: 1829, height: 2200 },
   { src: "/pictures/_DSC0316-Enhanced-NR.jpg", width: 2200, height: 1467 },
   { src: "/pictures/Saitns Round 1 VARSITY-131.jpg", width: 2200, height: 1467, big: true },
   { src: "/pictures/Saitns Round 1 VARSITY-101.jpg", width: 2200, height: 1467 },
@@ -40,6 +49,9 @@ export const pics: Pic[] = [
   { src: "/pictures/VC VS TF Play off  Game One-192.jpg", width: 2200, height: 1466 },
   { src: "/pictures/VCBBAll VS Dover Finals-103.jpg", width: 2048, height: 1701 },
   { src: "/pictures/VCBBAll VS Dover Finals-375.jpg", width: 2048, height: 1373 },
+];
+
+export const mobilePics: Pic[] = [
   { src: "/pictures/A1_02604.jpeg", width: 2105, height: 2200 },
   { src: "/pictures/A1_03161.jpeg", width: 1924, height: 2200 },
   { src: "/pictures/DSC07534.jpeg", width: 2200, height: 1382 },
@@ -49,9 +61,6 @@ export const pics: Pic[] = [
   { src: "/pictures/Off Season Training July 11-106.jpeg", width: 1908, height: 2200 },
   { src: "/pictures/Off Season Training July 11-120.jpeg", width: 2200, height: 2009 },
   { src: "/pictures/Off Season Training July 11-124.jpeg", width: 1829, height: 2200 },
-];
-
-export const mobilePics: Pic[] = [
   { src: "/pictures/Saitns Round 1 VARSITY-131.jpg", width: 2200, height: 1467, big: true, quality: 80 },
   { src: "/pictures/_DSC0316-Enhanced-NR.jpg", width: 2200, height: 1467 },
   { src: "/pictures/Saitns Round 1 VARSITY-101.jpg", width: 2200, height: 1467 },
@@ -90,13 +99,4 @@ export const mobilePics: Pic[] = [
   { src: "/pictures/VC VS TF Play off  Game One-192.jpg", width: 2200, height: 1466 },
   { src: "/pictures/VCBBAll VS Dover Finals-103.jpg", width: 2048, height: 1701 },
   { src: "/pictures/VCBBAll VS Dover Finals-375.jpg", width: 2048, height: 1373 },
-  { src: "/pictures/A1_02604.jpeg", width: 2105, height: 2200 },
-  { src: "/pictures/A1_03161.jpeg", width: 1924, height: 2200 },
-  { src: "/pictures/DSC07534.jpeg", width: 2200, height: 1382 },
-  { src: "/pictures/Off Season Training July 11-057.jpeg", width: 2200, height: 2020 },
-  { src: "/pictures/Off Season Training July 11-068.jpeg", width: 2200, height: 2153 },
-  { src: "/pictures/Off Season Training July 11-073.jpeg", width: 2200, height: 2185 },
-  { src: "/pictures/Off Season Training July 11-106.jpeg", width: 1908, height: 2200 },
-  { src: "/pictures/Off Season Training July 11-120.jpeg", width: 2200, height: 2009 },
-  { src: "/pictures/Off Season Training July 11-124.jpeg", width: 1829, height: 2200 },
 ];

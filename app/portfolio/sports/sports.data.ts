@@ -2,6 +2,19 @@ import type { CuratedEntry } from "@/lib/galleryTypes";
 
 export const dir = "pictures/";
 
+// The client's most recently sent batch -- shown first in both galleries below.
+const latestEntries: CuratedEntry[] = [
+  { file: "A1_02604.jpeg" },
+  { file: "A1_03161.jpeg" },
+  { file: "DSC07534.jpeg" },
+  { file: "Off Season Training July 11-057.jpeg" },
+  { file: "Off Season Training July 11-068.jpeg" },
+  { file: "Off Season Training July 11-073.jpeg" },
+  { file: "Off Season Training July 11-106.jpeg" },
+  { file: "Off Season Training July 11-120.jpeg" },
+  { file: "Off Season Training July 11-124.jpeg" },
+];
+
 // New photos (from the old "newPics"/"newMobilePics" arrays) are appended after the
 // original set, rather than rendered as a second stacked gallery -- that was bug #2
 // in GALLERY.md (two separate PortfolioLayout instances on this page).
@@ -31,20 +44,11 @@ const newEntries: CuratedEntry[] = [
   { file: "VC VS TF Play off  Game One-192.jpg" },
   { file: "VCBBAll VS Dover Finals-103.jpg" },
   { file: "VCBBAll VS Dover Finals-375.jpg" },
-
-  // Added from stuff_to_do/add_these/sports/
-  { file: "A1_02604.jpeg" },
-  { file: "A1_03161.jpeg" },
-  { file: "DSC07534.jpeg" },
-  { file: "Off Season Training July 11-057.jpeg" },
-  { file: "Off Season Training July 11-068.jpeg" },
-  { file: "Off Season Training July 11-073.jpeg" },
-  { file: "Off Season Training July 11-106.jpeg" },
-  { file: "Off Season Training July 11-120.jpeg" },
-  { file: "Off Season Training July 11-124.jpeg" },
 ];
 
 export const desktop: CuratedEntry[] = [
+  ...latestEntries,
+
   { file: "_DSC0316-Enhanced-NR.jpg" },
   { file: "Saitns Round 1 VARSITY-131.jpg", big: true },
   { file: "Saitns Round 1 VARSITY-101.jpg" },
@@ -67,6 +71,8 @@ export const desktop: CuratedEntry[] = [
 const newMobileEntries: CuratedEntry[] = newEntries;
 
 export const mobile: CuratedEntry[] = [
+  ...latestEntries,
+
   { file: "Saitns Round 1 VARSITY-131.jpg", big: true, quality: 80 },
   { file: "_DSC0316-Enhanced-NR.jpg" },
   { file: "Saitns Round 1 VARSITY-101.jpg" },
