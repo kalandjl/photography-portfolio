@@ -1,6 +1,6 @@
 # JMAI.PHOTOS — Photography Portfolio
 
-Portfolio site for photographer John Mai, built with Next.js (App Router) and exported as a static site. Deployed as static hosting via Firebase.
+Portfolio site for JMAI.PHOTOS, built with Next.js (App Router) and exported as a static site. Deployed as static hosting via Firebase.
 
 ## Tech stack
 
